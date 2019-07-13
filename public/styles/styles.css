@@ -28,7 +28,7 @@ body {
 }
 
 .character-display {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 0 40px;
 }
 
@@ -97,6 +97,19 @@ body {
 }
 
 /* login page styling */
+.stop-left {
+  stop-color: #94263a;
+}
+
+.stop-right {
+  stop-color: #d24d5f;
+}
+
+.filled {
+  fill: url(#mainGradient);
+}
+
+/* login page stying */
 form {
   padding-top:1%;
 	width: 300px;
