@@ -45,8 +45,8 @@ $(document).ready(function() {
                 speed: 10
             },
             colors: {
-                dark: "#306376",
-                light: "#45abd1"
+                dark: "rgb(33, 74, 85)",
+                light: "rgb(73, 136, 140)"
             }
         }, {
             name: "Character 4",
@@ -109,8 +109,8 @@ $(document).ready(function() {
                 speed: 10
             },
             colors: {
-                dark: "#306376",
-                light: "#45abd1"
+                dark: "rgb(33, 74, 85)",
+                light: "rgb(73, 136, 140)"
             }
         }, {
             name: "Character 8",
