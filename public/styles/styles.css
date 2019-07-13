@@ -62,7 +62,7 @@ body {
 
 .select-character {
   width: 100%;
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  /* background-image: linear-gradient(to right, #94263a, #d24d5f); */
   border: 0;
   border-radius: 20px;
   color: white;

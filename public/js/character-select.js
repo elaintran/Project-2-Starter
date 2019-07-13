@@ -11,6 +11,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#94263a",
+                light: "#d24d5f"
             }
         }, {
             name: "Character 2",
@@ -23,6 +27,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#29396f",
+                light: "#4c7fc4"
             }
         }, {
             name: "Character 3",
@@ -35,6 +43,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#306376",
+                light: "#45abd1"
             }
         }, {
             name: "Character 4",
@@ -47,6 +59,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#42224e",
+                light: "#805694"
             }
         }, {
             name: "Character 5",
@@ -59,6 +75,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#94263a",
+                light: "#d24d5f"
             }
         }, {
             name: "Character 6",
@@ -71,6 +91,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#29396f",
+                light: "#4c7fc4"
             }
         }, {
             name: "Character 7",
@@ -83,6 +107,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#306376",
+                light: "#45abd1"
             }
         }, {
             name: "Character 8",
@@ -95,6 +123,10 @@ $(document).ready(function() {
                 magic: 10,
                 defense: 10,
                 speed: 10
+            },
+            colors: {
+                dark: "#42224e",
+                light: "#805694"
             }
         }
     ]
@@ -105,6 +137,7 @@ $(document).ready(function() {
         $(".character-name").text(characters[0].name);
         $(".character-class").text(characters[0].class);
         $(".character-image").attr("src", characters[0].portrait);
+        $(".select-character").css("background-image", `linear-gradient(to right, ${characters[0].colors.dark}, ${characters[0].colors.light})`);
         for (var i = 0; i < characters.length; i++) {
             var chibiContainer = $("<div>").addClass("character-container").attr("data-class", characters[i].class);
             var characterImage = $("<img>").attr("src", characters[i].chibi);
@@ -121,6 +154,7 @@ $(document).ready(function() {
                 $(".character-name").text(characters[i].name);
                 $(".character-class").text(characters[i].class);
                 $(".character-image").attr("src", characters[i].portrait);
+                $(".select-character").css("background-image", `linear-gradient(to right, ${characters[i].colors.dark}, ${characters[i].colors.light})`);
             }
         }
     })
