@@ -28,7 +28,7 @@ body {
 }
 
 .character-display {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 0 40px;
 }
 
@@ -94,4 +94,16 @@ body {
 
 .character-container img {
   height: 75px;
+}
+
+.stop-left {
+  stop-color: #94263a;
+}
+
+.stop-right {
+  stop-color: #d24d5f;
+}
+
+.filled {
+  fill: url(#mainGradient);
 }
