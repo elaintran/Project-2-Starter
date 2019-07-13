@@ -5,17 +5,25 @@ var path = require("path");
 
 module.exports = function (app) {
   app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    // res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   app.get("/character", function (req, res) {
-    // res.send("this is the character selection");
     res.sendFile(path.join(__dirname, "../public/character-select.html"));
   });
 
-  app.get("/login", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/login"));
+  app.get("/encounter", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/encounter.html"));
   });
+
+  app.get("*", function (req, res) {
+    res.render("404");
+  });
+
+  // app.get("/login", function (req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/login.html"));
+  // });
 
 
   // Load index page
