@@ -1,3 +1,87 @@
-.list-group-item {
-  line-height: 2.5;
+body {
+  font-family: "Work Sans", sans-serif;
+  background-image: linear-gradient(#252525, #0e0e0e);
+  color: white;
+}
+
+.select-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  max-width: 800px;
+}
+
+.character-image {
+  width: 100%;
+}
+
+.character-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-info {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.character-info h3, .character-info h5, .character-info p, .select-character {
+  font-weight: 600;
+}
+
+.character-info h3 {
+  color: #e8c892;
+}
+
+.character-info h5 {
+  color: #d7d7d7;
+}
+
+.character-info p, .select-character {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.character-stats {
+  padding: 20px 0;
+  text-align: left;
+}
+
+.select-character {
+  width: 100%;
+  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+
+.select-character:focus, .select-character:active {
+  outline: none;
+}
+
+.character-list {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+}
+
+.character-container {
+  background-image: linear-gradient(rgba(18, 18, 18, 0.87), rgba(37, 37, 37, 0.87));
+  padding: 8px 12px;
+  border: 2px solid rgba(255, 255, 255, 0.87);
+  border-radius: 5px;
+  margin: 0 3px;
+}
+
+.character-container:hover {
+  cursor: pointer;
+}
+
+.character-container img {
+  height: 80px;
 }
