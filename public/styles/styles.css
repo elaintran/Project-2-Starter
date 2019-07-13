@@ -95,3 +95,72 @@ body {
 .character-container img {
   height: 75px;
 }
+
+
+/*  
+  ==========================
+  CHARACTER ENCOUNTER STYLES 
+  ==========================
+*/
+
+body.encounter-screen {
+  background: url(../images/resource-images/encounter/bg-forest.jpg);
+  background-size: cover;
+}
+
+.page-wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+.attack-prompts {
+  width: 100%;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr auto;
+  padding-bottom: 2em;
+}
+
+.player-character img, .enemy-character img {
+  height: 15vh;
+}
+
+.player-character {
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.enemy-character {
+  justify-self: flex-start;
+  align-self: flex-end;
+  transform: scaleX(-1);
+}
+
+.character-info-grid {
+  display: grid;
+  grid-template-columns: auto repeat(3, 2fr) auto;
+}
+
+.player-avatar img, .enemy-avatar img {
+  max-width: 7vw;
+}
+
+.player-avatar {
+  padding: 1em;
+}
+
+.player-stats {
+
+}
+
+.enemy-stats {
+
+}
+
+.enemy-avatar {
+  padding: 1em;
+}
