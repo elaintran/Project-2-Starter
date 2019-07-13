@@ -20,7 +20,8 @@ body {
 }
 
 .character-image {
-  width: 100%;
+  height: 500px;
+  width: auto;
 }
 
 /* .character-display {

@@ -100,21 +100,25 @@ $(document).ready(function() {
     ]
 
     function characterDisplay() {
+        $(".character-name").text(characters[0].name);
+        $(".character-class").text(characters[0].class);
+        $(".character-image").attr("src", characters[0].portrait);
         for (var i = 0; i < characters.length; i++) {
-            var chibiContainer = $("<div>").addClass("character-container");
-            var characterImage = $("<img>").attr({
-                "src": characters[i].chibi,
-                "data-class": characters[i].class
-            })
+            var chibiContainer = $("<div>").addClass("character-container").attr("data-class", characters[i].class);
+            var characterImage = $("<img>").attr("src", characters[i].chibi);
             chibiContainer.append(characterImage);
             $(".character-list").append(chibiContainer);
         }
     }
     characterDisplay();
 
-    // $(".character-container").on("click", function() {
-    //     for (var i = 0; i < characters.length; i++) {
-    //         if ($(this))
-    //     }
-    // })
+    $(".character-container").on("click", function() {
+        for (var i = 0; i < characters.length; i++) {
+            if ($(this).attr("data-class") === characters[i].class) {
+                $(".character-name").text(characters[i].name);
+                $(".character-class").text(characters[i].class);
+                $(".character-image").attr("src", characters[i].portrait);
+            }
+        }
+    })
 })
