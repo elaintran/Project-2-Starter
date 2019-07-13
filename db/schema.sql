@@ -18,6 +18,8 @@ CREATE TABLE character_main (
     main_mag INT(11) NOT NULL,
     main_def INT(11) NOT NULL,
     main_spd INT(11) NOT NULL,
+    main_lvl INT(11) NOT NULL,
+    main_exp INT(11) NOT NULL
     PRIMARY KEY (id)
 );
 
@@ -30,6 +32,7 @@ CREATE TABLE character_enemy (
     enemy_mag INT(11) NOT NULL,
     enemy_def INT(11) NOT NULL,
     enemy_spd INT(11) NOT NULL,
+    enemy_lvl INT(11) NOT NULL,
     PRIMARY KEY (id)
 );
 
