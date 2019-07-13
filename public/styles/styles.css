@@ -19,16 +19,13 @@ body {
   position: relative;
 }
 
-.character-image {
-  height: 500px;
-  width: auto;
+.character-portrait {
+  height: 460px;
 }
 
-/* .character-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+.character-image {
+  width: 100%;;
+}
 
 .character-display {
   margin-top: 10px;

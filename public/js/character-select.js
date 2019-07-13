@@ -99,6 +99,8 @@ $(document).ready(function() {
         }
     ]
 
+    //need to write a constructor to reduce redundant code
+    //display the first character and loop through and append all of the chibi ver.
     function characterDisplay() {
         $(".character-name").text(characters[0].name);
         $(".character-class").text(characters[0].class);
@@ -112,6 +114,7 @@ $(document).ready(function() {
     }
     characterDisplay();
 
+    //toggle between characters
     $(".character-container").on("click", function() {
         for (var i = 0; i < characters.length; i++) {
             if ($(this).attr("data-class") === characters[i].class) {
