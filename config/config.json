@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "Althea4-10",
     "database": "exampledb",
     "host": "localhost",
     "dialect": "mysql"

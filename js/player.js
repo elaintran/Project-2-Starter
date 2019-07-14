@@ -1,11 +1,13 @@
 let character;
 let target;
+let randomTar;
 let grabbedTarget;
 let grabbedClass;
 let chance = Math.floor();
 let baseDmg;
 let enemySpd;
 let enemyBaseDmg;
+let stage;
 
 function Character(classType, hp, def, str, spd){
     this.classType = classType;
@@ -19,7 +21,7 @@ function Target(target, hitChance, bonus, redSpd){
     this.target = target;
     this.hitChance = hitChance;
     this.bonus = bonus;
-    this.redSpd = reduceSpd;
+    this.reduceSpd = reduceSpd;
 }
 
 let charMoves = {
@@ -47,7 +49,6 @@ let charMoves = {
         }
 
         let enemyAtk = function(){
-            let randomTar;
 
             //assigns random target for enemy (1/3 chance)
             let enemyTar = function(){
@@ -64,7 +65,7 @@ let charMoves = {
                 //if the hit chance is whatever that target's hit chance was (0.25 for head, 0.95 for body), add that target's bonus damage to the attack damage
                 if(chance <= target.hitChance){
                     enemyBaseDmg = enemy.str + target.bonus;
-                    enemySpd -= target.reduceSpd;
+                    charSpd -= target.reduceSpd;
                 } else {
                         //attack missed
                         enemyBaseDmg = 0;
@@ -77,10 +78,75 @@ let charMoves = {
         //if character speed > enemy speed, user attacks first
         if(charSpd >= enemySpd){
             charAtk();
-            enemy.hp = enemy.hp - (baseDmg - enemy.def);
+            let totalDmg = baseDmg - enemy.def;
+            enemy.hp = enemy.hp - totalDmg;
             
+            //display text showing damage dealt
+            $('#dmg-display').text("You attacked for" + totalDmg + "damage!")
+
             //reflect damage taken
             $('#hp-display').innerHTML("Whatever you want here")
+
+            if(enemy.hp <= 0){
+                //display text showing damage dealt
+                $('#dmg-display').text("You've defeated the enemy and leveled up! Level up your new skills and prepare for the next battle!")
+
+                //replace fight scene with point distribution options
+
+                pointDistr();
+
+            } else {
+                enemyAtk();
+                let totalDmg = enemyBaseDmg - character.def;
+                character.hp -= totalDmg;
+
+                //display text showing damage dealt
+                $('#dmg-display').text("You've been hit for" + totalDmg + "damage!")
+
+                //reflect damage taken
+                $('#hp-display').innerHTML("Whatever you want here")
+
+                if(character.hp <= 0){
+                    $('#dmg-display').text("You've been slain!");
+
+                    //go back to selection screen
+                }
+            }
+        } else if (enemySpd > charSpd){
+            enemyAtk();
+            let totalDmg = enemyBaseDmg - character.def;
+            character.hp -= totalDmg;
+
+            //display text showing damage dealt
+            $('#dmg-display').text("You've been hit for" + totalDmg + "damage!")
+
+            //reflect damage taken
+            $('#hp-display').innerHTML("Whatever you want here")
+
+            if(character.hp <= 0){
+                $('#dmg-display').text("You've been slain!");
+
+                //go back to selection screen
+            } else {
+                
+            charAtk();
+            let totalDmg = baseDmg - enemy.def;
+            enemy.hp = enemy.hp - totalDmg;
+            
+            //display text showing damage dealt
+            $('#dmg-display').text("You attacked for" + totalDmg + "damage!")
+
+            //reflect damage taken
+            $('#hp-display').innerHTML("Whatever you want here")
+
+            if(enemy.hp <= 0){
+                //display text showing damage dealt
+                $('#dmg-display').text("You've defeated the enemy and leveled up! Level up your new skills and prepare for the next battle!")
+
+                //replace fight scene with point distribution options
+
+                pointDistr();
+            }
         }
     }
 
