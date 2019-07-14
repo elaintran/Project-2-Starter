@@ -16,8 +16,8 @@ VALUES  ("potion", "healing", 10),
         ("shield", "defence", 2),
         ("speed_shoes", "support", 2);
 
-INSERT INTO users (user_name, user_password, user_selection)
-VALUES  ('name_01', "pw1", 1), 
-        ("name_02", "pw2", 1), 
-        ("name_03", "pw3", 1),
-        ("name_04", "pw4", 1);
+INSERT INTO users (user_name, user_password, user_selection, user_score)
+VALUES  ('name_01', "pw1", 1, 0), 
+        ("name_02", "pw2", 1, 100), 
+        ("name_03", "pw3", 1, 150),
+        ("name_04", "pw4", 1, 200);

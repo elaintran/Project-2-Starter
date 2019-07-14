@@ -1,15 +1,9 @@
-// module.exports = function (sequelize, DataTypes) {
-//     var User = sequelize.define("User", {
-//         name: DataTypes.STRING,
-//         password: DataTypes.TEXT
-//     });
-
-//     User.associate = function (models) {
-//         // Associating Author with Posts
-//         // When an Author is deleted, also delete any associated Posts
-//         User.hasMany(models.Post, {
-//             onDelete: "cascade"
-//         });
-//     };
-//     return User;
-// };
+module.exports = function (sequelize, DataTypes) {
+    var User = sequelize.define("User", {
+        userName: DataTypes.STRING,
+        userPassword: DataTypes.STRING,
+        userSelection: DataTypes.INTEGER,
+        userScore: DataTypes.INTEGER
+    });
+    return User;
+};
