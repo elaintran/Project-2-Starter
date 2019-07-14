@@ -1,49 +1,72 @@
 //object holding game methods
-let GameManager = {
-    //game set up calls the character create and fight setup methods
-    gameSetUp: function(characterClass){
-        this.resetPlayer(characterClass);
-        this.setUpFight(characterClass);
-    },
-    //method creates character
-    resetPlayer: function(/*health, strength, defense, speed*/){
-        switch(characterClass){
-            case "fighter":
-                player = new Player(characterClass, 125, 125, 125, 125);
-                break;
-            case "knight":
-                player = new Player(characterClass, 200, 200, 50, 50);
-                break;
-            case "mage":
-                player = new Player(characterClass, 50, 350, 50, 50);
-                break;
-            case "thief":
-            player = new Player(characterClass, 100, 100, 150, 150);
-            break;
-
-        }
-    },
-    //method sets up fight
-    setUpFight: function(){
-
+let gameManager = {
+  //game set up calls the character create and fight setup methods
+  gameSetUp: function(classType) {
+    this.createChar(classType);
+    this.pickTarget(target);
+    this.setUpFight(classType);
+  },
+  //method creates character with different base stats
+  createChar: function(/*classType, hp, def, str, spd*/) {
+    switch (classType) {
+      case "fighter"://well rounded
+        character = new Character(classType, 7000, 200, 700, 3);
+        break;
+      case "knight"://high hp and defense
+        character = new Character(classType, 10000, 300, 500, 1);
+        break;
+      case "mage"://high attack
+        character = new Character(classType, 5000, 100, 1000, 3);
+        break;
+      case "thief"://low hp and defense
+        character = new Character(classType, 6000, 150, 800, 5);
+        break;
     }
-}
+  },
+  pickTarget: function(){
+    switch(target){
+        case "head": //lower hit chance, higher damage
+        target = new Target(target, 0.25, 100, 0)
+        break;
+        case "body": //higher hit chance, lower damage
+        target = new Target(target, 0.95, 0, 0)
+        break;
+        case "legs": //medium hit chance, lowers speed
+        target = new Target(target, 0.85, 0, 1)
+        break;
+    }
+  },
+  //method sets up fight
+  setUpFight: function() {
 
-function save(){
+  },
+  //method saves character to local storage
+  save: function(){
     var save = {
-        player: player,
-        inventory: inventory,
-        boss: boss
-    }
+        char1: character
+      };
+    
+      localStorage.setItem("save", JSON.stringify(save));
+  },
+  //loads any saved character data
+  load: function(){
+    var savedChar = JSON.parse(localStorage.getItem("save"));
 
-    localStorage.setItem("save", JSON.stringify(save));
-}
+    if (savedChar != null && savedChar != undefined) {
+      character = savedChar.char1;
+    } 
+  }
+};
 
-function load(){
-    var savegame = JSON.parse(localStorage.getItem("save"));
+//clicking button with the "class" class grabs its value (warrior/knight/mage/thief) and triggers create character function for that class
+$('.char-btn').on('click', function(){
+    grabbedClass = $('#class').val();
+    gameManager.gameSetUp(grabbedClass);
+})
 
-    if (savegame !=null && savegame != undefined){
-        inventory = savegame.inventory;
-        player = savegame.player;
-    }
-}
+//clicking button with the "target" class grabs its value (head/body/legs) and triggers select target function for that target
+$('.target-btn').on('click', function(){
+    grabbedTarget = $('#target').val();
+    gameManager.pickTarget(grabbedTarget);
+})
+

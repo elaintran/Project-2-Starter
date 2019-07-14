@@ -1,9 +1,9 @@
 let enemy;
 
-function Enemy(enemyClass, health, strength, defense, speed){
-    this.enemy_class = enemyClass;
-    this.enemy_hp = health;
-    this.enemy_str = strength;
-    this.enemy_def = defense;
-    this.enemy_spd = speed;
+function Enemy(classType, hp, def, str, spd){
+    this.classType = classType;
+    this.hp = hp;
+    this.def = def;
+    this.str = str;
+    this.spd = spd;
 }

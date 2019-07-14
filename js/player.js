@@ -1,85 +1,56 @@
-let player;
+let character;
+let target;
+let grabbedTarget;
+let grabbedClass;
+let chance = Math.floor();
+let baseDmg;
+let enemyDmg;
 
-let hitChance;
-let dmg;
-let crit;
-let dcrSpd;
-
-var c = Math.random();
-
-//object holds target's stats
-let target = {
-    head: {
-        hitChance: 0.25, //25% hit chance
-        dmg: 50, //3 times damage
-        dcrSpd: 0 //does not increase speed
-    },
-    body: {
-        hitChance: 0.95, //95% hit chance
-        dmg: 0, //no added damage
-        dcrSpd: 0 //no decreased speed
-    },
-    legs: {
-        hitChance: 0.85, //85% hit chance
-        dmg: 0, //no added damage
-        dcrSpd: 10 //decreases speed by flat rate
-    }
+function Character(classType, hp, def, str, spd){
+    this.classType = classType;
+    this.hp = hp;
+    this.def = def;
+    this.str = str;
+    this.spd = spd;
 }
 
-//function calculates damage/speed decrease based on target
-function calcDmg(target){
-    if(target === "head"){
-        if(d<=0.25){
-            Enemy.health -= (player.strength + 100); 
-        }
-    } else if (target === "body"){
-        if(d<=0.95){
-            Enemy.health -= (player.strength);
-        }
-    } else {
-        if(d <=0.85){
-            Enemy.health -= (player.strength);
-            Enemy.speed -= 50;
-        }
-    }
-    
+function Target(target, hitChance, bonus, redSpd){
+    this.target = target;
+    this.hitChance = hitChance;
+    this.bonus = bonus;
+    this.redSpd = reduceSpd;
 }
 
-function Player(characterClass, health, strength, defense, speed){
-    this.character_class = characterClass;
-    this.character_hp = health;
-    this.character_str = strength;
-    this.character_def = defense;
-    this.character_spd = speed
-}
+let charMoves = {
+    calcAtk: function(){
+        //higher spd attacks first
+        let charSpd = character.spd;
+        let enemySpd = enemy.spd;
 
-let gameMechanics = {
-    firstMove: function(){
-        if (player.speed > enemy.speed){
-            //let player attack first
-            gameMechanics.playerAttack();
-        } else {
-            //let enemy attack first
-            gameMechanics.enemyAttack();
+        //player attacks 
+        let charAtk = function(){
+
+            //if target is whatever the target clicked was:
+            if(target.target === grabbedTarget){
+                //if the hit chance is whatever that target's hit chance was (0.25 for head, 0.95 for body), add that target's bonus damage to the attack damage
+                if(chance <= target.hitChance){
+                baseDmg = character.str + target.bonus;
+                enemySpd -= target.reduceSpd;
+                } else {
+                    //attack missed
+                    baseDmg = 0;
+                }
+            } 
+
+            return baseDmg;
         }
-    },
-    pickTarget = function(){
-        if (target === 'head'){
-            hitChance = 0.25;
-            criticalHit = 1.5;
-            dcrSpd = 0;
+
+        let enemyAtk = function(){
+            //randomly select target
+            if(target.target === randomTar){
+                if(chance <= )
+            }
         }
-        else if (target === 'body'){
-            hitChance = 0.95;
-            criticalHit = 1;
-            dcrSpd = 0;
-        } else {
-            hitChance = 0.75;
-            criticalHit = 1;
-            dcrSpd = 5;
-        }
-    },
-    playerAttack = function(){
-        playerAtkDmg = 
     }
+
 }
