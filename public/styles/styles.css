@@ -96,7 +96,6 @@ body {
   height: 75px;
 }
 
-/* login page styling */
 .stop-left {
   stop-color: #94263a;
 }
@@ -109,7 +108,7 @@ body {
   fill: url(#mainGradient);
 }
 
-/* login page stying */
+/* login page styling */
 form {
   padding-top:1%;
 	width: 300px;
