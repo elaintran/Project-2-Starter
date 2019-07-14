@@ -4,9 +4,16 @@ var path = require("path");
 
 
 module.exports = function (app) {
-  app.get("/", function (req, res) {
+  // app.get("/", function (req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/login.html"));
+  // });
+
+  app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/login.html"));
-  });
+  })
+
+  app.get("/register", (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/register.html"));
 
   app.get("/character", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/character-select.html"));
