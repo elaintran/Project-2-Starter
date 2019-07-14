@@ -58,9 +58,9 @@ let gameManager = {
   }
 };
 
-//clicking button with the "class" class grabs its value (warrior/knight/mage/thief) and triggers create character function for that class
+//clicking button with the "charClass" class grabs its value (warrior/knight/mage/thief) and triggers create character function for that class
 $('.char-btn').on('click', function(){
-    grabbedClass = $('#class').val();
+    grabbedClass = $('#charClass').val();
     gameManager.gameSetUp(grabbedClass);
 })
 
