@@ -21,31 +21,21 @@
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="select-screen">
-            <div class="row">
-                <div class="col-sm-6 character-portrait">
-                    <img class="character-image">
-                </div>
-                <div class="col-sm-6 character-display">
-                    <div class="character-info">
-                        <h3 class="character-name"></h3>
-                        <h5 class="character-class"></h5>
-                        <div class="character-stats">
-                        </div>
-                        <button class="select-character">Select</button>
-                    </div>
-                </div>
+        <h2 class="logintitle">Login To Play</h2>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-            <div class="character-list">
+            <div class="form-group">
+                <label for="exampleInputPassword1">password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
             </div>
-        </div>
-    </div>
+            <button type="submit" class="submit">Log in</button>
+        </form>
 
-    <!--D3.js-->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-
-    <!--JavaScript-->
     <script type="text/javascript" src="js/character-select.js"></script>
+
 </body>
 </html>

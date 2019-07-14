@@ -28,7 +28,7 @@ body {
 }
 
 .character-display {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 0 40px;
 }
 
@@ -96,21 +96,71 @@ body {
   height: 75px;
 }
 
+.stop-left {
+  stop-color: #94263a;
+}
+
+.stop-right {
+  stop-color: #d24d5f;
+}
+
+.filled {
+  fill: url(#mainGradient);
+}
+
+/* login page stying */
+form {
+  padding-top:1%;
+	width: 300px;
+	margin: 0 auto;
+}
+
+.submit{
+  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  border: 0;
+  width: 100%;
+  color: white;
+  border-radius: 20px;
+}
+
+.logintitle {
+  padding-top: 10%;
+  text-align: center;
+  color: #d7d7d7;
+}
+
+.text-muted{
+  display: none;
+}
+
+.form-control{
+  background-color: #343434;
+  border:0px;
+  color: #d7d7d7;
+}
+
+.form-control:focus {
+  background-color: #343434;
+  border:0px;
+  color: #d7d7d7;
+  box-shadow: none;
+}
 
 /*  
-  ==========================
-  CHARACTER ENCOUNTER STYLES 
-  ==========================
+  ============================
+  CHARACTER ENCOUNTER STYLING
+  ============================
 */
 
 body.encounter-screen {
-  background: url(../images/resource-images/encounter/bg-forest.jpg);
-  background-size: cover;
+  background: url(../images/resource-images/encounter/bg-forest.jpg) no-repeat top #14150f;
+  background-size: contain;
 }
 
 .page-wrapper {
-  min-width: 100%;
-  min-height: 100%;
+  width: 100vw;
+  height: 56.25vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
+  /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
   grid-template-rows: 1fr 3fr 1fr;
 }
@@ -122,11 +172,11 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr auto;
-  padding-bottom: 2em;
+  padding-bottom: 7vw;
 }
 
 .player-character img, .enemy-character img {
-  height: 15vh;
+  height: 15vw;
 }
 
 .player-character {
@@ -146,21 +196,77 @@ body.encounter-screen {
 }
 
 .player-avatar img, .enemy-avatar img {
-  max-width: 7vw;
+  width: 10vw;
+}
+
+.player-avatar, .enemy-avatar {
+  padding: 1.5vw;
+  align-self: center;
 }
 
 .player-avatar {
-  padding: 1em;
+  padding-right: 1vw;
 }
 
-.player-stats {
-
+.player-stats, .enemy-stats {
+  align-self: center;
 }
 
-.enemy-stats {
+.stats-container {
+  display: grid;
+  font-family: 'Work Sans', 'Lato', sans-serif;
+}
 
+.character-name h3, .enemy-name h3 {
+  text-transform: uppercase;
+  font-size: 1.45vw;
+  margin-bottom: 0.2vw;
+}
+
+.hit-points h5 {
+  line-height: 1.5;
+  font-size: 1.1vw;
+}
+
+.player-stats .hit-points h5 {
+  float: left;
+}
+
+.enemy-stats .hit-points h5 {
+  float: right;
+}
+.health-bar {
+  width: 85%;
+  height: 18px;
+  background-image: linear-gradient(90deg, #94263a, #d24e5f);
+  border-radius: 9px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.player-stats .health-bar {
+  float: left;
+  margin-left: 0.5vw;
+}
+
+.enemy-stats .health-bar {
+  float: right;
+  margin-right: 0.5vw;
+}
+
+.items {
+  padding-left: 2vw;
+  height: 2vw;
+}
+
+.items img {
+  height: 2vw;
 }
 
 .enemy-avatar {
-  padding: 1em;
+  padding-left: 1vw;
+}
+
+.enemy-name {
+  justify-self: end;
 }
