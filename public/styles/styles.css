@@ -171,20 +171,63 @@ body.encounter-screen {
 
 .character-grid {
   display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr;
   padding-bottom: 7vw;
 }
 
-.player-character img, .enemy-character img {
+.player-sprite, .enemy-sprite {
   height: 15vw;
 }
 
+.player-action-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  position: absolute;
+  right: 0;
+  bottom: 5vw;
+  width: 22vw;
+  height: 19vw;
+  align-items: center;
+  justify-items: center;
+}
+
+.attack {
+  grid-column: 6 / 8;
+  grid-row: 1 / 3;
+}
+
+.items {
+  grid-column: 3 / 6;
+  grid-row: 2 / 5;
+  justify-self: start;
+}
+
+.flee {
+  grid-column: 1 / 4;
+  grid-row: 4 / 7;
+  align-self: end;
+}
+
+.player-action-grid img {
+  height: 6.3vw;
+  transition: all 75ms ease-in-out;
+}
+
+.player-action-grid img:hover {
+  filter: drop-shadow(0 0 .66vw #fecc) drop-shadow(0 0 0.33vw #fecc);
+  cursor: pointer;
+}
+
 .player-character {
+  grid-column: 1;
   justify-self: flex-end;
   align-self: flex-end;
+  position: relative;
 }
 
 .enemy-character {
+  grid-column: 3;
   justify-self: flex-start;
   align-self: flex-end;
   transform: scaleX(-1);
@@ -206,6 +249,7 @@ body.encounter-screen {
 
 .player-avatar {
   padding-right: 1vw;
+  padding-left: 3vw;
 }
 
 .player-stats, .enemy-stats {
@@ -220,7 +264,7 @@ body.encounter-screen {
 .character-name h3, .enemy-name h3 {
   text-transform: uppercase;
   font-size: 1.45vw;
-  margin-bottom: 0.2vw;
+  margin-bottom: 0.25vw;
 }
 
 .hit-points h5 {
@@ -236,12 +280,13 @@ body.encounter-screen {
   float: right;
 }
 .health-bar {
-  width: 85%;
-  height: 18px;
+  width: 22vw;
+  height: 1.4vw;
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
-  border-radius: 9px;
+  border-radius: 0.7vw;
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.2;
+  font-size: 1.2vw;
 }
 
 .player-stats .health-bar {
@@ -254,17 +299,20 @@ body.encounter-screen {
   margin-right: 0.5vw;
 }
 
-.items {
+.item-bar {
   padding-left: 2vw;
   height: 2vw;
 }
 
-.items img {
+.item-bar img {
   height: 2vw;
+  float: left;
+  padding: 0.3vw 0.7vw 0 0;
 }
 
 .enemy-avatar {
   padding-left: 1vw;
+  padding-right: 3vw;
 }
 
 .enemy-name {
