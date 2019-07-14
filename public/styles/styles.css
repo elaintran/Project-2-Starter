@@ -145,3 +145,128 @@ form {
   color: #d7d7d7;
   box-shadow: none;
 }
+
+/*  
+  ============================
+  CHARACTER ENCOUNTER STYLING
+  ============================
+*/
+
+body.encounter-screen {
+  background: url(../images/resource-images/encounter/bg-forest.jpg) no-repeat top #14150f;
+  background-size: contain;
+}
+
+.page-wrapper {
+  width: 100vw;
+  height: 56.25vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
+  /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+.attack-prompts {
+  width: 100%;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr auto;
+  padding-bottom: 7vw;
+}
+
+.player-character img, .enemy-character img {
+  height: 15vw;
+}
+
+.player-character {
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.enemy-character {
+  justify-self: flex-start;
+  align-self: flex-end;
+  transform: scaleX(-1);
+}
+
+.character-info-grid {
+  display: grid;
+  grid-template-columns: auto repeat(3, 2fr) auto;
+}
+
+.player-avatar img, .enemy-avatar img {
+  width: 10vw;
+}
+
+.player-avatar, .enemy-avatar {
+  padding: 1.5vw;
+  align-self: center;
+}
+
+.player-avatar {
+  padding-right: 1vw;
+}
+
+.player-stats, .enemy-stats {
+  align-self: center;
+}
+
+.stats-container {
+  display: grid;
+  font-family: 'Work Sans', 'Lato', sans-serif;
+}
+
+.character-name h3, .enemy-name h3 {
+  text-transform: uppercase;
+  font-size: 1.45vw;
+  margin-bottom: 0.2vw;
+}
+
+.hit-points h5 {
+  line-height: 1.5;
+  font-size: 1.1vw;
+}
+
+.player-stats .hit-points h5 {
+  float: left;
+}
+
+.enemy-stats .hit-points h5 {
+  float: right;
+}
+.health-bar {
+  width: 85%;
+  height: 18px;
+  background-image: linear-gradient(90deg, #94263a, #d24e5f);
+  border-radius: 9px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.player-stats .health-bar {
+  float: left;
+  margin-left: 0.5vw;
+}
+
+.enemy-stats .health-bar {
+  float: right;
+  margin-right: 0.5vw;
+}
+
+.items {
+  padding-left: 2vw;
+  height: 2vw;
+}
+
+.items img {
+  height: 2vw;
+}
+
+.enemy-avatar {
+  padding-left: 1vw;
+}
+
+.enemy-name {
+  justify-self: end;
+}
