@@ -93,7 +93,7 @@ let charMoves = {
 
                 //replace fight scene with point distribution options
 
-                pointDistr();
+                gameManager.distrbPoints();
 
             } else {
                 enemyAtk();

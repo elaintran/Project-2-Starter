@@ -40,8 +40,8 @@ let gameManager = {
   //method sets up fight
   setUpFight: function() {
     let enemy00 = new Enemy("enemy00", 7000, 200, 700, 3);
-    let enemy01 = new Enemy("enemy01", 1500, 400, 1500, 6);
-    let enemy02 = new Enemy("Boss", 30000, 1000, 20000, 10);
+    let enemy01 = new Enemy("enemy01", 1400, 400, 1000, 6);
+    let enemy02 = new Enemy("Boss", 20000, 600, 1500, 10);
 
     stage = 1;
     switch (stage) {
@@ -52,6 +52,28 @@ let gameManager = {
         enemy = enemy01;
       case 3:
         enemy = enemy02;
+    }
+  },
+  distrPoints: function(){
+    //clicking the skill button with a specific value will add one point to that skill
+    var points = 4;
+    var skill = $('#skill-btn').val()
+    if(skill === character.hp){
+        $('#skill-btn').on('click', function(){
+            character.hp += 500;
+        })
+    } else if (skill === character.def){
+        $('#skill-btn').on('click', function(){
+            character.def += 100;
+        })
+    } else if (skill === character.str){
+        $('#skill-btn').on('click', function(){
+            character.str += 500;
+        })
+    } else {
+        $('#skill-btn').on('click', function(){
+            character.spd += 1;
+        })
     }
   },
   //method saves character to local storage
