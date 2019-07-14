@@ -13,17 +13,12 @@ module.exports = function (app) {
   });
 
   app.get("/encounter", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/encounter.html"));
+    res.sendFile(path.join(__dirname, "../public/character-encounter.html"));
   });
 
   app.get("*", function (req, res) {
     res.render("404");
   });
-
-  // app.get("/login", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/login.html"));
-  // });
-
 
   // Load index page
   // app.get("/", function (req, res) {
@@ -42,10 +37,5 @@ module.exports = function (app) {
   //       example: dbExample
   //     });
   //   });
-  // });
-
-  // // Render 404 page for any unmatched routes
-  // app.get("*", function (req, res) {
-  //   res.render("404");
   // });
 };
