@@ -270,3 +270,30 @@ body.encounter-screen {
 .enemy-name {
   justify-self: end;
 }
+
+.enemy-testing {
+  position: relative;
+}
+
+/* Tooltip for Enemy Parts */
+.body-tooltip {
+  position: absolute;
+  top: -25px;
+  left: 75px;
+  padding: 15px 20px;
+  width: 160px;
+  background-color: rgba(000, 000, 000, 0.4);
+  visibility: hidden;
+}
+
+.body-tooltip p {
+  font-weight: 600;
+  margin-bottom: 0;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.tooltip-title {
+  color: #e7c892;
+  text-transform: uppercase;
+}
