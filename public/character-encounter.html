@@ -25,6 +25,9 @@
    <div class="page-wrapper">
        <div class="attack-prompts"></div>
        <div class="character-grid">
+
+            <!-- PLAYER SPRITE -->
+
            <div class="player-character">
                <div class="player-action-grid">
                    <div class="attack">
@@ -39,10 +42,33 @@
                </div>
                <img class="player-sprite" src="./images/resource-images/chibi/mage-green.png" alt="player character">
            </div>
+
+           <!-- ENEMY SPRITE -->
+
            <div class="enemy-character">
+                <div class="attack-area-popups">
+                    <div class="attack-head">
+                        <h4>Head</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
+                    <div class="attack-body">
+                        <h4>Body</h4>
+                        <p class="attack-info">High Defense</p>
+                        <p class="attack-info">Low Evasion</p>
+                    </div>
+                    <div class="attack-legs">
+                        <h4>Legs</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
+                </div>
                 <img class="enemy-sprite" src="./images/resource-images/chibi/knight-sword-red.png" alt="enemy character">
            </div>
        </div>
+
+       <!-- PLAYER INFO / STATS -->
+    
        <div class="character-info-grid">
            <div class="player-avatar">
                 <img src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
@@ -62,7 +88,11 @@
                    </div>
                </div>
            </div>
-           <div></div>
+           
+           <div></div> <!-- Empty cell between characters -->
+
+           <!-- ENEMY INFO / STATS -->
+
            <div class="enemy-stats">
                 <div class="stats-container">
                     <div class="enemy-name">

@@ -188,8 +188,6 @@ body.encounter-screen {
   bottom: 5vw;
   width: 22vw;
   height: 19vw;
-  align-items: center;
-  justify-items: center;
 }
 
 .attack {
@@ -200,13 +198,15 @@ body.encounter-screen {
 .items {
   grid-column: 3 / 6;
   grid-row: 2 / 5;
-  justify-self: start;
+  align-self: center;
+  padding-left: 0.5vw;
 }
 
 .flee {
   grid-column: 1 / 4;
   grid-row: 4 / 7;
   align-self: end;
+  justify-self: center;
 }
 
 .player-action-grid img {
@@ -226,10 +226,58 @@ body.encounter-screen {
   position: relative;
 }
 
+.attack-area-popups {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 1.2vw;
+  position: absolute;
+  left: 11vw;
+  bottom: 0.5vw;
+  z-index: 10;
+  font-weight: 600;
+  font-size: 1vw;
+  width: 14vw;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.attack-head, .attack-body, .attack-legs {
+  background-color: #0006;
+  padding: 1vw;
+  border: 0;
+  border-radius: 0.3vw;
+}
+
+.attack-head {
+  grid-column: 1 / 4;
+}
+
+.attack-head h4, .attack-body h4, .attack-legs h4 {
+  color: #e8c891;
+  text-transform: uppercase;
+  margin-bottom: 0.2vw;
+}
+
+.attack-head p:nth-child(2), .attack-body p:nth-child(2), .attack-legs p:nth-child(2) {
+  margin-bottom: 0.3vw;
+}
+
+.attack-body {
+  grid-column: 2 / 5;
+}
+
+.attack-legs {
+  grid-column: 2 / 5;
+}
+
 .enemy-character {
   grid-column: 3;
   justify-self: flex-start;
   align-self: flex-end;
+  position: relative;
+}
+
+.enemy-character img {
   transform: scaleX(-1);
 }
 
