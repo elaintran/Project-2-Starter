@@ -208,7 +208,7 @@ $(document).ready(function() {
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
         $(".character-image").attr("src", portrait);
-        $(".select-character").attr("data-class", characterClass).css("background-image", `linear-gradient(to right, ${firstStop}, ${secondStop})`);
+        $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + "secondStop");
         $(".character-stats").empty();
         statsDisplay(stats, firstStop, secondStop);
     }
