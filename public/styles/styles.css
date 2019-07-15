@@ -146,6 +146,20 @@ form {
   box-shadow: none;
 }
 
+/* Story Select */
+.logo {
+  position: absolute;
+  width: 300px;
+  top: 30px;
+  left: 60px;
+}
+
+.map-bg {
+  background: url("../images/resource-images/background/map.png");
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+}
+
 /*  
   ============================
   CHARACTER ENCOUNTER STYLING
@@ -158,10 +172,9 @@ body.encounter-screen {
 }
 
 .page-wrapper {
-  width: 100%;
-  /* height: 56.25vw;   Setting our width and height this way forces a 16:9 ratio for our page  */
+  width: 100vw;
+  height: 56.25vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
   /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
-  height: 49vw;
   display: grid;
   grid-template-rows: 1fr 3fr 1fr;
 }
@@ -173,6 +186,7 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 7vw;
 }
 
 .player-sprite, .enemy-sprite {
@@ -283,11 +297,6 @@ body.encounter-screen {
   font-family: 'Work Sans', sans-serif;
 }
 
-.attack-area-popups a {
-  text-decoration: none;
-  color: #eee;
-}
-
 .attack-head, .attack-body, .attack-legs {
   background-color: #0006;
   padding: 1vw;
@@ -304,9 +313,7 @@ body.encounter-screen {
   text-transform: uppercase;
   margin-bottom: 0.2vw;
 }
-.attack-head p, .attack-body p, .attack-legs p {
-  color: #eee;
-}
+
 .attack-head p:nth-child(2), .attack-body p:nth-child(2), .attack-legs p:nth-child(2) {
   margin-bottom: 0.3vw;
 }
@@ -333,7 +340,6 @@ body.encounter-screen {
 .character-info-grid {
   display: grid;
   grid-template-columns: auto repeat(3, 2fr) auto;
-  background-image: linear-gradient(180deg, #0009, #0000);
 }
 
 .player-avatar img, .enemy-avatar img {
@@ -363,7 +369,6 @@ body.encounter-screen {
   text-transform: uppercase;
   font-size: 1.45vw;
   margin-bottom: 0.25vw;
-  font-weight: 600;
 }
 
 .hit-points h5 {
@@ -416,4 +421,8 @@ body.encounter-screen {
 
 .enemy-name {
   justify-self: end;
+}
+
+.enemy-testing {
+  position: relative;
 }
