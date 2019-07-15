@@ -24,15 +24,16 @@ module.exports = function (app) {
         )
     );
 
-    app.post("/api/register", (res, req) => {
+    app.post("/api/register", (req, res) => {
         // use bcrypt to hash pw before sending to db
         db.User.create({
+            userName: req.body.userName,
             userEmail: req.body.userEmail,
             userPassword: req.body.userPassword
             // logic if not unique then return a msg - flash
         }).then(
             // if(check if unique)
-            (dbUsers) => res.json(dbUsers))
+            (dbUser) => res.json(dbUser))
     })
     // app.post("/api/users", (req, res) =>
     //     db.User.create(req.body).then((dbUser => res.json(dbUser)))

@@ -17,32 +17,32 @@ module.exports = function (app) {
   );
 
   app.post("/register", (req, res) => {
-    const { userName, userEmail, userPassword, userPassword2 } = req.body;
-    let errors = [];
-    // check required field
-    if (!userName || !userEmail || !userPassword) {
-      errors.push({ msg: 'Please fill in all fields' });
-    }
-    // check passwrods match
-    if (userPassWord !== userPassword2) {
-      errors.push({ msg: "password/email is incorrect" })
-    }
-    // check pass length
-    if (userPassword.length < 6) {
-      errors.push({ msg: "Password must be six characters or greater" })
-    }
+    // const { userName, userEmail, userPassword, userPassword2 } = req.body;
+    // let errors = [];
+    // // check required field
+    // if (!userName || !userEmail || !userPassword) {
+    //   errors.push({ msg: 'Please fill in all fields' });
+    // }
+    // // check passwrods match
+    // if (userPassWord !== userPassword2) {
+    //   errors.push({ msg: "password/email is incorrect" })
+    // }
+    // // check pass length
+    // if (userPassword.length < 6) {
+    //   errors.push({ msg: "Password must be six characters or greater" })
+    // }
 
-    if (errors.length > 0) {
-      res.render("register", {
-        errors,
-        userName,
-        userEmail,
-        userPassWord,
-        userPassword2
-      })
-    } else {
-      res.send("pass")
-    }
+    // if (errors.length > 0) {
+    //   res.render("register", {
+    //     errors,
+    //     userName,
+    //     userEmail,
+    //     userPassWord,
+    //     userPassword2
+    //   })
+    // } else {
+    //   res.send("pass")
+    // }
   })
 
   app.get("/character", (req, res) =>
