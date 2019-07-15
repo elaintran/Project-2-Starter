@@ -240,7 +240,6 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-bottom: 7vw;
 }
 
 .player-sprite, .enemy-sprite {
@@ -349,6 +348,11 @@ body.encounter-screen {
   font-size: 1vw;
   width: 14vw;
   font-family: 'Work Sans', sans-serif;
+}
+
+.attack-area-popups a {
+  color: #eee;
+  text-decoration: none;
 }
 
 .attack-head, .attack-body, .attack-legs {
