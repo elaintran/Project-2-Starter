@@ -146,6 +146,20 @@ form {
   box-shadow: none;
 }
 
+/* Story Select */
+.logo {
+  position: absolute;
+  width: 300px;
+  top: 30px;
+  left: 60px;
+}
+
+.map-bg {
+  background: url("../images/resource-images/background/map.png");
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+}
+
 /*  
   ============================
   CHARACTER ENCOUNTER STYLING
