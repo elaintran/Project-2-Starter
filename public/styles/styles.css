@@ -1,3 +1,9 @@
+/*  
+  ============================
+  CHARACTER SELECT STYLING
+  ============================
+*/
+
 body {
   font-family: "Work Sans", sans-serif;
   background-image: linear-gradient(#252525, #0e0e0e);
@@ -108,7 +114,12 @@ body {
   fill: url(#mainGradient);
 }
 
-/* login page styling */
+/*  
+  ============================
+  LOGIN & REGISTRATION STYLING
+  ============================
+*/
+
 form {
   padding-top:1%;
 	width: 300px;
@@ -129,21 +140,37 @@ form {
   color: #d7d7d7;
 }
 
+.logintext{
+  text-align: center;
+  color: #d7d7d7;
+  padding-top: 10%;
+}
+
 .text-muted{
   display: none;
 }
 
 .form-control{
-  background-color: #343434;
+  background-color: transparent;
   border:0px;
   color: #d7d7d7;
+  
 }
 
 .form-control:focus {
-  background-color: #343434;
+  background-color: transparent;
   border:0px;
   color: #d7d7d7;
   box-shadow: none;
+}
+
+a{
+  color: #e8c892;
+}
+
+a:hover {
+  color: #FFE2AC;
+  text-decoration: underline;
 }
 
 /*  
