@@ -1,8 +1,10 @@
+let character;
+
 let gameManager = {
     gameSetUp: function(classType){
         this.createChar(classType);
     },
-    createChar: function(){
+    createChar: function(classType){
         switch (classType) {
             case "fighter": //well rounded
               character = new Character(classType, 7000, 200, 700, 3);
@@ -19,22 +21,19 @@ let gameManager = {
           }
     },
     save: function(){
-        var save = {
-            char1: character
-        };
+        db.main.create({
+            mainClass: character.classType,
+            mainHp: character.hp,
+            mainStr: character.str,
+            mainDef: character.def,
+            mainSpd: character.spd,
+        });
 
-        //push character data up to database
     },
     load: function(){
-        var savedChar; //grab character from database
-        if (savedChar != null && savedChar != undefined) {
-            character = savedChar.char1;
-        }
-        console.log(character);
+
     }
 }
-
-let character;
 
 function Character(classType, hp, def, str, spd){
     this.classType = classType;
@@ -43,3 +42,16 @@ function Character(classType, hp, def, str, spd){
     this.str = str;
     this.spd = spd;
 }
+
+//clicking button with the "charClass" class grabs its value (warrior/knight/mage/thief) and triggers create character function for that class
+$(this).on("click", function() {
+    grabbedClass = $(this).attr("charClass");
+    gameManager.gameSetUp(grabbedClass);
+  
+    gameManager.save();
+    console.log("Hopefully game saved");
+
+    gameManager.load();
+    console.log("Hopefully game loaded");
+
+  });

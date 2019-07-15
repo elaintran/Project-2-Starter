@@ -27,32 +27,32 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="select-screen">
-            <div class="row">
-                <div class="col-sm-6 character-portrait">
-                    <img class="character-image">
-                </div>
-                <div class="col-sm-6 character-display">
-                    <div class="character-info">
-                        <h3 class="character-name"></h3>
-                        <h5 class="character-class"></h5>
-                        <div class="character-stats">
-                        </div>
-                        <a href="/encounter"><button class="select-character">Select</button></a>
-                    </div>
-                </div>
-            </div>
-            <div class="character-list">
-            </div>
+    <h2 class="logintitle">Create An Account</h2>
+    <form>
+        <div class="form-group">
+            <label for="validationCustom01">username</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="username" value="username"
+                required>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">create password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">confirm password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="confirm password">
+        </div>
+        <button type="submit" class="submit">Register</button>
+    </form>
 
-    <!--D3.js-->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-
-    <!--JavaScript-->
     <script type="text/javascript" src="js/character-select.js"></script>
+
 </body>
 
 </html>

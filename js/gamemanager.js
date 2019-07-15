@@ -143,7 +143,7 @@ $(this).on("click", function() {
 });
 
 //clicking button with the "target" class grabs its value (head/body/legs) and triggers select target function for that target
-$(".target-btn").on("click", function() {
-  grabbedTarget = $("#target").val();
+$(this).on("click", function() {
+  grabbedTarget = $(this).attr("data-target");
   gameManager.pickTarget(grabbedTarget);
 });
