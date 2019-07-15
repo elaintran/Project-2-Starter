@@ -462,3 +462,11 @@ body.encounter-screen {
   ============================
 */
 
+/*  
+  ============================
+  NAV BAR STYLING
+  ============================
+*/
+.bg-dark{
+  background-color: transparent!important;
+}
