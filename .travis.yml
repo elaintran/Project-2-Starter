@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-language: node_js
-node_js: "8"
-branches:
-  only:
-  - master
-cache:
-  directories:
-    - node_modules
-before_install:
-  - mysql -e 'CREATE DATABASE testdb;'
-=======
 language: node_js
 node_js: "8"
 services:
@@ -22,4 +10,3 @@ cache:
     - node_modules
 before_install:
   - mysql -e 'CREATE DATABASE testdb;'
->>>>>>> master
