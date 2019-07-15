@@ -108,7 +108,11 @@ body {
   fill: url(#mainGradient);
 }
 
-/* login page styling */
+/*  
+  ============================
+  LOGIN PAGE STYLING
+  ============================
+*/
 form {
   padding-top:1%;
 	width: 300px;
@@ -121,12 +125,14 @@ form {
   width: 100%;
   color: white;
   border-radius: 20px;
+  padding: 6px 0;
 }
 
 .logintitle {
   padding-top: 10%;
   text-align: center;
   color: #d7d7d7;
+  font-size: 24px;
 }
 
 .text-muted{
@@ -146,7 +152,22 @@ form {
   box-shadow: none;
 }
 
-/* Story Select */
+.logintext{
+  padding-top: 5%;
+}
+a{
+  color: #e8c892;
+}
+
+a:hover{
+  color: #e8c892;
+}
+
+/*  
+  ============================
+  STORY SELECT STYLING
+  ============================
+*/
 .logo {
   position: absolute;
   width: 300px;
@@ -426,3 +447,8 @@ body.encounter-screen {
 .enemy-testing {
   position: relative;
 }
+/*  
+  ============================
+  404 ERROR PAGE STYLING
+  ============================
+*/
