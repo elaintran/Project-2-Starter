@@ -25,7 +25,10 @@ module.exports = function (app) {
     );
 
     app.post("/api/register", (req, res) => {
+        console.log("\n\n\n/API/REGISTER\n\n\n")
+        console.log(req.body);
         // use bcrypt to hash pw before sending to db
+        res.json(req.body);
         db.User.create({
             userName: req.body.userName,
             userEmail: req.body.userEmail,

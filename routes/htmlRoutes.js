@@ -16,41 +16,40 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/registration.html"))
   );
 
-  app.post("/register", (req, res) => {
-    // const { userName, userEmail, userPassword, userPassword2 } = req.body;
-    // let errors = [];
-    // // check required field
-    // if (!userName || !userEmail || !userPassword) {
-    //   errors.push({ msg: 'Please fill in all fields' });
-    // }
-    // // check passwrods match
-    // if (userPassWord !== userPassword2) {
-    //   errors.push({ msg: "password/email is incorrect" })
-    // }
-    // // check pass length
-    // if (userPassword.length < 6) {
-    //   errors.push({ msg: "Password must be six characters or greater" })
-    // }
+  // app.post("/register", (req, res) => {
+  //   // const { userName, userEmail, userPassword, userPassword2 } = req.body;
+  //   // let errors = [];
+  //   // // check required field
+  //   // if (!userName || !userEmail || !userPassword) {
+  //   //   errors.push({ msg: 'Please fill in all fields' });
+  //   // }
+  //   // // check passwrods match
+  //   // if (userPassWord !== userPassword2) {
+  //   //   errors.push({ msg: "password/email is incorrect" })
+  //   // }
+  //   // // check pass length
+  //   // if (userPassword.length < 6) {
+  //   //   errors.push({ msg: "Password must be six characters or greater" })
+  //   // }
 
-    // if (errors.length > 0) {
-    //   res.render("register", {
-    //     errors,
-    //     userName,
-    //     userEmail,
-    //     userPassWord,
-    //     userPassword2
-    //   })
-    // } else {
-    //   res.send("pass")
-    // }
-  })
+  //   // if (errors.length > 0) {
+  //   //   res.render("register", {
+  //   //     errors,
+  //   //     userName,
+  //   //     userEmail,
+  //   //     userPassWord,
+  //   //     userPassword2
+  //   //   })
+  //   // } else {
+  //   //   res.send("pass")
+  //   // }
+  // })
 
   app.get("/character", (req, res) =>
     res.sendFile(path.join(__dirname, "../public/character-select.html"))
   );
 
   //post data about character selection
-  app.post("")
 
   app.get("/encounter", (req, res) =>
     res.sendFile(path.join(__dirname, "../public/encounter.html"))
