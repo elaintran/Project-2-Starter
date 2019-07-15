@@ -7,7 +7,7 @@ let chance = Math.floor();
 let baseDmg;
 let enemySpd;
 let enemyBaseDmg;
-let stage;
+let currentChapt = 1;
 
 function Character(classType, hp, def, str, spd){
     this.classType = classType;
@@ -15,6 +15,15 @@ function Character(classType, hp, def, str, spd){
     this.def = def;
     this.str = str;
     this.spd = spd;
+}
+
+function Chapter(chaptOne, chaptTwo, chaptThree, chaptOneOn, chaptTwoOn, chaptThreeOn){
+    this.chaptOne = chaptOne;
+    this.chaptTwo = chaptTwo;
+    this.chaptThree = chaptThree;
+    this.chaptOneOn = chaptOneOn;
+    this.chaptTwoOn = chaptTwoOn;
+    this.chaptThreeOn - chaptThreeOn;
 }
 
 function Target(target, hitChance, bonus, redSpd){
@@ -93,6 +102,8 @@ let charMoves = {
 
                 //replace fight scene with point distribution options
 
+                //set chapter
+
                 gameManager.distrbPoints();
 
             } else {
@@ -144,8 +155,25 @@ let charMoves = {
                 $('#dmg-display').text("You've defeated the enemy and leveled up! Level up your new skills and prepare for the next battle!")
 
                 //replace fight scene with point distribution options
-
+                
                 pointDistr();
+
+                //keep track of stage:
+                currentChapt += 1;
+
+                //if current chapter is 2, set chapter one to completed/disabled and turn on chapter 2
+                if(currentChapt === 2){
+                    Chapter.chaptOne = "complete";
+                    Chapter.chaptOneOn = "disabled";
+
+                    Chapter.chaptTwoOn = "enabled";
+                } else if (currentChapt === 3){
+                    //if current chapter is 3, set chapter two to completed/disabled and turn on chapter 3
+                    Chapter.chaptTwo = "complete";
+                    Chapter.chaptTwoOn = "disabled";
+
+                    Chapter.chaptThreeOn = "enabled";
+                }
             }
         }
     }

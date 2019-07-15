@@ -7,6 +7,31 @@ let gameManager = {
     this.setUpFight(classType);
     this.pickTarget(randomTar);
   },
+  //Character Select Page Triggers this function, grabbing user's character class and creating a character with those base stats and saving it
+  charSelect: function(classType){
+    //create character using grabbed character class
+    this.createChar(classType);
+    
+    //Check if character was created with correct base stats
+    console.log(character);
+
+    //save character data
+    this.save(character);
+  },
+  //sets chapter buttons to default states
+  createChapt: function(){
+    //default all chapters incomplete
+    chapter = new Chapter('incomplete', 'incomplete', 'incomplete', 'enabled', 'disabled', 'disabled');
+
+    $('#chapter-one').attr('completion-state', chapter.chaptOne);
+    $('#chapter-two').attr('completion-state', chapter.chaptTwo);
+    $('#chapter-three').attr('completion-state', chapter.chaptThree);
+
+    //default only chapter one is enabled and without lock 
+    $('#chapter-one').attr('enable', chapter.chaptOneOn);
+    $('#chapter-two').attr('enable', chapter.chaptTwoOn);
+    $('#chapter-three').attr('enable', chapter.chaptThreeOn);
+  },
   //method creates character with different base stats
   createChar: function(/*classType, hp, def, str, spd*/) {
     switch (classType) {
@@ -79,7 +104,8 @@ let gameManager = {
   //method saves character to local storage
   save: function() {
     var save = {
-      char1: character
+      char1: character,
+      chapt1: chapter
     };
 
     localStorage.setItem("save", JSON.stringify(save));
@@ -87,17 +113,20 @@ let gameManager = {
   //loads any saved character data
   load: function() {
     var savedChar = JSON.parse(localStorage.getItem("save"));
-
+    var savedChapt = JSON.parse(localStorage.getItem("save"));
     if (savedChar != null && savedChar != undefined) {
       character = savedChar.char1;
+      chapter = savedChapt.chapt1;
     }
   }
 };
 
 //clicking button with the "charClass" class grabs its value (warrior/knight/mage/thief) and triggers create character function for that class
-$(".char-btn").on("click", function() {
-  grabbedClass = $("#charClass").val();
+$(this).on("click", function() {
+  grabbedClass = $(this).attr('charClass');
   gameManager.gameSetUp(grabbedClass);
+
+  gameManager.save()
 });
 
 //clicking button with the "target" class grabs its value (head/body/legs) and triggers select target function for that target
