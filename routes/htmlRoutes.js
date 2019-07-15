@@ -24,8 +24,13 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/story-select.html"))
   );
 
-  app.get("/world/encounter", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/encounter.html"))
+  //potental route structure
+  // /world/chapter/:id/enounter
+
+  // /world/armory/
+
+  app.get("/encounter", (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/character-encounter.html"))
   );
 
   app.get("*", (req, res) =>

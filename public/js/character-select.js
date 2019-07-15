@@ -213,6 +213,20 @@ $(document).ready(function () {
         statsDisplay(stats, firstStop, secondStop);
     }
 
+    $("#selectCharacter").on("click", function () {
+        console.log("this button has been clicked");
+        console.log($(this).attr("data-class"));
+
+        var newUser = {
+            mainClass: $(this).attr("data-class")
+        };
+
+        $.post("/api/users", newUser, function () {
+            window.location.href = "/world";
+        });
+    });
+
+
     function statsDisplay(characterStats, firstStop, secondStop) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("width", w).attr("height", h);
@@ -239,17 +253,17 @@ $(document).ready(function () {
             //apply gradient
             .attr("fill", "#363636")
             //each rectangle starts at the 0 position
-            .attr("x", function(d) {
+            .attr("x", function (d) {
                 return (d.value / 40 * 100 - 10) + "%";
             })
             //moves each rectangle down
             //i is the data point index
-            .attr("y", function(d, i) {
+            .attr("y", function (d, i) {
                 return i * 47 + 20;
             })
             //width of the rectangle
             //multiplied the data point to make it wider
-            .attr("width", function(d) {
+            .attr("width", function (d) {
                 return 100 - (d.value / 40 * 100) + 10 + "%";
             })
             //defines the height of the rectangle
@@ -264,12 +278,12 @@ $(document).ready(function () {
             .attr("x", 0)
             //moves each rectangle down
             //i is the data point index
-            .attr("y", function(d, i) {
+            .attr("y", function (d, i) {
                 return i * 47 + 20;
             })
             //width of the rectangle
             //multiplied the data point to make it wider
-            .attr("width", function(d) {
+            .attr("width", function (d) {
                 return (d.value / 40 * 100) + "%";
             })
             //defines the height of the rectangle
@@ -277,14 +291,14 @@ $(document).ready(function () {
             .attr("rx", 5);
 
         nodes.append("text")
-            .text(function(d) {
+            .text(function (d) {
                 return d.statName;
             })
             .style("fill", "white")
             .style("font-size", "12px")
             .style("font-weight", 500)
             .style("letter-spacing", "0.5px")
-            .attr("y", function(d, i) {
+            .attr("y", function (d, i) {
                 return i * 47 + 10;
             });
     }

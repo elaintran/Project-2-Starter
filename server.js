@@ -1,6 +1,6 @@
 require("dotenv").config();
 var express = require("express");
-// var passport = require("passport");
+var passport = require("./config/passport");
 
 
 var app = express();
@@ -17,20 +17,18 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Passport configuration
-// app.use(require("express-session")({
-//   secert: "rusty", process.env.SECERT
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(require("express-session")({
+  secert: "rusty",
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/authRoutes")(app);
 
 var syncOptions = { force: true };
 
