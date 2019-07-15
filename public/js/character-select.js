@@ -177,7 +177,7 @@ $(document).ready(function() {
                 light: "#805694"
             }
         }
-    ]
+    ];
 
     var w = "100%";
     var h = 180;
@@ -202,7 +202,7 @@ $(document).ready(function() {
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
-    })
+    });
 
     function characterSelect(name, characterClass, portrait, firstStop, secondStop, stats) {
         $(".character-name").text(name);
@@ -219,59 +219,73 @@ $(document).ready(function() {
         //defs store graphical objects at a later time and are not rendered
         var svgDefs = svg.append("defs");
         //creates a linear gradient container
-        var mainGradient = svgDefs.append('linearGradient')
-            .attr('id', 'mainGradient');
+        var mainGradient = svgDefs.append("linearGradient")
+            .attr("id", "mainGradient");
         //stops for gradient
-        mainGradient.append('stop')
+        mainGradient.append("stop")
             .style("stop-color", firstStop)
-            .attr('offset', '0');
-        mainGradient.append('stop')
+            .attr("offset", "0");
+        mainGradient.append("stop")
             .style("stop-color", secondStop)
-            .attr('offset', '1');
+            .attr("offset", "1");
 
         var nodes = svg.selectAll(".rect")
             .data(characterStats)
             .enter()
             .append("g")
-            .classed("rect", true)
+            .classed("rect", true);
 
         nodes.append("rect")
             //apply gradient
-            .attr('fill', "#363636")
+            .attr("fill", "#363636")
             //each rectangle starts at the 0 position
-            .attr("x", (d) => (d.value / 40 * 100 - 10) + "%")
+            .attr("x", function(d) {
+                return (d.value / 40 * 100 - 10) + "%";
+            })
             //moves each rectangle down
             //i is the data point index
-            .attr("y", (d, i) => i * 47 + 20)
+            .attr("y", function(d, i) {
+                return i * 47 + 20;
+            })
             //width of the rectangle
             //multiplied the data point to make it wider
-            .attr('width', (d) => (100 - (d.value / 40 * 100) + 10) + "%")
+            .attr("width", function(d) {
+                return 100 - (d.value / 40 * 100) + 10 + "%";
+            })
             //defines the height of the rectangle
-            .attr('height', 10)
-            .attr("rx", 5)
+            .attr("height", 10)
+            .attr("rx", 5);
 
         //creates rectangles for every index in the dataset
         nodes.append("rect")
             //apply gradient
-            .classed('filled', true)
+            .classed("filled", true)
             //each rectangle starts at the 0 position
             .attr("x", 0)
             //moves each rectangle down
             //i is the data point index
-            .attr("y", (d, i) => i * 47 + 20)
+            .attr("y", function(d, i) {
+                return i * 47 + 20;
+            })
             //width of the rectangle
             //multiplied the data point to make it wider
-            .attr('width', (d) => (d.value / 40 * 100) + "%")
+            .attr("width", function(d) {
+                return (d.value / 40 * 100) + "%";
+            })
             //defines the height of the rectangle
-            .attr('height', 10)
-            .attr("rx", 5)
+            .attr("height", 10)
+            .attr("rx", 5);
 
         nodes.append("text")
-            .text((d) => d.statName)
+            .text(function(d) {
+                return d.statName;
+            })
             .style("fill", "white")
             .style("font-size", "12px")
             .style("font-weight", 500)
             .style("letter-spacing", "0.5px")
-            .attr("y", (d, i) => i * 47 + 10)
+            .attr("y", function(d, i) {
+                return i * 47 + 10;
+            });
     }
-})
+});
