@@ -227,10 +227,10 @@ body.encounter-screen {
 
 .page-wrapper {
   width: 100%;
-  height: 56.25vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
+  height: 37vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
   /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr;
 }
 
 .attack-prompts {
@@ -398,6 +398,7 @@ body.encounter-screen {
 .character-info-grid {
   display: grid;
   grid-template-columns: auto repeat(3, 2fr) auto;
+  background-image: linear-gradient(180deg, #000a, transparent);
 }
 
 .player-avatar img, .enemy-avatar img {
@@ -427,11 +428,13 @@ body.encounter-screen {
   text-transform: uppercase;
   font-size: 1.45vw;
   margin-bottom: 0.25vw;
+  font-weight: 600;
 }
 
 .hit-points h5 {
   line-height: 1.5;
   font-size: 1.1vw;
+  font-weight: 600;
 }
 
 .player-stats .hit-points h5 {
@@ -442,7 +445,7 @@ body.encounter-screen {
   float: right;
 }
 .health-bar {
-  width: 22vw;
+  width: 21.8vw;
   height: 1.4vw;
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
   border-radius: 0.7vw;
