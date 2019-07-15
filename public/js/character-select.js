@@ -112,9 +112,9 @@ $(document).ready(function() {
             }
         }, {
             name: "Character 6",
-            class: "Blue Mage",
-            portrait: "images/resource-images/portrait/mage-blue.png",
-            chibi: "images/resource-images/chibi/mage-blue.png",
+            class: "Manakete",
+            portrait: "images/resource-images/portrait/manakete-blue.png",
+            chibi: "images/resource-images/chibi/manakete-blue.png",
             stats: [{ 
                 statName: "hp",
                 value: 12 
@@ -288,4 +288,30 @@ $(document).ready(function() {
                 return i * 47 + 10;
             });
     }
+
+    var stat = 11;
+    var statPoints = 5;
+    $(".plus").on("click", function() {
+        if (statPoints === 0) {
+            $(".stat-points").text(statPoints);
+            $(".test").text(stat);
+        } else {
+            stat++;
+            statPoints--;
+            $(".stat-points").text(statPoints);
+            $(".test").text(stat);
+        }
+    });
+
+    $(".minus").on("click", function() {
+        if (statPoints === 0) {
+            $(".stat-points").text(statPoints);
+            $(".test").text(stat);
+        } else if (statPoints = 5) {
+            stat--;
+            statPoints++;
+            $(".stat-points").text(statPoints);
+            $(".test").text(stat);
+        }
+    });
 });
