@@ -60,7 +60,7 @@ body {
   text-align: left;
 }
 
-.select-character {
+.select-character, .select {
   width: 100%;
   /* background-image: linear-gradient(to right, #94263a, #d24d5f); */
   border: 0;
@@ -151,13 +151,67 @@ form {
   position: absolute;
   width: 300px;
   top: 30px;
-  left: 60px;
+  left: 75px;
+}
+
+.menu-screen {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .map-bg {
   background: url("../images/resource-images/background/map.png");
   background-repeat: no-repeat;
-  background-size: 50% 100%;
+  background-size: auto 100%;
+}
+
+.chapter-container {
+  width:100%;
+}
+
+.chapter-info {
+  padding: 30px 50px;
+  background-color: 252525;
+  border: 3px solid #acacac;
+  margin-bottom: 50px;
+  margin-left: auto;
+  color: #d7d7d7;
+  letter-spacing: 0.5px;
+  /* margin: 60px 60px 60px 100px; */
+  width: 400px;
+}
+
+.chapter-info h6 {
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.chapter-info p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.chapter-number {
+  text-transform: uppercase;
+  color: #e8c892;
+}
+
+.select {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
+}
+
+.chapter-select {
+  border: 3px solid #acacac;
+}
+
+.chapter-select:hover {
+  cursor: pointer;
 }
 
 /*  
