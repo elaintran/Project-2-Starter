@@ -20,7 +20,11 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/character-select.html"))
   );
 
-  app.get("/encounter", (req, res) =>
+  app.get("/world", (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/story-select.html"))
+  );
+
+  app.get("/world/encounter", (req, res) =>
     res.sendFile(path.join(__dirname, "../public/encounter.html"))
   );
 

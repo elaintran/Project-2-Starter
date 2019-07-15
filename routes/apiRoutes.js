@@ -25,7 +25,6 @@ module.exports = function (app) {
     );
 
     app.post("/api/register", (req, res) => {
-        console.log("\n\n\n/API/REGISTER\n\n\n");
         console.log(req.body);
         // use bcrypt to hash pw before sending to db
         db.User.create({
@@ -36,30 +35,5 @@ module.exports = function (app) {
         }).then(
             // if(check if unique)
             (dbUser) => res.json(dbUser));
-    });
-    // app.post("/api/users", (req, res) =>
-    //     db.User.create(req.body).then((dbUser => res.json(dbUser)))
-    // )
-
-    // app.get("/api/users", function (req, res) {
-    //     db.User.findAll({}).then(function (dbUsers) {
-    //         res.json(dbUsers);
-    //     });
-    // });
-
-    // app.get("/api/users/:id", function (req, res) {
-    //     db.User.findOne({
-    //         where: {
-    //             id: req.params.id
-    //         }
-    //     }).then(function (dbUsers) {
-    //         res.json(dbUsers);
-    //     });
-    // });
-
-    app.post("/api/users", function (req, res) {
-        db.User.create(req.body).then(function (dbUsers) {
-            res.json(dbUsers);
-        });
     });
 };
