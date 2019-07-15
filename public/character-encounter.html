@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -128,4 +129,126 @@
     </div>
 </body>
 
+=======
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 2</title>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans: 400,500,600,700&display=swap" rel="stylesheet">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body class="encounter-screen">
+   <div class="page-wrapper">
+        <div class="character-info-grid">
+                <div class="player-avatar">
+                     <img src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
+                </div>
+                <div class="player-stats">
+                    <div class="stats-container">
+                        <div class="character-name">
+                            <h3>Green Mage</h3>
+                        </div>
+                        <div class="hit-points">
+                            <h5>HP</h5>
+                            <span class="health-bar">100</span>
+                        </div>
+                        <div class="item-bar">
+                            <img src="./images/resource-images/items/potion.png" alt="health potion">
+                            <img src="./images/resource-images/items/potion.png" alt="health potion">
+                        </div>
+                    </div>
+                </div>
+                
+                <div></div> <!-- Empty cell between characters -->
+     
+                <!-- ENEMY INFO / STATS -->
+     
+                <div class="enemy-stats">
+                     <div class="stats-container">
+                         <div class="enemy-name">
+                             <h3>Red Knight</h3>
+                         </div>
+                         <div class="hit-points">
+                             <h5>HP</h5>
+                             <span class="health-bar">100</span>
+                         </div>
+                         <div class="item-bar">
+                         </div>
+                     </div>
+                </div>
+                <div class="enemy-avatar">
+                    <img src="./images/resource-images/encounter/enemy-portrait.png" alt="enemy avatar">
+                </div>
+            </div>
+       <div class="character-grid">
+
+            <!-- PLAYER SPRITE -->
+
+           <div class="player-character">
+               <div class="player-action-grid">
+                   <div class="attack" data-tooltip="Attack">
+                       <img src="./images/resource-images/encounter/player-attack.png" data-action="attack" alt="attack the enemy">
+                   </div>
+                   <div class="items">
+                       <img src="./images/resource-images/encounter/player-items.png" data-action="useItem" alt="use an item">
+                   </div>
+                   <div class="flee">
+                       <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
+                   </div>
+               </div>
+               <img class="player-sprite" src="./images/resource-images/chibi/mage-green.png" alt="player character">
+           </div>
+
+           <!-- ENEMY SPRITE -->
+
+           <div class="enemy-character">
+                <div class="attack-area-popups">
+                    <a href="#" class="attack-head" data-target="body">
+                        <div>
+                            <h4>Head</h4>
+                            <p class="attack-info">Low Defense</p>
+                            <p class="attack-info">High Evasion</p>
+                        </div>
+                    </a>
+                    <a href="#" class="attack-body" data-target="body">
+                        <div>
+                            <h4>Body</h4>
+                            <p class="attack-info">High Defense</p>
+                            <p class="attack-info">Low Evasion</p>
+                        </div>
+                    </a>
+                    <a href="#" class="attack-legs" data-target="body">
+                        <div>
+                            <h4>Legs</h4>
+                            <p class="attack-info">Low Defense</p>
+                            <p class="attack-info">High Evasion</p>
+                        </div>
+                    </a>
+                </div>
+                <img class="enemy-sprite" src="./images/resource-images/chibi/knight-sword-red.png" alt="enemy character">
+           </div>
+       </div>
+
+       <!-- PLAYER INFO / STATS -->
+       <div class="attack-prompts"></div>
+       
+   </div>
+</body>
+>>>>>>> 9c7187e512518497b0f148be942474884dcac302
 </html>
