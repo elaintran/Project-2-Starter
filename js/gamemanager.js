@@ -88,26 +88,26 @@ let gameManager = {
   },
   distrPoints: function() {
     //clicking the skill button with a specific value will add one point to that skill
-    var skill = $(this).attr("skill");
+    var operator = $(this).attr("data-pointDist");
     
-    if (points != 0) {
-      if (skill === character.hp) {
-        $("#skill-btn").on("click", function() {
+    if (skillPoints != 0) {
+      if (operator === 'addHp') {
+        $(this).on("click", function() {
           character.hp += 500;
           points -= 1;
         });
-      } else if (skill === character.def) {
-        $("#skill-btn").on("click", function() {
+      } else if (operator === 'addDef') {
+        $(this).on("click", function() {
           character.def += 100;
           skill -= 1;
         });
-      } else if (skill === character.str) {
-        $("#skill-btn").on("click", function() {
+      } else if (operator === 'addStr') {
+        $(this).on("click", function() {
           character.str += 500;
           points -= 1;
         });
-      } else {
-        $("#skill-btn").on("click", function() {
+      } else if (operator === 'addSpd'){
+        $(this).on("click", function() {
           character.spd += 1;
           points -= 1;
         });
@@ -134,7 +134,7 @@ let gameManager = {
   }
 };
 
-//clicking button with the "charClass" class grabs its value (warrior/knight/mage/thief) and triggers create character function for that class
+//clicking button with the "charClass" class grabs its value (fighter/knight/mage/thief) and triggers create character function for that class
 $(this).on("click", function() {
   grabbedClass = $(this).attr("charClass");
   gameManager.gameSetUp(grabbedClass);

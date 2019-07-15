@@ -1,10 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
     var Main = sequelize.define("Main", {
-        mainClass: DataTypes.STRING,
-        mainHp: DataTypes.INTEGER,
-        mainStr: DataTypes.INTEGER,
-        mainDef: DataTypes.INTEGER,
-        mainSpd: DataTypes.INTEGER
+        classType: DataTypes.STRING,
+        hp: DataTypes.INTEGER,
+        str: DataTypes.INTEGER,
+        def: DataTypes.INTEGER,
+        spd: DataTypes.INTEGER
     });
     return Main;
 };

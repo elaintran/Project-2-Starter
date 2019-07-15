@@ -53,19 +53,10 @@ $('#login-form').on('submit', function(){
 })
 
 //***********Character Select Page****************************
-//clicking button with "charClass" class grabs the character image, base stats and displays it on the screen
-$(this).on("click", function(){
-    //sets the character class to whatever the charClass value was
-    var charClass = $(this).attr('charClass');
-
-    //grabs and displays data for that specific class
-    $('#img-display').attr('src', image.charClass)
-})
-
-//clicking button with the "charClass" class grabs its value (warrior/knight/mage/thief) and triggers create character function for that class
+//clicking button with the "charClass" class grabs its value (fighter/knight/mage/thief) and triggers create character function for that class
 $(this).on("click", function() {
-    grabbedClass = $(this).attr('charClass');
-    gameManager.charSelect(grabbedClass);
+    grabbedClass = $(this).attr("charClass");
+    gameManager.gameSetUp(grabbedClass);
 });
 
 //clicking confirm button moves to next stage
@@ -73,18 +64,15 @@ $('#confirm-btn').on('submit', function(){
     //save selected character
     gameManager.save();
 
-    //load next page
+    //load point distribution page
 })
 
 //***********Point Distribution Page***************************
 //clicking on (+) or (-) button next to skill adds skill point to it
 $(this).on('click',function(){
-    //check if (+) or (-) button
-    if($(this).attr('btn-type') === '+'){
+    //upgrade/undo upgrade traits when button is clicked
     gameManager.distrPoints();
-
-    }
 
     //display remaining skill points on screen
     $('#skills-display').text(points)
-}
+});
