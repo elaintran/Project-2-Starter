@@ -314,3 +314,7 @@ $(document).ready(function() {
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
 });
+
+//issues
+//if we use handlebars, mark will need to conform to bootstrap
+//if we have an item/armory, how will users purchase items? will enemies drop gold?
