@@ -193,6 +193,33 @@ body.encounter-screen {
 .attack {
   grid-column: 6 / 8;
   grid-row: 1 / 3;
+  position: relative;
+}
+
+.attack::after, .items::after, .flee::after {
+  position: absolute;
+  background-color: #0006;
+  top: -1vw;
+  font-size: 1vw;
+  font-weight: 500;
+  opacity: 0;
+  transition: all 75ms ease;
+  z-index: 10;
+  padding: 0.6vw;
+  border-radius: 0.3vw;
+  color: #eee;
+  transform: translateY(-100%);
+  font-family: 'Work Sans', sans-serif;
+}
+
+.attack::after {
+  content: 'Attack';
+  left: 50%;
+  margin-left: -2.2vw;
+}
+
+.attack:hover::after, .items:hover::after, .flee:hover::after {
+  opacity: 1;
 }
 
 .items {
@@ -200,6 +227,13 @@ body.encounter-screen {
   grid-row: 2 / 5;
   align-self: center;
   padding-left: 0.5vw;
+  position: relative;
+}
+
+.items::after {
+  content: 'Items';
+  left: 39%;
+  margin-left: -2.2vw;
 }
 
 .flee {
@@ -207,6 +241,14 @@ body.encounter-screen {
   grid-row: 4 / 7;
   align-self: end;
   justify-self: center;
+  position: relative;
+}
+
+.flee::after {
+  content: 'Flee';
+  background-color: #0006;
+  left: 39%;
+  margin-left: -0.85vw;
 }
 
 .player-action-grid img {
