@@ -8,6 +8,8 @@ let baseDmg;
 let enemySpd;
 let enemyBaseDmg;
 let currentChapt = 1;
+var points = 4;
+
 
 function Character(classType, hp, def, str, spd){
     this.classType = classType;

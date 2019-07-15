@@ -66,5 +66,25 @@ $(this).on("click", function(){
 $(this).on("click", function() {
     grabbedClass = $(this).attr('charClass');
     gameManager.charSelect(grabbedClass);
-  });
+});
 
+//clicking confirm button moves to next stage
+$('#confirm-btn').on('submit', function(){
+    //save selected character
+    gameManager.save();
+
+    //load next page
+})
+
+//***********Point Distribution Page***************************
+//clicking on (+) or (-) button next to skill adds skill point to it
+$(this).on('click',function(){
+    //check if (+) or (-) button
+    if($(this).attr('btn-type') === '+'){
+    gameManager.distrPoints();
+
+    }
+
+    //display remaining skill points on screen
+    $('#skills-display').text(points)
+}
