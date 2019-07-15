@@ -64,7 +64,9 @@
         }
 
         $.post("/api/register", newUser, function (response) {
-        })
+            window.location.href = "/login";
+            return res.json({})
+        });
     })
 </script>
 
