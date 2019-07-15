@@ -23,7 +23,47 @@
 </head>
 <body class="encounter-screen">
    <div class="page-wrapper">
-       <div class="attack-prompts"></div>
+        <div class="character-info-grid">
+                <div class="player-avatar">
+                     <img src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
+                </div>
+                <div class="player-stats">
+                    <div class="stats-container">
+                        <div class="character-name">
+                            <h3>Green Mage</h3>
+                        </div>
+                        <div class="hit-points">
+                            <h5>HP</h5>
+                            <span class="health-bar">100</span>
+                        </div>
+                        <div class="item-bar">
+                            <img src="./images/resource-images/items/potion.png" alt="health potion">
+                            <img src="./images/resource-images/items/potion.png" alt="health potion">
+                        </div>
+                    </div>
+                </div>
+                
+                <div></div> <!-- Empty cell between characters -->
+     
+                <!-- ENEMY INFO / STATS -->
+     
+                <div class="enemy-stats">
+                     <div class="stats-container">
+                         <div class="enemy-name">
+                             <h3>Red Knight</h3>
+                         </div>
+                         <div class="hit-points">
+                             <h5>HP</h5>
+                             <span class="health-bar">100</span>
+                         </div>
+                         <div class="item-bar">
+                         </div>
+                     </div>
+                </div>
+                <div class="enemy-avatar">
+                    <img src="./images/resource-images/encounter/enemy-portrait.png" alt="enemy avatar">
+                </div>
+            </div>
        <div class="character-grid">
 
             <!-- PLAYER SPRITE -->
@@ -31,13 +71,13 @@
            <div class="player-character">
                <div class="player-action-grid">
                    <div class="attack" data-tooltip="Attack">
-                       <img src="./images/resource-images/encounter/player-attack.png" alt="attack the enemy">
+                       <img src="./images/resource-images/encounter/player-attack.png" data-action="attack" alt="attack the enemy">
                    </div>
                    <div class="items">
-                       <img src="./images/resource-images/encounter/player-items.png" alt="use an item">
+                       <img src="./images/resource-images/encounter/player-items.png" data-action="useItem" alt="use an item">
                    </div>
                    <div class="flee">
-                       <img src="./images/resource-images/encounter/player-flee.png" alt="run away">
+                       <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
                    </div>
                </div>
                <img class="player-sprite" src="./images/resource-images/chibi/mage-green.png" alt="player character">
@@ -47,94 +87,35 @@
 
            <div class="enemy-character">
                 <div class="attack-area-popups">
-                    <div class="attack-head">
-                        <h4>Head</h4>
-                        <p class="attack-info">Low Defense</p>
-                        <p class="attack-info">High Evasion</p>
-                    </div>
-                    <div class="attack-body">
-                        <h4>Body</h4>
-                        <p class="attack-info">High Defense</p>
-                        <p class="attack-info">Low Evasion</p>
-                    </div>
-                    <div class="attack-legs">
-                        <h4>Legs</h4>
-                        <p class="attack-info">Low Defense</p>
-                        <p class="attack-info">High Evasion</p>
-                    </div>
+                    <a href="#" class="attack-head" data-target="body">
+                        <div>
+                            <h4>Head</h4>
+                            <p class="attack-info">Low Defense</p>
+                            <p class="attack-info">High Evasion</p>
+                        </div>
+                    </a>
+                    <a href="#" class="attack-body" data-target="body">
+                        <div>
+                            <h4>Body</h4>
+                            <p class="attack-info">High Defense</p>
+                            <p class="attack-info">Low Evasion</p>
+                        </div>
+                    </a>
+                    <a href="#" class="attack-legs" data-target="body">
+                        <div>
+                            <h4>Legs</h4>
+                            <p class="attack-info">Low Defense</p>
+                            <p class="attack-info">High Evasion</p>
+                        </div>
+                    </a>
                 </div>
                 <img class="enemy-sprite" src="./images/resource-images/chibi/knight-sword-red.png" alt="enemy character">
            </div>
        </div>
 
        <!-- PLAYER INFO / STATS -->
-    
-       <div class="character-info-grid">
-           <div class="player-avatar">
-                <img src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
-           </div>
-           <div class="player-stats">
-               <div class="stats-container">
-                   <div class="character-name">
-                       <h3>Green Mage</h3>
-                   </div>
-                   <div class="hit-points">
-                       <h5>HP</h5>
-                       <span class="health-bar">100</span>
-                   </div>
-                   <div class="item-bar">
-                       <img src="./images/resource-images/items/potion.png" alt="health potion">
-                       <img src="./images/resource-images/items/potion.png" alt="health potion">
-                   </div>
-               </div>
-           </div>
-           
-           <div></div> <!-- Empty cell between characters -->
-
-           <!-- ENEMY INFO / STATS -->
-
-           <div class="enemy-stats">
-                <div class="stats-container">
-                    <div class="enemy-name">
-                        <h3>Red Knight</h3>
-                    </div>
-                    <div class="hit-points">
-                        <h5>HP</h5>
-                        <span class="health-bar">100</span>
-                    </div>
-                    <div class="item-bar">
-                    </div>
-                </div>
-           </div>
-           <div class="enemy-avatar">
-               <img src="./images/resource-images/encounter/enemy-portrait.png" alt="enemy avatar">
-           </div>
-           <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Launch demo modal
-      </button>
-      
-      <!-- Game Over Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              GAME OVER
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
-              <button type="button" class="btn btn-primary">Play Again</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+       <div class="attack-prompts"></div>
+       
    </div>
 </body>
 </html>
