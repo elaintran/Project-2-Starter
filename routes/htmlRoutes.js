@@ -16,6 +16,18 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/registration.html"))
   );
 
+  app.get("/character", (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/character-select.html"))
+  );
+
+  app.get("/encounter", (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/encounter.html"))
+  );
+
+  app.get("*", (req, res) =>
+    res.render("404")
+  );
+
   // app.post("/register", (req, res) => {
   //   // const { userName, userEmail, userPassword, userPassword2 } = req.body;
   //   // let errors = [];
@@ -45,19 +57,11 @@ module.exports = function (app) {
   //   // }
   // })
 
-  app.get("/character", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/character-select.html"))
-  );
+
 
   //post data about character selection
 
-  app.get("/encounter", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/encounter.html"))
-  );
 
-  app.get("*", (req, res) =>
-    res.render("404")
-  );
 
   // app.get("/", function (req, res) {
   //   res.sendFile(path.join(__dirname, "../public/login.html"));

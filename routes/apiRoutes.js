@@ -11,7 +11,7 @@ module.exports = function (app) {
         db.User.findOne({
             where: { id: req.params.id }
         }).then((dbUsers) => res.json(dbUsers))
-    )
+    );
 
     app.get("/api/login", (req, res) =>
         db.User.findOne({
@@ -25,10 +25,9 @@ module.exports = function (app) {
     );
 
     app.post("/api/register", (req, res) => {
-        console.log("\n\n\n/API/REGISTER\n\n\n")
+        console.log("\n\n\n/API/REGISTER\n\n\n");
         console.log(req.body);
         // use bcrypt to hash pw before sending to db
-        res.json(req.body);
         db.User.create({
             userName: req.body.userName,
             userEmail: req.body.userEmail,
@@ -36,8 +35,8 @@ module.exports = function (app) {
             // logic if not unique then return a msg - flash
         }).then(
             // if(check if unique)
-            (dbUser) => res.json(dbUser))
-    })
+            (dbUser) => res.json(dbUser));
+    });
     // app.post("/api/users", (req, res) =>
     //     db.User.create(req.body).then((dbUser => res.json(dbUser)))
     // )
