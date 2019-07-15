@@ -13,7 +13,7 @@ module.exports = function (app) {
   );
 
   app.get("/register", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/register.html"))
+    res.sendFile(path.join(__dirname, "../public/registration.html"))
   );
 
   app.post("/register", (req, res) => {

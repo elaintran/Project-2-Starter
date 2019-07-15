@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 // Passport configuration
 // app.use(require("express-session")({
-//   secert: "rusty",
+//   secert: "rusty", process.env.SECERT
 //   resave: false,
 //   saveUninitialized: false
 // }));

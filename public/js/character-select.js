@@ -1,22 +1,22 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var characters = [
         {
             name: "Character 1",
             class: "Swordmaster",
             portrait: "images/resource-images/portrait/fighter-sword-red.png",
             chibi: "images/resource-images/chibi/fighter-sword-red.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 20 
-            }, { 
+                value: 20
+            }, {
                 statName: "strength",
-                value: 15 
-            }, { 
+                value: 15
+            }, {
                 statName: "defense",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "speed",
-                value: 30 
+                value: 30
             }],
             colors: {
                 dark: "#94263a",
@@ -27,18 +27,18 @@ $(document).ready(function() {
             class: "Lance Fighter",
             portrait: "images/resource-images/portrait/fighter-lance-blue.png",
             chibi: "images/resource-images/chibi/fighter-lance-blue.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "strength",
-                value: 31 
-            }, { 
+                value: 31
+            }, {
                 statName: "defense",
-                value: 17 
-            }, { 
+                value: 17
+            }, {
                 statName: "speed",
-                value: 25 
+                value: 25
             }],
             colors: {
                 dark: "#29396f",
@@ -49,18 +49,18 @@ $(document).ready(function() {
             class: "Axe Fighter",
             portrait: "images/resource-images/portrait/fighter-axe-green.png",
             chibi: "images/resource-images/chibi/fighter-axe-green.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "strength",
-                value: 31 
-            }, { 
+                value: 31
+            }, {
                 statName: "defense",
-                value: 17 
-            }, { 
+                value: 17
+            }, {
                 statName: "speed",
-                value: 25 
+                value: 25
             }],
             colors: {
                 dark: "rgb(33, 74, 85)",
@@ -71,18 +71,18 @@ $(document).ready(function() {
             class: "Bow Fighter",
             portrait: "images/resource-images/portrait/fighter-bow-purple.png",
             chibi: "images/resource-images/chibi/fighter-bow-purple.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "strength",
-                value: 31 
-            }, { 
+                value: 31
+            }, {
                 statName: "defense",
-                value: 17 
-            }, { 
+                value: 17
+            }, {
                 statName: "speed",
-                value: 25 
+                value: 25
             }],
             colors: {
                 dark: "#42224e",
@@ -93,18 +93,18 @@ $(document).ready(function() {
             class: "Red Mage",
             portrait: "images/resource-images/portrait/mage-red.png",
             chibi: "images/resource-images/chibi/mage-red.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "strength",
-                value: 31 
-            }, { 
+                value: 31
+            }, {
                 statName: "defense",
-                value: 17 
-            }, { 
+                value: 17
+            }, {
                 statName: "speed",
-                value: 25 
+                value: 25
             }],
             colors: {
                 dark: "#94263a",
@@ -115,18 +115,18 @@ $(document).ready(function() {
             class: "Blue Mage",
             portrait: "images/resource-images/portrait/mage-blue.png",
             chibi: "images/resource-images/chibi/mage-blue.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "strength",
-                value: 31 
-            }, { 
+                value: 31
+            }, {
                 statName: "defense",
-                value: 17 
-            }, { 
+                value: 17
+            }, {
                 statName: "speed",
-                value: 25 
+                value: 25
             }],
             colors: {
                 dark: "#29396f",
@@ -137,18 +137,18 @@ $(document).ready(function() {
             class: "Knight",
             portrait: "images/resource-images/portrait/knight-axe-green.png",
             chibi: "images/resource-images/chibi/knight-axe-green.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "strength",
-                value: 31 
-            }, { 
+                value: 31
+            }, {
                 statName: "defense",
-                value: 17 
-            }, { 
+                value: 17
+            }, {
                 statName: "speed",
-                value: 25 
+                value: 25
             }],
             colors: {
                 dark: "rgb(33, 74, 85)",
@@ -159,18 +159,18 @@ $(document).ready(function() {
             class: "Thief",
             portrait: "images/resource-images/portrait/thief-purple.png",
             chibi: "images/resource-images/chibi/thief-purple.png",
-            stats: [{ 
+            stats: [{
                 statName: "hp",
-                value: 12 
-            }, { 
+                value: 12
+            }, {
                 statName: "strength",
-                value: 31 
-            }, { 
+                value: 31
+            }, {
                 statName: "defense",
-                value: 17 
-            }, { 
+                value: 17
+            }, {
                 statName: "speed",
-                value: 25 
+                value: 25
             }],
             colors: {
                 dark: "#42224e",
@@ -196,7 +196,7 @@ $(document).ready(function() {
     characterDisplay();
 
     //toggle between characters
-    $(".character-container").on("click", function() {
+    $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
             if ($(this).attr("data-class") === characters[i].class) {
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
