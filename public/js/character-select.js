@@ -210,10 +210,10 @@ $(document).ready(function() {
         $(".character-image").attr("src", portrait);
         $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + secondStop);
         $(".character-stats").empty();
-        statsDisplay(stats, firstStop, secondStop, 0);
+        statsDisplay(stats, firstStop, secondStop);
     }
 
-    function statsDisplay(characterStats, firstStop, secondStop, score) {
+    function statsDisplay(characterStats, firstStop, secondStop) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("width", w).attr("height", h);
         //defs store graphical objects at a later time and are not rendered
@@ -270,7 +270,7 @@ $(document).ready(function() {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function(d) {
-                return ((d.value + score) / 40 * 100) + "%";
+                return (d.value / 40 * 100) + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
@@ -289,16 +289,15 @@ $(document).ready(function() {
             });
     }
 
-    var score = 0;
     var newCharacter = [];
     $(".plus").on("click", function() {
         newCharacter.push(characters[0]);
         console.log(newCharacter);
         //hp value
         console.log(newCharacter[0].stats[0].value);
+        newCharacter[0].stats[0].value++;
         $(".character-stats").empty();
-        score++;
-        statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light, score);
+        statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light);
         //when the plus sign is clicked on
         //loop through the character object array
         //find the data attribute for class
@@ -308,7 +307,10 @@ $(document).ready(function() {
         //check the data attribute for stats
         //if data attribute for stat = newCharacter[0].stats[0].name
         //add one to newCharacter[0].stats[0].value (hp value)
-        //call statsDisplay(newCharacters[0].stats, newCharacters[0].colors.dark, newCharacters[0].colors.light, score);
+        //call statsDisplay(newCharacters[0].stats, newCharacters[0].colors.dark, newCharacters[0].colors.light);
         //to update stats
     });
+    //if click on new character, need to reset the value
+    //newCharacter array will be sent as a post request once confirmed
+    //display an error message if user tries to submit when there are still remaining stat points
 });
