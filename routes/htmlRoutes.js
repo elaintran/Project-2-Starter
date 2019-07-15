@@ -1,12 +1,17 @@
 // var db = require("../models");
 
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuth");
 
 
 module.exports = function (app) {
-  app.get("/", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/landing.html"))
-  );
+  app.get("/", (req, res) => {
+    if (req.userName) {
+      // this redirects if userName is discovered
+      res.redirect("/character");
+    }
+    res.sendFile(path.join(__dirname, "../public/landing.html"));
+  });
 
   app.get("/login", (req, res) =>
     res.sendFile(path.join(__dirname, "../public/login.html"))
@@ -16,7 +21,7 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/registration.html"))
   );
 
-  app.get("/character", (req, res) =>
+  app.get("/character", isAuthenticated, (req, res) =>
     res.sendFile(path.join(__dirname, "../public/character-select.html"))
   );
 
