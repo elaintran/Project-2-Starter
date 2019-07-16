@@ -1,4 +1,3 @@
-
 /*  
   ============================
   CHARACTER SELECT STYLING
@@ -115,548 +114,15 @@ body {
   fill: url(#mainGradient);
 }
 
+.plus:hover, .minus:hover {
+  cursor: pointer;
+}
+
 /*  
   ============================
   LOGIN & REGISTRATION STYLING
   ============================
 */
-
-
-.plus:hover, .minus:hover {
-  cursor: pointer;
-}
-
-/* login page styling */
-
-form {
-  padding-top:1%;
-	width: 300px;
-  margin: 0 auto;
-}
-
-.submit{
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
-  border: 0;
-  width: 100%;
-  color: white;
-  border-radius: 20px;
-  padding: 6px 0;
-}
-
-.logintitle {
-  padding-top: 10%;
-  text-align: center;
-  color: #d7d7d7;
-  font-size: 24px;
-}
-
-.logintext{
-  text-align: center;
-  color: #d7d7d7;
-  padding-top: 10%;
-}
-
-.text-muted{
-  display: none;
-}
-
-.form-control{
-  background-color: transparent;
-  border:0px;
-  color: #d7d7d7;
-  
-}
-
-.form-control:focus {
-  background-color: transparent;
-  border:0px;
-  color: #d7d7d7;
-  box-shadow: none;
-}
-
-a{
-  color: #e8c892;
-}
-
-a:hover {
-  color: #FFE2AC;
-  text-decoration: underline;
-}
-
-/* Story Select */
-.logo {
-  position: absolute;
-  width: 300px;
-  top: 30px;
-  left: 75px;
-}
-
-.menu-screen {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.map-bg {
-  background: url("../images/resource-images/background/map.png");
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-}
-
-.user-menu {
-  position: absolute;
-}
-
-.username {
-  text-align: right;
-  margin-right: 15px;
-}
-
-.chapter-info {
-  padding: 30px 50px;
-  background-color: 252525;
-  border: 3px solid #acacac;
-  margin: 30px 15px 30px auto;
-  color: #d7d7d7;
-  letter-spacing: 0.5px;
-  width: 400px;
-}
-
-.chapter-info h6 {
-  text-align: center;
-  margin-bottom: 3px;
-}
-
-.chapter-info p {
-  font-size: 13px;
-  line-height: 1.5;
-  margin-top: 5px;
-  margin-bottom: 20px;
-}
-
-.chapter-number {
-  text-transform: uppercase;
-  color: #e8c892;
-}
-
-.select {
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  font-weight: 500;
-  background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
-}
-
-.chapter-select {
-  border: 3px solid #acacac;
-}
-
-.chapter-select:hover {
-  cursor: pointer;
-}
-
-/*  
-  ============================
-  CHARACTER ENCOUNTER STYLING
-  ============================
-*/
-
-body.encounter-screen {
-  background: url(../images/resource-images/encounter/bg-forest.jpg) no-repeat top #14150f;
-  background-size: contain;
-}
-
-.page-wrapper {
-  width: 100%;
-  height: 37vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
-  /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
-  display: grid;
-  grid-template-rows: 1fr 3fr;
-}
-
-.attack-prompts {
-  width: 100%;
-}
-
-.character-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.player-sprite, .enemy-sprite {
-  height: 15vw;
-}
-
-.player-action-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  position: absolute;
-  right: 0;
-  bottom: 5vw;
-  width: 22vw;
-  height: 19vw;
-}
-
-.attack {
-  grid-column: 6 / 8;
-  grid-row: 1 / 3;
-  position: relative;
-}
-
-.attack::after, .items::after, .flee::after {
-  position: absolute;
-  background-color: #0006;
-  top: -1vw;
-  font-size: 1vw;
-  font-weight: 500;
-  opacity: 0;
-  transition: all 75ms ease;
-  z-index: 10;
-  padding: 0.6vw;
-  border-radius: 0.3vw;
-  color: #eee;
-  transform: translateY(-100%);
-  font-family: 'Work Sans', sans-serif;
-}
-
-.attack::after {
-  content: 'Attack';
-  left: 50%;
-  margin-left: -2.2vw;
-}
-
-.attack:hover::after, .items:hover::after, .flee:hover::after {
-  opacity: 1;
-}
-
-.items {
-  grid-column: 3 / 6;
-  grid-row: 2 / 5;
-  align-self: center;
-  padding-left: 0.5vw;
-  position: relative;
-}
-
-.items::after {
-  content: 'Items';
-  left: 39%;
-  margin-left: -2.2vw;
-}
-
-.flee {
-  grid-column: 1 / 4;
-  grid-row: 4 / 7;
-  align-self: end;
-  justify-self: center;
-  position: relative;
-}
-
-.flee::after {
-  content: 'Flee';
-  background-color: #0006;
-  left: 39%;
-  margin-left: -0.85vw;
-}
-
-.player-action-grid img {
-  height: 6.3vw;
-  transition: all 75ms ease-in-out;
-}
-
-.player-action-grid img:hover {
-  filter: drop-shadow(0 0 .66vw #fecc) drop-shadow(0 0 0.33vw #fecc);
-  cursor: pointer;
-}
-
-.player-character {
-  grid-column: 1;
-  justify-self: flex-end;
-  align-self: flex-end;
-  position: relative;
-}
-
-.attack-area-popups {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-row-gap: 1.2vw;
-  position: absolute;
-  left: 11vw;
-  bottom: 0.5vw;
-  z-index: 10;
-  font-weight: 600;
-  font-size: 1vw;
-  width: 14vw;
-  font-family: 'Work Sans', sans-serif;
-}
-
-.attack-area-popups a {
-  color: #eee;
-  text-decoration: none;
-}
-
-.attack-head, .attack-body, .attack-legs {
-  background-color: #0006;
-  padding: 1vw;
-  border: 0;
-  border-radius: 0.3vw;
-}
-
-.attack-head {
-  grid-column: 1 / 4;
-}
-
-.attack-head h4, .attack-body h4, .attack-legs h4 {
-  color: #e8c891;
-  text-transform: uppercase;
-  margin-bottom: 0.2vw;
-}
-
-.attack-head p:nth-child(2), .attack-body p:nth-child(2), .attack-legs p:nth-child(2) {
-  margin-bottom: 0.3vw;
-}
-
-.attack-body {
-  grid-column: 2 / 5;
-}
-
-.attack-legs {
-  grid-column: 2 / 5;
-}
-
-.enemy-character {
-  grid-column: 3;
-  justify-self: flex-start;
-  align-self: flex-end;
-  position: relative;
-}
-
-.enemy-character img {
-  transform: scaleX(-1);
-}
-
-.character-info-grid {
-  display: grid;
-  grid-template-columns: auto repeat(3, 2fr) auto;
-  background-image: linear-gradient(180deg, #000a, transparent);
-}
-
-.player-avatar img, .enemy-avatar img {
-  width: 10vw;
-}
-
-.player-avatar, .enemy-avatar {
-  padding: 1.5vw;
-  align-self: center;
-}
-
-.player-avatar {
-  padding-right: 1vw;
-  padding-left: 3vw;
-}
-
-.player-stats, .enemy-stats {
-  align-self: center;
-}
-
-.stats-container {
-  display: grid;
-  font-family: 'Work Sans', 'Lato', sans-serif;
-}
-
-.character-name h3, .enemy-name h3 {
-  text-transform: uppercase;
-  font-size: 1.45vw;
-  margin-bottom: 0.25vw;
-  font-weight: 600;
-}
-
-.hit-points h5 {
-  line-height: 1.5;
-  font-size: 1.1vw;
-  font-weight: 600;
-}
-
-.player-stats .hit-points h5 {
-  float: left;
-}
-
-.enemy-stats .hit-points h5 {
-  float: right;
-}
-.health-bar {
-  width: 21.8vw;
-  height: 1.4vw;
-  background-image: linear-gradient(90deg, #94263a, #d24e5f);
-  border-radius: 0.7vw;
-  text-align: center;
-  line-height: 1.2;
-  font-size: 1.2vw;
-}
-
-.player-stats .health-bar {
-  float: left;
-  margin-left: 0.5vw;
-}
-
-.enemy-stats .health-bar {
-  float: right;
-  margin-right: 0.5vw;
-}
-
-.item-bar {
-  padding-left: 2vw;
-  height: 2vw;
-}
-
-.item-bar img {
-  height: 2vw;
-  float: left;
-  padding: 0.3vw 0.7vw 0 0;
-}
-
-.enemy-avatar {
-  padding-left: 1vw;
-  padding-right: 3vw;
-}
-
-.enemy-name {
-  justify-self: end;
-}
-.enemy-testing {
-  position: relative;
-}
-
-
-/*  
-  ============================
-  404 ERROR STYLING
-  ============================
-*/
-
-/*  
-  ============================
-  NAV BAR STYLING
-  ============================
-*/
-.bg-dark{
-  background-color: transparent!important;
-}
-body {
-  font-family: "Work Sans", sans-serif;
-  background-image: linear-gradient(#252525, #0e0e0e);
-  color: white;
-}
-
-.container-fluid {
-  height: 100vh;
-  display: flex;
-}
-
-.select-screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin: auto;
-  position: relative;
-}
-
-.character-portrait {
-  height: 460px;
-}
-
-.character-image {
-  width: 100%;;
-}
-
-.character-display {
-  /* margin-top: 10px; */
-  padding: 0 40px;
-}
-
-.character-info {
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.character-info h3, .character-info h5, .character-info p, .select-character {
-  font-weight: 600;
-}
-
-.character-info h3 {
-  color: #e8c892;
-  margin-bottom: 3px;
-}
-
-.character-info h5 {
-  color: #d7d7d7;
-}
-
-.character-info p, .select-character {
-  font-size: 13px;
-  letter-spacing: 0.5px;
-}
-
-.character-stats {
-  padding: 20px 0;
-  text-align: left;
-}
-
-.select-character, .select {
-  width: 100%;
-  /* background-image: linear-gradient(to right, #94263a, #d24d5f); */
-  border: 0;
-  border-radius: 20px;
-  color: white;
-  text-transform: uppercase;
-  padding: 6px 0;
-}
-
-.select-character:focus, .select-character:active {
-  outline: none;
-}
-
-.character-list {
-  position: absolute;
-  bottom: 0px;
-  display: flex;
-}
-
-.character-container {
-  background-image: linear-gradient(rgba(18, 18, 18, 0.87), rgba(37, 37, 37, 0.87));
-  padding: 7px 12px;
-  border: 2px solid rgba(255, 255, 255, 0.87);
-  border-radius: 5px;
-  margin: 0 3px;
-}
-
-.character-container:hover {
-  cursor: pointer;
-}
-
-.character-container img {
-  height: 75px;
-}
-
-.stop-left {
-  stop-color: #94263a;
-}
-
-.stop-right {
-  stop-color: #d24d5f;
-}
-
-.filled {
-  fill: url(#mainGradient);
-}
-
-.plus:hover, .minus:hover {
-  cursor: pointer;
-}
-
-/* login page styling */
 form {
   padding-top:1%;
 	width: 300px;
@@ -708,10 +174,39 @@ form {
   align-items: center;
 }
 
+.map {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
 .map-bg {
-  background: url("../images/resource-images/background/map.png");
+  background: url("../images/resource-images/background/map2.png");
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: 70% auto;
+  /* background-size: contain; */
+}
+
+/* .map-markers {
+  position: absolute;
+} */
+
+.marker {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  text-transform: uppercase;
+  color: #e8c892;
+  font-weight: 500;
+  background-color: 252525;
+  padding: 5px 13px;
+  font-size: 12px;
+  border: 2px solid #acacac;
+}
+
+.marker p {
+  margin-bottom: 0;
 }
 
 .user-menu {
@@ -1059,4 +554,20 @@ body.encounter-screen {
 
 .enemy-testing {
   position: relative;
+}
+
+
+/*  
+  ============================
+  404 ERROR STYLING
+  ============================
+*/
+
+/*  
+  ============================
+  NAV BAR STYLING
+  ============================
+*/
+.bg-dark{
+  background-color: transparent!important;
 }
