@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var register = $(".register");
-    var name = $("#userName");
+    // var name = $("#userName");
     var email = $("#userEmail");
     var password = $("#userPassword");
 
@@ -9,29 +9,28 @@ $(document).ready(function () {
         console.log("submit made");
         event.preventDefault();
         var userData = {
-            userName: name.val().trim(),
+            // userName: name.val().trim(),
             userEmail: email.val().trim(),
             userPassword: password.val().trim()
         };
         console.log(userData);
-        if (!userData.userEmail || !userData.userPassword || !userData.userName) {
+        if (!userData.userEmail || !userData.userPassword) {
             return;
         }
         //
-        signUpUser(userData.userEmail, userData.userPassword, userData.userName);
+        signUpUser(userData.userEmail, userData.userPassword);
         email.val("");
         password.val("");
-        name.val("");
+        // name.val("");
     });
 
-    function signUpUser(userEmail, userPassword, userName) {
+    function signUpUser(userEmail, userPassword) {
         $.post("/api/register", {
-            userName: userName,
             userEmail: userEmail,
             userPassword: userPassword
         })
             .then(function (data) {
-                window.location.replace("/character");
+                window.location.replace("/");
             });
     }
 });

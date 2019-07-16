@@ -25,8 +25,8 @@ module.exports = function (sequelize, DataTypes) {
         return bcrypt.compareSync(userPassword, this.userPassword);
     };
 
-    User.addHook("beforeCreate", function (userName) {
-        userName.userPassword = bcrypt.hashSync(userName.userPassword, bcrypt.genSaltSync(10), null);
+    User.addHook("beforeCreate", function (user) {
+        user.userPassword = bcrypt.hashSync(user.userPassword, bcrypt.genSaltSync(10), null);
     });
     return User;
 };
