@@ -1,17 +1,17 @@
-$("#knight_head > .cls-1").hover(function() {
-    $(".attack-head").css('cursor','pointer').css('visibility', 'visible');
-}, function() {
-    $(".attack-head").css('cursor','auto').css('visibility', 'hidden');
-});
+var showTooltip = function(part) {
+    $(".attack-" + part).css({
+        'opacity': '1',
+        'left': '0'
+    });
+};
 
-$("#knight_body > .cls-1").hover(function() {
-    $(".attack-body").css('cursor','pointer').css('visibility', 'visible');
-}, function() {
-    $(".attack-body").css('cursor','auto').css('visibility', 'hidden');
-});
+var hideTooltop = function(part) {
+    $(".attack-" + part).css({
+        'opacity': '0',
+        'left': '-1vw'
+    });
+};
 
-$("#knight_legs > .cls-1").hover(function() {
-    $(".attack-legs").css('cursor','pointer').css('visibility', 'visible');
-}, function() {
-    $(".attack-legs").css('cursor','auto').css('visibility', 'hidden');
-});
+$("#knight_head > .cls-1").hover(showTooltip(head), hideTooltop(head));
+$("#knight_body > .cls-1").hover(showTooltip(body), hideTooltop(body));
+$("#knight_legs > .cls-1").hover(showTooltip(legs), hideTooltop(legs));
