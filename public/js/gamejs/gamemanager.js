@@ -2,7 +2,7 @@
 let character;
 let skillPoints = 4;
 let enemy;
-let target;
+// let target;
 
 //keeps track of which chapter user is on
 let chapter = 1;
@@ -48,35 +48,35 @@ let gameManager = {
         break;
     }
   },
-  saveChar: function() {
-    //posts character object to server. Needs server to put data into the database using sequelize
-    $.post("/character/stats", character, function(response) {});
+  // saveChar: function() {
+  //   //posts character object to server. Needs server to put data into the database using sequelize
+  //   $.post("/character/stats", character, function(response) {});
 
-    //this portion belongs on the server page:
-    db.Main.create(req.body).then(function() {
-      //whatever happens
-    });
-  },
-  loadChar: function() {
-    $.get("/character/stats", function(response) {
-      //grabs character base stats
-    });
-  },
-  saveChapt: function() {
-    //posts chapter data to server. Needs server to put data into the database using sequelize
-    $.post("/chapter/status", chapter, function(response) {});
+  //   //this portion belongs on the server page:
+  //   db.Main.create(req.body).then(function() {
+  //     //whatever happens
+  //   });
+  // },
+  // loadChar: function() {
+  //   $.get("/character/stats", function(response) {
+  //     //grabs character base stats
+  //   });
+  // },
+  // saveChapt: function() {
+  //   //posts chapter data to server. Needs server to put data into the database using sequelize
+  //   $.post("/chapter/status", chapter, function(response) {});
 
-    //this portion belongs on the server page:
-    db.Main.create(req.body).then(function() {
-      //whatever happens
-    });
-  },
-  loadChapt: function() {
-    $.get("/chapter/status", function(response) {
-      //grabs character status and sets the chapter status
-      chapter = response;
-    });
-  },
+  //   //this portion belongs on the server page:
+  //   db.Main.create(req.body).then(function() {
+  //     //whatever happens
+  //   });
+  // },
+  // loadChapt: function() {
+  //   $.get("/chapter/status", function(response) {
+  //     //grabs character status and sets the chapter status
+  //     chapter = response;
+  //   });
+  // },
   distrPoints: function(character) {
     //save base character stats before point distribution occurs as a record of the minimum base stats
     var baseHp = character.hp;
@@ -90,7 +90,7 @@ let gameManager = {
       var type = $(this).data("type");
       console.log("selected data-type: " + type);
 
-      if (skillPoints != 0) {
+      if (skillPoints !== 0) {
         //depending on the data-type, add diff stats
         switch (type) {
           case "hp":
@@ -130,7 +130,7 @@ let gameManager = {
         //depending on the data-type, add diff stats
         switch (type) {
           case "hp":
-            if (character.hp != baseHp) {
+            if (character.hp !== baseHp) {
               character.hp -= 500;
               skillPoints += 1;
               console.log("Removed hp");
@@ -141,7 +141,7 @@ let gameManager = {
             break;
 
           case "def":
-            if (character.def != baseDef) {
+            if (character.def !== baseDef) {
               character.def -= 100;
               skillPoints += 1;
             }
@@ -149,15 +149,15 @@ let gameManager = {
             break;
 
           case "str":
-            if (character.str != baseStr) {
+            if (character.str !== baseStr) {
               character.str -= 500;
               skillPoints += 1;
             }
 
             break;
 
-          case "hp":
-            if (character.spd != baseSpd) {
+          case "spd":
+            if (character.spd !== baseSpd) {
               character.spd -= 1;
               skillPoints += 1;
             }

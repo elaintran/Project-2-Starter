@@ -16,24 +16,24 @@
 $(document).ready(function(){
   console.log(chapter);
   chapter = 2;
-  $('button').on('click', function(){
-    $('#chapter-two-btn').removeAttr('disabled');
+  $("button").on("click", function(){
+    $("#chapter-two-btn").removeAttr("disabled");
 
   })
   switch (chapter){
     case 2:
-      console.log('Chapter 2 selected')
-      $('#chapter-one-btn').attr('disabled', 'disabled');
-      $('#chapter-two-btn').removeAttr('disabled');
+      console.log("Chapter 2 selected")
+      $("#chapter-one-btn").attr("disabled", "disabled");
+      $("#chapter-two-btn").removeAttr("disabled");
       break;
 
     case 3:
-      console.log('Chapter 3 selected')
-      $('#chapter-two-btn').attr('disabled', 'disabled');
-      $('#chapter-three-btn').removeAttr('disabled');
+      console.log("Chapter 3 selected")
+      $("#chapter-two-btn").attr("disabled", "disabled");
+      $("#chapter-three-btn").removeAttr("disabled");
   }
 })
 
-$('.btn').on("click", function(){
+$(".btn").on("click", function(){
   //redirect user to Battle Action Page
 })
