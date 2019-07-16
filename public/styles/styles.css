@@ -192,6 +192,10 @@ body.encounter-screen {
   height: 15vw;
 }
 
+.enemy-sprite:hover {
+  cursor: pointer;
+}
+
 .player-action-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -201,6 +205,8 @@ body.encounter-screen {
   bottom: 5vw;
   width: 22vw;
   height: 19vw;
+  /* Hide action items until we write code for them */
+  display: none;
 }
 
 .attack {
@@ -306,6 +312,7 @@ body.encounter-screen {
   padding: 1vw;
   border: 0;
   border-radius: 0.3vw;
+  visibility: hidden;
 }
 
 .attack-head {
