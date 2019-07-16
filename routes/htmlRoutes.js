@@ -13,19 +13,25 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/landing.html"));
   });
 
-  app.get("/login", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/login.html"))
-  );
+  app.get("/login", (req, res) => {
+    if (req.userName) {
+      res.redirect("/character");
+    }
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
 
-  app.get("/register", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/registration.html"))
-  );
+  app.get("/register", (req, res) => {
+    if (req.userName) {
+      res.redirect("/character");
+    }
+    res.sendFile(path.join(__dirname, "../public/registration.html"));
+  });
 
   app.get("/character", isAuthenticated, (req, res) =>
     res.sendFile(path.join(__dirname, "../public/character-select.html"))
   );
 
-  app.get("/world", (req, res) =>
+  app.get("/world", isAuthenticated, (req, res) =>
     res.sendFile(path.join(__dirname, "../public/story-select.html"))
   );
 
@@ -34,7 +40,7 @@ module.exports = function (app) {
 
   // /world/armory/
 
-  app.get("/encounter", (req, res) =>
+  app.get("/encounter", isAuthenticated, (req, res) =>
     res.sendFile(path.join(__dirname, "../public/character-encounter.html"))
   );
 

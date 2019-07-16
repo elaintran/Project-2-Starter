@@ -1,6 +1,8 @@
 var db = require("../models");
+// var passport = require("../config/passport");
 
 module.exports = function (app) {
+
     // Get all users
     app.get("/api/users", (req, res) =>
         db.User.findAll({}).then((dbUser) =>
