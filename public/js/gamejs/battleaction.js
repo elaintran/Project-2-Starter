@@ -19,44 +19,36 @@ function Target(target, hitChance, bonus, reduceSpd) {
   this.reduceSpd = reduceSpd;
 }
 
-//assigns enemy a random target
-let enemyTarget = function(){
-  if(chance <- 0.3){
-    randomTarget = 'heads';
-  } else if (0.31 < chance < 0.6){
-    randomTarget = 'body';
-  } else {
-    randomTarget = 'legs';
-  }
-
-  return randomTarget;
-};
-
-document.onload = function(){
+$(document).ready(function(){
   //loads any saved chapters
-  gameManager.loadChapt();
-
+  // gameManager.loadChapt();
+  console.log("Chapter: " + chapter);
   //loads chapter status and creates designated enemy
   gameManager.setUpFight(chapter);
+  console.log('Enemy Strength: ' + enemy.str + " Enemy HP: " + enemy.hp);
 
   //loads character data
-  gameManager.loadChar();
+  // gameManager.loadChar();
+})
+
+character = {
+  classType: "thief",
+  hp: 1000,
+  def: 200,
+  str: 300,
+  spd: 4
 }
 
-//holds character/enemy base speeds prior to actions taken
-var charSpd = character.spd;
-var enemySpd = enemy.spd;
+console.log("Character HP: " + character.hp + " Character Strength: " + character.str);
 
 //random chance
 var chance = Math.floor();
 
 var baseDmg;
 var enemySpd;
-var randomTarget;
-var enemyBaseDmg;
 
 //what happens when the character attacks
-let charAtk = function(){
+let charAtk = function(grabbedTarget){
   //if target = target clicked:
   if(target.target === grabbedTarget){
     //if chance falls within the hit chance:
@@ -75,42 +67,22 @@ let charAtk = function(){
   return baseDmg;
 }
 
-let enemyAtk = function(){
-  //randomly select enemy target
-  enemyTarget();
+$('button').on('click', function(){
+  //holds character/enemy base speeds prior to actions taken
+  var charSpd = character.spd;
+  var enemySpd = enemy.spd;
 
-  //grabs target stats using random target
-  gameManager.pickTarget(randomTarget);
-  
-  //if target = random target assigned:
-  if(target.target === randomTarget){
-    //if chance falls within the hit chance:
-    if(chance <= target.hitChance){
-      //enemy's base damage will be enemy strength + target's additional bonus (added dmg for head/ no added dmg for body/legs)
-      enemyBaseDmg = enemy.str + target.bonus;
-
-      //enemy speed is reduced by target's assigne reduced speed (0 for head/body, -1 for legs)
-      charSpd -= target.reduceSpd;
-    } else {
-      //attack missed
-      enemyBaseDmg = 0;
-    }
-  }
-
-  return enemyBaseDmg;
-  
-}
-
-$(this).on('click', function(){
   //clicking the target grabs the character's target and populates the target statistics
   grabbedTarget = $(this).attr('data-target');
   gameManager.pickTarget(grabbedTarget);
 
   if((charSpd > enemySpd) && (character.hp != 0) && (enemy.hp != 0)){
-    charAtk();
+    charAtk(grabbedTarget);
 
     let totalDmg = baseDmg - enemy.def;
     enemy.hp -= totalDmg;
+
+    console.log("Enemy hp: " + enemy.hp);
 
     if(enemy.hp = 0){
       //do whatever you want to happen when you win
@@ -118,8 +90,9 @@ $(this).on('click', function(){
       if(chapter < 3){
         //increase chapter 
         chapter += 1;
+        console.log("Chapter: " + chapter);
 
-        gameManager.saveChapt();
+        // gameManager.saveChapt();
 
       //redirect to point distribution page
 
@@ -130,10 +103,10 @@ $(this).on('click', function(){
     }
 
   } else if ((enemySpd > charSpd) && (character.hp != 0) && (enemy.hp != 0)) {
-    enemyAtk();
-
-    let totalDmg = baseDmg - character.def;
+    let totalDmg = enemy.str - character.def;
     character.hp -= totalDmg;
+
+    console.log("character hp: " + character.hp)
 
     if(character.hp = 0){
       //do whatever you want to happen when you lose

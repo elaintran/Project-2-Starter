@@ -2,6 +2,7 @@
 let character;
 let skillPoints = 4;
 let enemy;
+let target;
 
 //keeps track of which chapter user is on
 let chapter = 1;
@@ -9,11 +10,11 @@ let chapter = 1;
 let gameManager = {
   charSelect: function(classType) {
     this.createChar(classType);
-    this.saveChar();
+    // this.saveChar();
   },
-  customChar: function(){
-    this.loadChar();
-    this.distrPoints();
+  customChar: function(character) {
+    // this.loadChar();
+    this.distrPoints(character);
   },
   createChar: function(classType) {
     switch (classType) {
@@ -33,9 +34,7 @@ let gameManager = {
   },
   saveChar: function() {
     //posts character object to server. Needs server to put data into the database using sequelize
-    $.post("/character/stats", character, function(response) {
-      
-    });
+    $.post("/character/stats", character, function(response) {});
 
     //this portion belongs on the server page:
     db.Main.create(req.body).then(function() {
@@ -49,9 +48,7 @@ let gameManager = {
   },
   saveChapt: function() {
     //posts chapter data to server. Needs server to put data into the database using sequelize
-    $.post("/chapter/status", chapter, function(response) {
-      
-    });
+    $.post("/chapter/status", chapter, function(response) {});
 
     //this portion belongs on the server page:
     db.Main.create(req.body).then(function() {
@@ -64,89 +61,97 @@ let gameManager = {
       chapter = response;
     });
   },
-  distrPoints: function() {
+  distrPoints: function(character) {
     //save base character stats before point distribution occurs as a record of the minimum base stats
     var baseHp = character.hp;
     var baseDef = character.def;
     var baseStr = character.str;
     var baseSpd = character.spd;
-    
+
     //listen if any buttons with the class "add" is clicked:
     $(".add").on("click", function() {
       //grab the button's data-type is
       var type = $(this).data("type");
-    
-      if(skillPoints !=0){
-      //depending on the data-type, add diff stats
-      switch (type) {
-        case "hp":
-          character.hp += 500;
-          skillPoints -= 1;
+      console.log("selected data-type: " + type);
 
-          break;
+      if (skillPoints != 0) {
+        //depending on the data-type, add diff stats
+        switch (type) {
+          case "hp":
+            character.hp += 500;
+            skillPoints -= 1;
+            console.log("Added hp");
+            console.log("skill points left: " + skillPoints);
+            console.log("HP: " + character.hp);
 
-        case "def":
-          character.def += 100;
-          skillPoints -= 1;
+            break;
 
-          break;
-        case "str":
-          character.str += 500;
-          skillPoints -= 1;
+          case "def":
+            character.def += 100;
+            skillPoints -= 1;
 
-          break;
-        case "spd":
-          character.spd += 1;
-          skillPoints -= 1;
+            break;
+          case "str":
+            character.str += 500;
+            skillPoints -= 1;
 
-          break;
+            break;
+          case "spd":
+            character.spd += 1;
+            skillPoints -= 1;
+
+            break;
+        }
       }
-    }
     });
 
     $(".sub").on("click", function() {
       //grab the button's data-type is
       var type = $(this).data("type");
-    
-      if(skillPoints = 4){
-      //depending on the data-type, add diff stats
-      switch (type) {
-        case "hp":
-          if (character.hp != baseHp) {
-            character.hp -= 500;
-            skillPoints += 1;
-          }
+      console.log("selected data-type: " + type);
 
-          break;
+      if (skillPoints < 4) {
+        //depending on the data-type, add diff stats
+        switch (type) {
+          case "hp":
+            if (character.hp != baseHp) {
+              character.hp -= 500;
+              skillPoints += 1;
+              console.log("Removed hp");
+              console.log("skill points left: " + skillPoints);
+              console.log("HP: " + character.hp);
+            }
 
-        case "def":
-          if (character.def != baseDef) {
-            character.def -= 100;
-            skillPoints += 1;
-          }
+            break;
 
-          break;
+          case "def":
+            if (character.def != baseDef) {
+              character.def -= 100;
+              skillPoints += 1;
+            }
 
-        case "str":
-          if (character.str != baseStr) {
-            character.str -= 500;
-            skillPoints += 1;
-          }
+            break;
 
-          break;
+          case "str":
+            if (character.str != baseStr) {
+              character.str -= 500;
+              skillPoints += 1;
+            }
 
-        case "hp":
-          if (character.spd != baseSpd) {
-            character.spd -= 1;
-            skillPoints += 1;
-          }
+            break;
 
-          break;
+          case "hp":
+            if (character.spd != baseSpd) {
+              character.spd -= 1;
+              skillPoints += 1;
+            }
+
+            break;
+        }
       }
-    }
     });
   },
-  createEnemy: function(chapter){
+  createEnemy: function(chapter) {
     //depending on the chapter we are on, create enemy with diff stats
     switch (chapter) {
       case 1:
@@ -159,9 +164,11 @@ let gameManager = {
         enemy = new Enemy(20000, 600, 1500, 10);
         break;
     }
+
+    console.log("Enemy: " + enemy.spd);
   },
-  pickTarget: function(target) {
-    switch (target) {
+  pickTarget: function(grabbedTarget) {
+    switch (grabbedTarget) {
       case "head": //lower hit chance, higher damage
         target = new Target(target, 0.25, 100, 0);
         break;
@@ -175,8 +182,8 @@ let gameManager = {
   },
   setUpFight: function(chapter) {
     //load chapter status
-    this.loadChapt();
+    // this.loadChapt();
     //creates enemy using chapter data
     this.createEnemy(chapter);
-  },
+  }
 };
