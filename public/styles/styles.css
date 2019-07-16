@@ -66,7 +66,7 @@ body {
   text-align: left;
 }
 
-.select-character {
+.select-character, .select {
   width: 100%;
   /* background-image: linear-gradient(to right, #94263a, #d24d5f); */
   border: 0;
@@ -114,12 +114,20 @@ body {
   fill: url(#mainGradient);
 }
 
+<<<<<<< HEAD
 /*  
   ============================
   LOGIN & REGISTRATION STYLING
   ============================
 */
 
+=======
+.plus:hover, .minus:hover {
+  cursor: pointer;
+}
+
+/* login page styling */
+>>>>>>> origin
 form {
   padding-top:1%;
 	width: 300px;
@@ -180,13 +188,70 @@ a:hover {
   position: absolute;
   width: 300px;
   top: 30px;
-  left: 60px;
+  left: 75px;
+}
+
+.menu-screen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .map-bg {
   background: url("../images/resource-images/background/map.png");
   background-repeat: no-repeat;
-  background-size: 50% 100%;
+  background-size: auto 100%;
+}
+
+.user-menu {
+  position: absolute;
+}
+
+.username {
+  text-align: right;
+  margin-right: 15px;
+}
+
+.chapter-info {
+  padding: 30px 50px;
+  background-color: 252525;
+  border: 3px solid #acacac;
+  margin: 30px 15px 30px auto;
+  color: #d7d7d7;
+  letter-spacing: 0.5px;
+  width: 400px;
+}
+
+.chapter-info h6 {
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.chapter-info p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.chapter-number {
+  text-transform: uppercase;
+  color: #e8c892;
+}
+
+.select {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
+}
+
+.chapter-select {
+  border: 3px solid #acacac;
+}
+
+.chapter-select:hover {
+  cursor: pointer;
 }
 
 /*  
@@ -201,11 +266,11 @@ body.encounter-screen {
 }
 
 .page-wrapper {
-  width: 100vw;
-  height: 56.25vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
+  width: 100%;
+  height: 37vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
   /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr;
 }
 
 .attack-prompts {
@@ -215,7 +280,6 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-bottom: 7vw;
 }
 
 .player-sprite, .enemy-sprite {
@@ -326,6 +390,11 @@ body.encounter-screen {
   font-family: 'Work Sans', sans-serif;
 }
 
+.attack-area-popups a {
+  color: #eee;
+  text-decoration: none;
+}
+
 .attack-head, .attack-body, .attack-legs {
   background-color: #0006;
   padding: 1vw;
@@ -369,6 +438,7 @@ body.encounter-screen {
 .character-info-grid {
   display: grid;
   grid-template-columns: auto repeat(3, 2fr) auto;
+  background-image: linear-gradient(180deg, #000a, transparent);
 }
 
 .player-avatar img, .enemy-avatar img {
@@ -398,11 +468,13 @@ body.encounter-screen {
   text-transform: uppercase;
   font-size: 1.45vw;
   margin-bottom: 0.25vw;
+  font-weight: 600;
 }
 
 .hit-points h5 {
   line-height: 1.5;
   font-size: 1.1vw;
+  font-weight: 600;
 }
 
 .player-stats .hit-points h5 {
@@ -413,7 +485,7 @@ body.encounter-screen {
   float: right;
 }
 .health-bar {
-  width: 22vw;
+  width: 21.8vw;
   height: 1.4vw;
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
   border-radius: 0.7vw;
