@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var register = $(".register");
-    // var name = $("#userName");
+    var name = $("#userName");
     var email = $("#userEmail");
     var password = $("#userPassword");
 
@@ -9,23 +9,24 @@ $(document).ready(function () {
         console.log("submit made");
         event.preventDefault();
         var userData = {
-            // userName: name.val().trim(),
+            userName: name.val().trim(),
             userEmail: email.val().trim(),
             userPassword: password.val().trim()
         };
         console.log(userData);
-        if (!userData.userEmail || !userData.userPassword) {
+        if (!userData.userEmail || !userData.userPassword || !userData.userName) {
             return;
         }
         //
-        signUpUser(userData.userEmail, userData.userPassword);
+        signUpUser(userData.userEmail, userData.userPassword, userData.userName);
         email.val("");
         password.val("");
-        // name.val("");
+        name.val("");
     });
 
-    function signUpUser(userEmail, userPassword) {
+    function signUpUser(userEmail, userPassword, userName) {
         $.post("/api/register", {
+            userName: userName,
             userEmail: userEmail,
             userPassword: userPassword
         })

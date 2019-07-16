@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Page</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+<body>
+    //character select 
+    <button character-class='thief'>Character select</button>
+    <button character-class='knight'>Character select</button>
+    <button character-class='mage'>Character select</button>
+    <button character-class='fighter'>Character select</button>
+<br>
+    //chapter select
+    <button id="chapter-one-btn">Chapter One</button>
+    <button id="chapter-two-btn" disabled='disabled'>Chapter Two</button>
+    <button id="chapter-three-btn" disabled='disabled'>Chapter Three</button>
+<br>
+    //point distribution
+    <p class="hp-display"></p>
+    <button class="sub" data-type='hp'>Sub HP</button>
+    <button class="add" data-type='hp'>Add HP</button>
+    <br>
+
+    <p class="def-display"></p>
+    <button class="sub" data-type='def'>Sub Def</button>
+    <button class="add" data-type='def'>Add Def</button>
+    <br>
+
+    <p class="str-display"></p>
+    <button class="sub" data-type='str'>Sub Str</button>
+    <button class="add" data-type='str'>Add Str</button>
+    <br>
+
+    <p class="spd-display"></p>
+    <button class="sub" data-type='spd'>Sub Spd</button>
+    <button class="add" data-type='spd'>Add Spd</button>
+
+    <br>
+    //Battle Action
+    <br>
+    <button data-target="head">Attack Head</button>
+    <br>
+    <button data-target="body">Attack Body</button>
+    <br>
+    <button data-target="legs">Attack Legs</button>
+
+
+    <script type="text/javascript" src="./gamemanager.js"></script>
+    <script type="text/javascript" src="./battleaction.js"></script>
+    <!-- <script type="text/javascript" src="./chapterselect.js"></script> -->
+    <!-- <script type="text/javascript" src="./pointdistribution.js"></script> -->
+    <!-- <script type="text/javascript" src="./characterselect.js"></script> -->
+</body>
+</html>
