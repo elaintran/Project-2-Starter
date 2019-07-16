@@ -112,17 +112,10 @@ $(document).ready(function () {
             }
         }, {
             name: "Character 6",
-<<<<<<< HEAD
-            class: "Blue Mage",
-            portrait: "images/resource-images/portrait/mage-blue.png",
-            chibi: "images/resource-images/chibi/mage-blue.png",
-            stats: [{
-=======
             class: "Manakete",
             portrait: "images/resource-images/portrait/manakete-blue.png",
             chibi: "images/resource-images/chibi/manakete-blue.png",
-            stats: [{ 
->>>>>>> origin
+            stats: [{
                 statName: "hp",
                 value: 12
             }, {
@@ -220,7 +213,6 @@ $(document).ready(function () {
         statsDisplay(stats, firstStop, secondStop, false, []);
     }
 
-<<<<<<< HEAD
     $("#selectCharacter").on("click", function () {
         console.log("this button has been clicked");
         console.log($(this).attr("data-class"));
@@ -236,9 +228,6 @@ $(document).ready(function () {
 
 
     function statsDisplay(characterStats, firstStop, secondStop) {
-=======
-    function statsDisplay(characterStats, firstStop, secondStop, statsDis, addStats) {
->>>>>>> origin
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("width", w).attr("height", h);
         //defs store graphical objects at a later time and are not rendered
@@ -296,12 +285,12 @@ $(document).ready(function () {
                 .attr("x", 0)
                 //moves each rectangle down
                 //i is the data point index
-                .attr("y", function(d, i) {
+                .attr("y", function (d, i) {
                     return i * 47 + 20;
                 })
                 //width of the rectangle
                 //multiplied the data point to make it wider
-                .attr("width", function(d) {
+                .attr("width", function (d) {
                     return (d.value / 40 * 100) + "%";
                 })
                 //defines the height of the rectangle
@@ -354,7 +343,7 @@ $(document).ready(function () {
 
         nodes.select(".stat-name")
             .append("tspan")
-            .text(function(d) {
+            .text(function (d) {
                 return d.statName;
             })
             .attr("dx", 10)
@@ -369,7 +358,7 @@ $(document).ready(function () {
     }
 
     var characterContainer = [];
-    $(".character-stats").on("click", ".plus", function() {
+    $(".character-stats").on("click", ".plus", function () {
         for (var i = 0; i < characters[0].stats.length; i++) {
             var characterStats = {};
             characterStats.statName = characters[0].stats[i].statName;
