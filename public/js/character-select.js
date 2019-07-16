@@ -181,6 +181,8 @@ $(document).ready(function() {
 
     var w = "100%";
     var h = 180;
+    var newCharacter = [];
+    var newStats = [];
 
     //need to write a constructor to reduce redundant code
     //display the first character and loop through and append all of the chibi ver.
@@ -205,6 +207,7 @@ $(document).ready(function() {
     });
 
     function characterSelect(name, characterClass, portrait, firstStop, secondStop, stats) {
+        newStats = [];
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
         $(".character-image").attr("src", portrait);
@@ -334,8 +337,6 @@ $(document).ready(function() {
             .text("\uf0da");
     }
 
-    var newCharacter = [];
-    var newStats = [];
     $(".character-stats").on("click", ".plus", function() {
         //write a conditional to prevent pushing onto array again
         for (var i = 0; i < characters.length; i++) {
@@ -357,18 +358,18 @@ $(document).ready(function() {
                     newStats.push(characterStats);
                 }
                 newCharacter.push(selectCharacter);
+                //set stat distribution conditionals here
+                //gets the value of hp
+                //need to do the rest for the other stats
+                //testing override
+                console.log(newStats[0].value);
+                console.log(characters[0].stats[0].value);
+                console.log(newCharacter[0].stats[0].value);
+                newStats[0].value++;
+                $(".character-stats").empty();
+                statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
-        //set stat distribution conditionals here
-        //gets the value of hp
-        //need to do the rest for the other stats
-        newStats[0].value++;
-        //testing override
-        console.log(newStats[0].value);
-        console.log(characters[0].stats[0].value);
-        console.log(newCharacter[0].stats[0].value);
-        $(".character-stats").empty();
-        statsDisplay(newCharacter[0].stats, newCharacter[0].class, newCharacter[0].colors.dark, newCharacter[0].colors.light, true, newStats);
         //when the plus sign is clicked on
         //set base stats as variables
         //loop through the character object array
