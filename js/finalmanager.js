@@ -1,9 +1,15 @@
+//GAME MANAGER ON ALL PAGES
 let character;
 let skillPoints = 4;
 
 let gameManager = {
-  gameSetUp: function(classType) {
+  charSelect: function(classType) {
     this.createChar(classType);
+    this.saveChar();
+  },
+  customChar: function(){
+    this.loadChar();
+    this.distrPoints();
   },
   createChar: function(classType) {
     switch (classType) {
@@ -21,9 +27,10 @@ let gameManager = {
         break;
     }
   },
-  save: function() {
-    $.post("/url", character, function(response) {
-      // do whatever you want after the server is done
+  saveChar: function() {
+    //posts character object to server. Needs server to put data into the database using sequelize
+    $.post("/character/stats", character, function(response) {
+      
     });
 
     //this portion belongs on the server page:
@@ -31,22 +38,22 @@ let gameManager = {
       //whatever happens
     });
   },
-  load: function() {
-    $.get("/url", function(response) {
-      //probaby not needed. Check if data exists during user authentification/login, and populate handlebars with the user data if it exists, if it doesn't exist, just render the create user page
+  loadChar: function() {
+    $.get("/character/stats", function(response) {
+      //grabs character base stats
     });
   },
   distrPoints: function() {
+    //save base character stats before point distribution occurs as a record of the minimum base stats
+    var baseHp = character.hp;
+    var baseDef = character.def;
+    var baseStr = character.str;
+    var baseSpd = character.spd;
+    
     //listen if any buttons with the class "add" is clicked:
     $(".add").on("click", function() {
       //grab the button's data-type is
       var type = $(this).data("type");
-
-      //save base character stats
-      var baseHp = character.hp;
-      var baseDef = character.def;
-      var baseStr = character.str;
-      var baseSpd = character.spd;
     
       if(skillPoints !=0){
       //depending on the data-type, add diff stats
@@ -90,6 +97,7 @@ let gameManager = {
           }
 
           break;
+
         case "def":
           if (character.def != baseDef) {
             character.def -= 100;
@@ -119,6 +127,7 @@ let gameManager = {
   }
 };
 
+//SELECT CHARACTER PAGE
 function Character(classType, hp, def, str, spd) {
   this.classType = classType;
   this.hp = hp;
@@ -130,16 +139,23 @@ function Character(classType, hp, def, str, spd) {
 //clicking button with the "charClass" class grabs its value (fighter/knight/mage/thief) and triggers create character function for that class
 $(this).on("click", function() {
   grabbedClass = $(this).attr("charClass");
-  gameManager.gameSetUp(grabbedClass);
 
-  //save created character with base stats
-  gameManager.save();
-  console.log("Hopefully game saved");
+  //Char Select fx creates character and posts data to server
+  gameManager.charSelect(grabbedClass);
+
+  //needs server to push data to database for storage
 
   // redirect the user to the point distribution page
 });
 
-//********************************************* */on js file for the point distribution page the following JS:
-$(this).on("click", function() {
-  gameManager.distrPoints();
+//POINT DISTRIBUTION PAGE
+$(document).on("click", function() {
+  //listen for "add/sub" class and distribute skill points
+  gameManager.customChar();
+
+  //upon clicking the confirm button (with class 'confirm-btn'):
+  $('.confirm-btn').on("click", function(){
+    //finalizes character customization and posts new character stats
+    gameManager.saveChar();
+  })
 });
