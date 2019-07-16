@@ -562,7 +562,22 @@ body.encounter-screen {
   404 ERROR STYLING
   ============================
 */
+.error-info {
+  height: 200px;
+  width: 500px;
+}
 
+.notfound{
+  font-size: 32px;
+  padding-top: 15%;
+  color: #d24d5f;
+}
+
+.errortext{
+  padding-top: 5%;
+  color:#d7d7d7;
+  font-size: 17px;
+}
 /*  
   ============================
   NAV BAR STYLING
@@ -570,4 +585,30 @@ body.encounter-screen {
 */
 .bg-dark{
   background-color: transparent!important;
+}
+
+/*  
+  ============================
+  MODAL STYLING
+  ============================
+*/
+.modal-title{
+  color:#d7d7d7;
+  font-family: "Work Sans", sans-serif;
+  
+}
+
+.modal-header{
+  background-image: linear-gradient(#252525, #0e0e0e);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.modal-body{
+  color:#252525;
+  font-family: "Work Sans", sans-serif;
+}
+.btn-primary{
+  background-image: linear-gradient(90deg, #94263a, #d24e5f);
+  border: none;
+  
 }
