@@ -28,11 +28,7 @@ $(document).ready(function () {
             userEmail: userEmail,
             userPassword: userPassword
         }).then(function () {
-            windom.location.replace("/character");
-
-        })
-            .catch(function (err) {
-                console.log(err);
-            });
+            windom.location.replace("/");
+        });
     }
 });

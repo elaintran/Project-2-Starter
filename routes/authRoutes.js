@@ -1,22 +1,23 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-
 module.exports = function (app) {
     app.post("/api/login", passport.authenticate("local"), function (req, res) {
         res.json(req.userName);
     });
 
     app.post("/api/register", (req, res) => {
-        // use bcrypt to hash pw before sending to db
         db.User.create({
+            userName: req.body.userName,
             userEmail: req.body.userEmail,
             userPassword: req.body.userPassword
-        }).then(function () {
-            res.redirect(307, "/api/login");
-        }).catch(function (err) {
-            res.status(401).json(err);
-        });
+        })
+            .then(function () {
+                res.redirect(307, "/api/login");
+            })
+            .catch(function (err) {
+                res.status(401).json(err);
+            });
     });
 
     app.get("/logout", function (req, res) {

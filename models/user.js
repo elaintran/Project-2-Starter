@@ -4,7 +4,6 @@ module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
         userName: {
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true,
         },
         userEmail: {
@@ -27,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
     };
 
     User.addHook("beforeCreate", function (userName) {
-        userName.password = bcrypt.hashSync(userName.password, bcrypt.genSaltSync(10), null);
+        userName.userPassword = bcrypt.hashSync(userName.userPassword, bcrypt.genSaltSync(10), null);
     });
     return User;
 };

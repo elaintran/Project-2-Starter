@@ -1,34 +1,37 @@
 $(document).ready(function () {
 
-    var register = $("form.register");
-    var userEmail = $("#userEmail").val().trim();
-    var userPassword = $("#userPassword").val().trim();
+    var register = $(".register");
+    var name = $("#userName");
+    var email = $("#userEmail");
+    var password = $("#userPassword");
 
     register.on("submit", function (event) {
+        console.log("submit made");
         event.preventDefault();
         var userData = {
-            userEmail: userEmail,
-            userPassword: userPassword
+            userName: name.val().trim(),
+            userEmail: email.val().trim(),
+            userPassword: password.val().trim()
         };
-        if (!userData.userEmail || !userData.userPassword) {
+        console.log(userData);
+        if (!userData.userEmail || !userData.userPassword || !userData.userName) {
             return;
         }
         //
-        signUpUser(userData.userEmail, userData.userPassword);
-        userEmail.val("");
-        userPassword.val("");
+        signUpUser(userData.userEmail, userData.userPassword, userData.userName);
+        email.val("");
+        password.val("");
+        name.val("");
     });
 
-    function signUpUser(userEmail, userPassword) {
+    function signUpUser(userEmail, userPassword, userName) {
         $.post("/api/register", {
+            userName: userName,
             userEmail: userEmail,
             userPassword: userPassword
-        }).then(function () {
-            window.location.replace("/character");
-        }).catch(handleLoginErr);
-    }
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+        })
+            .then(function (data) {
+                window.location.replace("/character");
+            });
     }
 });
