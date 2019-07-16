@@ -75,8 +75,8 @@ let gameManager = {
     let enemy01 = new Enemy("enemy01", 1400, 400, 1000, 6);
     let enemy02 = new Enemy("Boss", 20000, 600, 1500, 10);
 
-    stage = 1;
-    switch (stage) {
+    chapter = 1;
+    switch (chapter) {
       case 1:
         enemy = enemy00;
         break;
