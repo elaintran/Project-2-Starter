@@ -204,6 +204,8 @@ $(document).ready(function () {
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
             if ($(this).attr("data-class") === characters[i].class) {
+                $("#confirmCharacter").attr("data-class", characters[i].class);
+                $("#confirmCharacter").attr("data-name", characters[i].name);
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
