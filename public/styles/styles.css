@@ -126,7 +126,7 @@ body {
 form {
   padding-top:1%;
 	width: 300px;
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 .submit{
@@ -135,20 +135,12 @@ form {
   width: 100%;
   color: white;
   border-radius: 20px;
-  padding: 6px 0;
 }
 
 .logintitle {
   padding-top: 10%;
   text-align: center;
   color: #d7d7d7;
-  font-size: 24px;
-}
-
-.logintext{
-  text-align: center;
-  color: #d7d7d7;
-  padding-top: 10%;
 }
 
 .text-muted{
@@ -156,26 +148,16 @@ form {
 }
 
 .form-control{
-  background-color: transparent;
+  background-color: #343434;
   border:0px;
   color: #d7d7d7;
-  
 }
 
 .form-control:focus {
-  background-color: transparent;
+  background-color: #343434;
   border:0px;
   color: #d7d7d7;
   box-shadow: none;
-}
-
-a{
-  color: #e8c892;
-}
-
-a:hover {
-  color: #FFE2AC;
-  text-decoration: underline;
 }
 
 /* Story Select */
@@ -291,7 +273,7 @@ body.encounter-screen {
 
 .page-wrapper {
   width: 100%;
-  height: 37vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
+  height: 45.78vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
   /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
   grid-template-rows: 1fr 3fr;
@@ -304,10 +286,17 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 8vw;
 }
 
 .player-sprite, .enemy-sprite {
   height: 15vw;
+  position: relative;
+  z-index: 10;
+}
+
+.enemy-sprite:hover {
+  cursor: pointer;
 }
 
 .player-action-grid {
@@ -319,6 +308,8 @@ body.encounter-screen {
   bottom: 5vw;
   width: 22vw;
   height: 19vw;
+  /* Hide action items until we write code for them */
+  display: none;
 }
 
 .attack {
@@ -399,6 +390,13 @@ body.encounter-screen {
   position: relative;
 }
 
+.shadow {
+  position: absolute;
+  bottom: -1.75vw;
+  z-index: 1;
+  width: 100%;
+}
+
 .attack-area-popups {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -417,6 +415,7 @@ body.encounter-screen {
 .attack-area-popups a {
   color: #eee;
   text-decoration: none;
+  position: relative;
 }
 
 .attack-head, .attack-body, .attack-legs {
@@ -424,6 +423,11 @@ body.encounter-screen {
   padding: 1vw;
   border: 0;
   border-radius: 0.3vw;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  position: relative;
+  top: 0;
+  left: -1vw;
 }
 
 .attack-head {
@@ -547,6 +551,7 @@ body.encounter-screen {
 .enemy-name {
   justify-self: end;
 }
+
 .enemy-testing {
   position: relative;
 }
