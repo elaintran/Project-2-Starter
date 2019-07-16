@@ -77,12 +77,6 @@ let gameManager = {
   //   });
   // },
   distrPoints: function(character) {
-    //save base character stats before point distribution occurs as a record of the minimum base stats
-    var baseHp = character.hp;
-    var baseDef = character.def;
-    var baseStr = character.str;
-    var baseSpd = character.spd;
-
     //listen if any buttons with the class "add" is clicked:
     $(".add").on("click", function() {
       //grab the button's data-type is
@@ -95,6 +89,7 @@ let gameManager = {
           case "hp":
             character.hp += 500;
             skillPoints -= 1;
+            
             console.log("Added hp");
             console.log("skill points left: " + skillPoints);
             console.log("HP: " + character.hp);
@@ -105,16 +100,28 @@ let gameManager = {
             character.def += 100;
             skillPoints -= 1;
 
+            console.log("Added Def");
+            console.log("skill points left: " + skillPoints);
+            console.log("Def: " + character.def);
+
             break;
           case "str":
             character.str += 500;
             skillPoints -= 1;
+
+            console.log("Added str");
+            console.log("skill points left: " + skillPoints);
+            console.log("str: " + character.str);
 
             break;
           case "spd":
             character.spd += 1;
             skillPoints -= 1;
 
+            console.log("Added spd");
+            console.log("skill points left: " + skillPoints);
+            console.log("spd: " + character.spd);
+            
             break;
         }
       }
@@ -132,6 +139,7 @@ let gameManager = {
             if (character.hp !== baseHp) {
               character.hp -= 500;
               skillPoints += 1;
+              
               console.log("Removed hp");
               console.log("skill points left: " + skillPoints);
               console.log("HP: " + character.hp);
@@ -143,6 +151,10 @@ let gameManager = {
             if (character.def !== baseDef) {
               character.def -= 100;
               skillPoints += 1;
+
+              console.log("Removed def");
+              console.log("skill points left: " + skillPoints);
+              console.log("def: " + character.def);
             }
 
             break;
@@ -151,6 +163,10 @@ let gameManager = {
             if (character.str !== baseStr) {
               character.str -= 500;
               skillPoints += 1;
+
+              console.log("Removed str");
+              console.log("skill points left: " + skillPoints);
+              console.log("str: " + character.str);
             }
 
             break;
@@ -159,6 +175,10 @@ let gameManager = {
             if (character.spd !== baseSpd) {
               character.spd -= 1;
               skillPoints += 1;
+
+              console.log("Removed spd");
+              console.log("skill points left: " + skillPoints);
+              console.log("spd: " + character.spd);
             }
 
             break;
@@ -202,3 +222,5 @@ let gameManager = {
     this.createEnemy(chapter);
   }
 };
+
+console.log("Chapter: " + chapter);
