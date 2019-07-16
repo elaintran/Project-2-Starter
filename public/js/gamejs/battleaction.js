@@ -5,32 +5,8 @@
 //redirect user to CHAPTER SELECT PAGE
 
 //BATTLE ACTION PAGE
-function Enemy(hp, def, str, spd){
-  this.hp = hp;
-  this.def = def;
-  this.str = str;
-  this.spd = spd;
-}
 
-function Target(target, hitChance, bonus, reduceSpd) {
-  this.target = target;
-  this.hitChance = hitChance;
-  this.bonus = bonus;
-  this.reduceSpd = reduceSpd;
-}
-
-$(document).ready(function(){
-  //loads any saved chapters
-  // gameManager.loadChapt();
-  console.log("Chapter: " + chapter);
-  //loads chapter status and creates designated enemy
-  gameManager.setUpFight(chapter);
-  console.log('Enemy Strength: ' + enemy.str + " Enemy HP: " + enemy.hp);
-
-  //loads character data
-  // gameManager.loadChar();
-})
-
+/*Created for testing purposes: */
 character = {
   classType: "thief",
   hp: 1000,
@@ -39,58 +15,116 @@ character = {
   spd: 4
 }
 
-console.log("Character HP: " + character.hp + " Character Strength: " + character.str);
+console.log('character HP: ' + character.hp + "\ncharacter str: " + character.str + "\ncharacter def: " + character.def);
+/*End of created for testing purposes: */
+
 
 //random chance
-var chance = Math.floor();
-
+var chance = Math.random();
 var baseDmg;
 var enemySpd;
+var totalDmg;
+
+//Enemy constructor
+function Enemy(hp, def, str, spd){
+  this.hp = hp;
+  this.def = def;
+  this.str = str;
+  this.spd = spd;
+}
+
+//Target data constructor
+function Target(target, hitChance, bonus, reduceSpd) {
+  this.target = target;
+  this.hitChance = hitChance;
+  this.bonus = bonus;
+  this.reduceSpd = reduceSpd;
+}
 
 //what happens when the character attacks
 let charAtk = function(grabbedTarget){
+  console.log("CharAtk triggered. Grabbed target was: " + grabbedTarget);
+
   //if target = target clicked:
-  if(target.target === grabbedTarget){
+  if(grabbedTarget === target.target){
     //if chance falls within the hit chance:
+
+    console.log("What you rolled: " + chance + "\nHit Chance: " + target.hitChance);
+
     if(chance <= target.hitChance){
       //character's base damage will be char strength + target's additional bonus (added dmg for head/ no added dmg for body/legs)
+
       baseDmg = character.str + target.bonus;
+      totalDmg = baseDmg - enemy.def;
+
+      console.log("Base Damage: " + baseDmg);
 
       //enemy speed is reduced by target's assigne reduced speed (0 for head/body, -1 for legs)
       enemySpd -= target.reduceSpd;
     } else {
       //attack missed
-      baseDmg = 0;
+      totalDmg = 0;
+      console.log("Chance: " + chance);
+      console.log("Attack missed! Base damage was 0.");
     }
   }
 
   return baseDmg;
 }
 
+$(document).ready(function(){
+  //loads any saved chapters
+  // gameManager.loadChapt();
+
+  /*Created for testing purposes: */
+  console.log("Chapter: " + chapter);
+
+
+  //loads chapter status and creates designated enemy
+  gameManager.setUpFight(chapter);
+
+  /*Created for testing purposes: */
+  console.log('Enemy HP: ' + enemy.hp + "\nEnemy str: " + enemy.str + "\nEnemy def: " + enemy.def);
+
+  //loads character data
+  // gameManager.loadChar();
+})
+
 $('button').on('click', function(){
   //holds character/enemy base speeds prior to actions taken
   var charSpd = character.spd;
   var enemySpd = enemy.spd;
 
+  console.log("Character speed: " + charSpd);
+  console.log("Enemy base speed: " + enemy.spd);
+
   //clicking the target grabs the character's target and populates the target statistics
   grabbedTarget = $(this).attr('data-target');
+
+  console.log("Grabbed target: " + grabbedTarget);
+
   gameManager.pickTarget(grabbedTarget);
+  console.log("Target object created: " + target.target);
 
   if((charSpd > enemySpd) && (character.hp != 0) && (enemy.hp != 0)){
+
+    console.log("Your character attacked first!")
+
     charAtk(grabbedTarget);
 
-    let totalDmg = baseDmg - enemy.def;
     enemy.hp -= totalDmg;
 
-    console.log("Enemy hp: " + enemy.hp);
+    console.log("Enemy took a hit! Current enemy hp: " + enemy.hp);
 
     if(enemy.hp = 0){
       //do whatever you want to happen when you win
 
+      console.log("You defeated the enemy!")
+
       if(chapter < 3){
         //increase chapter 
         chapter += 1;
-        console.log("Chapter: " + chapter);
+        console.log("You've completed a chapter! New Chapter: " + chapter);
 
         // gameManager.saveChapt();
 
@@ -106,12 +140,14 @@ $('button').on('click', function(){
     let totalDmg = enemy.str - character.def;
     character.hp -= totalDmg;
 
-    console.log("character hp: " + character.hp)
+    console.log("character took a hit! Current hp: " + character.hp)
 
     if(character.hp = 0){
       //do whatever you want to happen when you lose
 
       //redirect to character select page or restart level
+
+      console.log("Character died.")
     }
   }
   

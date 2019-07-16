@@ -170,13 +170,13 @@ let gameManager = {
   pickTarget: function(grabbedTarget) {
     switch (grabbedTarget) {
       case "head": //lower hit chance, higher damage
-        target = new Target(target, 0.25, 100, 0);
+        target = new Target(grabbedTarget, 0.25, 100, 0);
         break;
       case "body": //higher hit chance, lower damage
-        target = new Target(target, 0.95, 0, 0);
+        target = new Target(grabbedTarget, 0.95, 0, 0);
         break;
       case "legs": //medium hit chance, lowers speed
-        target = new Target(target, 0.85, 0, 1);
+        target = new Target(grabbedTarget, 0.85, 0, 1);
         break;
     }
   },
