@@ -210,10 +210,10 @@ $(document).ready(function() {
         $(".character-image").attr("src", portrait);
         $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + secondStop);
         $(".character-stats").empty();
-        statsDisplay(stats, firstStop, secondStop);
+        statsDisplay(stats, firstStop, secondStop, false, []);
     }
 
-    function statsDisplay(characterStats, firstStop, secondStop) {
+    function statsDisplay(characterStats, firstStop, secondStop, statsDis, addStats) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("width", w).attr("height", h);
         //defs store graphical objects at a later time and are not rendered
@@ -234,6 +234,12 @@ $(document).ready(function() {
             .enter()
             .append("g")
             .classed("rect", true);
+
+        // var newNodes = svg.selectAll(".rect")
+        //     .data(addStats)
+        //     .enter()
+        //     .append("g")
+        //     .classed("rect", true);
 
         nodes.append("rect")
             //apply gradient
@@ -256,8 +262,31 @@ $(document).ready(function() {
             .attr("height", 10)
             .attr("rx", 5);
 
+        if (statsDis) {
+            nodes.append("rect")
+                .data(addStats)
+                //apply gradient
+                .attr("fill", firstStop)
+                //each rectangle starts at the 0 position
+                .attr("x", 0)
+                //moves each rectangle down
+                //i is the data point index
+                .attr("y", function(d, i) {
+                    return i * 47 + 20;
+                })
+                //width of the rectangle
+                //multiplied the data point to make it wider
+                .attr("width", function(d) {
+                    return (d.value / 40 * 100) + "%";
+                })
+                //defines the height of the rectangle
+                .attr("height", 10)
+                .attr("rx", 5);
+        }
+
         //creates rectangles for every index in the dataset
         nodes.append("rect")
+            // .data(characterStats)
             //apply gradient
             .classed("filled", true)
             //each rectangle starts at the 0 position
@@ -303,15 +332,17 @@ $(document).ready(function() {
             .text("\uf0da");
     }
 
-    var newCharacter = [];
+    var characterContainer = [];
     $(".character-stats").on("click", ".plus", function() {
-        newCharacter.push(characters[0]);
-        console.log(newCharacter);
-        //hp value
-        console.log(newCharacter[0].stats[0].value);
-        newCharacter[0].stats[0].value++;
+        for (var i = 0; i < characters[0].stats.length; i++) {
+            var characterStats = {};
+            characterStats.statName = characters[0].stats[i].statName;
+            characterStats.value = characters[0].stats[i].value;
+            characterContainer.push(characterStats);
+        }
+        characterContainer[0].value++;
         $(".character-stats").empty();
-        statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light);
+        statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light, true, characterContainer);
         //when the plus sign is clicked on
         //set base stats as variables
         //loop through the character object array
@@ -330,6 +361,7 @@ $(document).ready(function() {
     //need to set a conditional so that it does not go above 40
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
+    //need to display remaining stat points
 });
 
 //issues
