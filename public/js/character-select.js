@@ -181,6 +181,8 @@ $(document).ready(function () {
 
     var w = "100%";
     var h = 180;
+    var newCharacter = [];
+    var newStats = [];
 
     //need to write a constructor to reduce redundant code
     //display the first character and loop through and append all of the chibi ver.
@@ -205,6 +207,7 @@ $(document).ready(function () {
     });
 
     function characterSelect(name, characterClass, portrait, firstStop, secondStop, stats) {
+        newStats = [];
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
         $(".character-image").attr("src", portrait);
@@ -346,6 +349,7 @@ $(document).ready(function () {
             .text("\uf0da");
     }
 
+<<<<<<< HEAD
     var characterContainer = [];
     $(".character-stats").on("click", ".plus", function () {
         for (var i = 0; i < characters[0].stats.length; i++) {
@@ -357,6 +361,41 @@ $(document).ready(function () {
         characterContainer[0].value++;
         $(".character-stats").empty();
         statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light, true, characterContainer);
+=======
+    $(".character-stats").on("click", ".plus", function() {
+        //write a conditional to prevent pushing onto array again
+        for (var i = 0; i < characters.length; i++) {
+            //check if data attribute matches class here
+            //if it does, put these variables in an if statement
+            console.log(characters[0].class);
+            if ($(this).attr("data-class") === characters[i].class) {
+                var selectCharacter = {};
+                selectCharacter.name = characters[i].name;
+                selectCharacter.class = characters[i].class;
+                selectCharacter.colors = characters[i].colors;
+                // newCharacter.push(selectCharacter);
+                for (var j = 0; j < characters[i].stats.length; j++) {
+                    var characterStats = {};
+                    characterStats.statName = characters[i].stats[j].statName;
+                    characterStats.value = characters[i].stats[j].value;
+                    console.log(characters[i].stats[j].statName);
+                    selectCharacter.stats = characters[i].stats;
+                    newStats.push(characterStats);
+                }
+                newCharacter.push(selectCharacter);
+                //set stat distribution conditionals here
+                //gets the value of hp
+                //need to do the rest for the other stats
+                //testing override
+                console.log(newStats[0].value);
+                console.log(characters[0].stats[0].value);
+                console.log(newCharacter[0].stats[0].value);
+                newStats[0].value++;
+                $(".character-stats").empty();
+                statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
+            }
+        }
+>>>>>>> 99db278fd774e05e7ee81d2dc9726b80dc82e03c
         //when the plus sign is clicked on
         //set base stats as variables
         //loop through the character object array
