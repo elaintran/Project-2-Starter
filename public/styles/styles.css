@@ -92,6 +92,8 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.87);
   border-radius: 5px;
   margin: 0 3px;
+  width: 90px;
+  text-align: center;
 }
 
 .character-container:hover {
@@ -217,9 +219,12 @@ a:hover{
   font-weight: 500;
 }
 
+.marker-container:hover {
+  cursor: pointer;
+}
+
 .marker {
   background-color: #252525;
-  /* padding: 10% 20%; */
   padding: 10% 10px;
   border: 0.2vw solid #acacac;
 }
@@ -295,7 +300,7 @@ a:hover{
 .chapter-info {
   padding: 3% 4%;
   background-color: 252525;
-  border: 3px solid #acacac;
+  border: 0.2vw solid #acacac;
   margin: 30px 15px 3vw auto;
   color: #d7d7d7;
   letter-spacing: 0.5px;
@@ -331,7 +336,7 @@ a:hover{
 }
 
 .chapter-select {
-  border: 3px solid #acacac;
+  border: 0.2vw solid #acacac;
 }
 
 .chapter-select:hover {
