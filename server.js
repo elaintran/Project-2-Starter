@@ -1,38 +1,27 @@
 require("dotenv").config();
 var express = require("express");
-// var passport = require("passport");
+var session = require("express-session");
+var passport = require("./config/passport");
 
-
-var app = express();
 var PORT = process.env.PORT || 3000;
-
 var db = require("./models");
 
-
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+var app = express();
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Static directory
 app.use(express.static("public"));
-
 // Passport configuration
-// app.use(require("express-session")({
-//   secert: "rusty",
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/authRoutes")(app);
 
-var syncOptions = { force: true };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

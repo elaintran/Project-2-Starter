@@ -1,3 +1,9 @@
+/*  
+  ============================
+  CHARACTER SELECT STYLING
+  ============================
+*/
+
 body {
   font-family: "Work Sans", sans-serif;
   background-image: linear-gradient(#252525, #0e0e0e);
@@ -60,7 +66,7 @@ body {
   text-align: left;
 }
 
-.select-character {
+.select-character, .select {
   width: 100%;
   /* background-image: linear-gradient(to right, #94263a, #d24d5f); */
   border: 0;
@@ -108,7 +114,23 @@ body {
   fill: url(#mainGradient);
 }
 
-/* login page styling */
+
+/*  
+  ============================
+  LOGIN PAGE STYLING
+  ============================
+*/
+
+.plus:hover, .minus:hover {
+  cursor: pointer;
+}
+
+/* 
+  ============================
+  LOGIN & REGISTRATION STYLING
+  ============================
+*/
+
 form {
   padding-top:1%;
 	width: 300px;
@@ -121,12 +143,14 @@ form {
   width: 100%;
   color: white;
   border-radius: 20px;
+  padding: 6px 0;
 }
 
 .logintitle {
   padding-top: 10%;
   text-align: center;
   color: #d7d7d7;
+  font-size: 24px;
 }
 
 .text-muted{
@@ -146,6 +170,121 @@ form {
   box-shadow: none;
 }
 
+.logintext{
+  padding-top: 5%;
+}
+a{
+  color: #e8c892;
+}
+
+a:hover{
+  color: #e8c892;
+}
+
+/*  
+  ============================
+  STORY SELECT STYLING
+  ============================
+*/
+.logo {
+  position: absolute;
+  width: 300px;
+  top: 30px;
+  left: 75px;
+}
+
+.menu-screen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.map {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.map-bg {
+  background: url("../images/resource-images/background/map2.png");
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  /* background-size: contain; */
+}
+
+/* .map-markers {
+  position: absolute;
+} */
+
+.marker {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  text-transform: uppercase;
+  color: #e8c892;
+  font-weight: 500;
+  background-color: 252525;
+  padding: 5px 13px;
+  font-size: 12px;
+  border: 2px solid #acacac;
+}
+
+.marker p {
+  margin-bottom: 0;
+}
+
+.user-menu {
+  position: absolute;
+}
+
+.username {
+  text-align: right;
+  margin-right: 15px;
+}
+
+.chapter-info {
+  padding: 30px 50px;
+  background-color: 252525;
+  border: 3px solid #acacac;
+  margin: 30px 15px 30px auto;
+  color: #d7d7d7;
+  letter-spacing: 0.5px;
+  width: 400px;
+}
+
+.chapter-info h6 {
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.chapter-info p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.chapter-number {
+  text-transform: uppercase;
+  color: #e8c892;
+}
+
+.select {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
+}
+
+.chapter-select {
+  border: 3px solid #acacac;
+}
+
+.chapter-select:hover {
+  cursor: pointer;
+}
+
 /*  
   ============================
   CHARACTER ENCOUNTER STYLING
@@ -153,16 +292,25 @@ form {
 */
 
 body.encounter-screen {
-  background: url(../images/resource-images/encounter/bg-forest.jpg) no-repeat top #14150f;
+  background: url(../images/resource-images/encounter/bg-castle.jpg) no-repeat top #14150f;
   background-size: contain;
 }
 
+.foreground {
+  background: url(../images/resource-images/encounter/fg-castle.png) no-repeat bottom transparent;
+  background-size: contain;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 43.98vw;
+}
+
 .page-wrapper {
-  width: 100vw;
-  height: 56.25vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
+  width: 100%;
+  height: 45.78vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
   /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr;
 }
 
 .attack-prompts {
@@ -172,11 +320,17 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-bottom: 7vw;
+  padding-bottom: 8vw;
 }
 
 .player-sprite, .enemy-sprite {
   height: 15vw;
+  position: relative;
+  z-index: 10;
+}
+
+.enemy-sprite:hover {
+  cursor: pointer;
 }
 
 .player-action-grid {
@@ -188,11 +342,40 @@ body.encounter-screen {
   bottom: 5vw;
   width: 22vw;
   height: 19vw;
+  /* Hide action items until we write code for them */
+  display: none;
 }
 
 .attack {
   grid-column: 6 / 8;
   grid-row: 1 / 3;
+  position: relative;
+}
+
+.attack::after, .items::after, .flee::after {
+  position: absolute;
+  background-color: #0006;
+  top: -1vw;
+  font-size: 1vw;
+  font-weight: 500;
+  opacity: 0;
+  transition: all 75ms ease;
+  z-index: 10;
+  padding: 0.6vw;
+  border-radius: 0.3vw;
+  color: #eee;
+  transform: translateY(-100%);
+  font-family: 'Work Sans', sans-serif;
+}
+
+.attack::after {
+  content: 'Attack';
+  left: 50%;
+  margin-left: -2.2vw;
+}
+
+.attack:hover::after, .items:hover::after, .flee:hover::after {
+  opacity: 1;
 }
 
 .items {
@@ -200,6 +383,13 @@ body.encounter-screen {
   grid-row: 2 / 5;
   align-self: center;
   padding-left: 0.5vw;
+  position: relative;
+}
+
+.items::after {
+  content: 'Items';
+  left: 39%;
+  margin-left: -2.2vw;
 }
 
 .flee {
@@ -207,6 +397,14 @@ body.encounter-screen {
   grid-row: 4 / 7;
   align-self: end;
   justify-self: center;
+  position: relative;
+}
+
+.flee::after {
+  content: 'Flee';
+  background-color: #0006;
+  left: 39%;
+  margin-left: -0.85vw;
 }
 
 .player-action-grid img {
@@ -226,6 +424,13 @@ body.encounter-screen {
   position: relative;
 }
 
+.shadow {
+  position: absolute;
+  bottom: -1.75vw;
+  z-index: 1;
+  width: 100%;
+}
+
 .attack-area-popups {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -241,11 +446,22 @@ body.encounter-screen {
   font-family: 'Work Sans', sans-serif;
 }
 
+.attack-area-popups a {
+  color: #eee;
+  text-decoration: none;
+  position: relative;
+}
+
 .attack-head, .attack-body, .attack-legs {
   background-color: #0006;
   padding: 1vw;
   border: 0;
   border-radius: 0.3vw;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  position: relative;
+  top: 0;
+  left: -1vw;
 }
 
 .attack-head {
@@ -284,6 +500,7 @@ body.encounter-screen {
 .character-info-grid {
   display: grid;
   grid-template-columns: auto repeat(3, 2fr) auto;
+  background-image: linear-gradient(180deg, #000a, transparent);
 }
 
 .player-avatar img, .enemy-avatar img {
@@ -313,11 +530,13 @@ body.encounter-screen {
   text-transform: uppercase;
   font-size: 1.45vw;
   margin-bottom: 0.25vw;
+  font-weight: 600;
 }
 
 .hit-points h5 {
   line-height: 1.5;
   font-size: 1.1vw;
+  font-weight: 600;
 }
 
 .player-stats .hit-points h5 {
@@ -328,7 +547,7 @@ body.encounter-screen {
   float: right;
 }
 .health-bar {
-  width: 22vw;
+  width: 21.8vw;
   height: 1.4vw;
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
   border-radius: 0.7vw;
@@ -356,6 +575,7 @@ body.encounter-screen {
   height: 2vw;
   float: left;
   padding: 0.3vw 0.7vw 0 0;
+  display: none;
 }
 
 .enemy-avatar {
@@ -365,4 +585,64 @@ body.encounter-screen {
 
 .enemy-name {
   justify-self: end;
+}
+
+.enemy-testing {
+  position: relative;
+}
+
+/*  
+  ============================
+  404 ERROR STYLING
+  ============================
+*/
+.error-info {
+  height: 200px;
+  width: 500px;
+}
+
+.notfound{
+  font-size: 32px;
+  padding-top: 15%;
+  color: #d24d5f;
+}
+
+.errortext{
+  padding-top: 5%;
+  color:#d7d7d7;
+  font-size: 17px;
+}
+/*  
+  ============================
+  NAV BAR STYLING
+  ============================
+*/
+.bg-dark{
+  background-color: transparent!important;
+}
+
+/*  
+  ============================
+  MODAL STYLING
+  ============================
+*/
+.modal-title{
+  color:#d7d7d7;
+  font-family: "Work Sans", sans-serif;
+  
+}
+
+.modal-header{
+  background-image: linear-gradient(#252525, #0e0e0e);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.modal-body{
+  color:#252525;
+  font-family: "Work Sans", sans-serif;
+}
+.btn-primary{
+  background-image: linear-gradient(90deg, #94263a, #d24e5f);
+  border: none;
+  
 }

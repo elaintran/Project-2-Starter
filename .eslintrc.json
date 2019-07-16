@@ -3,7 +3,8 @@
         "browser": true,
         "commonjs": true,
         "node": true,
-        "mocha": true
+        "mocha": true,
+        "es6": true
     },
     "rules": {
         "no-duplicate-case": "error",
@@ -19,10 +20,6 @@
         "no-multi-spaces": "error",
         "no-unused-vars": "error",
         "camelcase": "error",
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
         "quotes": [
             "error",
             "double"
