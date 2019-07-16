@@ -277,20 +277,34 @@ $(document).ready(function() {
             .attr("rx", 5);
 
         nodes.append("text")
-            .text(function(d) {
-                return d.statName;
-            })
+            .attr("class", "stat-name")
             .style("fill", "white")
             .style("font-size", "12px")
-            .style("font-weight", 500)
-            .style("letter-spacing", "0.5px")
+            .append("tspan")
+            .attr("class", "fas minus")
+            .text("\uf0d9")
             .attr("y", function(d, i) {
                 return i * 47 + 10;
             });
+
+        nodes.select(".stat-name")
+            .append("tspan")
+            .text(function(d) {
+                return d.statName;
+            })
+            .attr("dx", 10)
+            .style("font-weight", 500)
+            .style("letter-spacing", "0.5px");
+
+        nodes.select(".stat-name")
+            .append("tspan")
+            .attr("class", "fas plus")
+            .attr("dx", 10)
+            .text("\uf0da");
     }
 
     var newCharacter = [];
-    $(".plus").on("click", function() {
+    $(".character-stats").on("click", ".plus", function() {
         newCharacter.push(characters[0]);
         console.log(newCharacter);
         //hp value
@@ -299,6 +313,7 @@ $(document).ready(function() {
         $(".character-stats").empty();
         statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light);
         //when the plus sign is clicked on
+        //set base stats as variables
         //loop through the character object array
         //find the data attribute for class
         //if data attribute for class = characters[i].class
@@ -311,6 +326,8 @@ $(document).ready(function() {
         //to update stats
     });
     //if click on new character, need to reset the value
+    //need to set a conditional so that it does not go below the base stat
+    //need to set a conditional so that it does not go above 40
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
 });
