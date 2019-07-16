@@ -210,10 +210,9 @@ $(document).ready(function () {
         $(".character-image").attr("src", portrait);
         $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + secondStop);
         $(".character-stats").empty();
-        statsDisplay(stats, characterClass, firstStop, secondStop, false, []);
+        statsDisplay(stats, firstStop, secondStop, false, []);
     }
 
-<<<<<<< HEAD
     $("#selectCharacter").on("click", function () {
         console.log("this button has been clicked");
         console.log($(this).attr("data-class"));
@@ -229,9 +228,6 @@ $(document).ready(function () {
 
 
     function statsDisplay(characterStats, firstStop, secondStop) {
-=======
-    function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
->>>>>>> ad94debeb3d8c6fc253e807bd8e1745fa13980a8
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("width", w).attr("height", h);
         //defs store graphical objects at a later time and are not rendered
@@ -324,25 +320,13 @@ $(document).ready(function () {
             .attr("rx", 5);
 
         nodes.append("text")
-<<<<<<< HEAD
-            .text(function (d) {
-                return d.statName;
-            })
-            .style("fill", "white")
-            .style("font-size", "12px")
-            .style("font-weight", 500)
-            .style("letter-spacing", "0.5px")
-            .attr("y", function (d, i) {
-=======
             .attr("class", "stat-name")
             .style("fill", "white")
             .style("font-size", "12px")
             .append("tspan")
             .attr("class", "fas minus")
-            .attr("data-class", characterClass)
             .text("\uf0d9")
-            .attr("y", function(d, i) {
->>>>>>> origin
+            .attr("y", function (d, i) {
                 return i * 47 + 10;
             });
 
@@ -358,12 +342,10 @@ $(document).ready(function () {
         nodes.select(".stat-name")
             .append("tspan")
             .attr("class", "fas plus")
-            .attr("data-class", characterClass)
             .attr("dx", 10)
             .text("\uf0da");
     }
 
-<<<<<<< HEAD
     var characterContainer = [];
     $(".character-stats").on("click", ".plus", function () {
         for (var i = 0; i < characters[0].stats.length; i++) {
@@ -371,43 +353,10 @@ $(document).ready(function () {
             characterStats.statName = characters[0].stats[i].statName;
             characterStats.value = characters[0].stats[i].value;
             characterContainer.push(characterStats);
-=======
-    var newCharacter = [];
-    var newStats = [];
-    $(".character-stats").on("click", ".plus", function() {
-        //write a conditional to prevent pushing onto array again
-        for (var i = 0; i < characters.length; i++) {
-            //check if data attribute matches class here
-            //if it does, put these variables in an if statement
-            console.log(characters[0].class);
-            if ($(this).attr("data-class") === characters[i].class) {
-                var selectCharacter = {};
-                selectCharacter.name = characters[i].name;
-                selectCharacter.class = characters[i].class;
-                selectCharacter.colors = characters[i].colors;
-                // newCharacter.push(selectCharacter);
-                for (var j = 0; j < characters[i].stats.length; j++) {
-                    var characterStats = {};
-                    characterStats.statName = characters[i].stats[j].statName;
-                    characterStats.value = characters[i].stats[j].value;
-                    console.log(characters[i].stats[j].statName);
-                    selectCharacter.stats = characters[i].stats;
-                    newStats.push(characterStats);
-                }
-                newCharacter.push(selectCharacter);
-            }
->>>>>>> ad94debeb3d8c6fc253e807bd8e1745fa13980a8
         }
-        //set stat distribution conditionals here
-        //gets the value of hp
-        //need to do the rest for the other stats
-        newStats[0].value++;
-        //testing override
-        console.log(newStats[0].value);
-        console.log(characters[0].stats[0].value);
-        console.log(newCharacter[0].stats[0].value);
+        characterContainer[0].value++;
         $(".character-stats").empty();
-        statsDisplay(newCharacter[0].stats, newCharacter[0].class, newCharacter[0].colors.dark, newCharacter[0].colors.light, true, newStats);
+        statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light, true, characterContainer);
         //when the plus sign is clicked on
         //set base stats as variables
         //loop through the character object array
