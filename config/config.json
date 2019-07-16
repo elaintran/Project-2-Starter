@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Utsawebdev2019!",
+    "password": null,
     "database": "fire_emblem_db",
     "host": "localhost",
     "dialect": "mysql"
