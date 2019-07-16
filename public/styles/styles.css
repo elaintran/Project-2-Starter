@@ -115,12 +115,6 @@ body {
 }
 
 
-/*  
-  ============================
-  LOGIN PAGE STYLING
-  ============================
-*/
-
 .plus:hover, .minus:hover {
   cursor: pointer;
 }
@@ -619,7 +613,6 @@ body.encounter-screen {
 .modal-title{
   color:#d7d7d7;
   font-family: "Work Sans", sans-serif;
-  
 }
 
 .modal-header{
@@ -635,4 +628,10 @@ body.encounter-screen {
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
   border: none;
   
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
