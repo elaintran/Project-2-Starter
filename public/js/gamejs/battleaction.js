@@ -24,6 +24,8 @@ var chance = Math.random();
 var baseDmg;
 var enemySpd;
 var totalDmg;
+var charSpd;
+var enemySpd;
 
 //Enemy constructor
 function Enemy(hp, def, str, spd){
@@ -44,6 +46,8 @@ function Target(target, hitChance, bonus, reduceSpd) {
 //what happens when the character attacks
 let charAtk = function(grabbedTarget){
   console.log("CharAtk triggered. Grabbed target was: " + grabbedTarget);
+
+  console.log("Your target should the " + target.target);
 
   //if target = target clicked:
   if(grabbedTarget === target.target){
@@ -77,34 +81,33 @@ $(document).ready(function(){
   // gameManager.loadChapt();
 
   /*Created for testing purposes: */
-  console.log("Chapter: " + chapter);
+  console.log("Current chapter: " + chapter);
 
 
   //loads chapter status and creates designated enemy
   gameManager.setUpFight(chapter);
 
   /*Created for testing purposes: */
-  console.log('Enemy HP: ' + enemy.hp + "\nEnemy str: " + enemy.str + "\nEnemy def: " + enemy.def);
+  console.log('Enemy with an HP of: ' + enemy.hp + ' has been created!');
 
+  //holds character/enemy base speeds prior to actions taken
+  charSpd = character.spd;
+  enemySpd = enemy.spd;
   //loads character data
   // gameManager.loadChar();
 })
 
 $('button').on('click', function(){
-  //holds character/enemy base speeds prior to actions taken
-  var charSpd = character.spd;
-  var enemySpd = enemy.spd;
-
-  console.log("Character speed: " + charSpd);
-  console.log("Enemy base speed: " + enemy.spd);
-
   //clicking the target grabs the character's target and populates the target statistics
   grabbedTarget = $(this).attr('data-target');
 
-  console.log("Grabbed target: " + grabbedTarget);
+  console.log("You've clicked on the " + grabbedTarget + " target!");
 
   gameManager.pickTarget(grabbedTarget);
   console.log("Target object created: " + target.target);
+
+  console.log("Character speed: " + charSpd);
+  console.log("Enemy base speed: " + enemy.spd);
 
   if((charSpd > enemySpd) && (character.hp != 0) && (enemy.hp != 0)){
 
