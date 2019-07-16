@@ -46,5 +46,5 @@ $(document).ready(function() {
                 $(".chapter-description").text(chapters[i].description);
             }
         }
-    })
+    });
 });
