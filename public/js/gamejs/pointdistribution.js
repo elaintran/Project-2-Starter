@@ -14,17 +14,12 @@ $(".def-display").text("DEF: " + character.def);
 $(".str-display").text("STR: " + character.str);
 $(".spd-display").text("SPD: " + character.spd);
 
-var baseHp = character.hp;
-var baseDef = character.def;
-var baseStr = character.str;
-var baseSpd = character.spd;
+var baseHp = character.hp; // eslint-disable-line no-unused-vars
+var baseDef = character.def; // eslint-disable-line no-unused-vars
+var baseStr = character.str; // eslint-disable-line no-unused-vars
+var baseSpd = character.spd; // eslint-disable-line no-unused-vars
 
 $(document).ready(function() {
-  console.log("Saved Base HP: " + baseHp);
-  console.log("Saved Base Def: " + baseDef);
-  console.log("Saved Base Str: " + baseStr);
-  console.log("Saved Base Spd: " + baseSpd);
-
   //listen for "add/sub" class and distribute skill points
   gameManager.customChar(character);
 

@@ -4,7 +4,7 @@ let enemy;
 // let target;
 
 //keeps track of which chapter user is on
-let chapter = 1;
+let chapter = 1; // eslint-disable-line no-unused-vars
 
 //Enemy constructor
 function Enemy(hp, def, str, spd){
@@ -22,7 +22,7 @@ function Target(target, hitChance, bonus, reduceSpd) {
   this.reduceSpd = reduceSpd;
 }
 
-let gameManager = {
+let gameManager = {// eslint-disable-line no-unused-vars
   charSelect: function(classType) {
     this.createChar(classType);
     // this.saveChar();
@@ -223,4 +223,3 @@ let gameManager = {
   }
 };
 
-console.log("Chapter: " + chapter);
