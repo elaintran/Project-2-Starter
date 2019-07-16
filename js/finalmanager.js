@@ -222,15 +222,33 @@ $('.confirm-btn').on("click", function(){
 //CHAPTER SELECT PAGE
 //default chapter select page has all three chapters incomplete, chapter two and three locked
 
-//clicking the chapter button sets the chapter variable to that stage (ie. if chapter one button id = 1, it will set the chapter to 1 upon selection/render data stored for chapter 1)
-$(this).on("click", function(){
-  var stage = $(this).attr("id");
-  chapter = stage;
+//clicking the chapter button redirects user to that chapter's attack page and sets the chapter variable to that stage (ie. if chapter one button id = 1, it will set the chapter to 1 upon selection/render data stored for chapter 1) 
+// $(this).on("click", function(){
+  // var stage = $(this).attr("id");
+  // chapter = stage;
 
-  //saves chapter data
-  gameManager.saveChapt();
+  // //saves chapter data
+  // gameManager.saveChapt();
 
   //redirects user to the battle action page
+// })
+
+//by default, chapter two and three buttons are disabled 
+document.onload(){
+  switch (chapter){
+    case 2:
+      $('#chapter-one-btn').disable();
+      $('#chapter-two-btn').enable();
+      break;
+
+    case 3:
+      $('#chapter-two-btn').disable();
+      $('#chapter-three-btn').enable();
+  }
+}
+
+$('.btn').on("click", function(){
+  //redirect user to Battle Action Page
 })
 
 //BATTLE ACTION PAGE
@@ -262,6 +280,9 @@ let enemyTarget = function(){
 };
 
 document.onload = function(){
+  //loads any saved chapters
+  gameManager.loadChapt();
+
   //loads chapter status and creates designated enemy
   gameManager.setUpFight(chapter);
 
@@ -341,7 +362,18 @@ $(this).on('click', function(){
     if(enemy.hp = 0){
       //do whatever you want to happen when you win
 
+      if(chapter < 3){
+        //increase chapter 
+        chapter += 1;
+
+        gameManager.saveChapt();
+
       //redirect to point distribution page
+
+      } else {
+        //whatever happens when you beat the game
+
+      }
     }
 
   } else if ((enemySpd > charSpd) && (character.hp != 0) && (enemy.hp != 0)) {
@@ -360,3 +392,6 @@ $(this).on('click', function(){
 })
 
 //POINT DISTRIBUTION PAGE
+//CHAPTER SELECT PAGE
+//BATTLE ACTION PAGE
+//WINNER'S PAGE
