@@ -7,6 +7,22 @@ let target;
 //keeps track of which chapter user is on
 let chapter = 1;
 
+//Enemy constructor
+function Enemy(hp, def, str, spd){
+  this.hp = hp;
+  this.def = def;
+  this.str = str;
+  this.spd = spd;
+}
+
+//Target data constructor
+function Target(target, hitChance, bonus, reduceSpd) {
+  this.target = target;
+  this.hitChance = hitChance;
+  this.bonus = bonus;
+  this.reduceSpd = reduceSpd;
+}
+
 let gameManager = {
   charSelect: function(classType) {
     this.createChar(classType);

@@ -13,9 +13,9 @@ character = {
   def: 200,
   str: 300,
   spd: 4
-}
+};
 
-console.log('character HP: ' + character.hp + "\ncharacter str: " + character.str + "\ncharacter def: " + character.def);
+console.log("character HP: " + character.hp + "\ncharacter str: " + character.str + "\ncharacter def: " + character.def);
 /*End of created for testing purposes: */
 
 
