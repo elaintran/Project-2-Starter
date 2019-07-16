@@ -209,7 +209,7 @@ $(document).ready(function () {
         }
     });
 
-    function characterSelect(name, characterClass, portrait, firstStop, secondStop, stats, index) {
+    function characterSelect(name, characterClass, portrait, firstStop, secondStop, stats) {
         newStats = [];
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
