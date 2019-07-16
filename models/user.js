@@ -28,11 +28,5 @@ module.exports = function (sequelize, DataTypes) {
     User.addHook("beforeCreate", function (user) {
         user.userPassword = bcrypt.hashSync(user.userPassword, bcrypt.genSaltSync(10), null);
     });
-
-    User.associate = function (models) {
-        User.hasOne(models.Main, {
-            onDelete: "cascade"
-        });
-    };
     return User;
 };

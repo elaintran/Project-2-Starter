@@ -45,7 +45,7 @@ module.exports = function (app) {
   );
 
   app.get("*", (req, res) =>
-    res.render("404")
+    res.sendFile(path.join(__dirname, "../public/404.html"))
   );
 
   // app.post("/register", (req, res) => {
