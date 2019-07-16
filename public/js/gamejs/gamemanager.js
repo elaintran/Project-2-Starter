@@ -1,7 +1,7 @@
 
 let skillPoints = 4;
 let enemy;
-// let target;
+let target; // eslint-disable-line no-unused-vars
 
 //keeps track of which chapter user is on
 let chapter = 1; // eslint-disable-line no-unused-vars

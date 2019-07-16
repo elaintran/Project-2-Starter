@@ -19,16 +19,16 @@ $(document).ready(function(){
   $("button").on("click", function(){
     $("#chapter-two-btn").removeAttr("disabled");
 
-  })
+  });
   switch (chapter){
     case 2:
-      console.log("Chapter 2 selected")
+      console.log("Chapter 2 selected");
       $("#chapter-one-btn").attr("disabled", "disabled");
       $("#chapter-two-btn").removeAttr("disabled");
       break;
 
     case 3:
-      console.log("Chapter 3 selected")
+      console.log("Chapter 3 selected");
       $("#chapter-two-btn").attr("disabled", "disabled");
       $("#chapter-three-btn").removeAttr("disabled");
   }
@@ -36,4 +36,4 @@ $(document).ready(function(){
 
 $(".btn").on("click", function(){
   //redirect user to Battle Action Page
-})
+});
