@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,130 +8,127 @@
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery.js"></script>
 
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans: 400,500,600,700&display=swap" rel="stylesheet">
+    <div class="character-name">
+        <h3>Green Mage</h3>
+    </div>
+    <h5>HP</h5>
+    <span class="health-bar">100</span>
+    </div>
+    <div class="item-bar">
+        <img src="./images/resource-images/items/potion.png" alt="health potion">
+        <img src="./images/resource-images/items/potion.png" alt="health potion">
+    </div>
+    </div>
+    </div>
 
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="styles/reset.css">
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-</head>
-<body class="encounter-screen">
-   <div class="page-wrapper">
-        <div class="character-info-grid">
-                <div class="player-avatar">
-                     <img src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
+    <div></div> <!-- Empty cell between characters -->
+
+    <!-- ENEMY INFO / STATS -->
+
+    <div class="enemy-stats">
+        <div class="stats-container">
+            <div class="enemy-name">
+                <h3>Red Knight</h3>
+            </div>
+            <div class="hit-points">
+                <h5>HP</h5>
+                <span class="health-bar">100</span>
+            </div>
+            <div class="item-bar">
+            </div>
+        </div>
+    </div>
+    <div class="enemy-avatar">
+        <img src="./images/resource-images/encounter/enemy-portrait.png" alt="enemy avatar">
+    </div>
+    </div>
+    <div class="character-grid">
+
+        <!-- PLAYER SPRITE -->
+
+        <div class="player-character">
+            <div class="player-action-grid">
+                <div class="attack" data-tooltip="Attack">
+                    <img src="./images/resource-images/encounter/player-attack.png" data-action="attack"
+                        alt="attack the enemy">
                 </div>
-                <div class="player-stats">
-                    <div class="stats-container">
-                        <div class="character-name">
-                            <h3>Green Mage</h3>
-                        </div>
-                        <div class="hit-points">
-                            <h5>HP</h5>
-                            <span class="health-bar">100</span>
-                        </div>
-                        <div class="item-bar">
-                            <img src="./images/resource-images/items/potion.png" alt="health potion">
-                            <img src="./images/resource-images/items/potion.png" alt="health potion">
-                        </div>
-                    </div>
+                <div class="items">
+                    <img src="./images/resource-images/encounter/player-items.png" data-action="useItem"
+                        alt="use an item">
                 </div>
-                
-                <div></div> <!-- Empty cell between characters -->
-     
-                <!-- ENEMY INFO / STATS -->
-     
-                <div class="enemy-stats">
-                     <div class="stats-container">
-                         <div class="enemy-name">
-                             <h3>Red Knight</h3>
-                         </div>
-                         <div class="hit-points">
-                             <h5>HP</h5>
-                             <span class="health-bar">100</span>
-                         </div>
-                         <div class="item-bar">
-                         </div>
-                     </div>
-                </div>
-                <div class="enemy-avatar">
-                    <img src="./images/resource-images/encounter/enemy-portrait.png" alt="enemy avatar">
+                <div class="flee">
+                    <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
                 </div>
             </div>
-       <div class="character-grid">
+            <img class="player-sprite" src="./images/resource-images/chibi/mage-green.png" alt="player character">
+            <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+        </div>
 
-            <!-- PLAYER SPRITE -->
+        <!-- ENEMY SPRITE -->
 
-           <div class="player-character">
-               <div class="player-action-grid">
-                   <div class="attack" data-tooltip="Attack">
-                       <img src="./images/resource-images/encounter/player-attack.png" data-action="attack" alt="attack the enemy">
-                   </div>
-                   <div class="items">
-                       <img src="./images/resource-images/encounter/player-items.png" data-action="useItem" alt="use an item">
-                   </div>
-                   <div class="flee">
-                       <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
-                   </div>
-               </div>
-               <img class="player-sprite" src="./images/resource-images/chibi/mage-green.png" alt="player character">
-               <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
-           </div>
-
-           <!-- ENEMY SPRITE -->
-
-           <div class="enemy-character">
-                <div class="attack-area-popups">
-                    <a href="#" class="attack-head" data-target="body">
-                        <div>
-                            <h4>Head</h4>
-                            <p class="attack-info">Low Defense</p>
-                            <p class="attack-info">High Evasion</p>
-                        </div>
-                    </a>
-                    <a href="#" class="attack-body" data-target="body">
-                        <div>
-                            <h4>Body</h4>
-                            <p class="attack-info">High Defense</p>
-                            <p class="attack-info">Low Evasion</p>
-                        </div>
-                    </a>
-                    <a href="#" class="attack-legs" data-target="body">
-                        <div>
-                            <h4>Legs</h4>
-                            <p class="attack-info">Low Defense</p>
-                            <p class="attack-info">High Evasion</p>
-                        </div>
-                    </a>
-                </div>
-                <svg class="enemy-sprite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 169 179.19">
-                    <defs>
-                        <style>.cls-1{fill:transparent;fill-rule:evenodd;}</style>
-                    </defs>
-                    <title>knight-red</title>
-                    <g id="Layer2" data-name="Layer 2">
-                        <g id="knight">
-                            <image width="169" height="179" transform="matrix(-1, 0, 0, 1, 169, 0.19)" xlink:href="./images/resource-images/chibi/knight-sword-red.png"/>
-                        </g>
-                        <g id="knight_legs" data-part="legs">
-                            <path class="cls-1" d="M149.78,128.41c-.29,35.94-18.94,13.32-33,28h-2c.69,9.43,2.89,14.47-1,21-14.91-1.11-43.52,2.74-56-3,4.19-8.15,1.53-31.73,4-46Z"/>
-                        </g>
-                        <g id="knight_body" data-part="body">
-                            <path class="cls-1" d="M31.78,44.41l16,8,19,1c.21,11.83,6.83,14.42,13,20,17.62-3.8,26.67-19.32,45-22l2,1c.75,11.23,9.46,11.47,13,20l4,19h1l22,13c-9.25,10.73-14.26,7-17,24h-87v1l-7,17c-6.13,10.63-13.56,22.45-22,31l-5-4c-16.12-35.42-42-63.85-19-113C17.05,61.27,26.9,49.77,31.78,44.41Z"/>
-                        </g>
-                        <g id="knight_head" data-part="head">
-                            <path class="cls-1" d="M69,1.41c12-.33,49.67-4.4,55,3,3.89,9,.34,39.11-3,45-7.21,9-30.75,21.26-43,24-13.44-12.52-28-41.65-20-71Z"/>
-                        </g>
+        <div class="enemy-character">
+            <div class="attack-area-popups">
+                <a href="#" class="attack-head" data-target="body">
+                    <div>
+                        <h4>Head</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
+                </a>
+                <a href="#" class="attack-body" data-target="body">
+                    <div>
+                        <h4>Body</h4>
+                        <p class="attack-info">High Defense</p>
+                        <p class="attack-info">Low Evasion</p>
+                    </div>
+                </a>
+                <a href="#" class="attack-legs" data-target="body">
+                    <div>
+                        <h4>Legs</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
+                </a>
+            </div>
+            <svg class="enemy-sprite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 169 179.19">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: transparent;
+                            fill-rule: evenodd;
+                        }
+                    </style>
+                </defs>
+                <title>knight-red</title>
+                <g id="Layer2" data-name="Layer 2">
+                    <g id="knight">
+                        <image width="169" height="179" transform="matrix(-1, 0, 0, 1, 169, 0.19)"
+                            xlink:href="./images/resource-images/chibi/knight-sword-red.png" />
                     </g>
-                </svg>
-                <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
-           </div>
-       </div>
+                    <g id="knight_legs" data-part="legs">
+                        <path class="cls-1"
+                            d="M149.78,128.41c-.29,35.94-18.94,13.32-33,28h-2c.69,9.43,2.89,14.47-1,21-14.91-1.11-43.52,2.74-56-3,4.19-8.15,1.53-31.73,4-46Z" />
+                    </g>
+                    <g id="knight_body" data-part="body">
+                        <path class="cls-1"
+                            d="M31.78,44.41l16,8,19,1c.21,11.83,6.83,14.42,13,20,17.62-3.8,26.67-19.32,45-22l2,1c.75,11.23,9.46,11.47,13,20l4,19h1l22,13c-9.25,10.73-14.26,7-17,24h-87v1l-7,17c-6.13,10.63-13.56,22.45-22,31l-5-4c-16.12-35.42-42-63.85-19-113C17.05,61.27,26.9,49.77,31.78,44.41Z" />
+                    </g>
+                    <g id="knight_head" data-part="head">
+                        <path class="cls-1"
+                            d="M69,1.41c12-.33,49.67-4.4,55,3,3.89,9,.34,39.11-3,45-7.21,9-30.75,21.26-43,24-13.44-12.52-28-41.65-20-71Z" />
+                    </g>
+                </g>
+            </svg>
+            <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+        </div>
+    </div>
 
-       <!-- PLAYER INFO / STATS -->
-       <!-- <div class="attack-prompts"></div> -->
-       
-   </div>
-   <script src="./js/character-encounter.js" type="text/javascript"></script>
-</body>
+    <!-- PLAYER INFO / STATS -->
+    <!-- <div class="attack-prompts"></div> -->
+
+    </div>
+    <script src="./js/character-encounter.js" type="text/javascript"></script>
+    </body>
+
 </html>
