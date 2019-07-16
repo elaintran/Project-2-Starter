@@ -32,7 +32,7 @@ $(document).ready(function(){
       $("#chapter-two-btn").attr("disabled", "disabled");
       $("#chapter-three-btn").removeAttr("disabled");
   }
-})
+});
 
 $(".btn").on("click", function(){
   //redirect user to Battle Action Page
