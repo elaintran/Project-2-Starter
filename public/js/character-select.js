@@ -213,7 +213,7 @@ $(document).ready(function () {
         $(".character-image").attr("src", portrait);
         $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + secondStop);
         $(".character-stats").empty();
-        statsDisplay(stats, firstStop, secondStop, false, []);
+        statsDisplay(stats, characterClass, firstStop, secondStop, false, []);
     }
 
     $("#selectCharacter").on("click", function () {
@@ -230,7 +230,7 @@ $(document).ready(function () {
     });
 
 
-    function statsDisplay(characterStats, firstStop, secondStop) {
+    function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("width", w).attr("height", h);
         //defs store graphical objects at a later time and are not rendered
@@ -328,6 +328,7 @@ $(document).ready(function () {
             .style("font-size", "12px")
             .append("tspan")
             .attr("class", "fas minus")
+            .attr("data-class", characterClass)
             .text("\uf0d9")
             .attr("y", function (d, i) {
                 return i * 47 + 10;
@@ -345,6 +346,7 @@ $(document).ready(function () {
         nodes.select(".stat-name")
             .append("tspan")
             .attr("class", "fas plus")
+            .attr("data-class", characterClass)
             .attr("dx", 10)
             .text("\uf0da");
     }
@@ -354,7 +356,7 @@ $(document).ready(function () {
         for (var i = 0; i < characters.length; i++) {
             //check if data attribute matches class here
             //if it does, put these variables in an if statement
-            console.log(characters[0].class);
+            // console.log(characters[0].class);
             if ($(this).attr("data-class") === characters[i].class) {
                 var selectCharacter = {};
                 selectCharacter.name = characters[i].name;
