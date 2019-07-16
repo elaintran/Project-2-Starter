@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*  
   ============================
   CHARACTER SELECT STYLING
@@ -115,20 +115,19 @@ body {
   fill: url(#mainGradient);
 }
 
-<<<<<<< HEAD
 /*  
   ============================
   LOGIN & REGISTRATION STYLING
   ============================
 */
 
-=======
+
 .plus:hover, .minus:hover {
   cursor: pointer;
 }
 
 /* login page styling */
->>>>>>> origin
+
 form {
   padding-top:1%;
 	width: 300px;
@@ -542,7 +541,7 @@ body.encounter-screen {
 */
 .bg-dark{
   background-color: transparent!important;
-=======
+}
 body {
   font-family: "Work Sans", sans-serif;
   background-image: linear-gradient(#252525, #0e0e0e);
@@ -1060,5 +1059,4 @@ body.encounter-screen {
 
 .enemy-testing {
   position: relative;
->>>>>>> e93c2e1940daeae0dbc9fac274e7428713611b53
 }
