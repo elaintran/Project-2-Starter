@@ -189,7 +189,10 @@ $(document).ready(function () {
     function characterDisplay() {
         characterSelect(characters[0].name, characters[0].class, characters[0].portrait, characters[0].colors.dark, characters[0].colors.light, characters[0].stats);
         for (var i = 0; i < characters.length; i++) {
-            var chibiContainer = $("<div>").addClass("character-container").attr("data-class", characters[i].class);
+            var chibiContainer = $("<div>").addClass("character-container").attr({
+                "data-class": characters[i].class,
+                "data-key": i+1
+            });
             var characterImage = $("<img>").attr("src", characters[i].chibi);
             chibiContainer.append(characterImage);
             $(".character-list").append(chibiContainer);
