@@ -267,8 +267,17 @@ form {
 */
 
 body.encounter-screen {
-  background: url(../images/resource-images/encounter/bg-forest.jpg) no-repeat top #14150f;
+  background: url(../images/resource-images/encounter/bg-castle.jpg) no-repeat top #14150f;
   background-size: contain;
+}
+
+.foreground {
+  background: url(../images/resource-images/encounter/fg-castle.png) no-repeat bottom transparent;
+  background-size: contain;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 43.98vw;
 }
 
 .page-wrapper {
@@ -541,6 +550,7 @@ body.encounter-screen {
   height: 2vw;
   float: left;
   padding: 0.3vw 0.7vw 0 0;
+  display: none;
 }
 
 .enemy-avatar {
