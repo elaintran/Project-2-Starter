@@ -112,9 +112,9 @@ $(document).ready(function() {
             }
         }, {
             name: "Character 6",
-            class: "Blue Mage",
-            portrait: "images/resource-images/portrait/mage-blue.png",
-            chibi: "images/resource-images/chibi/mage-blue.png",
+            class: "Manakete",
+            portrait: "images/resource-images/portrait/manakete-blue.png",
+            chibi: "images/resource-images/chibi/manakete-blue.png",
             stats: [{ 
                 statName: "hp",
                 value: 12 
@@ -208,7 +208,7 @@ $(document).ready(function() {
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
         $(".character-image").attr("src", portrait);
-        $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + "secondStop");
+        $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + secondStop);
         $(".character-stats").empty();
         statsDisplay(stats, firstStop, secondStop);
     }
@@ -277,15 +277,61 @@ $(document).ready(function() {
             .attr("rx", 5);
 
         nodes.append("text")
-            .text(function(d) {
-                return d.statName;
-            })
+            .attr("class", "stat-name")
             .style("fill", "white")
             .style("font-size", "12px")
-            .style("font-weight", 500)
-            .style("letter-spacing", "0.5px")
+            .append("tspan")
+            .attr("class", "fas minus")
+            .text("\uf0d9")
             .attr("y", function(d, i) {
                 return i * 47 + 10;
             });
+
+        nodes.select(".stat-name")
+            .append("tspan")
+            .text(function(d) {
+                return d.statName;
+            })
+            .attr("dx", 10)
+            .style("font-weight", 500)
+            .style("letter-spacing", "0.5px");
+
+        nodes.select(".stat-name")
+            .append("tspan")
+            .attr("class", "fas plus")
+            .attr("dx", 10)
+            .text("\uf0da");
     }
+
+    var newCharacter = [];
+    $(".character-stats").on("click", ".plus", function() {
+        newCharacter.push(characters[0]);
+        console.log(newCharacter);
+        //hp value
+        console.log(newCharacter[0].stats[0].value);
+        newCharacter[0].stats[0].value++;
+        $(".character-stats").empty();
+        statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light);
+        //when the plus sign is clicked on
+        //set base stats as variables
+        //loop through the character object array
+        //find the data attribute for class
+        //if data attribute for class = characters[i].class
+        //push characters[i] into empty array
+        //$(".character-stats").empty(); to clear out stats container so it doesn't keep appending
+        //check the data attribute for stats
+        //if data attribute for stat = newCharacter[0].stats[0].name
+        //add one to newCharacter[0].stats[0].value (hp value)
+        //call statsDisplay(newCharacters[0].stats, newCharacters[0].colors.dark, newCharacters[0].colors.light);
+        //to update stats
+    });
+    //if click on new character, need to reset the value
+    //need to set a conditional so that it does not go below the base stat
+    //need to set a conditional so that it does not go above 40
+    //newCharacter array will be sent as a post request once confirmed
+    //display an error message if user tries to submit when there are still remaining stat points
 });
+
+//issues
+//if we use handlebars, mark will need to conform to bootstrap
+//if we have an item/armory, how will users purchase items? will enemies drop gold?
