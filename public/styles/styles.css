@@ -1,3 +1,9 @@
+/*  
+  ============================
+  CHARACTER SELECT STYLING
+  ============================
+*/
+
 body {
   font-family: "Work Sans", sans-serif;
   background-image: linear-gradient(#252525, #0e0e0e);
@@ -108,19 +114,23 @@ body {
   fill: url(#mainGradient);
 }
 
-<<<<<<< HEAD
+
 /*  
   ============================
   LOGIN PAGE STYLING
   ============================
 */
-=======
+
 .plus:hover, .minus:hover {
   cursor: pointer;
 }
 
-/* login page styling */
->>>>>>> 8dc2a0c23bb3b13b8b6323c00358c4675e1e0707
+/* 
+  ============================
+  LOGIN & REGISTRATION STYLING
+  ============================
+*/
+
 form {
   padding-top:1%;
 	width: 300px;
@@ -189,10 +199,39 @@ a:hover{
   align-items: center;
 }
 
+.map {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
 .map-bg {
-  background: url("../images/resource-images/background/map.png");
+  background: url("../images/resource-images/background/map2.png");
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: 70% auto;
+  /* background-size: contain; */
+}
+
+/* .map-markers {
+  position: absolute;
+} */
+
+.marker {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  text-transform: uppercase;
+  color: #e8c892;
+  font-weight: 500;
+  background-color: 252525;
+  padding: 5px 13px;
+  font-size: 12px;
+  border: 2px solid #acacac;
+}
+
+.marker p {
+  margin-bottom: 0;
 }
 
 .user-menu {
@@ -259,7 +298,7 @@ body.encounter-screen {
 
 .page-wrapper {
   width: 100%;
-  height: 37vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
+  height: 45.78vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
   /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
   grid-template-rows: 1fr 3fr;
@@ -272,10 +311,17 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 8vw;
 }
 
 .player-sprite, .enemy-sprite {
   height: 15vw;
+  position: relative;
+  z-index: 10;
+}
+
+.enemy-sprite:hover {
+  cursor: pointer;
 }
 
 .player-action-grid {
@@ -287,6 +333,8 @@ body.encounter-screen {
   bottom: 5vw;
   width: 22vw;
   height: 19vw;
+  /* Hide action items until we write code for them */
+  display: none;
 }
 
 .attack {
@@ -367,6 +415,13 @@ body.encounter-screen {
   position: relative;
 }
 
+.shadow {
+  position: absolute;
+  bottom: -1.75vw;
+  z-index: 1;
+  width: 100%;
+}
+
 .attack-area-popups {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -385,6 +440,7 @@ body.encounter-screen {
 .attack-area-popups a {
   color: #eee;
   text-decoration: none;
+  position: relative;
 }
 
 .attack-head, .attack-body, .attack-legs {
@@ -392,6 +448,11 @@ body.encounter-screen {
   padding: 1vw;
   border: 0;
   border-radius: 0.3vw;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  position: relative;
+  top: 0;
+  left: -1vw;
 }
 
 .attack-head {
@@ -519,8 +580,60 @@ body.encounter-screen {
 .enemy-testing {
   position: relative;
 }
+
 /*  
   ============================
-  404 ERROR PAGE STYLING
+  404 ERROR STYLING
   ============================
 */
+.error-info {
+  height: 200px;
+  width: 500px;
+}
+
+.notfound{
+  font-size: 32px;
+  padding-top: 15%;
+  color: #d24d5f;
+}
+
+.errortext{
+  padding-top: 5%;
+  color:#d7d7d7;
+  font-size: 17px;
+}
+/*  
+  ============================
+  NAV BAR STYLING
+  ============================
+*/
+.bg-dark{
+  background-color: transparent!important;
+}
+
+/*  
+  ============================
+  MODAL STYLING
+  ============================
+*/
+.modal-title{
+  color:#d7d7d7;
+  font-family: "Work Sans", sans-serif;
+  
+}
+
+.modal-header{
+  background-image: linear-gradient(#252525, #0e0e0e);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.modal-body{
+  color:#252525;
+  font-family: "Work Sans", sans-serif;
+}
+.btn-primary{
+  background-image: linear-gradient(90deg, #94263a, #d24e5f);
+  border: none;
+  
+}
+
