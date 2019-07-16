@@ -349,20 +349,7 @@ $(document).ready(function () {
             .text("\uf0da");
     }
 
-<<<<<<< HEAD
-    var characterContainer = [];
     $(".character-stats").on("click", ".plus", function () {
-        for (var i = 0; i < characters[0].stats.length; i++) {
-            var characterStats = {};
-            characterStats.statName = characters[0].stats[i].statName;
-            characterStats.value = characters[0].stats[i].value;
-            characterContainer.push(characterStats);
-        }
-        characterContainer[0].value++;
-        $(".character-stats").empty();
-        statsDisplay(characters[0].stats, characters[0].colors.dark, characters[0].colors.light, true, characterContainer);
-=======
-    $(".character-stats").on("click", ".plus", function() {
         //write a conditional to prevent pushing onto array again
         for (var i = 0; i < characters.length; i++) {
             //check if data attribute matches class here
@@ -395,7 +382,6 @@ $(document).ready(function () {
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
->>>>>>> 99db278fd774e05e7ee81d2dc9726b80dc82e03c
         //when the plus sign is clicked on
         //set base stats as variables
         //loop through the character object array
