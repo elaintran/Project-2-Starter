@@ -179,7 +179,7 @@ $(document).ready(function () {
         }
     ];
 
-    var w = "100%";
+    // var w = "100%";
     var h = 180;
     var newCharacter = [];
     var newStats = [];
@@ -191,11 +191,13 @@ $(document).ready(function () {
         for (var i = 0; i < characters.length; i++) {
             var chibiContainer = $("<div>").addClass("character-container").attr({
                 "data-class": characters[i].class,
-                "data-key": i+1
+                "data-key": i + 1
             });
             var characterImage = $("<img>").attr("src", characters[i].chibi);
             chibiContainer.append(characterImage);
             $(".character-list").append(chibiContainer);
+
+
         }
     }
     characterDisplay();
@@ -204,6 +206,8 @@ $(document).ready(function () {
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
             if ($(this).attr("data-class") === characters[i].class) {
+                $("#confirmCharacter").attr("data-class", characters[i].class);
+                $("#confirmCharacter").attr("data-name", characters[i].name);
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
@@ -235,7 +239,8 @@ $(document).ready(function () {
 
     function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
         //creates a svg and appends to character stats
-        var svg = d3.select(".character-stats").append("svg").attr("width", w).attr("height", h);
+        var svg = d3.select(".character-stats").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 " + 350 + " " + h);
         //defs store graphical objects at a later time and are not rendered
         var svgDefs = svg.append("defs");
         //creates a linear gradient container

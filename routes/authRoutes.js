@@ -5,6 +5,7 @@ module.exports = function (app) {
     app.post("/api/login", passport.authenticate("local"), function (req, res) {
         res.json(req.user.userName);
         console.log("signin as " + req.user.userName);
+        console.log(req.user);
     });
 
     app.post("/api/register", (req, res) => {
@@ -26,16 +27,30 @@ module.exports = function (app) {
         res.redirect("/");
     });
 
-    app.get("/api/user_data", function (req, res) {
+    app.get("/api/userdata", function (req, res) {
         if (!req.user) {
             // The user is not logged in, send back an empty object
-            res.send("you are not signed in");
+            res.json({});
         } else {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             res.json({
-                userName: req.user.userName
+                userName: req.user.userName,
+                userEmail: req.user.userEmail,
+                userSelection: req.user.userSelection,
+                userId: req.user.id
             });
         }
+    });
+    app.put("/api/userdata", function (req, res) {
+        db.User.update(req.body,
+            {
+                where: {
+                    userSelection: req.user.userSelection
+                }
+            })
+            .then(function (dbUser) {
+                res.json(dbUser);
+            });
     });
 };
