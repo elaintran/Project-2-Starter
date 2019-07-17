@@ -22,11 +22,7 @@ $(document).ready(function(){
   });
   switch (chapter){
     case 2:
-<<<<<<< HEAD
-      console.log("Chapter 2 selected")
-=======
       console.log("Chapter 2 selected");
->>>>>>> master
       $("#chapter-one-btn").attr("disabled", "disabled");
       $("#chapter-two-btn").removeAttr("disabled");
       break;

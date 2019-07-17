@@ -81,11 +81,7 @@ $(document).ready(function(){
 });
 
 $("button").on("click", function(){
-<<<<<<< HEAD
-  //clicking the target grabs the character's target and populates the target statistics
-=======
   //clicking the target grabs the character"s target and populates the target statistics
->>>>>>> master
   grabbedTarget = $(this).attr("data-target");
 
   console.log("You've clicked on the " + grabbedTarget + " target!");
