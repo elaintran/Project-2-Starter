@@ -18,7 +18,6 @@ character = {
 console.log("character HP: " + character.hp + "\ncharacter str: " + character.str + "\ncharacter def: " + character.def);
 /*End of created for testing purposes: */
 
-
 //random chance
 var chance = Math.random();
 var baseDmg;
@@ -82,7 +81,11 @@ $(document).ready(function(){
 });
 
 $("button").on("click", function(){
+<<<<<<< HEAD
   //clicking the target grabs the character's target and populates the target statistics
+=======
+  //clicking the target grabs the character"s target and populates the target statistics
+>>>>>>> master
   grabbedTarget = $(this).attr("data-target");
 
   console.log("You've clicked on the " + grabbedTarget + " target!");

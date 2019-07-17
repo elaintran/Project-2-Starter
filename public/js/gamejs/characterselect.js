@@ -1,5 +1,5 @@
 //SELECT CHARACTER PAGE
-function Character(classType, hp, def, str, spd) {
+function Character(classType, hp, def, str, spd) {// eslint-disable-line no-unused-vars
   this.classType = classType;
   this.hp = hp;
   this.def = def;

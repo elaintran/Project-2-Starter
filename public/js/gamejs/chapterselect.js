@@ -19,21 +19,29 @@ $(document).ready(function(){
   $("button").on("click", function(){
     $("#chapter-two-btn").removeAttr("disabled");
 
-  })
+  });
   switch (chapter){
     case 2:
+<<<<<<< HEAD
       console.log("Chapter 2 selected")
+=======
+      console.log("Chapter 2 selected");
+>>>>>>> master
       $("#chapter-one-btn").attr("disabled", "disabled");
       $("#chapter-two-btn").removeAttr("disabled");
       break;
 
     case 3:
+<<<<<<< HEAD
       console.log("Chapter 3 selected")
+=======
+      console.log("Chapter 3 selected");
+>>>>>>> master
       $("#chapter-two-btn").attr("disabled", "disabled");
       $("#chapter-three-btn").removeAttr("disabled");
   }
-})
+});
 
 $(".btn").on("click", function(){
   //redirect user to Battle Action Page
-})
+});
