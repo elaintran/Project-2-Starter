@@ -1,4 +1,6 @@
-let skillPoints = 4;
+//total skill points up for distribution by the player is 10. Each point adds +2 to the character's stats.
+let skillPoints = 10;
+
 let enemy;
 let target; // eslint-disable-line no-unused-vars
 
@@ -30,31 +32,31 @@ let gameManager = {// eslint-disable-line no-unused-vars
     // this.loadChar();
     this.distrPoints(character);
   },
-  createChar: function(classType) {
+  createChar: function(classType) {//strength out of 4. So 4/4 = 50 max points (60 total - 10 skill points = 50)
     switch (classType) {
-      case "Swordmaster": //well rounded
-        character = new Character(classType, 7000, 200, 700, 3);
+      case "Swordmaster": //2-2-3-3 so 50*2/4, 50*2/4, 50*3/4, 50*3/4
+        character = new Character(classType, 25, 25, 37.5, 37.5);
         break;
-      case "Lance Fighter": //high hp and defense
-        character = new Character(classType, 10000, 300, 500, 1);
+      case "Lance Fighter": //3-3-2-2
+        character = new Character(classType, 37.5, 37.5, 25, 25);
         break;
-      case "Axe Fighter": //high attack
-        character = new Character(classType, 5000, 100, 1000, 4);
+      case "Axe Fighter": //3-1-4-2
+        character = new Character(classType, 37.5, 12.5, 50, 25);
         break;
-      case "Bow Fighter": //low hp and defense
-        character = new Character(classType, 6000, 150, 800, 5);
+      case "Bow Fighter": //2-3-2-3
+        character = new Character(classType, 25, 37.5, 25, 37.5);
         break;
-      case "Red Mage": //low hp and defense
-        character = new Character(classType, 6000, 150, 800, 5);
+      case "Red Mage": //1-2-4-3
+        character = new Character(classType, 12.5, 25, 50, 37.5);
         break;
-      case "Manakete": //low hp and defense
-        character = new Character(classType, 6000, 150, 800, 5);
+      case "Manakete": //1-3-4-2
+        character = new Character(classType, 12.5, 37.5, 50, 25);
         break;
-      case "Knight": //low hp and defense
-        character = new Character(classType, 6000, 150, 800, 5);
+      case "Knight": //4-4-1-1
+        character = new Character(classType, 50, 50, 12.5, 12.5);
         break;
-      case "Thief": //low hp and defense
-        character = new Character(classType, 6000, 150, 800, 5);
+      case "Thief": //2-2-2-4
+        character = new Character(classType, 25, 25, 25, 50);
         break;
     }
   },
@@ -95,43 +97,47 @@ let gameManager = {// eslint-disable-line no-unused-vars
       console.log("selected data-type: " + type);
 
       if (skillPoints !== 0) {
-        //depending on the data-type, add diff stats
+        //if skill points > 0, you can add +2 to a trait
         switch (type) {
           case "hp":
-            character.hp += 500;
+            character.hp += 2;
             skillPoints -= 1;
 
             console.log("Added hp");
             console.log("skill points left: " + skillPoints);
             console.log("HP: " + character.hp);
+            $(".hp-display").text("HP: " + character.hp);
 
             break;
 
           case "def":
-            character.def += 100;
+            character.def += 2;
             skillPoints -= 1;
 
             console.log("Added Def");
             console.log("skill points left: " + skillPoints);
             console.log("Def: " + character.def);
+            $(".def-display").text("Def: " + character.def);
 
             break;
           case "str":
-            character.str += 500;
+            character.str += 2;
             skillPoints -= 1;
 
             console.log("Added str");
             console.log("skill points left: " + skillPoints);
             console.log("str: " + character.str);
+            $(".str-display").text("str: " + character.str);
 
             break;
           case "spd":
-            character.spd += 1;
+            character.spd += 2;
             skillPoints -= 1;
 
             console.log("Added spd");
             console.log("skill points left: " + skillPoints);
             console.log("spd: " + character.spd);
+            $(".spd-display").text("spd: " + character.spd);
 
             break;
         }
@@ -143,53 +149,61 @@ let gameManager = {// eslint-disable-line no-unused-vars
       var type = $(this).data("type");
       console.log("selected data-type: " + type);
 
-      if (skillPoints < 4) {
+      if (skillPoints < 10) {
         //depending on the data-type, add diff stats
         switch (type) {
           case "hp":
             if (character.hp !== baseHp) {
-              character.hp -= 500;
+              character.hp -= 2;
               skillPoints += 1;
 
               console.log("Removed hp");
               console.log("skill points left: " + skillPoints);
               console.log("HP: " + character.hp);
+              $(".hp-display").text("HP: " + character.hp);
+
             }
 
             break;
 
           case "def":
             if (character.def !== baseDef) {
-              character.def -= 100;
+              character.def -= 2;
               skillPoints += 1;
 
               console.log("Removed def");
               console.log("skill points left: " + skillPoints);
               console.log("def: " + character.def);
+              $(".def-display").text("def: " + character.def);
+
             }
 
             break;
 
           case "str":
             if (character.str !== baseStr) {
-              character.str -= 500;
+              character.str -= 2;
               skillPoints += 1;
 
               console.log("Removed str");
               console.log("skill points left: " + skillPoints);
               console.log("str: " + character.str);
+              $(".str-display").text("str: " + character.str);
+
             }
 
             break;
 
           case "spd":
             if (character.spd !== baseSpd) {
-              character.spd -= 1;
+              character.spd -= 2;
               skillPoints += 1;
 
               console.log("Removed spd");
               console.log("skill points left: " + skillPoints);
               console.log("spd: " + character.spd);
+              $(".spd-display").text("spd: " + character.spd);
+
             }
 
             break;
@@ -200,14 +214,14 @@ let gameManager = {// eslint-disable-line no-unused-vars
   createEnemy: function(chapter) {
     //depending on the chapter we are on, create enemy with diff stats
     switch (chapter) {
-      case 1:
-        enemy = new Enemy(7000, 200, 300, 3);
+      case 1: //3-2-2-3 60*3/4, 60*2/4, 60*2/4, 60*3/4
+        enemy = new Enemy(45, 30, 30, 45);
         break;
-      case 2:
-        enemy = new Enemy(1400, 400, 1000, 6);
+      case 2: //3-2-2-3 80*3/4, 80*2/4, 80*2/4, 80*3/4
+        enemy = new Enemy(60, 40, 40, 60);
         break;
-      case 3:
-        enemy = new Enemy(20000, 600, 1500, 10);
+      case 3: //3-2-2-3 100*3/4, 100*2/4, 100*2/4, 100*3/4
+        enemy = new Enemy(75, 50, 50, 75);
         break;
     }
 
@@ -219,13 +233,13 @@ let gameManager = {// eslint-disable-line no-unused-vars
   pickTarget: function(grabbedTarget) {
     switch (grabbedTarget) {
       case "head": //lower hit chance, higher damage
-        target = new Target(grabbedTarget, 0.25, 500, 0);
+        target = new Target(grabbedTarget, 0.15, 50, 0);
         break;
       case "body": //higher hit chance, lower damage
         target = new Target(grabbedTarget, 0.95, 0, 0);
         break;
       case "legs": //medium hit chance, lowers speed
-        target = new Target(grabbedTarget, 0.85, 0, 1);
+        target = new Target(grabbedTarget, 0.75, 0, 1);
         break;
     }
   },

@@ -18,10 +18,3 @@ $(".character-container").on("click", function() {
   console.log(character);
 });
 
-$("#confirmCharacter").on("click", function(){
-//needs server to push data to database for storage
-
-// redirect the user to the point distribution page
-
-});
-
