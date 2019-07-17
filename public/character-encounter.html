@@ -15,7 +15,10 @@
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body class="encounter-screen">
-    <div class="foreground"></div>
+    <!-- <div class="foreground"></div> -->
+
+    <!-- add dropdown with username, and sign out option -->
+
     <div class="page-wrapper">
         <div class="character-info-grid">
                 <div class="player-avatar">
@@ -82,27 +85,21 @@
 
            <div class="enemy-character">
                 <div class="attack-area-popups">
-                    <a href="#" class="attack-head" data-target="body">
-                        <div>
-                            <h4>Head</h4>
-                            <p class="attack-info">Low Defense</p>
-                            <p class="attack-info">High Evasion</p>
-                        </div>
-                    </a>
-                    <a href="#" class="attack-body" data-target="body">
-                        <div>
-                            <h4>Body</h4>
-                            <p class="attack-info">High Defense</p>
-                            <p class="attack-info">Low Evasion</p>
-                        </div>
-                    </a>
-                    <a href="#" class="attack-legs" data-target="body">
-                        <div>
-                            <h4>Legs</h4>
-                            <p class="attack-info">Low Defense</p>
-                            <p class="attack-info">High Evasion</p>
-                        </div>
-                    </a>
+                    <div class="attack-head" data-target="body">
+                        <h4>Head</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
+                    <div class="attack-body" data-target="body">
+                        <h4>Body</h4>
+                        <p class="attack-info">High Defense</p>
+                        <p class="attack-info">Low Evasion</p>
+                    </div>
+                    <div class="attack-legs" data-target="body">
+                        <h4>Legs</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
                 </div>
                 <svg class="enemy-sprite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 169 179.19">
                     <defs>
