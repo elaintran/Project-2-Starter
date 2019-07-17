@@ -490,7 +490,7 @@ svg.enemy-sprite:hover {
   font-weight: 600;
   font-size: 1vw;
   width: 14vw;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Work Sans', Lato, sans-serif;
 }
 
 .attack-area-popups a {
