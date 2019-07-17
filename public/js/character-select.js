@@ -179,7 +179,7 @@ $(document).ready(function () {
         }
     ];
 
-    var w = "100%";
+    // var w = "100%";
     var h = 180;
     var newCharacter = [];
     var newStats = [];
