@@ -20,13 +20,14 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 70vw;
   margin: auto;
   position: relative;
+  padding: 5vw;
 }
 
 .character-portrait {
-  height: 460px;
+  height: 35vw;
 }
 
 .character-image {
@@ -36,6 +37,7 @@ body {
 .character-display {
   /* margin-top: 10px; */
   padding: 0 40px;
+  padding-right: 0;
 }
 
 .character-info {
@@ -62,7 +64,7 @@ body {
 }
 
 .character-stats {
-  padding: 20px 0;
+  padding: 2vw 0;
   text-align: left;
 }
 
@@ -73,7 +75,8 @@ body {
   border-radius: 20px;
   color: white;
   text-transform: uppercase;
-  padding: 6px 0;
+  padding: 0.6vw 0;
+  font-size: 1.2vw;
 }
 
 .select-character:focus, .select-character:active {
@@ -82,17 +85,17 @@ body {
 
 .character-list {
   position: absolute;
-  bottom: 0px;
+  bottom: 6vw;
   display: flex;
 }
 
 .character-container {
   background-image: linear-gradient(rgba(18, 18, 18, 0.87), rgba(37, 37, 37, 0.87));
-  padding: 7px 12px;
+  padding: 1vw;
   border: 2px solid rgba(255, 255, 255, 0.87);
   border-radius: 5px;
-  margin: 0 3px;
-  width: 90px;
+  margin: 0 4px;
+  width: 7.5vw;
   text-align: center;
 }
 
@@ -101,7 +104,7 @@ body {
 }
 
 .character-container img {
-  height: 75px;
+  height: 5.5vw;
 }
 
 .stop-left {
