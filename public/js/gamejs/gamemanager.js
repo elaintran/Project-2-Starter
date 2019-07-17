@@ -1,4 +1,3 @@
-
 let skillPoints = 4;
 let enemy;
 let target; // eslint-disable-line no-unused-vars
@@ -7,7 +6,7 @@ let target; // eslint-disable-line no-unused-vars
 let chapter = 1; // eslint-disable-line no-unused-vars
 
 //Enemy constructor
-function Enemy(hp, def, str, spd){
+function Enemy(hp, def, str, spd) {
   this.hp = hp;
   this.def = def;
   this.str = str;
@@ -33,16 +32,28 @@ let gameManager = {// eslint-disable-line no-unused-vars
   },
   createChar: function(classType) {
     switch (classType) {
-      case "fighter": //well rounded
+      case "Swordmaster": //well rounded
         character = new Character(classType, 7000, 200, 700, 3);
         break;
-      case "knight": //high hp and defense
+      case "Lance Fighter": //high hp and defense
         character = new Character(classType, 10000, 300, 500, 1);
         break;
-      case "mage": //high attack
+      case "Axe Fighter": //high attack
         character = new Character(classType, 5000, 100, 1000, 4);
         break;
-      case "thief": //low hp and defense
+      case "Bow Fighter": //low hp and defense
+        character = new Character(classType, 6000, 150, 800, 5);
+        break;
+      case "Red Mage": //low hp and defense
+        character = new Character(classType, 6000, 150, 800, 5);
+        break;
+      case "Manakete": //low hp and defense
+        character = new Character(classType, 6000, 150, 800, 5);
+        break;
+      case "Knight": //low hp and defense
+        character = new Character(classType, 6000, 150, 800, 5);
+        break;
+      case "Thief": //low hp and defense
         character = new Character(classType, 6000, 150, 800, 5);
         break;
     }
@@ -89,7 +100,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
           case "hp":
             character.hp += 500;
             skillPoints -= 1;
-            
+
             console.log("Added hp");
             console.log("skill points left: " + skillPoints);
             console.log("HP: " + character.hp);
@@ -121,7 +132,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
             console.log("Added spd");
             console.log("skill points left: " + skillPoints);
             console.log("spd: " + character.spd);
-            
+
             break;
         }
       }
@@ -139,7 +150,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
             if (character.hp !== baseHp) {
               character.hp -= 500;
               skillPoints += 1;
-              
+
               console.log("Removed hp");
               console.log("skill points left: " + skillPoints);
               console.log("HP: " + character.hp);
@@ -225,4 +236,3 @@ let gameManager = {// eslint-disable-line no-unused-vars
     this.createEnemy(chapter);
   }
 };
-
