@@ -702,17 +702,36 @@ body.error-screen{
   background: #464646;
 }
 
-.error{
+.errortext{
   color: #c3b69a;
   font-size: 10vw;
+  text-align: center;
+}
+.wrong{
+  text-align: center;
+  font-size: 2vw;
+  padding-top: 40px; 
+}
+.errorimage{
+  padding-top: 60px; 
+  text-align: center;
 }
 /* Dropdown Styling */
 .btn-secondary{
   background:transparent;
   border:0px;
-  align-content: center;
+  align-items: center;
 }
 .btn-secondary:focus{
   background:transparent;
   border:0px;
+  box-shadow:none;
 }
+.btn.focus{
+  outline:none;
+}
+
+
+
+
+

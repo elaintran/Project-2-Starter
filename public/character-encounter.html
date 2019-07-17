@@ -25,6 +25,17 @@
     <!-- <div class="foreground"></div> -->
 
     <!-- add dropdown with username, and sign out option -->
+    <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Username
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="chapter-select.html">Chapter Select</a>
+              <a class="dropdown-item" href="#">Logout</a>
+             
+            </div>
+          </div>
 
     <div class="page-wrapper">
         <div class="character-info-grid">
@@ -49,18 +60,6 @@
                 
                 <div></div> <!-- Empty cell between characters -->
 
-                <!--DROPDOWN-->
-                <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Options
-                        </a>
-                      
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="chapter-select.html">Chapter Select</a>
-                          <a class="dropdown-item" href="#">Logout</a>
-                         
-                        </div>
-                      </div>
      
                 <!-- ENEMY INFO / STATS -->
      
@@ -155,7 +154,33 @@
             ***This will be removed***
           </button>
           
-          <!-- Modal -->
+          <!-- Winner Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">GAME OVER</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <img src="./images/resource-images/logo/heroes-united.png" style="height:200px;" 
+                  style="width:200px;" class="center">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+                  <button type="button" class="btn btn-primary">Play Again</button>
+                </div>
+              </div>
+            </div>
+          </div>
+              <!-- Button trigger modal WILL REMOVE THIS LINE OF CODE AFTER DEMO-->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            ***This will be removed***
+          </button>
+          
+          <!-- Loser Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
