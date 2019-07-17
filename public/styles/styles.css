@@ -116,12 +116,6 @@ body {
 }
 
 
-/*  
-  ============================
-  LOGIN PAGE STYLING
-  ============================
-*/
-
 .plus:hover, .minus:hover {
   cursor: pointer;
 }
@@ -146,7 +140,9 @@ form {
   border-radius: 20px;
   padding: 6px 0;
 }
-
+.submit:focus{
+  outline: none;
+}
 .logintitle {
   padding-top: 10%;
   text-align: center;
@@ -714,8 +710,8 @@ svg.enemy-sprite:hover {
   padding-top: 5%;
   color:#d7d7d7;
   font-size: 17px;
-}
-/*  
+} 
+/*
   ============================
   NAV BAR STYLING
   ============================
@@ -732,7 +728,6 @@ svg.enemy-sprite:hover {
 .modal-title{
   color:#d7d7d7;
   font-family: "Work Sans", sans-serif;
-  
 }
 
 .modal-header{
@@ -741,11 +736,63 @@ svg.enemy-sprite:hover {
   border-top-right-radius: 0px;
 }
 .modal-body{
-  color:#252525;
+  color: transparent;
   font-family: "Work Sans", sans-serif;
 }
 .btn-primary{
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
   border: none;
   
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/*
+  ============================
+  NEW 404 STYLING
+  ============================
+*/
+body.error-screen{
+  background: #464646;
+}
+
+.errortext{
+  color: #c3b69a;
+  font-size: 10vw;
+  text-align: center;
+}
+.wrong{
+  text-align: center;
+  font-size: 3vw;
+  padding-top: 40px; 
+  letter-spacing: 3px;
+}
+.errorimage{
+  padding-top: 65px; 
+  text-align: center;
+}
+/*
+  ============================
+  DROPDOWN STYLING
+  ============================
+*/
+.btn-secondary{
+  background:transparent;
+  border:0px;
+}
+.btn-secondary:focus{
+  background:transparent;
+  border: none;
+  box-shadow:none;
+}
+.btn.focus{
+  outline:none;
+  border: none;
+}
+.show>.btn-secondary.dropdown-toggle{
+  background:transparent;
 }
