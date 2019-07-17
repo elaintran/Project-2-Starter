@@ -2,9 +2,9 @@ require("dotenv").config();
 var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
+var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
-var db = require("./models");
 
 // Middleware
 var app = express();
@@ -18,8 +18,8 @@ app.use(passport.session());
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
 require("./routes/authRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
