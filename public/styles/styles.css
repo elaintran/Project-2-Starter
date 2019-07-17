@@ -99,10 +99,6 @@ body {
   text-align: center;
 }
 
-.character-container:hover {
-  cursor: pointer;
-}
-
 .character-container img {
   height: 5.5vw;
 }
@@ -353,17 +349,8 @@ a:hover{
 */
 
 body.encounter-screen {
-  background: url(../images/resource-images/encounter/bg-castle.jpg) no-repeat top #14150f;
+  background: url(../images/resource-images/encounter/bg-plains.jpg) no-repeat top #14150f;
   background-size: contain;
-}
-
-.foreground {
-  background: url(../images/resource-images/encounter/fg-castle.png) no-repeat bottom transparent;
-  background-size: contain;
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  height: 43.98vw;
 }
 
 .page-wrapper {
@@ -390,7 +377,7 @@ body.encounter-screen {
   z-index: 10;
 }
 
-.enemy-sprite:hover {
+svg.enemy-sprite:hover {
   cursor: pointer;
 }
 
@@ -475,7 +462,6 @@ body.encounter-screen {
 
 .player-action-grid img:hover {
   filter: drop-shadow(0 0 .66vw #fecc) drop-shadow(0 0 0.33vw #fecc);
-  cursor: pointer;
 }
 
 .player-character {
@@ -504,7 +490,7 @@ body.encounter-screen {
   font-weight: 600;
   font-size: 1vw;
   width: 14vw;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Work Sans', Lato, sans-serif;
 }
 
 .attack-area-popups a {
@@ -562,6 +548,8 @@ body.encounter-screen {
   display: grid;
   grid-template-columns: auto repeat(3, 2fr) auto;
   background-image: linear-gradient(180deg, #000a, transparent);
+  position: relative;
+  z-index: 1000;
 }
 
 .player-avatar img, .enemy-avatar img {
