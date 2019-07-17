@@ -28,11 +28,7 @@ $(document).ready(function(){
       break;
 
     case 3:
-<<<<<<< HEAD
-      console.log("Chapter 3 selected")
-=======
       console.log("Chapter 3 selected");
->>>>>>> master
       $("#chapter-two-btn").attr("disabled", "disabled");
       $("#chapter-three-btn").removeAttr("disabled");
   }
