@@ -704,3 +704,13 @@ body.error-screen{
   color: #c3b69a;
   font-size: 10vw;
 }
+/* Dropdown Styling */
+.btn-secondary{
+  background:transparent;
+  border:0px;
+  align-content: center;
+}
+.btn-secondary:focus{
+  background:transparent;
+  border:0px;
+}
