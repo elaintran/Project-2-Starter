@@ -191,11 +191,13 @@ $(document).ready(function () {
         for (var i = 0; i < characters.length; i++) {
             var chibiContainer = $("<div>").addClass("character-container").attr({
                 "data-class": characters[i].class,
-                "data-key": i+1
+                "data-key": i + 1
             });
             var characterImage = $("<img>").attr("src", characters[i].chibi);
             chibiContainer.append(characterImage);
             $(".character-list").append(chibiContainer);
+
+
         }
     }
     characterDisplay();
