@@ -61,9 +61,9 @@
     },
     {
         "mainName": "Character 6",
-        "mainClass": "Blue Mage",
-        "mainPortrait": "images/resource-images/portrait/mage-blue.png",
-        "mainChibi": "images/resource-images/chibi/mage-blue.png",
+        "mainClass": "Manakete",
+        "mainPortrait": "images/resource-images/portrait/mankete-blue.png",
+        "mainChibi": "images/resource-images/chibi/mankete-blue.png",
         "mainHp": 20,
         "mainStr": 15,
         "mainDef": 12,
