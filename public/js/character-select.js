@@ -193,6 +193,8 @@ $(document).ready(function () {
             var characterImage = $("<img>").attr("src", characters[i].chibi);
             chibiContainer.append(characterImage);
             $(".character-list").append(chibiContainer);
+
+
         }
     }
     characterDisplay();
@@ -202,6 +204,11 @@ $(document).ready(function () {
         for (var i = 0; i < characters.length; i++) {
             if ($(this).attr("data-class") === characters[i].class) {
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
+
+
+                //david's portion
+                $("#confirmCharacter").attr("data-class", characters[i].class);
+                $("#confirmCharacter").attr("data-name", characters[i].name);
             }
         }
     });

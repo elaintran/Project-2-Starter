@@ -18,7 +18,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        userSelection: DataTypes.INTEGER,
+        userSelection: DataTypes.STRING,
+        userProgression: DataTypes.INTEGER,
         userScore: DataTypes.INTEGER
     });
     User.prototype.validPassword = function (userPassword) {
