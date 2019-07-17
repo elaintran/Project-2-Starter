@@ -28,7 +28,9 @@ $(document).ready(function () {
             userEmail: userEmail,
             userPassword: userPassword
         }).then(function () {
-            window.location.replace("/character");
+            console.log("before replace");
+            window.location.replace("/api/userdata");
+            console.log("after replace");
         });
     }
 });

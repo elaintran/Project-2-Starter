@@ -190,7 +190,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
     //depending on the chapter we are on, create enemy with diff stats
     switch (chapter) {
       case 1:
-        enemy = new Enemy(7000, 200, 700, 3);
+        enemy = new Enemy(7000, 200, 300, 3);
         break;
       case 2:
         enemy = new Enemy(1400, 400, 1000, 6);
@@ -200,12 +200,15 @@ let gameManager = {// eslint-disable-line no-unused-vars
         break;
     }
 
-    console.log("Enemy: " + enemy.spd);
+    $(".enemy-hp").text("Enemy HP: " + enemy.hp);
+    $(".enemy-str").text("Enemy Str: " + enemy.str);
+    $(".enemy-def").text("Enemy Def: " + enemy.def);
+    $(".enemy-spd").text("Enemy Spd: " + enemy.spd);
   },
   pickTarget: function(grabbedTarget) {
     switch (grabbedTarget) {
       case "head": //lower hit chance, higher damage
-        target = new Target(grabbedTarget, 0.25, 100, 0);
+        target = new Target(grabbedTarget, 0.25, 500, 0);
         break;
       case "body": //higher hit chance, lower damage
         target = new Target(grabbedTarget, 0.95, 0, 0);
