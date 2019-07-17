@@ -76,7 +76,7 @@ body {
   color: white;
   text-transform: uppercase;
   padding: 0.6vw 0;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .select-character:focus, .select-character:active {
@@ -116,12 +116,6 @@ body {
 }
 
 
-/*  
-  ============================
-  LOGIN PAGE STYLING
-  ============================
-*/
-
 .plus:hover, .minus:hover {
   cursor: pointer;
 }
@@ -146,7 +140,9 @@ form {
   border-radius: 20px;
   padding: 6px 0;
 }
-
+.submit:focus{
+  outline: none;
+}
 .logintitle {
   padding-top: 10%;
   text-align: center;
@@ -336,11 +332,14 @@ a:hover{
 
 .chapter-select {
   border: 0.2vw solid #acacac;
+  position: relative;
 }
 
 .chapter-select:hover {
   cursor: pointer;
 }
+
+
 
 /*  
   ============================
@@ -358,7 +357,7 @@ body.encounter-screen {
   height: 45.78vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
   /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
-  grid-template-rows: 1fr 3fr;
+  align-content: end;
 }
 
 .attack-prompts {
@@ -368,7 +367,7 @@ body.encounter-screen {
 .character-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-bottom: 8vw;
+  margin-bottom: 8vw;
 }
 
 .player-sprite, .enemy-sprite {
@@ -484,9 +483,9 @@ svg.enemy-sprite:hover {
   grid-template-rows: repeat(3, 1fr);
   grid-row-gap: 1.2vw;
   position: absolute;
-  left: 11vw;
+  left: 18vw;
   bottom: 0.5vw;
-  z-index: 10;
+  z-index: 998;
   font-weight: 600;
   font-size: 1vw;
   width: 14vw;
@@ -544,12 +543,30 @@ svg.enemy-sprite:hover {
   transform: scaleX(-1);
 }
 
-.character-info-grid {
+/* .character-info-grid {
   display: grid;
   grid-template-columns: auto repeat(3, 2fr) auto;
   background-image: linear-gradient(180deg, #000a, transparent);
   position: relative;
   z-index: 1000;
+} */
+
+/* Potential clip-path for player/enemy stat bar */
+/* clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%); */
+
+.player-stats {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.enemy-stats {
+  display: flex;
+  flex-flow: row-reverse;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .player-avatar img, .enemy-avatar img {
@@ -558,7 +575,8 @@ svg.enemy-sprite:hover {
 
 .player-avatar, .enemy-avatar {
   padding: 1.5vw;
-  align-self: center;
+  position: relative;
+  z-index: 1000;
 }
 
 .player-avatar {
@@ -566,65 +584,78 @@ svg.enemy-sprite:hover {
   padding-left: 3vw;
 }
 
-.player-stats, .enemy-stats {
+.stats-container {
+  font-family: 'Work Sans', 'Lato', sans-serif;
+  background-color: #0008;
+  align-self: center;
+  position: relative;
+  z-index: 999;
+  width: 22vw;
+}
+
+.player-stats .stats-container {
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+  padding: 1.2vw 3.7vw 1.4vw 3.2vw;
+  left: -3vw;
+}
+
+.enemy-stats .stats-container {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12% 100%);
+  padding: 1.2vw 3.2vw 1.4vw 3.7vw;
+  right: -3vw
+}
+
+.character-text {
+  font-size: 1.45vw;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  align-content: stretch;
+  justify-content: space-between;
+  padding-bottom: 0.5vw;
+}
+
+.character-name, .enemy-name {
   align-self: center;
 }
 
-.stats-container {
-  display: grid;
-  font-family: 'Work Sans', 'Lato', sans-serif;
+.character-name {
+  color: #e8c891;
 }
 
-.character-name h3, .enemy-name h3 {
-  text-transform: uppercase;
-  font-size: 1.45vw;
-  margin-bottom: 0.25vw;
-  font-weight: 600;
+.hit-points {
+  align-self: center;
 }
 
-.hit-points h5 {
-  line-height: 1.5;
-  font-size: 1.1vw;
-  font-weight: 600;
-}
-
-.player-stats .hit-points h5 {
-  float: left;
-}
-
-.enemy-stats .hit-points h5 {
+.enemy-stats .hit-points {
   float: right;
 }
-.health-bar {
-  width: 21.8vw;
-  height: 1.4vw;
+
+.player-health-bar-fill {
+  width: 50%;
+  height: 1.1vw;
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
   border-radius: 0.7vw;
-  text-align: center;
-  line-height: 1.2;
-  font-size: 1.2vw;
+  position: absolute;
+  z-index: 1002;
 }
 
-.player-stats .health-bar {
+.player-health-bar {
+  width: 100%;
+  height: 1.1vw;
+  background-image: linear-gradient(90deg, #222, #333333);
+  border-radius: 0.7vw;
+  position: relative;
+  bottom: 0px;
+  z-index: 1001;
+}
+
+.player-health-bar {
   float: left;
-  margin-left: 0.5vw;
 }
 
 .enemy-stats .health-bar {
   float: right;
-  margin-right: 0.5vw;
-}
-
-.item-bar {
-  padding-left: 2vw;
-  height: 2vw;
-}
-
-.item-bar img {
-  height: 2vw;
-  float: left;
-  padding: 0.3vw 0.7vw 0 0;
-  display: none;
 }
 
 .enemy-avatar {
@@ -634,6 +665,25 @@ svg.enemy-sprite:hover {
 
 .enemy-name {
   justify-self: end;
+}
+
+.enemy-health-bar-fill {
+  width: 50%;
+  height: 1.1vw;
+  background-image: linear-gradient(-90deg, #94263a, #d24e5f);
+  border-radius: 0.7vw;
+  position: absolute;
+  z-index: 1002;
+}
+
+.enemy-health-bar {
+  width: 100%;
+  height: 1.1vw;
+  background-image: linear-gradient(-90deg, #222, #333333);
+  border-radius: 0.7vw;
+  position: relative;
+  bottom: 0;
+  z-index: 1001;
 }
 
 .enemy-testing {
@@ -660,8 +710,8 @@ svg.enemy-sprite:hover {
   padding-top: 5%;
   color:#d7d7d7;
   font-size: 17px;
-}
-/*  
+} 
+/*
   ============================
   NAV BAR STYLING
   ============================
@@ -678,7 +728,6 @@ svg.enemy-sprite:hover {
 .modal-title{
   color:#d7d7d7;
   font-family: "Work Sans", sans-serif;
-  
 }
 
 .modal-header{
@@ -687,11 +736,63 @@ svg.enemy-sprite:hover {
   border-top-right-radius: 0px;
 }
 .modal-body{
-  color:#252525;
+  color: transparent;
   font-family: "Work Sans", sans-serif;
 }
 .btn-primary{
   background-image: linear-gradient(90deg, #94263a, #d24e5f);
   border: none;
   
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/*
+  ============================
+  NEW 404 STYLING
+  ============================
+*/
+body.error-screen{
+  background: #464646;
+}
+
+.errortext{
+  color: #c3b69a;
+  font-size: 10vw;
+  text-align: center;
+}
+.wrong{
+  text-align: center;
+  font-size: 3vw;
+  padding-top: 40px; 
+  letter-spacing: 3px;
+}
+.errorimage{
+  padding-top: 65px; 
+  text-align: center;
+}
+/*
+  ============================
+  DROPDOWN STYLING
+  ============================
+*/
+.btn-secondary{
+  background:transparent;
+  border:0px;
+}
+.btn-secondary:focus{
+  background:transparent;
+  border: none;
+  box-shadow:none;
+}
+.btn.focus{
+  outline:none;
+  border: none;
+}
+.show>.btn-secondary.dropdown-toggle{
+  background:transparent;
 }
