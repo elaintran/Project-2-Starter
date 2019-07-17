@@ -1,27 +1,17 @@
 // var db = require("../models");
-
 var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuth");
 
-
 module.exports = function (app) {
   app.get("/", (req, res) => {
-    if (req.userName) {
-      // this redirects if userName is discovered
-      res.redirect("/character");
-    }
-    res.sendFile(path.join(__dirname, "../public/landing.html"));
-  });
-
-  app.get("/login", (req, res) => {
-    if (req.userName) {
+    if (req.user) {
       res.redirect("/character");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   app.get("/register", (req, res) => {
-    if (req.userName) {
+    if (req.user) {
       res.redirect("/character");
     }
     res.sendFile(path.join(__dirname, "../public/registration.html"));
@@ -34,11 +24,6 @@ module.exports = function (app) {
   app.get("/world", isAuthenticated, (req, res) =>
     res.sendFile(path.join(__dirname, "../public/story-select.html"))
   );
-
-  //potental route structure
-  // /world/chapter/:id/enounter
-
-  // /world/armory/
 
   app.get("/encounter", isAuthenticated, (req, res) =>
     res.sendFile(path.join(__dirname, "../public/character-encounter.html"))
@@ -76,39 +61,6 @@ module.exports = function (app) {
   //   //   res.send("pass")
   //   // }
   // })
-
-
-
-  //post data about character selection
-
-
-
-  // app.get("/", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/login.html"));
-  // });
-
-  // app.get("/character", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/character-select.html"));
-  // });
-
-  // app.get("/encounter", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/character-encounter.html"));
-  // });
-
-  // app.get("*", function (req, res) {
-  //   res.render("404");
-  // });
-
-  // Load index page
-  // app.get("/", function (req, res) {
-  //   db.Example.findAll({}).then(function (dbExamples) {
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       examples: dbExamples
-  //     });
-  //   });
-  // });
-
   // // Load example page and pass in an example by id
   // app.get("/example/:id", function (req, res) {
   //   db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
