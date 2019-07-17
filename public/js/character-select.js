@@ -189,7 +189,10 @@ $(document).ready(function () {
     function characterDisplay() {
         characterSelect(characters[0].name, characters[0].class, characters[0].portrait, characters[0].colors.dark, characters[0].colors.light, characters[0].stats);
         for (var i = 0; i < characters.length; i++) {
-            var chibiContainer = $("<div>").addClass("character-container").attr("data-class", characters[i].class);
+            var chibiContainer = $("<div>").addClass("character-container").attr({
+                "data-class": characters[i].class,
+                "data-key": i + 1
+            });
             var characterImage = $("<img>").attr("src", characters[i].chibi);
             chibiContainer.append(characterImage);
             $(".character-list").append(chibiContainer);
@@ -203,12 +206,9 @@ $(document).ready(function () {
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
             if ($(this).attr("data-class") === characters[i].class) {
-                characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
-
-
-                //david's portion
                 $("#confirmCharacter").attr("data-class", characters[i].class);
                 $("#confirmCharacter").attr("data-name", characters[i].name);
+                characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
     });
