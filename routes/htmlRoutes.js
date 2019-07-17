@@ -5,14 +5,14 @@ var isAuthenticated = require("../config/middleware/isAuth");
 module.exports = function (app) {
   app.get("/", (req, res) => {
     if (req.user) {
-      res.redirect("/character");
+      return res.redirect("/character");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   app.get("/register", (req, res) => {
     if (req.user) {
-      res.redirect("/character");
+      return res.redirect("/character");
     }
     res.sendFile(path.join(__dirname, "../public/registration.html"));
   });
@@ -61,12 +61,4 @@ module.exports = function (app) {
   //   //   res.send("pass")
   //   // }
   // })
-  // // Load example page and pass in an example by id
-  // app.get("/example/:id", function (req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
 };
