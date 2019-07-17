@@ -11,5 +11,12 @@ module.exports = function (sequelize, DataTypes) {
         colorDark: DataTypes.STRING,
         colorLight: DataTypes.STRING
     });
+    Main.associate = function (models) {
+        Main.belongsTo(models.User, {
+            foreightKey: {
+                allowNull: false
+            }
+        });
+    };
     return Main;
 };

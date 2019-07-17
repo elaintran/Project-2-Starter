@@ -92,6 +92,8 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.87);
   border-radius: 5px;
   margin: 0 3px;
+  width: 90px;
+  text-align: center;
 }
 
 .character-container:hover {
@@ -182,9 +184,9 @@ a:hover{
 */
 .logo {
   position: absolute;
-  width: 300px;
-  top: 30px;
-  left: 75px;
+  width: 23%;
+  top: 5%;
+  left: calc(3rem + 15px);
 }
 
 .menu-screen {
@@ -193,39 +195,85 @@ a:hover{
   align-items: center;
 }
 
-.map {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  z-index: -1;
-}
-
 .map-bg {
-  background: url("../images/resource-images/background/map2.png");
+  background: url("../images/resource-images/background/map3.png");
   background-repeat: no-repeat;
-  background-size: 70% auto;
-  /* background-size: contain; */
+  background-position: -50px 0;
+  background-size: contain;
 }
 
 /* .map-markers {
   position: absolute;
 } */
 
-.marker {
+.marker-container {
   position: absolute;
-  top: 40%;
-  left: 35%;
   text-transform: uppercase;
   color: #e8c892;
   font-weight: 500;
-  background-color: 252525;
-  padding: 5px 13px;
-  font-size: 12px;
-  border: 2px solid #acacac;
+}
+
+.marker-container:hover {
+  cursor: pointer;
+}
+
+.marker {
+  background-color: #252525;
+  padding: 10% 10px;
+  border: 0.2vw solid #acacac;
 }
 
 .marker p {
   margin-bottom: 0;
+  font-size: 1vw;
+}
+
+.item-shop {
+  top: 18vw;
+  left: 45%;
+}
+
+.armory {
+  top: 18vw;
+  left: 23%;
+}
+
+.castle {
+  top: 13vw;
+  left: 35%;
+}
+
+.triangles {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.inner-triangle {
+  width: 0;
+  height: 0;
+  border-left: 1.1vw solid transparent;
+  border-right: 1.1vw solid transparent;
+  border-top: 1vw solid #252525;
+  margin: auto;
+  position: absolute;
+  top: -0.4vw;
+}
+
+.outer-triangle {
+  width: 0;
+  height: 0;
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+  border-top: 0.9vw solid #acacac;
+}
+
+.circle {
+  height: 1vw;
+  width: 1vw;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0.5vw auto 0;
 }
 
 .user-menu {
@@ -237,26 +285,36 @@ a:hover{
   margin-right: 15px;
 }
 
+.map-wrapper {
+  width: 100%;
+  height: 45.78vw;
+  display: flex;
+}
+
 .chapter-info {
-  padding: 30px 50px;
+  padding: 3% 4%;
   background-color: 252525;
-  border: 3px solid #acacac;
-  margin: 30px 15px 30px auto;
+  border: 0.2vw solid #acacac;
+  margin: 30px 15px 3vw auto;
   color: #d7d7d7;
   letter-spacing: 0.5px;
-  width: 400px;
+  width: 36%;
 }
 
 .chapter-info h6 {
   text-align: center;
   margin-bottom: 3px;
+  font-size: 1.2vw;
+  font-weight: 500;
 }
 
 .chapter-info p {
-  font-size: 13px;
+  font-size: 1vw;
   line-height: 1.5;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  height: 8vw;
+  overflow: auto;
 }
 
 .chapter-number {
@@ -265,14 +323,14 @@ a:hover{
 }
 
 .select {
-  font-size: 13px;
+  font-size: 1vw;
   letter-spacing: 0.5px;
   font-weight: 500;
   background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
 }
 
 .chapter-select {
-  border: 3px solid #acacac;
+  border: 0.2vw solid #acacac;
 }
 
 .chapter-select:hover {
@@ -286,8 +344,17 @@ a:hover{
 */
 
 body.encounter-screen {
-  background: url(../images/resource-images/encounter/bg-forest.jpg) no-repeat top #14150f;
+  background: url(../images/resource-images/encounter/bg-castle.jpg) no-repeat top #14150f;
   background-size: contain;
+}
+
+.foreground {
+  background: url(../images/resource-images/encounter/fg-castle.png) no-repeat bottom transparent;
+  background-size: contain;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 43.98vw;
 }
 
 .page-wrapper {
@@ -560,6 +627,7 @@ body.encounter-screen {
   height: 2vw;
   float: left;
   padding: 0.3vw 0.7vw 0 0;
+  display: none;
 }
 
 .enemy-avatar {

@@ -28,7 +28,7 @@ $(document).ready(function () {
             userEmail: userEmail,
             userPassword: userPassword
         }).then(function () {
-            windom.location.replace("/");
+            window.location.replace("/character");
         });
     }
 });

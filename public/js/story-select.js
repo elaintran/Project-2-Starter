@@ -22,8 +22,29 @@ $(document).ready(function() {
             previewImg: "images/resource-images/encounter/bg-forest.jpg"
         }
     ];
-    
-    $("something").on("click", function() {
-        return chapters;
+
+    function chapterDisplay() {
+        for (var i = 0; i < chapters.length; i++) {
+            var col = $("<div>").addClass("col-3");
+            var chapterSelect = $("<div>").addClass("chapter-select").attr("data-chapter", i+1);
+            var chapterImg = $("<img>").attr({
+                "src": chapters[i].previewImg,
+                "width": "100%"
+            });
+            chapterSelect.append(chapterImg);
+            col.append(chapterSelect);
+            $(".chapter-list").append(col);
+        }
+    }
+    chapterDisplay();
+
+    $(".chapter-select").on("click", function() {
+        for (var i = 0; i < chapters.length; i++) {
+            if (+$(this).attr("data-chapter") === i+1) {
+                $(".chapter-number").text(chapters[i].name);
+                $(".chapter-subtitle").text(chapters[i].subtitle);
+                $(".chapter-description").text(chapters[i].description);
+            }
+        }
     });
 });
