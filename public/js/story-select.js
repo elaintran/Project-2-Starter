@@ -4,27 +4,23 @@ $(document).ready(function () {
             name: "Chapter 1:",
             subtitle: "Into the Unknown",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-plains.jpg",
-            urlEncounter: "/encounter"
+            previewImg: "images/resource-images/encounter/bg-plains.jpg"
         }, {
             name: "Chapter 2:",
             subtitle: "We Meet Again",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-forest.jpg",
-            urlEncounter: "/encounter"
+            previewImg: "images/resource-images/encounter/bg-forest.jpg"
 
         }, {
             name: "Chapter 3:",
             subtitle: "Here Comes the King",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-castle.jpg",
-            urlEncounter: "/encounter"
+            previewImg: "images/resource-images/encounter/bg-castle.jpg"
         }, {
             name: "Chapter 4:",
             subtitle: "A New King",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-forest.jpg",
-            urlEncounter: null
+            previewImg: "images/resource-images/encounter/bg-forest.jpg"
         }
     ];
 
@@ -51,7 +47,7 @@ $(document).ready(function () {
                 $(".chapter-description").text(chapters[i].description);
                 $("button.select").attr("data-chapter", i + 1);
                 $("button.select").attr("data-subtitle", chapters[i].subtitle);
-                $("button.select").attr("href", chapters[i].urlEncounter);
+                $("button.select").attr("href", "/encounter");
                 $(".select").removeAttr("style");
             }
         }
