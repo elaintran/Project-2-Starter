@@ -76,7 +76,7 @@ body {
   color: white;
   text-transform: uppercase;
   padding: 0.6vw 0;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .select-character:focus, .select-character:active {
@@ -336,11 +336,14 @@ a:hover{
 
 .chapter-select {
   border: 0.2vw solid #acacac;
+  position: relative;
 }
 
 .chapter-select:hover {
   cursor: pointer;
 }
+
+
 
 /*  
   ============================
