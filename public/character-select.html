@@ -28,28 +28,21 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="map-wrapper">
-            <div class="select-screen">
-                <div class="row">
-                    <div class="col-6 character-portrait">
-                        <img class="character-image">
-                    </div>
-                    <div class="col-6 character-display">
-                        <div class="character-info">
-                            <h3 class="character-name"></h3>
-                            <h5 class="character-class"></h5>
-                            <div class="character-stats">
-                            </div>
-                            <!-- <p>Remaining Stats</p> -->
-                            <button class="select-character">Select</button>
-                        </div>
-                        <p>Remaining Stats</p>
-                        <button class="select-character" data-toggle="modal" data-target="#exampleModal">Select</button>
-                    </div>
-                </div>
-                <div class="character-list">
-                </div>
+  <div class="container-fluid">
+    <div class="map-wrapper">
+      <div class="select-screen">
+        <div class="row">
+          <div class="col-6 character-portrait">
+            <img class="character-image">
+          </div>
+          <div class="col-6 character-display">
+            <div class="character-info">
+              <h3 class="character-name"></h3>
+              <h5 class="character-class"></h5>
+              <div class="character-stats">
+              </div>
+              <!-- <p>Remaining Stats</p> -->
+              <button class="select-character" data-toggle="modal" data-target="#confirmBox">Select</button>
             </div>
           </div>
         </div>
@@ -57,26 +50,25 @@
         </div>
       </div>
     </div>
-    
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Confirm Character Selection</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Are you sure you want to proceed with your character?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-              <button type="button" class="btn btn-primary">Save Character</button>
-            </div>
-          </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmBox" tabindex="-1" role="dialog" aria-labelledby="confirmBoxLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmBoxlLabel">Confirm Character Selection</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to proceed with your character?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+          <button type="submit" id="confirmCharacter" class="btn btn-primary">Save Character</button>
         </div>
       </div>
     </div>
