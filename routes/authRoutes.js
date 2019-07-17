@@ -32,16 +32,19 @@ module.exports = function (app) {
             // The user is not logged in, send back an empty object
             // res.json({});
             res.redirect("/");
-        } else {
+        } else if (req.user.userSelection !== null) {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
-            res.json({
-                userName: req.user.userName,
-                userEmail: req.user.userEmail,
-                userSelection: req.user.userSelection,
-                userId: req.user.id
-            });
+            res.redirect("/world");
+        } else {
+            res.redirect("/character");
         }
+        // res.json({
+        //     userName: req.user.userName,
+        //     userEmail: req.user.userEmail,
+        //     userSelection: req.user.userSelection,
+        //     userId: req.user.id
+        // });
     });
     app.put("/api/userdata", function (req, res) {
         db.User.update(req.body,
