@@ -682,7 +682,7 @@ svg.enemy-sprite:hover {
   border-top-right-radius: 0px;
 }
 .modal-body{
-  color:#252525;
+  color: transparent;
   font-family: "Work Sans", sans-serif;
 }
 .btn-primary{
@@ -729,18 +729,15 @@ body.error-screen{
 .btn-secondary{
   background:transparent;
   border:0px;
-  align-items: center;
 }
 .btn-secondary:focus{
   background:transparent;
-  border:0px;
+  border: none;
   box-shadow:none;
 }
 .btn.focus{
   outline:none;
 }
-
-
-
-
-
+.show>.btn-secondary.dropdown-toggle{
+  background:transparent;
+}
