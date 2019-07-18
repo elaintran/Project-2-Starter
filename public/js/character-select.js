@@ -23,34 +23,6 @@
 //     characters.push(characterObj); 
 // }
 
-// case "Swordmaster": //2-2-3-3 so 50*2/4, 50*2/4, 50*3/4, 50*3/4
-// character = new Character(classType, 25, 25, 37.5, 37.5);
-// break;
-// case "Lance Fighter": //3-3-2-2
-// character = new Character(classType, 37.5, 37.5, 25, 25);
-// break;
-// case "Axe Fighter": //3-1-4-2
-// character = new Character(classType, 37.5, 12.5, 50, 25);
-// break;
-// case "Bow Fighter": //2-3-2-3
-// character = new Character(classType, 25, 37.5, 25, 37.5);
-// break;
-// case "Red Mage": //1-2-4-3
-// character = new Character(classType, 12.5, 25, 50, 37.5);
-// break;
-// case "Manakete": //1-3-4-2
-// character = new Character(classType, 12.5, 37.5, 50, 25);
-// break;
-// case "Knight": //4-4-1-1
-// character = new Character(classType, 50, 50, 12.5, 12.5);
-// break;
-// case "Thief": //2-2-2-4
-// character = new Character(classType, 25, 25, 25, 50);
-// break;
-// }
-
-//hp/def/str/spd
-
 $(document).ready(function () {
     var characters = [
         {
