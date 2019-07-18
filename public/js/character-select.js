@@ -429,6 +429,7 @@ $(document).ready(function () {
                 }
                 $(".stat-points").text(statPoints);
                 $(".character-stats").empty();
+                console.log(newStats);
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
