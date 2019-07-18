@@ -18,13 +18,39 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        userSelection: DataTypes.STRING,
+        userSelection: {
+            type: DataTypes.INTEGER,
+        },
         userProgression: {
             type: DataTypes.INTEGER,
             defaultValue: 0
         },
         userScore: DataTypes.INTEGER
     });
+
+    // User.associate = function (models) {
+    //     User.belongsToMany(models.Main, {
+    //         through: "userMain"
+    //     });
+    // };
+
+    User.associate = function (models) {
+        User.belongsTo(models.Main, {
+            foreignKey: "userSelection"
+        });
+        User.belongsToMany(models.Chapter, {
+            through: "userChapterUnlock",
+            foreignKey: "userProgression"
+        });
+    };
+
+    // User.associate = function (models) {
+    //     User.hasMany(models.Chapter, {
+    //         foreignKey: "userProgression"
+    //     });
+    // };
+
+
     User.prototype.validPassword = function (userPassword) {
         return bcrypt.compareSync(userPassword, this.userPassword);
     };
