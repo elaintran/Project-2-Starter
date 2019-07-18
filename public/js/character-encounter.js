@@ -213,7 +213,7 @@ function populateBattle(characters, stage) {
     // display correct player name
     $(".character-name").text(p.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp/3));
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp/3).toFixed(0));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
@@ -225,7 +225,7 @@ function populateBattle(characters, stage) {
     // display correct enemy name
     $(".enemy-name").text(e.name);
     // dispaly correct enemy hp
-    $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
+    $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp.toFixed(0));
     // display correct hp amount on health bar
     $(".enemy-health-bar-fill").css("width", "100%");
     // display correct enemy sprite
