@@ -360,6 +360,138 @@ body.encounter-screen {
   align-content: end;
 }
 
+.player-stats {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.enemy-stats {
+  display: flex;
+  flex-flow: row-reverse;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.player-avatar img, .enemy-avatar img {
+  width: 8vw;
+}
+
+.player-avatar, .enemy-avatar {
+  padding: 1.5vw;
+  position: relative;
+  z-index: 1000;
+}
+
+.player-avatar {
+  padding-right: 1vw;
+  padding-left: 3vw;
+}
+
+.stats-container {
+  font-family: 'Work Sans', 'Lato', sans-serif;
+  background-color: #0009;
+  align-self: center;
+  position: relative;
+  z-index: 999;
+  width: 22vw;
+}
+
+.player-stats .stats-container {
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+  padding: 1vw 3vw 1.2vw 3.2vw;
+  left: -3vw;
+}
+
+.enemy-stats .stats-container {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%);
+  padding: 1vw 3.2vw 1.2vw 3vw;
+  right: -3vw
+}
+
+.character-text {
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-content: stretch;
+  justify-content: space-between;
+  padding-bottom: 0.65vw;
+}
+
+.character-name, .enemy-name {
+  align-self: center;
+}
+
+.character-name {
+  color: #e8c891;
+}
+
+.hit-points {
+  align-self: center;
+}
+
+.enemy-stats .hit-points {
+  float: right;
+}
+
+.player-health-bar-fill {
+  width: 100%;
+  height: .8vw;
+  background-image: linear-gradient(90deg, #94263a, #d24e5f);
+  border-radius: 0.4vw;
+  position: absolute;
+  z-index: 1002;
+}
+
+.player-health-bar {
+  width: 100%;
+  height: .8vw;
+  background-image: linear-gradient(90deg, #222, #333333);
+  border-radius: 0.4vw;
+  position: relative;
+  bottom: 0px;
+  z-index: 1001;
+}
+
+.player-health-bar {
+  float: left;
+}
+
+.enemy-stats .health-bar {
+  float: right;
+}
+
+.enemy-avatar {
+  padding-left: 1vw;
+  padding-right: 3vw;
+}
+
+.enemy-name {
+  justify-self: end;
+}
+
+.enemy-health-bar-fill {
+  width: 50%;
+  height: .8vw;
+  background-image: linear-gradient(-90deg, #94263a, #d24e5f);
+  border-radius: .4vw;
+  position: absolute;
+  z-index: 1002;
+}
+
+.enemy-health-bar {
+  width: 100%;
+  height: .8vw;
+  background-image: linear-gradient(-90deg, #222, #333333);
+  border-radius: .4vw;
+  position: relative;
+  bottom: 0;
+  z-index: 1001;
+}
+
 .attack-prompts {
   width: 100%;
 }
@@ -557,137 +689,7 @@ svg.enemy-sprite:hover {
 /* Potential clip-path for player/enemy stat bar */
 /* clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%); */
 
-.player-stats {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
-.enemy-stats {
-  display: flex;
-  flex-flow: row-reverse;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.player-avatar img, .enemy-avatar img {
-  width: 10vw;
-}
-
-.player-avatar, .enemy-avatar {
-  padding: 1.5vw;
-  position: relative;
-  z-index: 1000;
-}
-
-.player-avatar {
-  padding-right: 1vw;
-  padding-left: 3vw;
-}
-
-.stats-container {
-  font-family: 'Work Sans', 'Lato', sans-serif;
-  background-color: #0008;
-  align-self: center;
-  position: relative;
-  z-index: 999;
-  width: 22vw;
-}
-
-.player-stats .stats-container {
-  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
-  padding: 1.2vw 3.7vw 1.4vw 3.2vw;
-  left: -3vw;
-}
-
-.enemy-stats .stats-container {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 12% 100%);
-  padding: 1.2vw 3.2vw 1.4vw 3.7vw;
-  right: -3vw
-}
-
-.character-text {
-  font-size: 1.45vw;
-  text-transform: uppercase;
-  font-weight: 500;
-  display: flex;
-  align-content: stretch;
-  justify-content: space-between;
-  padding-bottom: 0.5vw;
-}
-
-.character-name, .enemy-name {
-  align-self: center;
-}
-
-.character-name {
-  color: #e8c891;
-}
-
-.hit-points {
-  align-self: center;
-}
-
-.enemy-stats .hit-points {
-  float: right;
-}
-
-.player-health-bar-fill {
-  width: 50%;
-  height: 1.1vw;
-  background-image: linear-gradient(90deg, #94263a, #d24e5f);
-  border-radius: 0.7vw;
-  position: absolute;
-  z-index: 1002;
-}
-
-.player-health-bar {
-  width: 100%;
-  height: 1.1vw;
-  background-image: linear-gradient(90deg, #222, #333333);
-  border-radius: 0.7vw;
-  position: relative;
-  bottom: 0px;
-  z-index: 1001;
-}
-
-.player-health-bar {
-  float: left;
-}
-
-.enemy-stats .health-bar {
-  float: right;
-}
-
-.enemy-avatar {
-  padding-left: 1vw;
-  padding-right: 3vw;
-}
-
-.enemy-name {
-  justify-self: end;
-}
-
-.enemy-health-bar-fill {
-  width: 50%;
-  height: 1.1vw;
-  background-image: linear-gradient(-90deg, #94263a, #d24e5f);
-  border-radius: 0.7vw;
-  position: absolute;
-  z-index: 1002;
-}
-
-.enemy-health-bar {
-  width: 100%;
-  height: 1.1vw;
-  background-image: linear-gradient(-90deg, #222, #333333);
-  border-radius: 0.7vw;
-  position: relative;
-  bottom: 0;
-  z-index: 1001;
-}
 
 .enemy-testing {
   position: relative;

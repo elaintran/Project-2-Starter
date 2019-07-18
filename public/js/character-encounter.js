@@ -132,7 +132,7 @@ var enemy = [
 ];
 
 var background = [
-    "./images/resource-images/encounter/bg-forest-ruins.jpg",
+    "./images/resource-images/encounter/bg-forest-entrance.jpg",
     "./images/resource-images/encounter/bg-forest.jpg",
     "./images/resource-images/encounter/bg-castle.jpg"
 ];
