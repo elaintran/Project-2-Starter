@@ -181,7 +181,7 @@ $(document).ready(function () {
 
     // var w = "100%";
     var h = 180;
-    var newCharacter = [];
+    // var newCharacter = [];
     var newStats = [];
 
     //need to write a constructor to reduce redundant code
@@ -335,7 +335,7 @@ $(document).ready(function () {
             .style("fill", "white")
             .style("font-size", "12px")
             .append("tspan")
-            .attr("class", "fas minus")
+            .attr("class", "fas stat-dist minus")
             .attr("data-class", characterClass)
             .text("\uf0d9")
             .attr("y", function (d, i) {
@@ -344,6 +344,7 @@ $(document).ready(function () {
 
         nodes.select(".stat-name")
             .append("tspan")
+            .attr("class", "stat-type")
             .text(function (d) {
                 return d.statName;
             })
@@ -353,66 +354,59 @@ $(document).ready(function () {
 
         nodes.select(".stat-name")
             .append("tspan")
-            .attr("class", "fas plus")
+            .attr("class", "fas stat-dist plus")
             .attr("data-class", characterClass)
             .attr("dx", 10)
             .text("\uf0da");
     }
 
-    $(".character-stats").on("click", ".plus", function () {
-        //write a conditional to prevent pushing onto array again
+    var statPoints = 4;
+    $(".character-stats").on("click", ".stat-dist", function () {
         for (var i = 0; i < characters.length; i++) {
-            //check if data attribute matches class here
-            //if it does, put these variables in an if statement
-            // console.log(characters[0].class);
+            //check for character class from data attribute on button
             if ($(this).attr("data-class") === characters[i].class) {
-                var selectCharacter = {};
-                selectCharacter.name = characters[i].name;
-                selectCharacter.class = characters[i].class;
-                selectCharacter.colors = characters[i].colors;
-                // newCharacter.push(selectCharacter);
+                //double loop to through the stats array inside the character object
                 for (var j = 0; j < characters[i].stats.length; j++) {
-                    var characterStats = {};
-                    characterStats.statName = characters[i].stats[j].statName;
-                    characterStats.value = characters[i].stats[j].value;
-                    console.log(characters[i].stats[j].statName);
-                    selectCharacter.stats = characters[i].stats;
-                    newStats.push(characterStats);
+                    //prevents from appending more stats onto the array
+                    if (newStats.length < characters[i].stats.length) {
+                        //set an empty obj
+                        //if push data directly into array, new array will reference the previous array and override the data 
+                        var characterStats = {};
+                        characterStats.statName = characters[i].stats[j].statName;
+                        characterStats.value = characters[i].stats[j].value;
+                        newStats.push(characterStats);
+                    }
+                    //check if the plus button is clicked
+                    if ($(this).attr("class").split(" ")[2] === "plus") {
+                        //checks the stat name
+                        if ($(this).prev().text() === characters[i].stats[j].statName) {
+                            //if user still has remaining stat points
+                            if (statPoints !== 0 && newStats[j].value <= 40) {
+                                //add point to stats
+                                newStats[j].value++;
+                                //remove from statPoints
+                                statPoints--;
+                            }
+                        }
+                    //check if the minus button is clicked
+                    } else if ($(this).attr("class").split(" ")[2] === "minus") {
+                        //checks the stat name
+                        if ($(this).next().text() === characters[i].stats[j].statName) {
+                            //if user has the original amount of points and new stat value is not equal to old stat value
+                            //prevents user from subtracting from base stats
+                            if (statPoints !== 4 && newStats[j].value !== characters[i].stats[j].value) {
+                                newStats[j].value--;
+                                statPoints++;
+                            }
+                        }
+                    }
                 }
-                newCharacter.push(selectCharacter);
-                //set stat distribution conditionals here
-                //gets the value of hp
-                //need to do the rest for the other stats
-                //testing override
-                console.log(newStats[0].value);
-                console.log(characters[0].stats[0].value);
-                console.log(newCharacter[0].stats[0].value);
-                newStats[0].value++;
                 $(".character-stats").empty();
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
-        //when the plus sign is clicked on
-        //set base stats as variables
-        //loop through the character object array
-        //find the data attribute for class
-        //if data attribute for class = characters[i].class
-        //push characters[i] into empty array
-        //$(".character-stats").empty(); to clear out stats container so it doesn't keep appending
-        //check the data attribute for stats
-        //if data attribute for stat = newCharacter[0].stats[0].name
-        //add one to newCharacter[0].stats[0].value (hp value)
-        //call statsDisplay(newCharacters[0].stats, newCharacters[0].colors.dark, newCharacters[0].colors.light);
-        //to update stats
     });
-    //if click on new character, need to reset the value
-    //need to set a conditional so that it does not go below the base stat
-    //need to set a conditional so that it does not go above 40
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
     //need to display remaining stat points
 });
-
-//issues
-//if we use handlebars, mark will need to conform to bootstrap
-//if we have an item/armory, how will users purchase items? will enemies drop gold?
