@@ -260,7 +260,7 @@ function listenForHover() {
                 "opacity": "0",
                 "left": "-1vw"
             });
-            $(this).css({ "fill": "transparent", });
+            $(this).css({ "fill": "transparent" });
         });
         // $(this).click(function() {
         //     testAttack(25);
