@@ -28,28 +28,11 @@ module.exports = function (sequelize, DataTypes) {
         userScore: DataTypes.INTEGER
     });
 
-    // User.associate = function (models) {
-    //     User.belongsToMany(models.Main, {
-    //         through: "userMain"
-    //     });
-    // };
-
     User.associate = function (models) {
         User.belongsTo(models.Main, {
             foreignKey: "userSelection"
         });
-        User.belongsToMany(models.Chapter, {
-            through: "userChapterUnlock",
-            foreignKey: "userProgression"
-        });
     };
-
-    // User.associate = function (models) {
-    //     User.hasMany(models.Chapter, {
-    //         foreignKey: "userProgression"
-    //     });
-    // };
-
 
     User.prototype.validPassword = function (userPassword) {
         return bcrypt.compareSync(userPassword, this.userPassword);
