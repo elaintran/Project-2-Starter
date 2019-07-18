@@ -11,8 +11,9 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
-        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+        crossorigin="anonymous"></script>
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -32,23 +33,31 @@
      <link rel='icon' href='./images/resource-images/favicon.ico' type='image/x-icon'/>
 
 </head>
+
 <body>
-     <div class="loginlogo"><img src="images/resource-images/logo/heroes-united.png" width="300" height="120"></div>
+    <div class="loginlogo"><img src="images/resource-images/logo/heroes-united.png" width="300" height="120"></div>
 
     <form class="login">
-            
+
         <div class="inner-addon left-addon">
-                <div class="form-group">
+            <div class="form-group">
                 <label for="userEmail"></label>
-                <i class="glyphicon glyphicon-user"></i>      
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email" required>
-              </div>
-             
-        <div class="inner-addon left-addon">
+                <i class="glyphicon glyphicon-user"></i>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                    placeholder="Email" required>
+            </div>
+
+            <div class="inner-addon left-addon">
                 <div class="form-group">
-                <label for="userEmail"></label>
-                <i class="glyphicon glyphicon-lock"></i>      
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                    <label for="userEmail"></label>
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="submit">LOGIN</button>
+
+                <div class="prompttext"></div>
+                <h2 class="accounttext">Need an Account? <a href="registration.html">Signup.</a></h2>
             </div>
     
         <button type="submit" class="submit">LOGIN</button>
@@ -57,7 +66,7 @@
             <h2 class="accounttext">Need an account? <a href="registration.html">Signup.</a></h2>
         </div>
     </form>
-    
+
 
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
