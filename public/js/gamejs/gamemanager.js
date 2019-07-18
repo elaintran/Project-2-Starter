@@ -280,3 +280,21 @@ function updatePlayerHealthBar() { // eslint-disable-line no-unused-vars
   $(".player-health-bar-fill").css("width", hpPercentage + "%");
   console.log("currentHP: " + character.hp);
 }
+
+// trigger modals for a win or lose scenario
+function toggleWinLoseModals(state) { // eslint-disable-line no-unused-vars
+  if (state === "win") {
+    let completed = true;
+    setTimeout(function() {
+      $("#winModal").modal("show");
+    }, 2000);
+    postChapterWin(completed);
+    // setTimeout(function() {
+    // });
+  } else if (state === "lose") {
+    setTimeout(function() {
+      $("#loseModal").modal("show");
+    }, 2000);
+  }
+  
+}

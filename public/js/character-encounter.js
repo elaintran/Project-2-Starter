@@ -7,19 +7,19 @@ character = {
     def: 50,
     str: 25,
     spd: 37.5
-  };
-  
-  //multiplier for character HP
-  character.hp *= 3;
+};
 
-$(document).ready(function() {
+//multiplier for character HP
+character.hp *= 3;
+
+$(document).ready(function () {
 
     //loads chapter status and creates designated enemy
-  gameManager.setUpFight(chapter);
-  console.log("Enemy creation: " + enemy.hp);
-        // animateEntrance();
-        populateBattle();
-        listenForHover();
+    gameManager.setUpFight(chapter);
+    console.log("Enemy creation: " + enemy.hp);
+    // animateEntrance();
+    populateBattle();
+    listenForHover();
 
 });
 
@@ -136,12 +136,12 @@ var displayEnemy = [
         hp: 100,
         portrait: "./images/resource-images/encounter/enemy-bandit-portrait.png",
         sprite: enemies[0]
-    },{
+    }, {
         name: "Red Knight",
         hp: 200,
         portrait: "./images/resource-images/encounter/enemy-black-knight-portrait.png",
         sprite: enemies[1]
-    },{
+    }, {
         name: "Dragon King",
         hp: 400,
         portrait: "./images/resource-images/encounter/dragon-king-portrait.png",
@@ -181,8 +181,8 @@ function populateBattle(characters, stage) {
             break;
         case "thief":
             p = player[7];
-            break;                
-        default: 
+            break;
+        default:
             p = player[0];
             break;
     }
@@ -213,7 +213,7 @@ function populateBattle(characters, stage) {
     // display correct player name
     $(".character-name").text(p.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp/3).toFixed(0));
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp / 3).toFixed(0));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
@@ -246,21 +246,21 @@ function populateBattle(characters, stage) {
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
 function listenForHover() {
-    $(".cls-1").each(function() {    
+    $(".cls-1").each(function () {
         var bodyPart = ($(this).parent().attr("data-target"));
         // console.log(bodyPart);
-        $(this).hover(function() {
+        $(this).hover(function () {
             $(".attack-" + bodyPart).css({
                 "opacity": "1",
                 "left": "0"
             });
-            $(this).css({"fill":"#f006"});
-        },function() {
+            $(this).css({ "fill": "#f006" });
+        }, function () {
             $(".attack-" + bodyPart).css({
                 "opacity": "0",
                 "left": "-1vw"
             });
-            $(this).css({"fill":"transparent",});
+            $(this).css({ "fill": "transparent" });
         });
         // $(this).click(function() {
         //     testAttack(25);
@@ -269,16 +269,59 @@ function listenForHover() {
 }
 
 function animateEntrance() {
-    $(".player-sprite").css({left: "-50vw"});
-    $(".player-stats").css({top: "-10vw"});
-    $(".enemy-stats").css({top: "-10vw"});
-    $(".player-sprite").animate({left: "+=50vw"}, 3500);
-    setTimeout(function() {
-        $(".player-stats").animate({"top": "+=10vw"}, 1450, "easeOutBounce");
-        $(".enemy-stats").animate({"top": "+=10vw"}, 1550, "easeOutBounce");
+    $(".player-sprite").css({ left: "-50vw" });
+    $(".player-stats").css({ top: "-10vw" });
+    $(".enemy-stats").css({ top: "-10vw" });
+    $(".player-sprite").animate({ left: "+=50vw" }, 3500);
+    setTimeout(function () {
+        $(".player-stats").animate({ "top": "+=10vw" }, 1450, "easeOutBounce");
+        $(".enemy-stats").animate({ "top": "+=10vw" }, 1550, "easeOutBounce");
     }, 3500);
 }
 
+function getUserId() {
+    $.get("/api/userdata").then(function (data) {
+        var userId = data.userId;
+        getUserData(userId);
+    });
+}
+function getUserData(Id) {
+    $.ajax({
+        method: "GET",
+        url: `/api/users/${Id}`
+    }).then(function (data) {
+        console.log(data);
+        var userChibi = data.Main.mainChibi;
+        var userPortrait = data.Main.mainPortrait;
+        $(".player-sprite").attr("src", userChibi);
+        $(".player-portrait").attr("src", userPortrait);
+        $(".character-name").text(data.Main.mainClass);
+    });
+}
+// loginUser does a post to our "api/login" route and if successful, redirects us the the landing page
+// function putChapterWin() {
+//     function postCharacterData(Id) {
+//         $.ajax({
+//             method: "PUT",
+//             url: `/api/users/${Id}`,
+//             data: userData
+//         }).then(function () {
+//             window.location.href = "/world";
+//         });
+//     }
 
+//     function gatherUserId() {
+//         $.get("/api/userdata").then(function (data) {
+//             console.log(data);
+//             var userId = data.userId;
+//             postCharacterData(userId);
+//         });
+//     }
+//     gatherUserId();
+// }
 
-
+$(document).ready(function () {
+    // animateEntrance();
+    listenForHover();
+    getUserId();
+});

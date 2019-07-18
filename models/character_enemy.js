@@ -12,9 +12,9 @@ module.exports = function (sequelize, DataTypes) {
         colorLight: DataTypes.STRING
     });
 
-    Enemy.associate = function (models) {
-        Enemy.hasOne(models.Chapter, {
-        });
-    };
+    // Enemy.associate = function (models) {
+    //     Enemy.hasOne(models.Chapter, {
+    //     });
+    // };
     return Enemy;
 };
