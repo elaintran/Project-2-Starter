@@ -5,7 +5,7 @@ $(document).ready(function () {
             subtitle: "Into the Unknown",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
             previewImg: "images/resource-images/encounter/bg-forest-entrance.jpg",
-            complete: false
+            complete: true
         }, {
             name: "Chapter 2:",
             subtitle: "We Meet Again",
@@ -28,27 +28,20 @@ $(document).ready(function () {
         }
     ];
 
+    var chapterSelect;
+    var chapterImg;
     var chapterUnlock = true;
 
     function chapterDisplay() {
         for (var i = 0; i < chapters.length; i++) {
             var col = $("<div>").addClass("col-3");
-            var chapterSelect = $("<div>").addClass("chapter-select").attr("data-chapter", i + 1);
-            var chapterImg = $("<img>").attr("src", chapters[i].previewImg).addClass("image-fit");
+            chapterSelect = $("<div>").addClass("chapter-select").attr("data-chapter", i + 1);
+            chapterImg = $("<img>").attr("src", chapters[i].previewImg).addClass("image-fit");
             if (chapters[i].complete) {
-                //need to search for where the new chapter is
-                chapterSelect.attr("data-complete", "complete");
-                var flag = $("<div>").addClass("flag").css("background-color", "#3e62a1");
-                var completion = $("<p>").text("Complete");
-                flag.append(completion);
-                chapterSelect.append(chapterImg).append(flag);
+                flagDisplay("Complete", "#3e62a1");
             } else {
                 if (chapterUnlock) {
-                    chapterSelect.attr("data-complete", "new");
-                    var flag = $("<div>").addClass("flag").css("background-color", "#b2394c");
-                    var completion = $("<p>").text("New");
-                    flag.append(completion);
-                    chapterSelect.append(chapterImg).append(flag);
+                    flagDisplay("New", "#b2394c");
                     chapterUnlock = false;
                 } else {
                     chapterSelect.attr("data-complete", "locked");
@@ -63,6 +56,18 @@ $(document).ready(function () {
         }
     }
     chapterDisplay();
+
+    function flagDisplay(chapterStatus, color) {
+        chapterSelect.attr("data-complete", chapterStatus);
+        var flagContainer = $("<div>").addClass("flag-container");
+        var flag = $("<div>").addClass("flag").css("background-color", color);
+        var completion = $("<p>").text(chapterStatus);
+        var flagWingTop = $("<div>").addClass("flag-wing wing-top").css("border-top-color", color);
+        var flagWingBottom = $("<div>").addClass("flag-wing wing-bottom").css("border-bottom-color", color);
+        flag.append(completion);
+        flagContainer.append(flag).append(flagWingTop).append(flagWingBottom);
+        chapterSelect.append(chapterImg).append(flagContainer);
+    }
 
     $(".chapter-select").on("click", function () {
         for (var i = 0; i < chapters.length; i++) {
