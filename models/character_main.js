@@ -11,11 +11,16 @@ module.exports = function (sequelize, DataTypes) {
         colorDark: DataTypes.STRING,
         colorLight: DataTypes.STRING
     });
+    // Main.associate = function (models) {
+    //     Main.belongsTo(models.User, {
+    //         through: "userMain"
+    //     });
+    // };
+
+    // this works
     Main.associate = function (models) {
-        Main.belongsTo(models.User, {
-            foreightKey: {
-                allowNull: false
-            }
+        Main.hasOne(models.User, {
+            foreignKey: "userSelection",
         });
     };
     return Main;

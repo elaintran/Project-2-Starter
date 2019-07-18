@@ -4,8 +4,14 @@ module.exports = function (sequelize, DataTypes) {
         chapterSubtitle: DataTypes.STRING,
         chapterDescription: DataTypes.STRING,
         chapterImg: DataTypes.STRING,
-        chapterUrl: DataTypes.STRING
+        chapterUrl: DataTypes.STRING,
     });
+
+    Chapter.associate = function (models) {
+        Chapter.hasOne(models.User, {
+            foreignKey: "userProgression"
+        });
+    };
 
     return Chapter;
 };

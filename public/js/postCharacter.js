@@ -6,12 +6,14 @@ $(document).ready(function () {
     $("#confirmCharacter").on("click", function () {
         var strengthStat = $(".filled").attr("y");
         var selectedClass = $(this).attr("data-class");
+        var selectedId = $(this).attr("data-id");
         var selectedName = $(this).attr("data-name");
         console.log(strengthStat);
         console.log(selectedClass);
+        console.log(selectedId);
         console.log(selectedName);
         var userData = {
-            userSelection: selectedClass
+            userSelection: selectedId
         };
         console.log("function fired with " + userData);
 

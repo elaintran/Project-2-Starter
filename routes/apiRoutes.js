@@ -5,9 +5,22 @@ module.exports = function (app) {
 
     // Get all users
     app.get("/api/users", (req, res) =>
-        db.User.findAll({}).then((dbUser) =>
+        db.User.findAll({
+            include: [db.Main]
+        }).then((dbUser) =>
             res.json(dbUser)
         ));
+
+    app.get("/api/users/:id", (req, res) => {
+        db.User.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.Main]
+        }).then(function (dbUser) {
+            res.json(dbUser);
+        });
+    });
 
     app.put("/api/users/:id", (req, res) => {
         db.User.update(req.body,

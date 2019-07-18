@@ -233,6 +233,7 @@ $(document).ready(function () {
             if ($(this).attr("data-class") === characters[i].class) {
                 $("#confirmCharacter").attr("data-class", characters[i].class);
                 $("#confirmCharacter").attr("data-name", characters[i].name);
+                $("#confirmCharacter").attr("data-id", (i + 1));
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
@@ -265,7 +266,7 @@ $(document).ready(function () {
     function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 " + 350 + " " + h);
+            .attr("viewBox", "0 0 " + 350 + " " + h);
         //defs store graphical objects at a later time and are not rendered
         var svgDefs = svg.append("defs");
         //creates a linear gradient container
@@ -414,7 +415,7 @@ $(document).ready(function () {
                                 console.log(newStats[j].value);
                             }
                         }
-                    //check if the minus button is clicked
+                        //check if the minus button is clicked
                     } else if ($(this).attr("class").split(" ")[2] === "minus") {
                         //checks the stat name
                         if ($(this).next().text() === characters[i].stats[j].statName) {
