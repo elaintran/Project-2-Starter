@@ -212,7 +212,7 @@ a:hover{
 }
 
 /* style glyph */
-.inner-addon .glyphicon {
+.inner-addon .fas {
   position: absolute;
   padding: 10px;
   pointer-events: none;
@@ -220,7 +220,7 @@ a:hover{
 }
 
 /* align glyph */
-.left-addon .glyphicon  { 
+.left-addon .fas  { 
   left:  0px;
 }
 
@@ -1016,7 +1016,7 @@ svg.enemy-sprite:hover {
   
 }
 
-.glyphicon{
+.fas {
   padding-right: 15%;
 }
 .btn-secondary:hover{
