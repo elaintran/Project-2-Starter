@@ -22,7 +22,7 @@ CREATE TABLE character_main (
     main_def INT(11) NOT NULL,
     main_spd INT(11) NOT NULL,
     main_lvl INT(11) NOT NULL,
-    main_exp INT(11) NOT NULL
+    main_exp INT(11) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -43,7 +43,8 @@ CREATE TABLE inventory (
     id INT AUTO_INCREMENT NOT NULL,
     item_name VARCHAR(100) NOT NULL,
     item_class VARCHAR(100) NOT NULL,
-    item_potency TINYINT NOT NULL
+    item_potency TINYINT NOT NULL,
+    PRIMARY KEY (id)
 );
 
 
