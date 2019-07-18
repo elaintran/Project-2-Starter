@@ -853,6 +853,9 @@ svg.enemy-sprite:hover {
 }
 .show>.btn-secondary.dropdown-toggle{
   background:transparent;
+  color:#c2b79e;
+  font-weight:600;
+  font-size: 20px;
 }
 .dropdown-menu.show{
   background-color: #292929;
@@ -860,6 +863,8 @@ svg.enemy-sprite:hover {
 }
 .dropdown-item{
   color: #bcbcbc;
+  font-weight:600;
+  padding: 8% 8%;
 }
 .dropdown-item:focus, .dropdown-item:hover{
   background-color: #292929;
@@ -868,4 +873,9 @@ svg.enemy-sprite:hover {
 }
 .show>.btn-secondary.dropdown-toggle:focus{
   box-shadow: none;
+
+}
+
+.glyphicon{
+  padding-right: 15%;
 }
