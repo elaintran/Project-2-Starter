@@ -7,19 +7,19 @@ character = {
     def: 50,
     str: 25,
     spd: 37.5
-  };
-  
-  //multiplier for character HP
-  character.hp *= 3;
+};
 
-$(document).ready(function() {
+//multiplier for character HP
+character.hp *= 3;
+
+$(document).ready(function () {
 
     //loads chapter status and creates designated enemy
-  gameManager.setUpFight(chapter);
-  console.log("Enemy creation: " + enemy.hp);
-        // animateEntrance();
-        populateBattle();
-        listenForHover();
+    gameManager.setUpFight(chapter);
+    console.log("Enemy creation: " + enemy.hp);
+    // animateEntrance();
+    populateBattle();
+    listenForHover();
 
 });
 
@@ -221,7 +221,7 @@ function populateBattle(characters, stage) {
     // display correct player name
     $(".character-name").text(p.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp/3));
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp / 3));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
@@ -256,45 +256,25 @@ function populateBattle(characters, stage) {
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
 function listenForHover() {
-<<<<<<< HEAD
     $(".cls-1").each(function () {
-        var target = ($(this).parent().attr("data-part"));
-        // console.log(target);
+        var bodyPart = ($(this).parent().attr("data-part"));
+        // console.log(bodyPart);
         $(this).hover(function () {
-            $(".attack-" + target).css({
+            $(".attack-" + bodyPart).css({
                 "opacity": "1",
                 "left": "0"
             });
             $(this).css({ "fill": "#f006" });
         }, function () {
-            $(".attack-" + target).css({
-=======
-    $(".cls-1").each(function() {    
-        var bodyPart = ($(this).parent().attr("data-part"));
-        // console.log(bodyPart);
-        $(this).hover(function() {
             $(".attack-" + bodyPart).css({
-                "opacity": "1",
-                "left": "0"
-            });
-            $(this).css({"fill":"#f006"});
-        },function() {
-            $(".attack-" + bodyPart).css({
->>>>>>> 63641aa612ac005061b3287dd6ef321689873d0e
                 "opacity": "0",
                 "left": "-1vw"
             });
             $(this).css({ "fill": "transparent", });
         });
-<<<<<<< HEAD
-        $(this).click(function () {
-            testAttack(25);
-        });
-=======
         // $(this).click(function() {
         //     testAttack(25);
         // });
->>>>>>> 63641aa612ac005061b3287dd6ef321689873d0e
     });
 }
 
@@ -309,7 +289,6 @@ function animateEntrance() {
     }, 3500);
 }
 
-<<<<<<< HEAD
 function getUserId() {
     $.get("/api/userdata").then(function (data) {
         var userId = data.userId;
@@ -333,12 +312,5 @@ function getUserData(Id) {
 $(document).ready(function () {
     // animateEntrance();
     listenForHover();
-
-
     getUserId();
 });
-=======
-
-
-
->>>>>>> 63641aa612ac005061b3287dd6ef321689873d0e
