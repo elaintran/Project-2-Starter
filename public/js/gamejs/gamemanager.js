@@ -23,8 +23,8 @@ function Target(target, hitChance, bonus, reduceSpd) {
   this.reduceSpd = reduceSpd;
 }
 
-let gameManager = {
-  // eslint-disable-line no-unused-vars
+let gameManager = {// eslint-disable-line no-unused-vars
+  
   charSelect: function(classType) {
     this.createChar(classType);
     // this.saveChar();
@@ -224,12 +224,18 @@ let gameManager = {
     switch (chapter) {
       case 1: //3-2-2-3 60*3/4, 60*2/4, 60*2/4, 60*3/4
         enemy = new Enemy(45, 30, 30, 45);
+        console.log("Enemy for chapter " + chapter + " created");
+        
         break;
       case 2: //3-2-2-3 80*3/4, 80*2/4, 80*2/4, 80*3/4
         enemy = new Enemy(60, 40, 40, 60);
+        console.log("Enemy for chapter " + chapter + " created");
+
         break;
       case 3: //3-2-2-3 100*3/4, 100*2/4, 100*2/4, 100*3/4
         enemy = new Enemy(75, 50, 50, 75);
+        console.log("Enemy for chapter " + chapter + " created");
+
         break;
     }
 
@@ -247,7 +253,7 @@ let gameManager = {
         target = new Target(grabbedTarget, 0.95, 0, 0);
         break;
       case "legs": //medium hit chance, lowers speed
-        target = new Target(grabbedTarget, 0.75, 0, 1);
+        target = new Target(grabbedTarget, 0.75, 0, 5);
         break;
     }
   },
