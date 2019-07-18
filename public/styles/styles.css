@@ -759,35 +759,72 @@ svg.enemy-sprite:hover {
 
 /*  
   ============================
-  MODAL STYLING
+  CHARACTER SELECT MODAL STYLING
   ============================
 */
-*/
-.modal-title{
-  color:#d7d7d7;
-  font-family: "Work Sans", sans-serif;
-}
 
-.modal-header{
-  background-image: linear-gradient(#252525, #0e0e0e);
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-}
 .modal-body{
-  /* color: transparent; */
-  color: black;
-  font-family: "Work Sans", sans-serif;
+  /* background-color: rgba(21, 21, 21, 0.8); */
+  border-color: #acacac;
+  /* border-style: solid;
+  border-width: 2px; */
+  height: 100px;
+  text-align: center;
+  padding-top: 10%;
+  font-size: 18px;
 }
-.btn-primary{
-  background-image: linear-gradient(90deg, #94263a, #d24e5f);
-  border: none;
+.modal-footer{
+  background-color: rgba(21, 21, 21, 0.8);
+  border-color: #acacac;
+  border-style: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
   
 }
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+
+.btn-primary{
+  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  border: 0;
+  width: 20%;;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 0;
+  font-weight: 500;
+  
+}
+/*  
+  ============================
+  WINNER MODAL
+  ============================
+*/
+.chapterclear{
+  text-align: center;
+  background-color: transparent;
+  text-shadow: 2px 2px 5px #ebdc78;
+  color: #fbfbd3;
+  font-weight: 600;
+  font-size: 45px;
+  letter-spacing: 5px;
+  font-family: Cambria;
+  padding-top: 30%;
+}
+
+/*  
+  ============================
+  LOSER MODAL
+  ============================
+*/
+.gameover{
+  text-align: center;
+  background-color: transparent;
+  text-shadow: 2px 2px 10px #ff0101;
+  color: #e93333;
+  font-weight: 600;
+  font-size: 45px;
+  letter-spacing: 5px;
+  font-family: Cambria;
+  padding-top: 30%;
 }
 
 /*
