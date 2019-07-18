@@ -23,6 +23,34 @@
 //     characters.push(characterObj); 
 // }
 
+// case "Swordmaster": //2-2-3-3 so 50*2/4, 50*2/4, 50*3/4, 50*3/4
+// character = new Character(classType, 25, 25, 37.5, 37.5);
+// break;
+// case "Lance Fighter": //3-3-2-2
+// character = new Character(classType, 37.5, 37.5, 25, 25);
+// break;
+// case "Axe Fighter": //3-1-4-2
+// character = new Character(classType, 37.5, 12.5, 50, 25);
+// break;
+// case "Bow Fighter": //2-3-2-3
+// character = new Character(classType, 25, 37.5, 25, 37.5);
+// break;
+// case "Red Mage": //1-2-4-3
+// character = new Character(classType, 12.5, 25, 50, 37.5);
+// break;
+// case "Manakete": //1-3-4-2
+// character = new Character(classType, 12.5, 37.5, 50, 25);
+// break;
+// case "Knight": //4-4-1-1
+// character = new Character(classType, 50, 50, 12.5, 12.5);
+// break;
+// case "Thief": //2-2-2-4
+// character = new Character(classType, 25, 25, 25, 50);
+// break;
+// }
+
+//hp/def/str/spd
+
 $(document).ready(function () {
     var characters = [
         {
@@ -32,16 +60,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-sword-red.png",
             stats: [{
                 statName: "hp",
-                value: 20
+                value: 25
             }, {
                 statName: "strength",
-                value: 15
+                value: 37.5
             }, {
                 statName: "defense",
-                value: 12
+                value: 25
             }, {
                 statName: "speed",
-                value: 30
+                value: 37.5
             }],
             colors: {
                 dark: "#94263a",
@@ -54,13 +82,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-lance-blue.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 37.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 25
             }, {
                 statName: "defense",
-                value: 17
+                value: 37.5
             }, {
                 statName: "speed",
                 value: 25
@@ -76,13 +104,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-axe-green.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 37.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 50
             }, {
                 statName: "defense",
-                value: 17
+                value: 12.5
             }, {
                 statName: "speed",
                 value: 25
@@ -98,16 +126,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-bow-purple.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 25
             }, {
                 statName: "strength",
-                value: 31
+                value: 25
             }, {
                 statName: "defense",
-                value: 17
+                value: 37.5
             }, {
                 statName: "speed",
-                value: 25
+                value: 37.5
             }],
             colors: {
                 dark: "#42224e",
@@ -120,16 +148,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/mage-red.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 12.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 50
             }, {
                 statName: "defense",
-                value: 17
+                value: 25
             }, {
                 statName: "speed",
-                value: 25
+                value: 37.5
             }],
             colors: {
                 dark: "#94263a",
@@ -142,13 +170,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/manakete-blue.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 12.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 50
             }, {
                 statName: "defense",
-                value: 17
+                value: 37.5
             }, {
                 statName: "speed",
                 value: 25
@@ -164,16 +192,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/knight-axe-green.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 50
             }, {
                 statName: "strength",
-                value: 31
+                value: 12.5
             }, {
                 statName: "defense",
-                value: 17
+                value: 50
             }, {
                 statName: "speed",
-                value: 25
+                value: 12.5
             }],
             colors: {
                 dark: "rgb(33, 74, 85)",
@@ -186,16 +214,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/thief-purple.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 25
             }, {
                 statName: "strength",
-                value: 31
+                value: 25
             }, {
                 statName: "defense",
-                value: 17
+                value: 25
             }, {
                 statName: "speed",
-                value: 25
+                value: 50
             }],
             colors: {
                 dark: "#42224e",
@@ -296,7 +324,7 @@ $(document).ready(function () {
             .attr("fill", "#363636")
             //each rectangle starts at the 0 position
             .attr("x", function (d) {
-                return (d.value / 40 * 100 - 10) + "%";
+                return (d.value / 58 * 100 - 10) + "%";
             })
             //moves each rectangle down
             //i is the data point index
@@ -306,7 +334,7 @@ $(document).ready(function () {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function (d) {
-                return 100 - (d.value / 40 * 100) + 10 + "%";
+                return 100 - (d.value / 58 * 100) + 10 + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
@@ -327,7 +355,7 @@ $(document).ready(function () {
                 //width of the rectangle
                 //multiplied the data point to make it wider
                 .attr("width", function (d) {
-                    return (d.value / 40 * 100) + "%";
+                    return (d.value / 58 * 100) + "%";
                 })
                 //defines the height of the rectangle
                 .attr("height", 10)
@@ -349,7 +377,7 @@ $(document).ready(function () {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function (d) {
-                return (d.value / 40 * 100) + "%";
+                return (d.value / 58 * 100) + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
@@ -385,7 +413,7 @@ $(document).ready(function () {
             .text("\uf0da");
     }
 
-    var statPoints = 4;
+    var statPoints = 10;
     $(".character-stats").on("click", ".stat-dist", function () {
         for (var i = 0; i < characters.length; i++) {
             //check for character class from data attribute on button
@@ -406,11 +434,12 @@ $(document).ready(function () {
                         //checks the stat name
                         if ($(this).prev().text() === characters[i].stats[j].statName) {
                             //if user still has remaining stat points
-                            if (statPoints !== 0 && newStats[j].value <= 40) {
+                            if (statPoints !== 0 && newStats[j].value !== 58) {
                                 //add point to stats
-                                newStats[j].value++;
+                                newStats[j].value = newStats[j].value + 2;
                                 //remove from statPoints
                                 statPoints--;
+                                console.log(newStats[j].value);
                             }
                         }
                     //check if the minus button is clicked
@@ -419,8 +448,8 @@ $(document).ready(function () {
                         if ($(this).next().text() === characters[i].stats[j].statName) {
                             //if user has the original amount of points and new stat value is not equal to old stat value
                             //prevents user from subtracting from base stats
-                            if (statPoints !== 4 && newStats[j].value !== characters[i].stats[j].value) {
-                                newStats[j].value--;
+                            if (statPoints !== 10 && newStats[j].value !== characters[i].stats[j].value) {
+                                newStats[j].value = newStats[j].value - 2;
                                 statPoints++;
                             }
                         }
