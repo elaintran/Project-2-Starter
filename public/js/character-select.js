@@ -267,7 +267,7 @@ $(document).ready(function () {
     function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 " + 350 + " " + h);
+            .attr("viewBox", "0 0 " + 350 + " " + h);
         //defs store graphical objects at a later time and are not rendered
         var svgDefs = svg.append("defs");
         //creates a linear gradient container
@@ -414,7 +414,7 @@ $(document).ready(function () {
                                 statPoints--;
                             }
                         }
-                    //check if the minus button is clicked
+                        //check if the minus button is clicked
                     } else if ($(this).attr("class").split(" ")[2] === "minus") {
                         //checks the stat name
                         if ($(this).next().text() === characters[i].stats[j].statName) {
