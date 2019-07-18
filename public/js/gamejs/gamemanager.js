@@ -23,7 +23,8 @@ function Target(target, hitChance, bonus, reduceSpd) {
   this.reduceSpd = reduceSpd;
 }
 
-let gameManager = {// eslint-disable-line no-unused-vars
+let gameManager = {
+  // eslint-disable-line no-unused-vars
   charSelect: function(classType) {
     this.createChar(classType);
     // this.saveChar();
@@ -32,7 +33,8 @@ let gameManager = {// eslint-disable-line no-unused-vars
     // this.loadChar();
     this.distrPoints(character);
   },
-  createChar: function(classType) {//strength out of 4. So 4/4 = 50 max points (60 total - 10 skill points = 50)
+  createChar: function(classType) {
+    //strength out of 4. So 4/4 = 50 max points (60 total - 10 skill points = 50)
     switch (classType) {
       case "Swordmaster": //2-2-3-3 so 50*2/4, 50*2/4, 50*3/4, 50*3/4
         character = new Character(classType, 25, 25, 37.5, 37.5);
@@ -90,6 +92,8 @@ let gameManager = {// eslint-disable-line no-unused-vars
   //   });
   // },
   distrPoints: function(character) {
+    $(".skill-display").text("Skill Points: " + skillPoints);
+
     //listen if any buttons with the class "add" is clicked:
     $(".add").on("click", function() {
       //grab the button's data-type is
@@ -100,44 +104,52 @@ let gameManager = {// eslint-disable-line no-unused-vars
         //if skill points > 0, you can add +2 to a trait
         switch (type) {
           case "hp":
-            character.hp += 2;
-            skillPoints -= 1;
+            if (character.hp <= 58) {
+              character.hp += 2;
+              skillPoints -= 1;
 
-            console.log("Added hp");
-            console.log("skill points left: " + skillPoints);
-            console.log("HP: " + character.hp);
-            $(".hp-display").text("HP: " + character.hp);
+              console.log("Added hp");
+              $(".skill-display").text("Skill Points: " + skillPoints);
+              console.log("HP: " + character.hp);
+              $(".hp-display").text("HP: " + character.hp);
+            }
 
             break;
 
           case "def":
-            character.def += 2;
-            skillPoints -= 1;
+            if (character.hp <= 58) {
+              character.def += 2;
+              skillPoints -= 1;
 
-            console.log("Added Def");
-            console.log("skill points left: " + skillPoints);
-            console.log("Def: " + character.def);
-            $(".def-display").text("Def: " + character.def);
-
+              console.log("Added Def");
+              $(".skill-display").text("Skill Points: " + skillPoints);
+              console.log("Def: " + character.def);
+              $(".def-display").text("Def: " + character.def);
+            }
             break;
-          case "str":
-            character.str += 2;
-            skillPoints -= 1;
 
-            console.log("Added str");
-            console.log("skill points left: " + skillPoints);
-            console.log("str: " + character.str);
-            $(".str-display").text("str: " + character.str);
+          case "str":
+            if (character.str <= 58) {
+              character.str += 2;
+              skillPoints -= 1;
+
+              console.log("Added str");
+              $(".skill-display").text("Skill Points: " + skillPoints);
+              console.log("str: " + character.str);
+              $(".str-display").text("str: " + character.str);
+            }
 
             break;
           case "spd":
-            character.spd += 2;
-            skillPoints -= 1;
+            if (character.spd <= 58) {
+              character.spd += 2;
+              skillPoints -= 1;
 
-            console.log("Added spd");
-            console.log("skill points left: " + skillPoints);
-            console.log("spd: " + character.spd);
-            $(".spd-display").text("spd: " + character.spd);
+              console.log("Added spd");
+              $(".skill-display").text("Skill Points: " + skillPoints);
+              console.log("spd: " + character.spd);
+              $(".spd-display").text("spd: " + character.spd);
+            }
 
             break;
         }
@@ -158,10 +170,9 @@ let gameManager = {// eslint-disable-line no-unused-vars
               skillPoints += 1;
 
               console.log("Removed hp");
-              console.log("skill points left: " + skillPoints);
+              $(".skill-display").text("Skill Points: " + skillPoints);
               console.log("HP: " + character.hp);
               $(".hp-display").text("HP: " + character.hp);
-
             }
 
             break;
@@ -172,10 +183,9 @@ let gameManager = {// eslint-disable-line no-unused-vars
               skillPoints += 1;
 
               console.log("Removed def");
-              console.log("skill points left: " + skillPoints);
+              $(".skill-display").text("Skill Points: " + skillPoints);
               console.log("def: " + character.def);
               $(".def-display").text("def: " + character.def);
-
             }
 
             break;
@@ -186,10 +196,9 @@ let gameManager = {// eslint-disable-line no-unused-vars
               skillPoints += 1;
 
               console.log("Removed str");
-              console.log("skill points left: " + skillPoints);
+              $(".skill-display").text("Skill Points: " + skillPoints);
               console.log("str: " + character.str);
               $(".str-display").text("str: " + character.str);
-
             }
 
             break;
@@ -200,10 +209,9 @@ let gameManager = {// eslint-disable-line no-unused-vars
               skillPoints += 1;
 
               console.log("Removed spd");
-              console.log("skill points left: " + skillPoints);
+              $(".skill-display").text("Skill Points: " + skillPoints);
               console.log("spd: " + character.spd);
               $(".spd-display").text("spd: " + character.spd);
-
             }
 
             break;
