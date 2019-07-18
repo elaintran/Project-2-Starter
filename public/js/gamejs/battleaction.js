@@ -47,7 +47,30 @@ let charAtk = function(grabbedTarget) {
       //character's base damage will be char strength + target's additional bonus (added dmg for head/ no added dmg for body/legs)
 
       baseDmg = character.str + target.bonus;
-      totalDmg = baseDmg - enemy.def;
+      let cap;
+      console.log("Chapter used for cap calculation: " + chapter);
+
+      if (chapter) {
+        switch (chapter) {
+          case 1:
+            cap = 60;
+            console.log("Cap is " + cap);
+
+            break;
+          case 2:
+            cap = 80;
+            console.log("Cap is " + cap);
+
+            break;
+          case 3:
+            cap = 100;
+            console.log("Cap is " + cap);
+
+            break;
+        }
+      }
+
+      totalDmg = baseDmg - ((enemy.def/cap)*character.str);
 
       console.log("Your Character's Total Damage Dealt: " + totalDmg);
 
