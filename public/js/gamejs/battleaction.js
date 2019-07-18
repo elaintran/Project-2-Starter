@@ -3,10 +3,11 @@
 
 //BATTLE ACTION PAGE
 
-$(".character-hp").text("Character HP: " + character.hp);
-$(".character-str").text("Character Str: " + character.str);
-$(".character-def").text("Character Def: " + character.def);
-$(".character-spd").text("Character Spd: " + character.spd);
+//testing code for example html page
+// $(".character-hp").text("Character HP: " + character.hp);
+// $(".character-str").text("Character Str: " + character.str);
+// $(".character-def").text("Character Def: " + character.def);
+// $(".character-spd").text("Character Spd: " + character.spd);
 
 /*End of created for testing purposes: */
 
@@ -27,16 +28,16 @@ let charAtk = function(grabbedTarget) {
   if (grabbedTarget === target.target) {
     //if chance falls within the hit chance:
 
-    console.log(
-      "What you rolled: " + chance + "\nHit Chance: " + target.hitChance
-    );
+    // console.log(
+    //   "What you rolled: " + chance + "\nHit Chance: " + target.hitChance
+    // );
 
     if (chance <= target.hitChance) {
       //character's base damage will be char strength + target's additional bonus (added dmg for head/ no added dmg for body/legs)
 
       baseDmg = character.str + target.bonus;
       let cap;
-      console.log("Chapter used for cap calculation: " + chapter);
+      // console.log("Chapter used for cap calculation: " + chapter);
 
       if (chapter) {
         switch (chapter) {
@@ -66,8 +67,8 @@ let charAtk = function(grabbedTarget) {
       //enemy speed is reduced by target's assigned reduced speed (0 for head/body, -1 for legs)
       if (enemy.spd > 0) {
         enemy.spd -= Math.ceil(target.reduceSpd);
-        console.log("Enemy speed was reduced by: " + target.reduceSpd);
-        console.log("Enemy speed: " + enemy.spd);
+        // console.log("Enemy speed was reduced by: " + target.reduceSpd);
+        // console.log("Enemy speed: " + enemy.spd);
       } else {
         console.log("Enemy speed cannot go any lower.");
         console.log("Enemy speed: " + enemy.spd);
