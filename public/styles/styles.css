@@ -349,7 +349,7 @@ a:hover{
 */
 
 body.encounter-screen {
-  background: url(../images/resource-images/encounter/bg-forest-entrance.jpg) no-repeat top #14150f;
+  background: url(../images/resource-images/encounter/bg-castle.jpg) no-repeat top #14150f;
   background-size: contain;
 }
 
@@ -374,6 +374,10 @@ body.encounter-screen {
 .player-sprite, .enemy-sprite {
   position: relative;
   z-index: 10;
+}
+
+.player-sprite {
+  height: 15vw;
 }
 
 svg.enemy-sprite:hover {
