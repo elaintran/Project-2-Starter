@@ -4,7 +4,7 @@ var passport = require("../config/passport");
 module.exports = function (app) {
     app.post("/api/login", passport.authenticate("local"), function (req, res) {
         res.json(req.user.userName);
-        console.log("signin as " + req.user.userName);
+        console.log("signin as " + req.user.id);
         console.log(req.user);
     });
 
@@ -39,15 +39,21 @@ module.exports = function (app) {
         // } else {
         //     res.redirect("/character");
         // }
-
-        res.json({
-            userName: req.user.userName,
-            userEmail: req.user.userEmail,
-            userSelection: req.user.userSelection,
-            userId: req.user.id
-        });
+        if (!req.user) {
+            res.json({});
+        } else {
+            res.json({
+                userName: req.user.userName,
+                userEmail: req.user.userEmail,
+                userSelection: req.user.userSelection,
+                userId: req.user.id
+            });
+        }
     });
+
     app.put("/api/userdata", function (req, res) {
+        console.log(req.body);
+        console.log(req.user.userName);
         db.User.update(req.body,
             {
                 where: {

@@ -29,7 +29,7 @@ $(document).ready(function () {
             userPassword: userPassword
         }).then(function () {
             console.log("before replace");
-            window.location.replace("/api/userdata");
+            window.location.replace("/character");
             console.log("after replace");
         });
     }

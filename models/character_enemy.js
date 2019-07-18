@@ -2,12 +2,14 @@ module.exports = function (sequelize, DataTypes) {
     var Enemy = sequelize.define("Enemy", {
         enemyName: DataTypes.STRING,
         enemyClass: DataTypes.STRING,
+        enemyPortrait: DataTypes.STRING,
+        enemyChibi: DataTypes.STRING,
         enemyHp: DataTypes.INTEGER,
         enemyStr: DataTypes.INTEGER,
-        enemyMag: DataTypes.INTEGER,
         enemyDef: DataTypes.INTEGER,
         enemySpd: DataTypes.INTEGER,
-        enemyLvl: DataTypes.INTEGER
+        colorDark: DataTypes.STRING,
+        colorLight: DataTypes.STRING
     });
     return Enemy;
 };

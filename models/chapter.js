@@ -1,9 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
     var Chapter = sequelize.define("Chapter", {
-        chapterNum: DataTypes.INTEGER,
+        chapterNum: DataTypes.STRING,
         chapterSubtitle: DataTypes.STRING,
-        chapterDescription: DataTypes.TEXT,
-        chapterImg: DataTypes.STRING
+        chapterDescription: DataTypes.STRING,
+        chapterImg: DataTypes.STRING,
+        chapterUrl: DataTypes.STRING
     });
 
     return Chapter;
