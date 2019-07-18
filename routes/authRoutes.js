@@ -4,7 +4,7 @@ var passport = require("../config/passport");
 module.exports = function (app) {
     app.post("/api/login", passport.authenticate("local"), function (req, res) {
         res.json(req.user.userName);
-        console.log("signin as " + req.user.userName);
+        console.log("signin as " + req.user.id);
         console.log(req.user);
     });
 
@@ -28,25 +28,32 @@ module.exports = function (app) {
     });
 
     app.get("/api/userdata", function (req, res) {
+        // if (!req.user) {
+        //     // The user is not logged in, send back an empty object
+        //     // res.json({});
+        //     res.redirect("/");
+        // } else if (req.user.userSelection !== null) {
+        //     // Otherwise send back the user's email and id
+        //     // Sending back a password, even a hashed password, isn't a good idea
+        //     res.redirect("/world");
+        // } else {
+        //     res.redirect("/character");
+        // }
         if (!req.user) {
-            // The user is not logged in, send back an empty object
-            // res.json({});
-            res.redirect("/");
-        } else if (req.user.userSelection !== null) {
-            // Otherwise send back the user's email and id
-            // Sending back a password, even a hashed password, isn't a good idea
-            res.redirect("/world");
+            res.json({});
         } else {
-            res.redirect("/character");
+            res.json({
+                userName: req.user.userName,
+                userEmail: req.user.userEmail,
+                userSelection: req.user.userSelection,
+                userId: req.user.id
+            });
         }
-        // res.json({
-        //     userName: req.user.userName,
-        //     userEmail: req.user.userEmail,
-        //     userSelection: req.user.userSelection,
-        //     userId: req.user.id
-        // });
     });
+
     app.put("/api/userdata", function (req, res) {
+        console.log(req.body);
+        console.log(req.user.userName);
         db.User.update(req.body,
             {
                 where: {

@@ -53,7 +53,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".marker-container").on("click", function() {
+    $(".marker-container").on("click", function () {
         //check only the second class
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
@@ -65,7 +65,7 @@ $(document).ready(function () {
                     "background-color": "#5f5f5f"
                 });
                 break;
-            case("armory"):
+            case ("armory"):
                 $(".chapter-number").text("Armory");
                 $(".chapter-subtitle").text("Coming Soon");
                 $(".select").css({
@@ -73,7 +73,7 @@ $(document).ready(function () {
                     "background-color": "#5f5f5f"
                 });
                 break;
-            case("castle"):
+            case ("castle"):
                 $(".chapter-number").text("Castle");
                 $(".chapter-subtitle").empty();
                 $(".select").removeAttr("style");
