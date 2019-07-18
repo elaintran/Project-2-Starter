@@ -842,6 +842,13 @@ svg.enemy-sprite:hover {
   color: #c2b79e;
   font-weight:600;
 }
+.btn{
+  background:transparent;
+  border:0px;
+  color: #c2b79e;
+  font-weight:600;
+  font-size: 20px;
+}
 .btn-secondary:focus{
   background:transparent;
   border: none;
@@ -864,7 +871,7 @@ svg.enemy-sprite:hover {
 .dropdown-item{
   color: #bcbcbc;
   font-weight:600;
-  padding: 8% 8%;
+  padding: 8%;
 }
 .dropdown-item:focus, .dropdown-item:hover{
   background-color: #292929;
@@ -873,9 +880,13 @@ svg.enemy-sprite:hover {
 }
 .show>.btn-secondary.dropdown-toggle:focus{
   box-shadow: none;
-
+  
 }
 
 .glyphicon{
   padding-right: 15%;
+}
+.btn-secondary:hover{
+  background-color:transparent;
+  color:#c2b79e;
 }
