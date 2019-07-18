@@ -284,9 +284,14 @@ function updatePlayerHealthBar() { // eslint-disable-line no-unused-vars
 // trigger modals for a win or lose scenario
 function toggleWinLoseModals(state) { // eslint-disable-line no-unused-vars
   if (state === "win") {
+    let completed = true;
     setTimeout(function() {
       $("#winModal").modal("show");
     }, 2000);
+    postChapterWin(completed);
+    setTimeout(function() {
+      
+    })
   } else if (state === "lose") {
     setTimeout(function() {
       $("#loseModal").modal("show");

@@ -122,6 +122,7 @@ $(document).ready(function() {
           //deal damage to enemy
           enemy.hp -= Math.ceil(totalDmg);
           if(enemy.hp !== 0){
+            
             $(".enemy-stats")
             .find(".hit-points")
             .text("HP " + enemy.hp.toFixed(0));
@@ -145,6 +146,7 @@ $(document).ready(function() {
           if (chance < speed) {
             enemy.hp -= Math.ceil(totalDmg);
             if(enemy.hp !== 0){
+              
               $(".enemy-stats")
               .find(".hit-points")
               .text("HP " + enemy.hp.toFixed(0));
@@ -163,6 +165,7 @@ $(document).ready(function() {
           //check enemy HP
           if (enemy.hp <= 0) {
             //do whatever you want to happen when you win
+            
             $(".enemy-stats")
               .find(".hit-points")
               .text("HP " + 0);
@@ -197,6 +200,7 @@ $(document).ready(function() {
               $(".player-stats")
               .find(".hit-points")
               .text("HP " + (character.hp / 3).toFixed(0));
+              console.log("first");
               updatePlayerHealthBar();
             }
             $(".character-hp").text("Character HP: " + character.hp);
@@ -209,10 +213,12 @@ $(document).ready(function() {
 
             //check character HP
             if (character.hp <= 0) {
+              character.hp = 0;
               console.log("Character has died.");
               $(".player-stats")
                 .find(".hit-points")
-                .text("HP " + 0);
+                .text("HP " + character.hp);
+                console.log("second");
                 updatePlayerHealthBar();
 
               //whatever happens when character loses
@@ -258,6 +264,7 @@ $(document).ready(function() {
           $(".player-stats")
             .find(".hit-points")
             .text("HP " + (character.hp / 3).toFixed(0));
+            console.log("third");
             updatePlayerHealthBar();
           }
 
@@ -276,10 +283,12 @@ $(document).ready(function() {
 
             enemy.hp -= Math.ceil(totalDmg);
             if(enemy.hp!==0){
+              
               $(".enemy-stats")
               .find(".hit-points")
               .text("HP " + enemy.hp.toFixed(0));
               updateEnemyHealthBar();
+              
             }
             console.log("Enemy hp after hit: " + enemy.hp);
 
@@ -291,11 +300,14 @@ $(document).ready(function() {
             //check enemy HP
             if (enemy.hp <= 0) {
               //do whatever you want to happen when you win
+              enemy.hp = 0;
               $(".enemy-stats")
                 .find(".hit-points")
                 .text("HP " + 0);
+                
                 updateEnemyHealthBar();
                 toggleWinLoseModals("win");
+              
               console.log("You defeated the enemy!");
               console.log("Chapter: " + chapter);
 
@@ -328,9 +340,11 @@ $(document).ready(function() {
         }
       } else if (character.hp <= 0) {
         console.log("Character died.");
+        character.hp = 0;
         $(".player-stats")
           .find(".hit-points")
-          .text("HP " + 0);
+          .text("HP " + character.hp);
+          console.log("fourth");
           updatePlayerHealthBar();
       } else {
         toggleWinLoseModals("win");
