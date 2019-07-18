@@ -227,6 +227,17 @@ $(document).ready(function () {
     }
     characterDisplay();
 
+    // check if stats is not less than 10, change modal text
+    function checkStats(){
+        if(statPoints === 10){
+            $('#modaltext').text("Please distribute all 10 stat points!")
+            $('.modal-footer').hide();
+        } else {
+            $('#modaltext').text("Are you sure you want to continue with character selection?")
+        }
+    };
+    checkStats();
+
     //toggle between characters
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {

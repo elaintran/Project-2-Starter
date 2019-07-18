@@ -762,6 +762,7 @@ svg.enemy-sprite:hover {
   MODAL STYLING
   ============================
 */
+*/
 .modal-title{
   color:#d7d7d7;
   font-family: "Work Sans", sans-serif;
@@ -773,7 +774,8 @@ svg.enemy-sprite:hover {
   border-top-right-radius: 0px;
 }
 .modal-body{
-  color: transparent;
+  /* color: transparent; */
+  color: black;
   font-family: "Work Sans", sans-serif;
 }
 .btn-primary{
@@ -842,13 +844,13 @@ svg.enemy-sprite:hover {
   color: #c2b79e;
   font-weight:600;
 }
-.btn{
+/* .btn{
   background:transparent;
   border:0px;
   color: #c2b79e;
   font-weight:600;
   font-size: 20px;
-}
+} */
 .btn-secondary:focus{
   background:transparent;
   border: none;
