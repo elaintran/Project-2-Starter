@@ -230,10 +230,12 @@ $(document).ready(function () {
     // change modal text on character select page based on stats
     function checkStats(){
         if(statPoints === 10){
-            $('#modaltext').text("Please distribute all 10 stat points!")
+            $('#modaltext').text("Please distribute all 10 stat points!");
             $('.modal-footer').hide();
+            $('.modal-title').text("Check Your Stats");
         } else {
-            $('#modaltext').text("Are you sure you want to continue with character selection?")
+            $('#modaltext').text("Are you sure you want to continue with character selection?");
+            $('.modal-title').text("Confirm Character Selection")
         }
     };
     checkStats();
