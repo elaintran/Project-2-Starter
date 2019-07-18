@@ -1,7 +1,7 @@
 //total skill points up for distribution by the player is 10. Each point adds +2 to the character's stats.
 let skillPoints = 10;
 
-let enemy;
+var enemy;
 let target; // eslint-disable-line no-unused-vars
 
 //keeps track of which chapter user is on
@@ -104,7 +104,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
         //if skill points > 0, you can add +2 to a trait
         switch (type) {
           case "hp":
-            if (character.hp <= 58) {
+            if (character.hp <= 59) {
               character.hp += 2;
               skillPoints -= 1;
 
@@ -117,7 +117,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
             break;
 
           case "def":
-            if (character.hp <= 58) {
+            if (character.hp <= 59) {
               character.def += 2;
               skillPoints -= 1;
 
@@ -129,7 +129,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
             break;
 
           case "str":
-            if (character.str <= 58) {
+            if (character.str <= 59) {
               character.str += 2;
               skillPoints -= 1;
 
@@ -141,7 +141,7 @@ let gameManager = {// eslint-disable-line no-unused-vars
 
             break;
           case "spd":
-            if (character.spd <= 58) {
+            if (character.spd <= 59) {
               character.spd += 2;
               skillPoints -= 1;
 
