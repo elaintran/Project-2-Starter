@@ -267,14 +267,14 @@ let gameManager = {// eslint-disable-line no-unused-vars
 };
 
 // update health bar on encounter page after each attack
-function updateEnemyHealthBar() {
+function updateEnemyHealthBar() { // eslint-disable-line no-unused-vars
   var hpPercentage = enemy.hp / fullHP * 100;
   $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
   $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
   console.log("currentHP: " + enemy.hp);
 }
 
-function updatePlayerHealthBar() {
+function updatePlayerHealthBar() { // eslint-disable-line no-unused-vars
   var hpPercentage = character.hp / fullHP * 100;
   $(".player-stats").find(".hit-points").text("HP " + character.hp);
   $(".player-health-bar-fill").css("width", hpPercentage + "%");
