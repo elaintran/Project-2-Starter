@@ -13,13 +13,11 @@ module.exports = function (app) {
             userName: req.body.userName,
             userEmail: req.body.userEmail,
             userPassword: req.body.userPassword
-        })
-            .then(function () {
-                res.redirect(307, "/api/login");
-            })
-            .catch(function (err) {
-                res.status(401).json(err);
-            });
+        }).then(function () {
+            res.redirect(307, "/api/login");
+        }).catch(function (err) {
+            res.status(401).json(err);
+        });
     });
 
     app.get("/logout", function (req, res) {

@@ -114,12 +114,12 @@ var enemy = [
         hp: 100,
         portrait: "./images/resource-images/encounter/enemy-bandit-portrait.png",
         sprite: enemies[0]
-    },{
+    }, {
         name: "Red Knight",
         hp: 200,
         portrait: "./images/resource-images/encounter/enemy-black-knight-portrait.png",
         sprite: enemies[1]
-    },{
+    }, {
         name: "Dragon King",
         hp: 400,
         portrait: "./images/resource-images/encounter/dragon-king-portrait.png",
@@ -167,8 +167,8 @@ function populateBattle(character, stage) {
             break;
         case "thief":
             p = player[7];
-            break;                
-        default: 
+            break;
+        default:
             p = player[0];
             break;
     }
@@ -236,40 +236,63 @@ function testAttack(damage) {
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
 function listenForHover() {
-    $(".cls-1").each(function() {    
+    $(".cls-1").each(function () {
         var target = ($(this).parent().attr("data-part"));
         // console.log(target);
-        $(this).hover(function() {
+        $(this).hover(function () {
             $(".attack-" + target).css({
                 "opacity": "1",
                 "left": "0"
             });
-            $(this).css({"fill":"#f006"});
-        },function() {
+            $(this).css({ "fill": "#f006" });
+        }, function () {
             $(".attack-" + target).css({
                 "opacity": "0",
                 "left": "-1vw"
             });
-            $(this).css({"fill":"transparent",});
+            $(this).css({ "fill": "transparent", });
         });
-        $(this).click(function() {
+        $(this).click(function () {
             testAttack(25);
         });
     });
 }
 
 function animateEntrance() {
-    $(".player-sprite").css({left: "-50vw"});
-    $(".player-stats").css({top: "-10vw"});
-    $(".enemy-stats").css({top: "-10vw"});
-    $(".player-sprite").animate({left: "+=50vw"}, 3500);
-    setTimeout(function() {
-        $(".player-stats").animate({"top": "+=10vw"}, 1450, "easeOutBounce");
-        $(".enemy-stats").animate({"top": "+=10vw"}, 1550, "easeOutBounce");
+    $(".player-sprite").css({ left: "-50vw" });
+    $(".player-stats").css({ top: "-10vw" });
+    $(".enemy-stats").css({ top: "-10vw" });
+    $(".player-sprite").animate({ left: "+=50vw" }, 3500);
+    setTimeout(function () {
+        $(".player-stats").animate({ "top": "+=10vw" }, 1450, "easeOutBounce");
+        $(".enemy-stats").animate({ "top": "+=10vw" }, 1550, "easeOutBounce");
     }, 3500);
 }
 
-$(document).ready(function() {
+function getUserId() {
+    $.get("/api/userdata").then(function (data) {
+        var userId = data.userId;
+        getUserData(userId);
+    });
+}
+function getUserData(Id) {
+    $.ajax({
+        method: "GET",
+        url: `/api/users/${Id}`
+    }).then(function (data) {
+        console.log(data);
+        var userChibi = data.Main.mainChibi;
+        var userPortrait = data.Main.mainPortrait;
+        $(".player-sprite").attr("src", userChibi);
+        $(".player-portrait").attr("src", userPortrait);
+        $(".character-name").text(data.Main.mainClass);
+    });
+}
+
+$(document).ready(function () {
     // animateEntrance();
     listenForHover();
+
+
+    getUserId();
 });

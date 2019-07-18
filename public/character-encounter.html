@@ -1,123 +1,127 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project 2</title>
-    <!--jQuery-->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Project 2</title>
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+    integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
-        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+    crossorigin="anonymous"></script>
 
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans: 400,500,600,700&display=swap" rel="stylesheet">
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans: 400,500,600,700&display=swap" rel="stylesheet">
 
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="styles/reset.css">
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
+
 <body class="encounter-screen">
-    <!-- <div class="foreground"></div> -->
+  <!-- <div class="foreground"></div> -->
 
-    <div class="page-wrapper">
+  <div class="page-wrapper">
 
-                <!-- PLAYER INFO / STATS -->
-                
-                <div class="player-stats">
-                    <div class="player-avatar">
-                        <img src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
-                    </div>
-                    <div class="stats-container">
-                        <div class="character-text">
-                            <span class="character-name">Green Mage</span>
-                            <span class="hit-points">HP 100</span>
-                        </div>
-                        <div class="player-health-bar">
-                                <div class="player-health-bar-fill"></div>
-                        </div>
-                        
-                    </div>
-                </div>
-     
-                <!-- ENEMY INFO / STATS -->
-                <div class="enemy-stats">
-                    <div class="enemy-avatar">
-                        <img src="./images/resource-images/encounter/dragon-king-portrait.png" alt="enemy avatar">
-                    </div>
-                    <div class="stats-container">
-                        <div class="character-text">
-                            <span class="enemy-name">Dragon King</span>
-                            <span class="hit-points">HP 100</span>
-                        </div>
-                        <div class="enemy-health-bar">
-                            <div class="enemy-health-bar-fill"></div>
-                        </div>
-                    </div>
-                </div>
-                
+    <!-- PLAYER INFO / STATS -->
 
+    <div class="player-stats">
+      <div class="player-avatar">
+        <img class="player-portrait" src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
+      </div>
+      <div class="stats-container">
+        <div class="character-text">
+          <span class="character-name">Green Mage</span>
+          <span class="hit-points">HP 100</span>
+        </div>
+        <div class="player-health-bar">
+          <div class="player-health-bar-fill"></div>
+        </div>
 
-       <div class="character-grid">
+      </div>
+    </div>
 
-            <!-- PLAYER SPRITE -->
-
-           <div class="player-character">
-               <div class="player-action-grid">
-                   <div class="attack" data-tooltip="Attack">
-                       <img src="./images/resource-images/encounter/player-attack.png" data-action="attack" alt="attack the enemy">
-                   </div>
-                   <div class="items">
-                       <img src="./images/resource-images/encounter/player-items.png" data-action="useItem" alt="use an item">
-                   </div>
-                   <div class="flee">
-                       <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
-                   </div>
-               </div>
-               <img class="player-sprite" src="./images/resource-images/chibi/mage-red.png" alt="player character">
-               <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
-           </div>
-
-           <!-- ENEMY SPRITE -->
-
-           <div class="enemy-character">
-                <div class="attack-area-popups">
-                    <div class="attack-head" data-target="body">
-                        <h4>Head</h4>
-                        <p class="attack-info">Low Defense</p>
-                        <p class="attack-info">High Evasion</p>
-                    </div>
-                    <div class="attack-body" data-target="body">
-                        <h4>Body</h4>
-                        <p class="attack-info">High Defense</p>
-                        <p class="attack-info">Low Evasion</p>
-                    </div>
-                    <div class="attack-legs" data-target="body">
-                        <h4>Legs</h4>
-                        <p class="attack-info">Low Defense</p>
-                        <p class="attack-info">High Evasion</p>
-                    </div>
-                </div>
-                <div class="enemy-sprite">
-                    
-                </div>
-                <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
-            </div>
-       </div>
-
-       <!-- PLAYER INFO / STATS -->
-       <!-- <div class="attack-prompts"></div> -->
-       
-   </div>
-   
+    <!-- ENEMY INFO / STATS -->
+    <div class="enemy-stats">
+      <div class="enemy-avatar">
+        <img src="./images/resource-images/encounter/dragon-king-portrait.png" alt="enemy avatar">
+      </div>
+      <div class="stats-container">
+        <div class="character-text">
+          <span class="enemy-name">Dragon King</span>
+          <span class="hit-points">HP 100</span>
+        </div>
+        <div class="enemy-health-bar">
+          <div class="enemy-health-bar-fill"></div>
+        </div>
+      </div>
+    </div>
 
 
-                <!-- add dropdown with username, and sign out option -->
-                <!-- <div class="dropup show">
+
+    <div class="character-grid">
+
+      <!-- PLAYER SPRITE -->
+
+      <div class="player-character">
+        <div class="player-action-grid">
+          <div class="attack" data-tooltip="Attack">
+            <img src="./images/resource-images/encounter/player-attack.png" data-action="attack" alt="attack the enemy">
+          </div>
+          <div class="items">
+            <img src="./images/resource-images/encounter/player-items.png" data-action="useItem" alt="use an item">
+          </div>
+          <div class="flee">
+            <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
+          </div>
+        </div>
+        <img class="player-sprite" src="./images/resource-images/chibi/mage-red.png" alt="player character">
+        <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+      </div>
+
+      <!-- ENEMY SPRITE -->
+
+      <div class="enemy-character">
+        <div class="attack-area-popups">
+          <div class="attack-head" data-target="body">
+            <h4>Head</h4>
+            <p class="attack-info">Low Defense</p>
+            <p class="attack-info">High Evasion</p>
+          </div>
+          <div class="attack-body" data-target="body">
+            <h4>Body</h4>
+            <p class="attack-info">High Defense</p>
+            <p class="attack-info">Low Evasion</p>
+          </div>
+          <div class="attack-legs" data-target="body">
+            <h4>Legs</h4>
+            <p class="attack-info">Low Defense</p>
+            <p class="attack-info">High Evasion</p>
+          </div>
+        </div>
+        <div class="enemy-sprite">
+
+        </div>
+        <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+      </div>
+    </div>
+
+    <!-- PLAYER INFO / STATS -->
+    <!-- <div class="attack-prompts"></div> -->
+
+  </div>
+
+
+
+  <!-- add dropdown with username, and sign out option -->
+  <!-- <div class="dropup show">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Username
                         </a>
@@ -129,13 +133,13 @@
                         </div>
                       </div> -->
 
-      <!-- WILL REMOVE THIS LINE OF CODE AFTER COMPLETED-->
-      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <!-- WILL REMOVE THIS LINE OF CODE AFTER COMPLETED-->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             ***winner***
           </button> -->
-          
-          <!-- Winner Modal -->
-          <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <!-- Winner Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -151,13 +155,13 @@
               </div>
             </div>
           </div> -->
-              <!-- WILL REMOVE THIS LINE OF CODE AFTER COMPLETED-->
-      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <!-- WILL REMOVE THIS LINE OF CODE AFTER COMPLETED-->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             ***loser***
           </button> -->
-          
-          <!-- Loser Modal -->
-          <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <!-- Loser Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -174,12 +178,13 @@
               </div>
             </div>
           </div> -->
- 
 
-          <!--JavaScript-->
 
-    <!-- <script src="./js/gamejs/gamemanager.js" type="text/javascript"></script>
+  <!--JavaScript-->
+
+  <!-- <script src="./js/gamejs/gamemanager.js" type="text/javascript"></script>
    <script src="./js/gamejs/battleaction.js" type="text/javascript"></script> -->
-   <script src="./js/character-encounter.js" type="text/javascript"></script>
+  <script src="./js/character-encounter.js" type="text/javascript"></script>
 </body>
+
 </html>

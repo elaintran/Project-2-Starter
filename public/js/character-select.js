@@ -233,6 +233,7 @@ $(document).ready(function () {
             if ($(this).attr("data-class") === characters[i].class) {
                 $("#confirmCharacter").attr("data-class", characters[i].class);
                 $("#confirmCharacter").attr("data-name", characters[i].name);
+                $("#confirmCharacter").attr("data-id", (i + 1));
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
