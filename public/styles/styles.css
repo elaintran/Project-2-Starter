@@ -55,17 +55,31 @@ body {
 }
 
 .character-info h5 {
+  font-size: 2vw;
   color: #d7d7d7;
 }
 
 .character-info p, .select-character {
-  font-size: 13px;
-  letter-spacing: 0.5px;
+  font-size: 0.9vw;
+  letter-spacing: 1px;
 }
 
 .character-stats {
-  padding: 2vw 0;
+  padding: 2vw 0 0.7vw;
   text-align: left;
+}
+
+.stat-remainder {
+  display: flex;
+  padding-bottom: 1.5vw;
+}
+
+/* .stat-remainder p {
+  font-weight: 500;
+} */
+
+.stat-points {
+  margin-left: auto;
 }
 
 .select-character, .select {
@@ -115,10 +129,10 @@ body {
   fill: url(#mainGradient);
 }
 
-
 .plus:hover, .minus:hover {
   cursor: pointer;
 }
+
 
 /* 
   ============================
