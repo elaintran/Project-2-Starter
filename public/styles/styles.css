@@ -449,6 +449,31 @@ a:hover{
   font-size: 2vw;
 }
 
+.character-modal {
+  margin-bottom: 1vw;
+}
+
+.story {
+  display: none;
+}
+
+.character-modal img {
+  margin-bottom: 1vw;
+}
+
+.chapter-info .mini-class {
+  text-transform: uppercase;
+  font-size: 1vw;
+}
+
+.stat-type {
+  text-transform: uppercase;
+}
+
+.change-class-container {
+  align-items: center;
+}
+
 /*  
   ============================
   CHARACTER ENCOUNTER STYLING
