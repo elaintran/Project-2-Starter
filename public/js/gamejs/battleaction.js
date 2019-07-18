@@ -167,7 +167,7 @@ $(document).ready(function() {
               .find(".hit-points")
               .text("HP " + 0);
               updateEnemyHealthBar();
-
+              toggleWinLoseModals("win");
             console.log("You defeated the enemy!");
             console.log("Chapter: " + chapter);
 
@@ -295,7 +295,7 @@ $(document).ready(function() {
                 .find(".hit-points")
                 .text("HP " + 0);
                 updateEnemyHealthBar();
-
+                toggleWinLoseModals("win");
               console.log("You defeated the enemy!");
               console.log("Chapter: " + chapter);
 
@@ -322,7 +322,7 @@ $(document).ready(function() {
             //do whatever you want to happen when you lose
 
             //redirect to character select page or restart level
-
+            toggleWinLoseModals("lose");
             console.log("Character died.");
           }
         }
@@ -333,6 +333,7 @@ $(document).ready(function() {
           .text("HP " + 0);
           updatePlayerHealthBar();
       } else {
+        toggleWinLoseModals("win");
         console.log("You've defeated the enemy!");
         console.log("Chapter: " + chapter);
 
