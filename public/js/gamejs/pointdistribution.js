@@ -1,10 +1,10 @@
 //POINT DISTRIBUTION PAGE
 character = {
-  classType : "mage",
-  hp : 5,
-  def : 5,
-  str : 5,
-  spd : 1
+  classType : "Thief",
+  hp : 25,
+  def : 25,
+  str : 25,
+  spd : 50
 }; 
 console.log("base character hp: " + character.hp);
 console.log("Skill points: " + skillPoints);
