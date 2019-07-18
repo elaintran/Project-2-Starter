@@ -706,7 +706,7 @@ svg.enemy-sprite:hover {
   grid-template-rows: repeat(3, 1fr);
   grid-row-gap: 1.2vw;
   position: absolute;
-  left: 18vw;
+  left: 11vw;
   bottom: 0.5vw;
   z-index: 998;
   font-weight: 600;
