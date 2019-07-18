@@ -397,12 +397,15 @@ a:hover{
   object-fit: cover;
 }
 
-.flag {
+.flag-container {
   display: flex;
   position: absolute;
-  padding: 0.5vw 1vw;
   top: 0.6vw;
   left: -0.2vw;
+}
+
+.flag {
+  padding: 0.5vw 1vw;
 }
 
 .flag p {
@@ -410,6 +413,23 @@ a:hover{
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.flag-wing {
+  width: 10px;
+  position: absolute;
+  right: -5px;
+}
+
+.wing-top {
+  border-top: 10px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.wing-bottom {
+  border-bottom: 10px solid transparent;
+  border-right: 5px solid transparent;
+  bottom: 0;
 }
 
 .overlay {
