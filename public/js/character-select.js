@@ -1,3 +1,28 @@
+//for loop function set up for get request
+// for (var i = 0; i < data.length; i++) {
+//     var characterObj = {};
+//     characterObj.name = data[i].mainName;
+//     characterObj.class = data[i].mainClass;
+//     characterObj.portrait = data[i].mainPortrait;
+//     characterObj.stats = [{
+//         statName: "hp",
+//         value: data[i].mainHp
+//     }, {
+//         statName: "strength",
+//         value: data[i].mainStr
+//     }, {
+//         statName: "defense",
+//         value: data[i].mainDef
+//     }, {
+//         statName: "speed",
+//         value: data[i].mainSpd
+//     }];
+//     characterObj.colors = {};
+//     characterObj.colors.dark = data[i].colorDark;
+//     characterObj.colors.light = data[i].colorLight;
+//     characters.push(characterObj); 
+// }
+
 $(document).ready(function () {
     var characters = [
         {
@@ -7,16 +32,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-sword-red.png",
             stats: [{
                 statName: "hp",
-                value: 20
+                value: 25
             }, {
                 statName: "strength",
-                value: 15
+                value: 37.5
             }, {
                 statName: "defense",
-                value: 12
+                value: 25
             }, {
                 statName: "speed",
-                value: 30
+                value: 37.5
             }],
             colors: {
                 dark: "#94263a",
@@ -29,13 +54,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-lance-blue.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 37.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 25
             }, {
                 statName: "defense",
-                value: 17
+                value: 37.5
             }, {
                 statName: "speed",
                 value: 25
@@ -51,13 +76,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-axe-green.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 37.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 50
             }, {
                 statName: "defense",
-                value: 17
+                value: 12.5
             }, {
                 statName: "speed",
                 value: 25
@@ -73,16 +98,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-bow-purple.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 25
             }, {
                 statName: "strength",
-                value: 31
+                value: 25
             }, {
                 statName: "defense",
-                value: 17
+                value: 37.5
             }, {
                 statName: "speed",
-                value: 25
+                value: 37.5
             }],
             colors: {
                 dark: "#42224e",
@@ -95,16 +120,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/mage-red.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 12.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 50
             }, {
                 statName: "defense",
-                value: 17
+                value: 25
             }, {
                 statName: "speed",
-                value: 25
+                value: 37.5
             }],
             colors: {
                 dark: "#94263a",
@@ -117,13 +142,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/manakete-blue.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 12.5
             }, {
                 statName: "strength",
-                value: 31
+                value: 50
             }, {
                 statName: "defense",
-                value: 17
+                value: 37.5
             }, {
                 statName: "speed",
                 value: 25
@@ -139,16 +164,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/knight-axe-green.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 50
             }, {
                 statName: "strength",
-                value: 31
+                value: 12.5
             }, {
                 statName: "defense",
-                value: 17
+                value: 50
             }, {
                 statName: "speed",
-                value: 25
+                value: 12.5
             }],
             colors: {
                 dark: "rgb(33, 74, 85)",
@@ -161,16 +186,16 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/thief-purple.png",
             stats: [{
                 statName: "hp",
-                value: 12
+                value: 25
             }, {
                 statName: "strength",
-                value: 31
+                value: 25
             }, {
                 statName: "defense",
-                value: 17
+                value: 25
             }, {
                 statName: "speed",
-                value: 25
+                value: 50
             }],
             colors: {
                 dark: "#42224e",
@@ -181,7 +206,7 @@ $(document).ready(function () {
 
     // var w = "100%";
     var h = 180;
-    var newCharacter = [];
+    // var newCharacter = [];
     var newStats = [];
 
     //need to write a constructor to reduce redundant code
@@ -271,7 +296,7 @@ $(document).ready(function () {
             .attr("fill", "#363636")
             //each rectangle starts at the 0 position
             .attr("x", function (d) {
-                return (d.value / 40 * 100 - 10) + "%";
+                return (d.value / 58 * 100 - 10) + "%";
             })
             //moves each rectangle down
             //i is the data point index
@@ -281,7 +306,7 @@ $(document).ready(function () {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function (d) {
-                return 100 - (d.value / 40 * 100) + 10 + "%";
+                return 100 - (d.value / 58 * 100) + 10 + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
@@ -302,7 +327,7 @@ $(document).ready(function () {
                 //width of the rectangle
                 //multiplied the data point to make it wider
                 .attr("width", function (d) {
-                    return (d.value / 40 * 100) + "%";
+                    return (d.value / 58 * 100) + "%";
                 })
                 //defines the height of the rectangle
                 .attr("height", 10)
@@ -324,7 +349,7 @@ $(document).ready(function () {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function (d) {
-                return (d.value / 40 * 100) + "%";
+                return (d.value / 58 * 100) + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
@@ -335,7 +360,7 @@ $(document).ready(function () {
             .style("fill", "white")
             .style("font-size", "12px")
             .append("tspan")
-            .attr("class", "fas minus")
+            .attr("class", "fas stat-dist minus")
             .attr("data-class", characterClass)
             .text("\uf0d9")
             .attr("y", function (d, i) {
@@ -344,6 +369,7 @@ $(document).ready(function () {
 
         nodes.select(".stat-name")
             .append("tspan")
+            .attr("class", "stat-type")
             .text(function (d) {
                 return d.statName;
             })
@@ -353,66 +379,60 @@ $(document).ready(function () {
 
         nodes.select(".stat-name")
             .append("tspan")
-            .attr("class", "fas plus")
+            .attr("class", "fas stat-dist plus")
             .attr("data-class", characterClass)
             .attr("dx", 10)
             .text("\uf0da");
     }
 
-    $(".character-stats").on("click", ".plus", function () {
-        //write a conditional to prevent pushing onto array again
+    var statPoints = 10;
+    $(".character-stats").on("click", ".stat-dist", function () {
         for (var i = 0; i < characters.length; i++) {
-            //check if data attribute matches class here
-            //if it does, put these variables in an if statement
-            // console.log(characters[0].class);
+            //check for character class from data attribute on button
             if ($(this).attr("data-class") === characters[i].class) {
-                var selectCharacter = {};
-                selectCharacter.name = characters[i].name;
-                selectCharacter.class = characters[i].class;
-                selectCharacter.colors = characters[i].colors;
-                // newCharacter.push(selectCharacter);
+                //double loop to through the stats array inside the character object
                 for (var j = 0; j < characters[i].stats.length; j++) {
-                    var characterStats = {};
-                    characterStats.statName = characters[i].stats[j].statName;
-                    characterStats.value = characters[i].stats[j].value;
-                    console.log(characters[i].stats[j].statName);
-                    selectCharacter.stats = characters[i].stats;
-                    newStats.push(characterStats);
+                    //prevents from appending more stats onto the array
+                    if (newStats.length < characters[i].stats.length) {
+                        //set an empty obj
+                        //if push data directly into array, new array will reference the previous array and override the data 
+                        var characterStats = {};
+                        characterStats.statName = characters[i].stats[j].statName;
+                        characterStats.value = characters[i].stats[j].value;
+                        newStats.push(characterStats);
+                    }
+                    //check if the plus button is clicked
+                    if ($(this).attr("class").split(" ")[2] === "plus") {
+                        //checks the stat name
+                        if ($(this).prev().text() === characters[i].stats[j].statName) {
+                            //if user still has remaining stat points
+                            if (statPoints !== 0 && newStats[j].value !== 58) {
+                                //add point to stats
+                                newStats[j].value = newStats[j].value + 2;
+                                //remove from statPoints
+                                statPoints--;
+                                console.log(newStats[j].value);
+                            }
+                        }
+                    //check if the minus button is clicked
+                    } else if ($(this).attr("class").split(" ")[2] === "minus") {
+                        //checks the stat name
+                        if ($(this).next().text() === characters[i].stats[j].statName) {
+                            //if user has the original amount of points and new stat value is not equal to old stat value
+                            //prevents user from subtracting from base stats
+                            if (statPoints !== 10 && newStats[j].value !== characters[i].stats[j].value) {
+                                newStats[j].value = newStats[j].value - 2;
+                                statPoints++;
+                            }
+                        }
+                    }
                 }
-                newCharacter.push(selectCharacter);
-                //set stat distribution conditionals here
-                //gets the value of hp
-                //need to do the rest for the other stats
-                //testing override
-                console.log(newStats[0].value);
-                console.log(characters[0].stats[0].value);
-                console.log(newCharacter[0].stats[0].value);
-                newStats[0].value++;
                 $(".character-stats").empty();
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
-        //when the plus sign is clicked on
-        //set base stats as variables
-        //loop through the character object array
-        //find the data attribute for class
-        //if data attribute for class = characters[i].class
-        //push characters[i] into empty array
-        //$(".character-stats").empty(); to clear out stats container so it doesn't keep appending
-        //check the data attribute for stats
-        //if data attribute for stat = newCharacter[0].stats[0].name
-        //add one to newCharacter[0].stats[0].value (hp value)
-        //call statsDisplay(newCharacters[0].stats, newCharacters[0].colors.dark, newCharacters[0].colors.light);
-        //to update stats
     });
-    //if click on new character, need to reset the value
-    //need to set a conditional so that it does not go below the base stat
-    //need to set a conditional so that it does not go above 40
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
     //need to display remaining stat points
 });
-
-//issues
-//if we use handlebars, mark will need to conform to bootstrap
-//if we have an item/armory, how will users purchase items? will enemies drop gold?
