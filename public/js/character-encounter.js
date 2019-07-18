@@ -213,11 +213,7 @@ function populateBattle(characters, stage) {
     // display correct player name
     $(".character-name").text(p.name);
     // display correct player hp
-<<<<<<< HEAD
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp / 3));
-=======
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp/3).toFixed(0));
->>>>>>> 18ef87bd216f6e51a372546d02c76c119c8c7c97
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp / 3).toFixed(0));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
@@ -283,7 +279,6 @@ function animateEntrance() {
     }, 3500);
 }
 
-<<<<<<< HEAD
 function getUserId() {
     $.get("/api/userdata").then(function (data) {
         var userId = data.userId;
@@ -303,7 +298,6 @@ function getUserData(Id) {
         $(".character-name").text(data.Main.mainClass);
     });
 }
-=======
 // loginUser does a post to our "api/login" route and if successful, redirects us the the landing page
 // function putChapterWin() {
 //     function postCharacterData(Id) {
@@ -325,7 +319,6 @@ function getUserData(Id) {
 //     }
 //     gatherUserId();
 // }
->>>>>>> 18ef87bd216f6e51a372546d02c76c119c8c7c97
 
 $(document).ready(function () {
     // animateEntrance();
