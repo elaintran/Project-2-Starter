@@ -289,9 +289,8 @@ function toggleWinLoseModals(state) { // eslint-disable-line no-unused-vars
       $("#winModal").modal("show");
     }, 2000);
     postChapterWin(completed);
-    setTimeout(function() {
-      
-    })
+    // setTimeout(function() {
+    // });
   } else if (state === "lose") {
     setTimeout(function() {
       $("#loseModal").modal("show");
