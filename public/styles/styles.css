@@ -143,7 +143,12 @@ body {
 form {
   padding-top:1%;
 	width: 300px;
-	margin: 0 auto;
+  margin: 0 auto;
+   
+}
+
+.prompttext{
+  padding-top:5%;
 }
 
 .submit{
@@ -157,40 +162,73 @@ form {
 .submit:focus{
   outline: none;
 }
-.logintitle {
+.loginlogo {
+  margin: auto;
+  width:50%;
   padding-top: 10%;
   text-align: center;
-  color: #d7d7d7;
-  font-size: 24px;
+
 }
 
-.text-muted{
-  display: none;
+::placeholder{
+  padding-left: 10px;
 }
 
 .form-control{
-  background-color: #343434;
+  background-color: #2d2d2d;
   border:0px;
-  color: #d7d7d7;
+  color: #6a6a6a
+  
 }
 
 .form-control:focus {
-  background-color: #343434;
+  background-color: #2d2d2d;
   border:0px;
-  color: #d7d7d7;
+  color: #6a6a6a;
   box-shadow: none;
 }
 
 .logintext{
   padding-top: 5%;
+  text-align: center;
+  color: #6a6a6a;
+}
+
+.accounttext{
+  color: #d7d7d7;
+  text-align: center;
 }
 a{
-  color: #e8c892;
+  color: #d7d7d7;
 }
 
 a:hover{
-  color: #e8c892;
+  color: #d7d7d7;
 }
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  color: #6a6a6a
+}
+
+/* align glyph */
+.left-addon .glyphicon  { 
+  left:  0px;
+}
+
+/* add padding  */
+.left-addon input  { 
+  padding-left:  30px; 
+}
+
 
 /*  
   ============================
@@ -709,27 +747,7 @@ svg.enemy-sprite:hover {
   position: relative;
 }
 
-/*  
-  ============================
-  404 ERROR STYLING
-  ============================
-*/
-.error-info {
-  height: 200px;
-  width: 500px;
-}
 
-.notfound{
-  font-size: 32px;
-  padding-top: 15%;
-  color: #d24d5f;
-}
-
-.errortext{
-  padding-top: 5%;
-  color:#d7d7d7;
-  font-size: 17px;
-} 
 /*
   ============================
   NAV BAR STYLING
@@ -775,9 +793,6 @@ svg.enemy-sprite:hover {
   NEW 404 STYLING
   ============================
 */
-body.error-screen{
-  background: #464646;
-}
 
 .errortext{
   color: #c3b69a;
@@ -787,13 +802,35 @@ body.error-screen{
 .wrong{
   text-align: center;
   font-size: 3vw;
+  font-weight: 600;
   padding-top: 40px; 
-  letter-spacing: 3px;
+  color: #d7d7d7;
+  
 }
 .errorimage{
-  padding-top: 65px; 
+  padding-top: 10%; 
   text-align: center;
 }
+
+.submiterror{
+  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  border: 0;
+  width: 20%;;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 0;
+  font-weight: 500;
+}
+
+.submiterror:focus{
+  outline: none;
+}
+.backtohome{
+  padding-top:2%;
+  text-align: center;
+}
+
 /*
   ============================
   DROPDOWN STYLING
