@@ -246,13 +246,8 @@ function populateBattle(characters, stage) {
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
 function listenForHover() {
-<<<<<<< HEAD
     $(".cls-1").each(function () {
-        var bodyPart = ($(this).parent().attr("data-part"));
-=======
-    $(".cls-1").each(function() {    
         var bodyPart = ($(this).parent().attr("data-target"));
->>>>>>> a414b63e7f79f8adc5700f1718fd8b750ea54853
         // console.log(bodyPart);
         $(this).hover(function () {
             $(".attack-" + bodyPart).css({
