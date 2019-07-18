@@ -279,6 +279,27 @@ function animateEntrance() {
     }, 3500);
 }
 
+// loginUser does a post to our "api/login" route and if successful, redirects us the the landing page
+// function putChapterWin() {
+//     function postCharacterData(Id) {
+//         $.ajax({
+//             method: "PUT",
+//             url: `/api/users/${Id}`,
+//             data: userData
+//         }).then(function () {
+//             window.location.href = "/world";
+//         });
+//     }
+
+//     function gatherUserId() {
+//         $.get("/api/userdata").then(function (data) {
+//             console.log(data);
+//             var userId = data.userId;
+//             postCharacterData(userId);
+//         });
+//     }
+//     gatherUserId();
+// }
 
 
 
