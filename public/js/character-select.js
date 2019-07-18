@@ -227,6 +227,17 @@ $(document).ready(function () {
     }
     characterDisplay();
 
+    // change modal text on character select page based on stats
+    // function checkStats(){
+    //     if(statPoints !== 10){
+    //         $('#modaltext').text("Please distribute all 10 stat points!");
+    //         $('.modal-footer').hide();
+    //     } else {
+    //         $('#modaltext').text("Are you sure you wish to continue with this class?");   
+    //     }
+    // }
+    // checkStats();
+
     //toggle between characters
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
@@ -430,6 +441,7 @@ $(document).ready(function () {
                 }
                 $(".stat-points").text(statPoints);
                 $(".character-stats").empty();
+                console.log(newStats);
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }

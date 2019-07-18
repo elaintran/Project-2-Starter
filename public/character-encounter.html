@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -187,4 +188,181 @@
   <script src="./js/gamejs/battleaction.js" type="text/javascript"></script>
 </body>
 
+=======
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Project 2</title>
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans: 400,500,600,700&display=swap" rel="stylesheet">
+
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+   <!-- Favicon -->
+   <link rel='icon' href='./images/resource-images/favicon.ico' type='image/x-icon'/>
+</head>
+<body class="encounter-screen">
+    <!-- <div class="foreground"></div> -->
+
+    <div class="page-wrapper">
+
+                <!-- PLAYER INFO / STATS -->
+                
+                <div class="player-stats">
+                    <div class="player-avatar">
+                        <img src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
+                    </div>
+                    <div class="stats-container">
+                        <div class="character-text">
+                            <span class="character-name">Green Mage</span>
+                            <span class="hit-points">HP 100</span>
+                        </div>
+                        <div class="player-health-bar">
+                                <div class="player-health-bar-fill"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+     
+                <!-- ENEMY INFO / STATS -->
+                <div class="enemy-stats">
+                    <div class="enemy-avatar">
+                        <img src="./images/resource-images/encounter/dragon-king-portrait.png" alt="enemy avatar">
+                    </div>
+                    <div class="stats-container">
+                        <div class="character-text">
+                            <span class="enemy-name">Dragon King</span>
+                            <span class="hit-points">HP 100</span>
+                        </div>
+                        <div class="enemy-health-bar">
+                            <div class="enemy-health-bar-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+       <div class="character-grid">
+
+            <!-- PLAYER SPRITE -->
+
+           <div class="player-character">
+               <div class="player-action-grid">
+                   <div class="attack" data-tooltip="Attack">
+                       <img src="./images/resource-images/encounter/player-attack.png" data-action="attack" alt="attack the enemy">
+                   </div>
+                   <div class="items">
+                       <img src="./images/resource-images/encounter/player-items.png" data-action="useItem" alt="use an item">
+                   </div>
+                   <div class="flee">
+                       <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
+                   </div>
+               </div>
+               <img class="player-sprite" src="./images/resource-images/chibi/mage-red.png" alt="player character">
+               <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+           </div>
+
+           <!-- ENEMY SPRITE -->
+
+           <div class="enemy-character">
+                <div class="attack-area-popups">
+                    <div class="attack-head" data-target="body">
+                        <h4>Head</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
+                    <div class="attack-body" data-target="body">
+                        <h4>Body</h4>
+                        <p class="attack-info">High Defense</p>
+                        <p class="attack-info">Low Evasion</p>
+                    </div>
+                    <div class="attack-legs" data-target="body">
+                        <h4>Legs</h4>
+                        <p class="attack-info">Low Defense</p>
+                        <p class="attack-info">High Evasion</p>
+                    </div>
+                </div>
+                <div class="enemy-sprite">
+                    
+                </div>
+                <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+            </div>
+       </div>
+
+       <!-- PLAYER INFO / STATS -->
+       <!-- <div class="attack-prompts"></div> -->
+       
+   </div>
+   
+ <div class="btn-group" dropdown>
+            
+            <button type="button" class="btn btn-danger dropdown-toggle" dropdown-toggle><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                <span class="caret"></span>
+                <span class="sr-only">Split button!</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+
+  
+          
+          <!-- Winner Modal -->
+          <div class="modal fade" id="winmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                </div>
+                <div class="modal-body">
+                    <p class="chapterclear">CHAPTER CLEAR</p>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+          
+          <!-- Loser Modal -->
+          <div class="modal fade" id="losemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                </div>
+                <div class="modal-body">
+                    <p class="gameover">GAME OVER</p>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+
+          <!--JavaScript-->
+
+    <script src="./js/gamejs/gamemanager.js" type="text/javascript"></script>
+    <script src="./js/character-encounter.js" type="text/javascript"></script>
+    <script src="./js/gamejs/battleaction.js" type="text/javascript"></script>
+   
+</body>
+>>>>>>> 18ef87bd216f6e51a372546d02c76c119c8c7c97
 </html>

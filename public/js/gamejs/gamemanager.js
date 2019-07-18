@@ -269,14 +269,32 @@ let gameManager = {// eslint-disable-line no-unused-vars
 // update health bar on encounter page after each attack
 function updateEnemyHealthBar() { // eslint-disable-line no-unused-vars
   var hpPercentage = enemy.hp / fullHP * 100;
-  $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
+  $(".enemy-stats").find(".hit-points").text("HP " + (enemy.hp).toFixed(0));
   $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
   console.log("currentHP: " + enemy.hp);
 }
 
 function updatePlayerHealthBar() { // eslint-disable-line no-unused-vars
   var hpPercentage = character.hp / fullHP * 100;
-  $(".player-stats").find(".hit-points").text("HP " + character.hp);
+  $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
   $(".player-health-bar-fill").css("width", hpPercentage + "%");
   console.log("currentHP: " + character.hp);
+}
+
+// trigger modals for a win or lose scenario
+function toggleWinLoseModals(state) { // eslint-disable-line no-unused-vars
+  if (state === "win") {
+    let completed = true;
+    setTimeout(function() {
+      $("#winModal").modal("show");
+    }, 2000);
+    postChapterWin(completed);
+    // setTimeout(function() {
+    // });
+  } else if (state === "lose") {
+    setTimeout(function() {
+      $("#loseModal").modal("show");
+    }, 2000);
+  }
+  
 }
