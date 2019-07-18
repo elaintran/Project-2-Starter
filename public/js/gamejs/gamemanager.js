@@ -6,7 +6,8 @@ let target; // eslint-disable-line no-unused-vars
 
 //keeps track of which chapter user is on
 let chapter = 1; // eslint-disable-line no-unused-vars
-
+// starting point for HP bar
+let fullHP;
 //Enemy constructor
 function Enemy(hp, def, str, spd) {
   this.hp = hp;
@@ -225,17 +226,17 @@ let gameManager = {// eslint-disable-line no-unused-vars
       case 1: //3-2-2-3 60*3/4, 60*2/4, 60*2/4, 60*3/4
         enemy = new Enemy(45, 30, 30, 45);
         console.log("Enemy for chapter " + chapter + " created");
-        
+        fullHP = enemy.hp;
         break;
       case 2: //3-2-2-3 80*3/4, 80*2/4, 80*2/4, 80*3/4
         enemy = new Enemy(60, 40, 40, 60);
         console.log("Enemy for chapter " + chapter + " created");
-
+        fullHP = enemy.hp;
         break;
       case 3: //3-2-2-3 100*3/4, 100*2/4, 100*2/4, 100*3/4
         enemy = new Enemy(75, 50, 50, 75);
         console.log("Enemy for chapter " + chapter + " created");
-
+        fullHP = enemy.hp;
         break;
     }
 
@@ -264,3 +265,18 @@ let gameManager = {// eslint-disable-line no-unused-vars
     this.createEnemy(chapter);
   }
 };
+
+// update health bar on encounter page after each attack
+function updateEnemyHealthBar() { // eslint-disable-line no-unused-vars
+  var hpPercentage = enemy.hp / fullHP * 100;
+  $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
+  $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
+  console.log("currentHP: " + enemy.hp);
+}
+
+function updatePlayerHealthBar() { // eslint-disable-line no-unused-vars
+  var hpPercentage = character.hp / fullHP * 100;
+  $(".player-stats").find(".hit-points").text("HP " + character.hp);
+  $(".player-health-bar-fill").css("width", hpPercentage + "%");
+  console.log("currentHP: " + character.hp);
+}

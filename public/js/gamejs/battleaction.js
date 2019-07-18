@@ -126,6 +126,7 @@ $(document).ready(function() {
             $(".enemy-stats")
             .find(".hit-points")
             .text("HP " + enemy.hp.toFixed(0));
+            updateEnemyHealthBar();
           }
           console.log(
             "The enemy took " + totalDmg + "damage in the first attack!"
@@ -148,6 +149,7 @@ $(document).ready(function() {
               $(".enemy-stats")
               .find(".hit-points")
               .text("HP " + enemy.hp.toFixed(0));
+              updateEnemyHealthBar();
             }
             console.log("The enemy was hit twice!");
             console.log("The enemy took an additional " + totalDmg + "damage.");
@@ -165,6 +167,7 @@ $(document).ready(function() {
             $(".enemy-stats")
               .find(".hit-points")
               .text("HP " + 0);
+              updateEnemyHealthBar();
 
             console.log("You defeated the enemy!");
             console.log("Chapter: " + chapter);
@@ -195,6 +198,7 @@ $(document).ready(function() {
               $(".player-stats")
               .find(".hit-points")
               .text("HP " + (character.hp / 3).toFixed(0));
+              updatePlayerHealthBar();
             }
             $(".character-hp").text("Character HP: " + character.hp);
             $(".character-str").text("Character Str: " + character.str);
@@ -210,6 +214,7 @@ $(document).ready(function() {
               $(".player-stats")
                 .find(".hit-points")
                 .text("HP " + 0);
+                updatePlayerHealthBar();
 
               //whatever happens when character loses
             }
@@ -254,6 +259,7 @@ $(document).ready(function() {
           $(".player-stats")
             .find(".hit-points")
             .text("HP " + (character.hp / 3).toFixed(0));
+            updatePlayerHealthBar();
           }
 
           console.log("The enemy attacked first for " + enemyTotalDmg + "!");
@@ -274,6 +280,7 @@ $(document).ready(function() {
               $(".enemy-stats")
               .find(".hit-points")
               .text("HP " + enemy.hp.toFixed(0));
+              updateEnemyHealthBar();
             }
             console.log("Enemy hp after hit: " + enemy.hp);
 
@@ -288,6 +295,7 @@ $(document).ready(function() {
               $(".enemy-stats")
                 .find(".hit-points")
                 .text("HP " + 0);
+                updateEnemyHealthBar();
 
               console.log("You defeated the enemy!");
               console.log("Chapter: " + chapter);
@@ -324,6 +332,7 @@ $(document).ready(function() {
         $(".player-stats")
           .find(".hit-points")
           .text("HP " + 0);
+          updatePlayerHealthBar();
       } else {
         console.log("You've defeated the enemy!");
         console.log("Chapter: " + chapter);

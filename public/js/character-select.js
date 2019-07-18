@@ -36,13 +36,13 @@ $(document).ready(function () {
                 value: 25
             }, {
                 statName: "strength",
-                value: 37.5
+                value: 38
             }, {
                 statName: "defense",
                 value: 25
             }, {
                 statName: "speed",
-                value: 37.5
+                value: 38
             }],
             colors: {
                 dark: "#94263a",
@@ -55,13 +55,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-lance-blue.png",
             stats: [{
                 statName: "hp",
-                value: 37.5
+                value: 38
             }, {
                 statName: "strength",
                 value: 25
             }, {
                 statName: "defense",
-                value: 37.5
+                value: 38
             }, {
                 statName: "speed",
                 value: 25
@@ -77,13 +77,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/fighter-axe-green.png",
             stats: [{
                 statName: "hp",
-                value: 37.5
+                value: 38
             }, {
                 statName: "strength",
                 value: 50
             }, {
                 statName: "defense",
-                value: 12.5
+                value: 12
             }, {
                 statName: "speed",
                 value: 25
@@ -105,10 +105,10 @@ $(document).ready(function () {
                 value: 25
             }, {
                 statName: "defense",
-                value: 37.5
+                value: 38
             }, {
                 statName: "speed",
-                value: 37.5
+                value: 38
             }],
             colors: {
                 dark: "#42224e",
@@ -121,7 +121,7 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/mage-red.png",
             stats: [{
                 statName: "hp",
-                value: 12.5
+                value: 12
             }, {
                 statName: "strength",
                 value: 50
@@ -130,7 +130,7 @@ $(document).ready(function () {
                 value: 25
             }, {
                 statName: "speed",
-                value: 37.5
+                value: 38
             }],
             colors: {
                 dark: "#94263a",
@@ -143,13 +143,13 @@ $(document).ready(function () {
             chibi: "images/resource-images/chibi/manakete-blue.png",
             stats: [{
                 statName: "hp",
-                value: 12.5
+                value: 12
             }, {
                 statName: "strength",
                 value: 50
             }, {
                 statName: "defense",
-                value: 37.5
+                value: 38
             }, {
                 statName: "speed",
                 value: 25
@@ -168,13 +168,13 @@ $(document).ready(function () {
                 value: 50
             }, {
                 statName: "strength",
-                value: 12.5
+                value: 12
             }, {
                 statName: "defense",
                 value: 50
             }, {
                 statName: "speed",
-                value: 12.5
+                value: 12
             }],
             colors: {
                 dark: "rgb(33, 74, 85)",
@@ -267,7 +267,7 @@ $(document).ready(function () {
     function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
-            .attr("viewBox", "0 0 " + 350 + " " + h);
+        .attr("viewBox", "0 0 " + 350 + " " + h);
         //defs store graphical objects at a later time and are not rendered
         var svgDefs = svg.append("defs");
         //creates a linear gradient container
@@ -298,7 +298,7 @@ $(document).ready(function () {
             .attr("fill", "#363636")
             //each rectangle starts at the 0 position
             .attr("x", function (d) {
-                return (d.value / 58 * 100 - 10) + "%";
+                return (d.value / 60 * 100 - 10) + "%";
             })
             //moves each rectangle down
             //i is the data point index
@@ -308,7 +308,7 @@ $(document).ready(function () {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function (d) {
-                return 100 - (d.value / 58 * 100) + 10 + "%";
+                return 100 - (d.value / 60 * 100) + 10 + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
@@ -329,7 +329,7 @@ $(document).ready(function () {
                 //width of the rectangle
                 //multiplied the data point to make it wider
                 .attr("width", function (d) {
-                    return (d.value / 58 * 100) + "%";
+                    return (d.value / 60 * 100) + "%";
                 })
                 //defines the height of the rectangle
                 .attr("height", 10)
@@ -351,7 +351,7 @@ $(document).ready(function () {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function (d) {
-                return (d.value / 58 * 100) + "%";
+                return (d.value / 60 * 100) + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
@@ -407,14 +407,14 @@ $(document).ready(function () {
                         //checks the stat name
                         if ($(this).prev().text() === characters[i].stats[j].statName) {
                             //if user still has remaining stat points
-                            if (statPoints !== 0 && newStats[j].value !== 58) {
+                            if (statPoints !== 0 && newStats[j].value !== 60) {
                                 //add point to stats
                                 newStats[j].value += 2;
                                 //remove from statPoints
                                 statPoints--;
                             }
                         }
-                        //check if the minus button is clicked
+                    //check if the minus button is clicked
                     } else if ($(this).attr("class").split(" ")[2] === "minus") {
                         //checks the stat name
                         if ($(this).next().text() === characters[i].stats[j].statName) {

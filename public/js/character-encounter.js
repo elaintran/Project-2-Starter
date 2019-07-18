@@ -155,14 +155,6 @@ var background = [
     "./images/resource-images/encounter/bg-castle2.jpg"
 ];
 
-// * player[0] = swordmaster
-// * player[1] = lance fighter
-// * player[2] = axe fighter
-// * player[3] = bow fighter
-// * player[4] = red mage
-// * player[5] = manakete
-// * player[6] = knight
-// * player[7] = thief
 function populateBattle(characters, stage) {
     var p;
     switch (characters) {
@@ -243,15 +235,13 @@ function populateBattle(characters, stage) {
     listenForHover();
 }
 
-// var fullHP = enemy[0].hp;
-// var currentHP = fullHP;
 
-// function testAttack(damage) {
-//     currentHP = (currentHP - damage);
-//     var hpPercentage = currentHP / fullHP * 100;
-//     $(".enemy-stats").find(".hit-points").text("HP " + enemy[0].hp);
+
+// function updateHealthBar() {
+//     var hpPercentage = enemy.hp / fullHP * 100;
+//     $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
 //     $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
-//     console.log("currentHP: " + currentHP);
+//     console.log("currentHP: " + enemy.hp);
 // }
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
