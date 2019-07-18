@@ -1,4 +1,5 @@
 //for loop function set up for get request
+//var characters = [];
 // for (var i = 0; i < data.length; i++) {
 //     var characterObj = {};
 //     characterObj.name = data[i].mainName;
@@ -206,6 +207,7 @@ $(document).ready(function () {
 
     // var w = "100%";
     var h = 180;
+    var statPoints = 10;
     // var newCharacter = [];
     var newStats = [];
 
@@ -221,8 +223,6 @@ $(document).ready(function () {
             var characterImage = $("<img>").attr("src", characters[i].chibi);
             chibiContainer.append(characterImage);
             $(".character-list").append(chibiContainer);
-
-
         }
     }
     characterDisplay();
@@ -233,7 +233,6 @@ $(document).ready(function () {
             if ($(this).attr("data-class") === characters[i].class) {
                 $("#confirmCharacter").attr("data-class", characters[i].class);
                 $("#confirmCharacter").attr("data-name", characters[i].name);
-                $("#confirmCharacter").attr("data-id", (i + 1));
                 characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
@@ -241,6 +240,8 @@ $(document).ready(function () {
 
     function characterSelect(name, characterClass, portrait, firstStop, secondStop, stats) {
         newStats = [];
+        statPoints = 10;
+        $(".stat-points").text("10");
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
         $(".character-image").attr("src", portrait);
@@ -386,7 +387,6 @@ $(document).ready(function () {
             .text("\uf0da");
     }
 
-    var statPoints = 10;
     $(".character-stats").on("click", ".stat-dist", function () {
         for (var i = 0; i < characters.length; i++) {
             //check for character class from data attribute on button
@@ -409,10 +409,9 @@ $(document).ready(function () {
                             //if user still has remaining stat points
                             if (statPoints !== 0 && newStats[j].value !== 58) {
                                 //add point to stats
-                                newStats[j].value = newStats[j].value + 2;
+                                newStats[j].value += 2;
                                 //remove from statPoints
                                 statPoints--;
-                                console.log(newStats[j].value);
                             }
                         }
                         //check if the minus button is clicked
@@ -422,12 +421,13 @@ $(document).ready(function () {
                             //if user has the original amount of points and new stat value is not equal to old stat value
                             //prevents user from subtracting from base stats
                             if (statPoints !== 10 && newStats[j].value !== characters[i].stats[j].value) {
-                                newStats[j].value = newStats[j].value - 2;
+                                newStats[j].value -= 2;
                                 statPoints++;
                             }
                         }
                     }
                 }
+                $(".stat-points").text(statPoints);
                 $(".character-stats").empty();
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }

@@ -11,9 +11,12 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
         crossorigin="anonymous"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans: 400,500,600,700&display=swap" rel="stylesheet">
@@ -25,51 +28,34 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
 </head>
 
 <body>
-    <!-- Nav Bar
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <span class="user-name"></span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="registration.html">Sign Up <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
+    <div class="loginlogo"><img src="images/resource-images/logo/heroes-united.png" width="300" height="120"></div>
 
-            </ul>
-            </div>
-            </nav> -->
-    <!-- <span class="user-name">span here</span> -->
-
-    <img src="images/resource-images/logo/heroes-united.png" class="logo">
-
-    <h2 class="logintitle">Login To Play</h2>
     <form class="login">
-        <div class="form-group">
-            <label for="inputEmail"></label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="email"
-                required>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword"></label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="password" required>
-        </div>
-        <button type="submit" class="submit">Log in</button>
-        <h2 class="logintext">Need an Account? <a href="registration.html">Create One Here</a></h2>
+
+        <div class="inner-addon left-addon">
+            <div class="form-group">
+                <label for="userEmail"></label>
+                <i class="glyphicon glyphicon-user"></i>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                    placeholder="Email" required>
+            </div>
+
+            <div class="inner-addon left-addon">
+                <div class="form-group">
+                    <label for="userEmail"></label>
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="submit">LOGIN</button>
+
+                <div class="prompttext"></div>
+                <h2 class="accounttext">Need an Account? <a href="registration.html">Signup.</a></h2>
+            </div>
     </form>
 
 
