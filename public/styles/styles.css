@@ -843,6 +843,9 @@ svg.enemy-sprite:hover {
   border:0px;
   color: #c2b79e;
   font-weight:600;
+  position:absolute;
+
+  
 }
 /* .btn{
   background:transparent;
@@ -855,16 +858,24 @@ svg.enemy-sprite:hover {
   background:transparent;
   border: none;
   box-shadow:none;
+  position: absolute;
+  right: 200;
+  color:#c2b79e;
+  font-weight:600;
+  font-size: 20px;
 }
 .btn.focus{
   outline:none;
   border: none;
+  
 }
 .show>.btn-secondary.dropdown-toggle{
   background:transparent;
   color:#c2b79e;
   font-weight:600;
   font-size: 20px;
+  position: absolute;
+  right: 200;
 }
 .dropdown-menu.show{
   background-color: #292929;
@@ -891,4 +902,12 @@ svg.enemy-sprite:hover {
 .btn-secondary:hover{
   background-color:transparent;
   color:#c2b79e;
+}
+.dropdown-toggle{
+  display: flex;
+  align-items: center;
+}
+
+.username{
+  padding-left: 10px;
 }

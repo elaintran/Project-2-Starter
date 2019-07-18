@@ -227,7 +227,7 @@ $(document).ready(function () {
     }
     characterDisplay();
 
-    // check if stats is not less than 10, change modal text
+    // change modal text on character select page based on stats
     function checkStats(){
         if(statPoints === 10){
             $('#modaltext').text("Please distribute all 10 stat points!")
