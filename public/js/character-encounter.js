@@ -1,5 +1,27 @@
 // populate enemy portrait dynamically on page load
 // possibly store enemy svg data within a javascript object
+/*Created for testing purposes: */
+character = {
+    classType: "Red Mage",
+    hp: 12.5,
+    def: 50,
+    str: 25,
+    spd: 37.5
+  };
+  
+  //multiplier for character HP
+  character.hp *= 3;
+
+$(document).ready(function() {
+
+    //loads chapter status and creates designated enemy
+  gameManager.setUpFight(chapter);
+  console.log("Enemy creation: " + enemy.hp);
+        // animateEntrance();
+        populateBattle();
+        listenForHover();
+
+});
 
 var player = [
     {
@@ -107,8 +129,8 @@ var enemies = [
         </g>
     </svg>`
 ];
-// console.log(enemy);
-var enemy = [
+
+var displayEnemy = [
     {
         name: "Blue Mage",
         hp: 100,
@@ -133,17 +155,9 @@ var background = [
     "./images/resource-images/encounter/bg-castle2.jpg"
 ];
 
-// * player[0] = swordmaster
-// * player[1] = lance fighter
-// * player[2] = axe fighter
-// * player[3] = bow fighter
-// * player[4] = red mage
-// * player[5] = manakete
-// * player[6] = knight
-// * player[7] = thief
-function populateBattle(character, stage) {
+function populateBattle(characters, stage) {
     var p;
-    switch (character) {
+    switch (characters) {
         case "swordmaster":
             p = player[0];
             break;
@@ -175,19 +189,19 @@ function populateBattle(character, stage) {
 
     switch (stage) {
         case 1:
-            e = enemy[0];
+            e = displayEnemy[0];
             s = 0;
             break;
         case 2:
-            e = enemy[1];
+            e = displayEnemy[1];
             s = 1;
             break;
         case 3:
-            e = enemy[2];
+            e = displayEnemy[2];
             s = 2;
             break;
         default:
-            e = enemy[0];
+            e = displayEnemy[0];
             s = 0;
             break;
     }
@@ -199,7 +213,7 @@ function populateBattle(character, stage) {
     // display correct player name
     $(".character-name").text(p.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + p.hp);
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp/3));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
@@ -211,7 +225,7 @@ function populateBattle(character, stage) {
     // display correct enemy name
     $(".enemy-name").text(e.name);
     // dispaly correct enemy hp
-    $(".enemy-stats").find(".hit-points").text("HP " + e.hp);
+    $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
     // display correct hp amount on health bar
     $(".enemy-health-bar-fill").css("width", "100%");
     // display correct enemy sprite
@@ -221,42 +235,36 @@ function populateBattle(character, stage) {
     listenForHover();
 }
 
-populateBattle();
 
-var fullHP = enemy[0].hp;
-var currentHP = fullHP;
 
-function testAttack(damage) {
-    currentHP = (currentHP - damage);
-    var hpPercentage = currentHP / fullHP * 100;
-    $(".enemy-stats").find(".hit-points").text("HP " + enemy[0].hp);
-    $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
-    console.log("currentHP: " + currentHP);
-}
+// function updateHealthBar() {
+//     var hpPercentage = enemy.hp / fullHP * 100;
+//     $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
+//     $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
+//     console.log("currentHP: " + enemy.hp);
+// }
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
 function listenForHover() {
     $(".cls-1").each(function() {    
-        var target = ($(this).parent().attr("data-target"));
-        
+        var bodyPart = ($(this).parent().attr("data-target"));
+        // console.log(bodyPart);
         $(this).hover(function() {
-            $(".attack-" + target).css({
+            $(".attack-" + bodyPart).css({
                 "opacity": "1",
                 "left": "0"
             });
             $(this).css({"fill":"#f006"});
         },function() {
-            $(".attack-" + target).css({
+            $(".attack-" + bodyPart).css({
                 "opacity": "0",
                 "left": "-1vw"
             });
             $(this).css({"fill":"transparent",});
         });
-        $(this).click(function() {
-            // console.log($(this))
-            console.log("target: ", target);
-            testAttack(25);
-        });
+        // $(this).click(function() {
+        //     testAttack(25);
+        // });
     });
 }
 
@@ -271,7 +279,6 @@ function animateEntrance() {
     }, 3500);
 }
 
-$(document).ready(function() {
-    // animateEntrance();
-    listenForHover();
-});
+
+
+
