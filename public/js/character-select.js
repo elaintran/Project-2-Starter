@@ -1,3 +1,28 @@
+//for loop function set up for get request
+// for (var i = 0; i < data.length; i++) {
+//     var characterObj = {};
+//     characterObj.name = data[i].mainName;
+//     characterObj.class = data[i].mainClass;
+//     characterObj.portrait = data[i].mainPortrait;
+//     characterObj.stats = [{
+//         statName: "hp",
+//         value: data[i].mainHp
+//     }, {
+//         statName: "strength",
+//         value: data[i].mainStr
+//     }, {
+//         statName: "defense",
+//         value: data[i].mainDef
+//     }, {
+//         statName: "speed",
+//         value: data[i].mainSpd
+//     }];
+//     characterObj.colors = {};
+//     characterObj.colors.dark = data[i].colorDark;
+//     characterObj.colors.light = data[i].colorLight;
+//     characters.push(characterObj); 
+// }
+
 $(document).ready(function () {
     var characters = [
         {
