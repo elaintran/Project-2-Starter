@@ -1,209 +1,33 @@
-//for loop function set up for get request
-//var characters = [];
-// for (var i = 0; i < data.length; i++) {
-//     var characterObj = {};
-//     characterObj.name = data[i].Main.mainName;
-//     characterObj.class = data[i].Main.mainClass;
-//     characterObj.portrait = data[i].Main.mainPortrait;
-//     characterObj.stats = [{
-//         statName: "hp",
-//         value: data[i].Main.mainHp
-//     }, {
-//         statName: "strength",
-//         value: data[i].Main.mainStr
-//     }, {
-//         statName: "defense",
-//         value: data[i].Main.mainDef
-//     }, {
-//         statName: "speed",
-//         value: data[i].Main.mainSpd
-//     }];
-//     characterObj.colors = {};
-//     characterObj.colors.dark = data[i].Main.colorDark;
-//     characterObj.colors.light = data[i].Main.colorLight;
-//     characters.push(characterObj); 
-// }
-
 $(document).ready(function () {
-    var characters = [
-        {
-            name: "Character 1",
-            class: "Swordmaster",
-            portrait: "images/resource-images/portrait/fighter-sword-red.png",
-            chibi: "images/resource-images/chibi/fighter-sword-red.png",
-            stats: [{
+    var characters = [];
+    $.get("api/character").then(function(data) {
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+            var characterObj = {};
+            characterObj.name = data[i].mainName;
+            characterObj.class = data[i].mainClass;
+            characterObj.portrait = data[i].mainFullPortrait;
+            characterObj.chibi = data[i].mainChibi;
+            characterObj.stats = [{
                 statName: "hp",
-                value: 25
+                value: data[i].mainHp
             }, {
                 statName: "strength",
-                value: 38
+                value: data[i].mainStr
             }, {
                 statName: "defense",
-                value: 25
+                value: data[i].mainDef
             }, {
                 statName: "speed",
-                value: 38
-            }],
-            colors: {
-                dark: "#94263a",
-                light: "#d24d5f"
-            }
-        }, {
-            name: "Character 2",
-            class: "Lance Fighter",
-            portrait: "images/resource-images/portrait/fighter-lance-blue.png",
-            chibi: "images/resource-images/chibi/fighter-lance-blue.png",
-            stats: [{
-                statName: "hp",
-                value: 38
-            }, {
-                statName: "strength",
-                value: 25
-            }, {
-                statName: "defense",
-                value: 38
-            }, {
-                statName: "speed",
-                value: 25
-            }],
-            colors: {
-                dark: "#29396f",
-                light: "#4c7fc4"
-            }
-        }, {
-            name: "Character 3",
-            class: "Axe Fighter",
-            portrait: "images/resource-images/portrait/fighter-axe-green.png",
-            chibi: "images/resource-images/chibi/fighter-axe-green.png",
-            stats: [{
-                statName: "hp",
-                value: 38
-            }, {
-                statName: "strength",
-                value: 50
-            }, {
-                statName: "defense",
-                value: 12
-            }, {
-                statName: "speed",
-                value: 25
-            }],
-            colors: {
-                dark: "rgb(33, 74, 85)",
-                light: "rgb(73, 136, 140)"
-            }
-        }, {
-            name: "Character 4",
-            class: "Bow Fighter",
-            portrait: "images/resource-images/portrait/fighter-bow-purple.png",
-            chibi: "images/resource-images/chibi/fighter-bow-purple.png",
-            stats: [{
-                statName: "hp",
-                value: 25
-            }, {
-                statName: "strength",
-                value: 25
-            }, {
-                statName: "defense",
-                value: 38
-            }, {
-                statName: "speed",
-                value: 38
-            }],
-            colors: {
-                dark: "#42224e",
-                light: "#805694"
-            }
-        }, {
-            name: "Character 5",
-            class: "Red Mage",
-            portrait: "images/resource-images/portrait/mage-red.png",
-            chibi: "images/resource-images/chibi/mage-red.png",
-            stats: [{
-                statName: "hp",
-                value: 12
-            }, {
-                statName: "strength",
-                value: 50
-            }, {
-                statName: "defense",
-                value: 25
-            }, {
-                statName: "speed",
-                value: 38
-            }],
-            colors: {
-                dark: "#94263a",
-                light: "#d24d5f"
-            }
-        }, {
-            name: "Character 6",
-            class: "Manakete",
-            portrait: "images/resource-images/portrait/manakete-blue.png",
-            chibi: "images/resource-images/chibi/manakete-blue.png",
-            stats: [{
-                statName: "hp",
-                value: 12
-            }, {
-                statName: "strength",
-                value: 50
-            }, {
-                statName: "defense",
-                value: 38
-            }, {
-                statName: "speed",
-                value: 25
-            }],
-            colors: {
-                dark: "#29396f",
-                light: "#4c7fc4"
-            }
-        }, {
-            name: "Character 7",
-            class: "Knight",
-            portrait: "images/resource-images/portrait/knight-axe-green.png",
-            chibi: "images/resource-images/chibi/knight-axe-green.png",
-            stats: [{
-                statName: "hp",
-                value: 50
-            }, {
-                statName: "strength",
-                value: 12
-            }, {
-                statName: "defense",
-                value: 50
-            }, {
-                statName: "speed",
-                value: 12
-            }],
-            colors: {
-                dark: "rgb(33, 74, 85)",
-                light: "rgb(73, 136, 140)"
-            }
-        }, {
-            name: "Character 8",
-            class: "Thief",
-            portrait: "images/resource-images/portrait/thief-purple.png",
-            chibi: "images/resource-images/chibi/thief-purple.png",
-            stats: [{
-                statName: "hp",
-                value: 25
-            }, {
-                statName: "strength",
-                value: 25
-            }, {
-                statName: "defense",
-                value: 25
-            }, {
-                statName: "speed",
-                value: 50
-            }],
-            colors: {
-                dark: "#42224e",
-                light: "#805694"
-            }
+                value: data[i].mainSpd
+            }];
+            characterObj.colors = {};
+            characterObj.colors.dark = data[i].colorDark;
+            characterObj.colors.light = data[i].colorLight;
+            characters.push(characterObj); 
         }
-    ];
+        characterDisplay();
+    });
 
     // var w = "100%";
     var h = 180;
@@ -225,7 +49,6 @@ $(document).ready(function () {
             $(".character-list").append(chibiContainer);
         }
     }
-    characterDisplay();
 
     // change modal text on character select page based on stats
     $(".select-character").on("click", function(){
@@ -245,10 +68,11 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
-            $(".cancel").text("Cancel");   
+            $(".cancel").text("Cancel");  
+            $(".cancel").removeAttr("style");
         }
     });
-    // checkStats();
+   
 
     //toggle between characters
     $(".character-container").on("click", function () {

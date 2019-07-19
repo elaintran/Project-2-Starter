@@ -969,7 +969,7 @@ button:focus{
   text-align: center;
   font-size: 3vw;
   font-weight: 600;
-  padding-top: 40px; 
+  padding: 5%; 
   color: #d7d7d7;
   
 }
@@ -981,11 +981,11 @@ button:focus{
 .submiterror{
   background-image: linear-gradient(to right, #94263a, #d24d5f);
   border: 0;
-  width: 20%;
+  width: 50%;
   text-align: center;
   color: white;
   border-radius: 20px;
-  padding: 10px 0;
+  padding: 6px 0;
   font-weight: 500;
 }
 
