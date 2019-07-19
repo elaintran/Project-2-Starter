@@ -652,6 +652,26 @@ svg.enemy-sprite:hover {
   cursor: pointer;
 }
 
+.player-damage, .enemy-damage {
+  position: absolute;
+  top: 0;
+  color: #fff;
+  z-index: 100;
+  font-size: 5vw;
+  font-weight: 600;
+  -webkit-text-stroke: 3px #fd4961;
+  letter-spacing: -0.1vw;
+  /* display: none; */
+}
+
+.player-damage {
+  right: 0;
+}
+
+.enemy-damage {
+  left: 0;
+}
+
 .player-action-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);

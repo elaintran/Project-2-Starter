@@ -24,100 +24,6 @@ $(document).ready(function () {
 
 });
 
-
-
-
-
-// function populateBattle(characters, stage) {
-    // var p;
-    // switch (characters) {
-    //     case "swordmaster":
-    //         p = player[0];
-    //         break;
-    //     case "lance fighter":
-    //         p = player[1];
-    //         break;
-    //     case "axe fighter":
-    //         p = player[2];
-    //         break;
-    //     case "bow fighter":
-    //         p = player[3];
-    //         break;
-    //     case "red mage":
-    //         p = player[4];
-    //         break;
-    //     case "manakete":
-    //         p = player[5];
-    //         break;
-    //     case "knight":
-    //         p = player[6];
-    //         break;
-    //     case "thief":
-    //         p = player[7];
-    //         break;
-    //     default:
-    //         p = player[0];
-    //         break;
-    // }
-
-    // switch (stage) {
-    //     case 1:
-    //         e = displayEnemy[0];
-    //         s = 0;
-    //         break;
-    //     case 2:
-    //         e = displayEnemy[1];
-    //         s = 1;
-    //         break;
-    //     case 3:
-    //         e = displayEnemy[2];
-    //         s = 2;
-    //         break;
-    //     default:
-    //         e = displayEnemy[0];
-    //         s = 0;
-    //         break;
-    // }
-
-//     $("body").css("background-image", "url(\"" + (background[s]) + "\")");
-
-//     // display correct player portrait
-//     $(".player-avatar > img").attr("src", p.portrait);
-//     // display correct player name
-//     $(".character-name").text(p.name);
-//     // display correct player hp
-//     $(".player-stats").find(".hit-points").text("HP " + (character.hp / 3).toFixed(0));
-//     // display correct hp amount on health bar
-//     $(".player-health-bar-fill").css("width", "100%");
-//     // display correct player sprite
-//     $(".player-sprite").attr("src", p.sprite);
-
-//     //enemy
-//     // display correct enemy portrait
-//     $(".enemy-avatar > img").attr("src", e.portrait);
-//     // display correct enemy name
-//     $(".enemy-name").text(e.name);
-//     // dispaly correct enemy hp
-//     $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp.toFixed(0));
-//     // display correct hp amount on health bar
-//     $(".enemy-health-bar-fill").css("width", "100%");
-//     // display correct enemy sprite
-//     $(".enemy-sprite").html("").append(e.sprite);
-
-//     animateEntrance();
-//     listenForHover();
-//     adjustPopupDistance();
-// }
-
-
-
-// function updateHealthBar() {
-//     var hpPercentage = enemy.hp / fullHP * 100;
-//     $(".enemy-stats").find(".hit-points").text("HP " + enemy.hp);
-//     $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
-//     console.log("currentHP: " + enemy.hp);
-// }
-
 // event handler for displaying popups when hovering over the parts of the enemy's body
 function listenForHover() {
     $(".cls-1").each(function () {
@@ -176,6 +82,88 @@ function animateEntrance() { // eslint-disable-line no-unused-vars
         $(".enemy-stats").animate({ "top": "+=10vw" }, 1550, "easeOutBounce");
     }, 3500);
 }
+
+function playerStrike() { // eslint-disable-line no-unused-vars
+    $(".player-sprite").animate({"left": "+=3vw" }, 100);
+    $(".player-sprite").animate({"left": "-=3vw" }, 300);
+}
+
+function enemyStrike() { // eslint-disable-line no-unused-vars
+    $("div.enemy-sprite").animate({"right": "+=3vw" }, 100);
+    $("div.enemy-sprite").animate({"right": "-=3vw" }, 300);
+}
+
+function shakePlayer(dmg) { // eslint-disable-line no-unused-vars
+    let d = $(".player-damage");
+    let p = $(".player-sprite");
+    p.effect("shake", { distance: 10 }, 300);
+    d.text(dmg);
+    d.css({ 
+        "top": 0,
+        "opacity": 1 
+    });
+    
+    d.animate({
+        "top": "-=7vw",
+        "opacity": 0
+    }, 1000, "easeOutCirc");
+}
+
+function shakeEnemy(dmg) { // eslint-disable-line no-unused-vars
+    let d = $(".enemy-damage");
+    let e = $("div.enemy-sprite");
+    e.effect("shake", { distance: 10 }, 300);
+    d.text(dmg);
+    d.css({ 
+        "top": 0,
+        "opacity": 1 
+    });
+    
+    d.animate({
+        "top": "-=7vw",
+        "opacity": 0
+    }, 1000, "easeOutCirc");
+}
+
+function slidePlayer() { // eslint-disable-line no-unused-vars
+    let d = $(".player-damage");
+    let p = $(".player-sprite");
+    p.animate({"left": "-=4vw" }, 200);
+    d.text("MISS");
+    d.css({ 
+        "top": 0,
+        "-webkit-text-stroke": "2px dodgerblue",
+        "font-size": "3vw",
+        "opacity": 1 
+    });
+    d.animate({
+        "top": "-=7vw",
+        "opacity": 0
+    }, 1000, "easeOutCirc");
+    
+    p.animate({"left": "+=4vw" }, 800);
+}
+
+function slideEnemy() { // eslint-disable-line no-unused-vars
+    let d = $(".enemy-damage");
+    let e = $("div.enemy-sprite");
+    e.animate({"right": "-=4vw" }, 200);
+    d.text("MISS");
+    d.css({ 
+        "top": 0,
+        "-webkit-text-stroke": "2px dodgerblue",
+        "font-size": "3vw",
+        "opacity": 1 
+    });
+    d.animate({
+        "top": "-=7vw",
+        "opacity": 0
+    }, 1000, "easeOutCirc");
+    
+    e.animate({"right": "+=4vw" }, 800);
+}
+
+
 
 function getUserId() {
     $.get("/api/userdata").then(function (data) {
