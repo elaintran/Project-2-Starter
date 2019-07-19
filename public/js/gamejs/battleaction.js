@@ -54,6 +54,8 @@ let doubleHit = function() {
 
 let hitEnemy = function() {
   console.log("Enemy has been hit!");
+  playerStrike();
+  shakeEnemy(totalDmg);
   enemy.hp -= Math.ceil(totalDmg);
   animationsTimer = false;
 };
@@ -131,7 +133,8 @@ let characterDead = function() {
 
 let enemyAttack = function() {
   calcEnemyDmg();
-
+  enemyStrike();
+  shakePlayer(enemyTotalDmg);
   //deals damage to character
   character.hp -= Math.ceil(enemyTotalDmg);
   animationsTimer = false;
@@ -160,6 +163,8 @@ let characterAttack = function(grabbedTarget) {
       
     } else {
       //attack missed
+      playerStrike();
+      slideEnemy();
       totalDmg = 0;
       
       
@@ -188,7 +193,7 @@ let game = function() {
   });
 };
 
-let checker = function(){
+let checker = function(){ // eslint-disable-line no-unused-vars
   if(openingScene){
     game();
     console.log("checker: ", openingScene);
@@ -216,24 +221,14 @@ let attacks = function(){
         enemyStillAlive();
         enemyDead();
       }
-
-      enemyAttack();
+      setTimeout(enemyAttack, 1000);
+      // enemyAttack();
     } else {
       enemyAttack();
-      characterAttack(grabbedTarget);
+      setTimeout(function(){
+        characterAttack(grabbedTarget);
+      }, 1000);
+      
     }
   }
 };
-//********************************************************************************************************** */
-$(document).ready(function() {
-  // $.get("/api/userdata").then(function() {
-  //   var userId = data.userId;
-  //   gameManager.loadChar(userId);
-  
-
-  // gameManager.setUpFight();
-  // console.log("Enemy Start HP: " + enemy.hp);
-  // console.log("Enemy Start SPD: " + enemy.spd);
-  setTimeout(checker, 6000);
-  
-});
