@@ -130,7 +130,7 @@ $(document).ready(function() {
               .text("HP " + 0);
 
             updateEnemyHealthBar();
-
+            toggleWinLoseModals("win");
             console.log("You defeated the enemy!");
 
             chapter += 1;
@@ -257,6 +257,7 @@ $(document).ready(function() {
                 .text("HP " + enemy.hp.toFixed(0));
 
               updateEnemyHealthBar();
+              
             }
 
             // console.log("Enemy hp after hit: " + enemy.hp);
@@ -270,13 +271,13 @@ $(document).ready(function() {
             if (enemy.hp <= 0) {
               //do whatever you want to happen when you win
               enemy.hp = 0;
-              //show enemy hp at 0 and update hp bar
               $(".enemy-stats")
                 .find(".hit-points")
                 .text("HP " + 0);
-
-              updateEnemyHealthBar();
-
+                
+                updateEnemyHealthBar();
+                toggleWinLoseModals("win");
+              
               console.log("You defeated the enemy!");
               // console.log("Chapter: " + chapter);
 
@@ -310,7 +311,7 @@ $(document).ready(function() {
             //updates hp bar
             updatePlayerHealthBar();
             //redirect to character select page or restart level
-
+            toggleWinLoseModals("lose");
             console.log("Character died.");
           }
         }
@@ -326,6 +327,7 @@ $(document).ready(function() {
 
         updatePlayerHealthBar();
       } else {
+        toggleWinLoseModals("win");
         console.log("You've defeated the enemy!");
         console.log("Chapter: " + chapter);
         chapter += 1;

@@ -2,7 +2,7 @@
     {
         "mainName": "Character 1",
         "mainClass": "Swordmaster",
-        "mainPortrait": "images/resource-images/portrait/fighter-sword-red.png",
+        "mainPortrait": "images/resource-images/encounter/fighter-red-portrait.png",
         "mainChibi": "images/resource-images/chibi/fighter-sword-red.png",
         "mainHp": 20,
         "mainStr": 15,
@@ -14,7 +14,7 @@
     {
         "mainName": "Character 2",
         "mainClass": "Lance Fighter",
-        "mainPortrait": "images/resource-images/portrait/fighter-lance-blue.png",
+        "mainPortrait": "images/resource-images/encounter/fighter-blue-portrait.png",
         "mainChibi": "images/resource-images/chibi/fighter-lance-blue.png",
         "mainHp": 20,
         "mainStr": 15,
@@ -26,19 +26,19 @@
     {
         "mainName": "Character 3",
         "mainClass": "Axe Fighter",
-        "mainPortrait": "images/resource-images/portrait/fighter-axe-green.png",
+        "mainPortrait": "images/resource-images/encounter/fighter-green-portrait.png",
         "mainChibi": "images/resource-images/chibi/fighter-axe-green.png",
         "mainHp": 20,
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "rgb(33, 74, 85)",
-        "colorLight": "rgb(73, 136, 140)"
+        "colorDark": "#214A55",
+        "colorLight": "#49888C"
     },
     {
         "mainName": "Character 4",
         "mainClass": "Bow Fighter",
-        "mainPortrait": "images/resource-images/portrait/fighter-bow-purple.png",
+        "mainPortrait": "images/resource-images/encounter/fighter-purple-portrait.png",
         "mainChibi": "images/resource-images/chibi/fighter-bow-purple.png",
         "mainHp": 20,
         "mainStr": 15,
@@ -50,7 +50,7 @@
     {
         "mainName": "Character 5",
         "mainClass": "Red Mage",
-        "mainPortrait": "images/resource-images/portrait/mage-red.png",
+        "mainPortrait": "images/resource-images/encounter/mage-red-portrait.png",
         "mainChibi": "images/resource-images/chibi/mage-red.png",
         "mainHp": 20,
         "mainStr": 15,
@@ -62,8 +62,8 @@
     {
         "mainName": "Character 6",
         "mainClass": "Manakete",
-        "mainPortrait": "images/resource-images/portrait/mankete-blue.png",
-        "mainChibi": "images/resource-images/chibi/mankete-blue.png",
+        "mainPortrait": "images/resource-images/encounter/manakete-blue-portrait.png",
+        "mainChibi": "images/resource-images/chibi/manakete-blue.png",
         "mainHp": 20,
         "mainStr": 15,
         "mainDef": 12,
@@ -74,25 +74,25 @@
     {
         "mainName": "Character 7",
         "mainClass": "Knight",
-        "mainPortrait": "images/resource-images/portrait/knight-axe-green.png",
+        "mainPortrait": "images/resource-images/encounter/knight-green-portrait.png",
         "mainChibi": "images/resource-images/chibi/knight-axe-green.png",
         "mainHp": 20,
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "#214A55",
+        "colorLight": "#49888C"
     },
     {
         "mainName": "Character 8",
-        "mainClass": "Their",
-        "mainPortrait": "images/resource-images/portrait/theif-purple.png",
-        "mainChibi": "images/resource-images/chibi/theif-purple.png",
+        "mainClass": "Thief",
+        "mainPortrait": "images/resource-images/encounter/thief-purple-portrait.png",
+        "mainChibi": "images/resource-images/chibi/thief-purple.png",
         "mainHp": 20,
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "#42224e",
+        "colorLight": "#805694"
     }
 ]

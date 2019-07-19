@@ -25,6 +25,9 @@
   <!--CSS-->
   <link rel="stylesheet" type="text/css" href="styles/reset.css">
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+   <!-- Favicon -->
+   <link rel='icon' href='./images/resource-images/favicon.ico' type='image/x-icon'/>
 </head>
 
 <body>
@@ -45,7 +48,7 @@
                   <p>Remaining Stats</p>
                   <p class="stat-points">10</p>
               </div>
-              <button class="select-character" data-toggle="modal" data-target="#confirmBox">Select</button>
+              <button class="select-character"  data-toggle="modal" data-target="#confirmBox">Select</button>
             </div>
           </div>
         </div>
@@ -56,26 +59,22 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="confirmBox" tabindex="-1" role="dialog" aria-labelledby="confirmBoxLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmBoxlLabel">Confirm Character Selection</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to proceed with your character?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-          <button type="submit" id="confirmCharacter" class="btn btn-primary">Save Character</button>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="modal fade"  id="confirmBox" tabindex="-1" role="dialog" aria-labelledby="confirmBoxLabel"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+  
+     <div class="modal-body1">
+       <p id="modaltext"></p>
+     </div>
+     <div class="modal-body2">
+     
+        <button type="button" class="cancel" data-dismiss="modal">CANCEL</button>
+        <button type="submit" id="confirmCharacter" class="confirm">CONFIRM</button>
+     </div>
+   </div>
+ </div>
+
 
   <!--D3.js-->
   <script src="https://d3js.org/d3.v5.min.js"></script>

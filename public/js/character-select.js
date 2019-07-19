@@ -214,7 +214,7 @@ $(document).ready(function () {
     //need to write a constructor to reduce redundant code
     //display the first character and loop through and append all of the chibi ver.
     function characterDisplay() {
-        characterSelect(characters[0].name, characters[0].class, characters[0].portrait, characters[0].colors.dark, characters[0].colors.light, characters[0].stats);
+        characterSelect(characters[0].name, 1, characters[0].class, characters[0].portrait, characters[0].colors.dark, characters[0].colors.light, characters[0].stats);
         for (var i = 0; i < characters.length; i++) {
             var chibiContainer = $("<div>").addClass("character-container").attr({
                 "data-class": characters[i].class,
@@ -227,20 +227,32 @@ $(document).ready(function () {
     }
     characterDisplay();
 
+    // change modal text on character select page based on stats
+    function checkStats(){
+        if(statPoints !== 10){
+            $("#modaltext").text("Please distribute all 10 stat points!");
+            $(".confirm").hide();
+        } else {
+            $("#modaltext").text("Are you sure you wish to continue with this class?");   
+        }
+    }
+    checkStats();
+
     //toggle between characters
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
             if ($(this).attr("data-class") === characters[i].class) {
-                $("#confirmCharacter").attr("data-class", characters[i].class);
-                $("#confirmCharacter").attr("data-name", characters[i].name);
-                characterSelect(characters[i].name, characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
+                characterSelect(characters[i].name, (i + 1), characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
     });
 
-    function characterSelect(name, characterClass, portrait, firstStop, secondStop, stats) {
+    function characterSelect(name, id, characterClass, portrait, firstStop, secondStop, stats) {
         newStats = [];
         statPoints = 10;
+        $("#confirmCharacter").attr("data-class", characterClass);
+        $("#confirmCharacter").attr("data-name", name);
+        $("#confirmCharacter").attr("data-id", id);
         $(".stat-points").text("10");
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
@@ -267,7 +279,7 @@ $(document).ready(function () {
     function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 " + 350 + " " + h);
+            .attr("viewBox", "0 0 " + 350 + " " + h);
         //defs store graphical objects at a later time and are not rendered
         var svgDefs = svg.append("defs");
         //creates a linear gradient container
@@ -414,7 +426,7 @@ $(document).ready(function () {
                                 statPoints--;
                             }
                         }
-                    //check if the minus button is clicked
+                        //check if the minus button is clicked
                     } else if ($(this).attr("class").split(" ")[2] === "minus") {
                         //checks the stat name
                         if ($(this).next().text() === characters[i].stats[j].statName) {
@@ -429,6 +441,7 @@ $(document).ready(function () {
                 }
                 $(".stat-points").text(statPoints);
                 $(".character-stats").empty();
+                console.log(newStats);
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
@@ -436,4 +449,5 @@ $(document).ready(function () {
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
     //need to display remaining stat points
+    
 });
