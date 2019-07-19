@@ -228,7 +228,7 @@ $(document).ready(function () {
     characterDisplay();
 
     // change modal text on character select page based on stats
-    function checkStats(){
+    $(".select-character").on("click", function(){
         if(statPoints === 10){
             $("#modaltext").text("Please distribute all 10 stat points!");
             $(".confirm").hide();
@@ -245,9 +245,8 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");   
         }
-    }
-    checkStats();
-
+    });
+   
     //toggle between characters
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
