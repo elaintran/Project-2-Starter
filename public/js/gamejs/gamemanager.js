@@ -12,9 +12,9 @@ let chapters = [
   {
     complete: true
   },{
-    complete: true
+    complete: false
   },{
-    complete: true
+    complete: false
   },{
     complete: false
   }
