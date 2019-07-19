@@ -2,6 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     var Main = sequelize.define("Main", {
         mainName: DataTypes.STRING,
         mainClass: DataTypes.STRING,
+        mainFullPortrait: DataTypes.STRING,
         mainPortrait: DataTypes.STRING,
         mainChibi: DataTypes.STRING,
         mainHp: DataTypes.INTEGER,

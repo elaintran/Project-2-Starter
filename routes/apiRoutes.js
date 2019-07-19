@@ -57,6 +57,7 @@ module.exports = function (app) {
         db.Main.create({
             mainName: req.body.mainName,
             mainClass: req.body.mainClass,
+            mainFullPortrait: req.body.mainFullPortrait,
             mainPortrait: req.body.mainPortrait,
             mainChibi: req.body.mainChibi,
             mainHp: req.body.mainHp,

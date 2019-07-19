@@ -2,21 +2,21 @@
     {
         "chapterName": "Chapter 1:",
         "chapterSubtitle": "Into the Unknown",
-        "chapterDescription": "Oh no! A group a ruffians known as the syndicate attack your village. With little training you have, summon your courage to face these scoundrels, protect your village and enter the unknown.",
+        "chapterDescription": "Oh no! A group of ruffians known as the Syndicate attack your village. With little training you have, summon your courage to face these scoundrels, protect your village, and enter the unknown.",
         "chapterImg": "images/resource-images/encounter/bg-forest-entrance.jpg",
         "chapterComplete": false
     },
     {
         "chapterName": "Chapter 2:",
         "chapterSubtitle": "We Meet Again",
-        "chapterDescription": "*Sigh* you survived with the enemy on the run, and your village destroyed, the local militia known as “the alliance” arrives only too late. Join them and seek justice to those you’ll meet again!!",
+        "chapterDescription": "You survived with the enemy on the run and your village destroyed. The local militia known as the Alliance arrives only too late. Join them and seek justice to those you’ll meet again!",
         "chapterImg": "images/resource-images/encounter/bg-forest.jpg",
         "chapterComplete": false
     },
     {
         "chapterName": "Chapter 3:",
         "chapterSubtitle": "Here Comes the King",
-        "chapterDescription": "Justice has been onto the syndicate but intel reports a call to arms to attack the high castle and the tyrannical dragon king that is in charge of ordering these raids. It is time for a new king!",
+        "chapterDescription": "Justice has been onto the Syndicate but intel reports a call to arms to attack the high castle and the tyrannical dragon king that is in charge of ordering these raids. It is time for a new king!",
         "chapterImg": "images/resource-images/encounter/bg-castle.jpg",
         "chapterComplete": false
     },
