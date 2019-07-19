@@ -198,7 +198,7 @@ let fightCheck = function(){
   if(animationsTimer){
     attacks();
   }
-}
+};
 
 let attacks = function(){
   console.log("Attacks are now active.");
