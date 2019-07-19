@@ -7,10 +7,5 @@ module.exports = function (sequelize, DataTypes) {
         chapterComplete: DataTypes.BOOLEAN
     });
 
-    // Chapter.associate = function (models) {
-    //     Chapter.belongsToMany(models.User, {
-    //     });
-    // };
-
     return Chapter;
 };
