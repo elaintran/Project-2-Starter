@@ -999,7 +999,7 @@ button:focus{
 
 /*
   ============================
-  DROPDOWN STYLING
+  DROPDOWN STYLING WORLD
   ============================
 */
 
@@ -1065,91 +1065,29 @@ button:focus{
   margin-right: 0.5vw;
 }
 
-/* cog dropdown */
+/*
+  ============================
+  DROPDOWN STYLING ENCOUNTER
+  ============================
+*/
 
-.btn-danger{
-  background-color: transparent;
-  border: none;
-}
-
-
-
-
-
-
-/* .btn-secondary{
-  background:transparent;
-  border:0px;
-  color: #c2b79e;
-  font-weight:600;
-  position:absolute;
-  right: 200;
-  color:#c2b79e;
-  font-weight:600;
-  font-size: 20px;
-}
-.btn{
-  background:transparent;
-  border:0px;
-  color: #c2b79e;
-  font-weight:600;
-  font-size: 20px;
-}
-.btn-secondary:focus{
-  background:transparent;
-  border: none;
-  box-shadow:none;
+.user-toggle-encounter {
   position: absolute;
-  right: 200;
-  color:#c2b79e;
-  font-weight:600;
-  font-size: 20px;
-}
-.btn.focus{
-  outline:none;
-  border: none;
-  
-}
-.show>.btn-secondary.dropdown-toggle{
-  background:transparent;
-  color:#c2b79e;
-  font-weight:600;
-  font-size: 20px;
-  position: absolute;
-  right: 200;
-}
-.dropdown-menu.show{
-  background-color: #292929;
-
-}
-.dropdown-item{
-  color: #bcbcbc;
-  font-weight:600;
-  padding: 8%;
-}
-.dropdown-item:focus, .dropdown-item:hover{
-  background-color: #292929;
-  color: #bcbcbc;
-  outline: none;
-}
-.show>.btn-secondary.dropdown-toggle:focus{
-  box-shadow: none;
-  
+  bottom: 10.5vw;
+  right: calc(2rem + 10px);
 }
 
-.inner-addon .fas {
-  padding-right: 15%;
-}
-.btn-secondary:hover{
-  background-color:transparent;
-  color:#c2b79e;
-}
-.dropdown-toggle{
+.dropdown-toggle {
   display: flex;
   align-items: center;
-  right:200;
+  font-size: 1.2vw;
 }
 
-.username{
-  padding-left: 10px;
-} */
+.fa-cog:before{
+  color: #e8c892;
+}
+.dropdown{
+  text-align:center;}
+  .button, .dropdown-menu{margin:10px auto}
+  .dropdown-menu{width:200px; left:50%; margin-left:-100px;
+}
