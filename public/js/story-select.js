@@ -150,7 +150,7 @@ $(document).ready(function () {
             case ("castle"):
                 $(".story").hide();
                 $(".castle-container").show();
-                $(".select").removeAttr("style");
+                $(".select").removeAttr("style").attr("href", "/character");
                 $(".select").text("Change Class");
                 $(".select").css("background-image", "linear-gradient(to right, " + userCharacter[0].colors.dark + ", " + userCharacter[0].colors.light);
                 break;

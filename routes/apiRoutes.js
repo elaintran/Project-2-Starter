@@ -25,7 +25,7 @@ module.exports = function (app) {
     app.put("/api/users/:id", (req, res) => {
         db.User.update(req.body, {
                 where: {
-                    userSelection: req.user.userSelection
+                    id: req.user.id
                 }
             }).then(function (dbUser) {
                 res.json(dbUser);
