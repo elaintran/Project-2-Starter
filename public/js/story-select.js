@@ -2,6 +2,7 @@ $(document).ready(function () {
     var userId;
     var userCharacter = [];
     var h = 220;
+
     $.get("api/userdata").then(function(data) {
         userId = data.userId;
         userChoice(userId);
@@ -27,6 +28,7 @@ $(document).ready(function () {
             characterObj.colors.dark = data.Main.colorDark;
             characterObj.colors.light = data.Main.colorLight;
             userCharacter.push(characterObj);
+            $(".userimage").attr("src", data.Main.mainPortrait);
             $(".user-chibi").attr("src", data.Main.mainChibi);
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
         });
