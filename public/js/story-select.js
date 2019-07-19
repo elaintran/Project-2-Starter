@@ -89,6 +89,7 @@ $(document).ready(function () {
         //check only the second class
         $(".story").show();
         $(".castle-container").hide();
+        $(".select").text("Select");
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
