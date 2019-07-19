@@ -80,8 +80,8 @@
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "rgb(33, 74, 85)",
+        "colorLight": "rgb(73, 136, 140)"
     },
     {
         "mainName": "Character 8",
@@ -92,7 +92,7 @@
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "#42224e",
+        "colorLight": "#805694"
     }
 ]
