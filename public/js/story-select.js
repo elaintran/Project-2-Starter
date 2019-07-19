@@ -70,7 +70,7 @@ $(document).ready(function () {
 
     $(".chapter-select").on("click", function () {
         $(".story").show();
-        $(".character-modal").hide();
+        $(".castle-container").hide();
         $(".select").text("Select");
         for (var i = 0; i < chapters.length; i++) {
             if (+$(this).attr("data-chapter") === i + 1 && $(this).attr("data-complete") !== "locked") {
@@ -88,7 +88,7 @@ $(document).ready(function () {
     $(".marker-container").on("click", function () {
         //check only the second class
         $(".story").show();
-        $(".character-modal").hide();
+        $(".castle-container").hide();
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
@@ -109,7 +109,7 @@ $(document).ready(function () {
                 break;
             case ("castle"):
                 $(".story").hide();
-                $(".character-modal").show();
+                $(".castle-container").show();
                 $(".select").removeAttr("style");
                 $(".select").text("Change Class");
                 break;

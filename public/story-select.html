@@ -7,9 +7,6 @@
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery.js"></script>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -32,20 +29,18 @@
 </head>
 
 <body>
-               <!-- add dropdown with username, and sign out option -->
-               <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="./images/resource-images/encounter/fighter-red-portrait.png" class="userimage" width="75" height="75">
-                            <span class="username">Username</span>
-                    </a>
-                          
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="landing.html">Home <span class="glyphicon glyphicon-home pull-left"></span></a>
-                        <a class="dropdown-item" href="#">Logout<span class="glyphicon glyphicon-log-out pull-left"></span></a>
-                             
-                    </div>
-                 </div>
+    <!-- add dropdown with username, and sign out option -->
     <div class="container-fluid map-bg">
+        <div class="user-toggle">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="./images/resource-images/encounter/fighter-red-portrait.png" class="userimage">
+                <p class="username">Username</p>
+            </a>     
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="landing.html"><i class="fas fa-home pull-left"></i> Home</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt pull-left"></i> Logout</a>    
+            </div>
+        </div>
         <img src="images/resource-images/logo/heroes-united.png" class="logo">
         <div class="map-wrapper">
             <div class="menu-screen">
@@ -61,10 +56,10 @@
                                     placeat sunt recusandae aliquid eligendi
                                     ratione necessitatibus adipisci ab mollitia.</p>
                             </div>
-                            <div class="character-modal">
+                            <div class="castle-container">
                                 <div class="row change-class-container">
                                     <div class="col-4">
-                                        <img src="images/resource-images/chibi/fighter-sword-red.png" style="margin-top: 10px" height="100vw">
+                                        <img src="images/resource-images/chibi/fighter-sword-red.png">
                                     </div>
                                     <div class="col-8">
                                         <div class="character-stats p-0">

@@ -333,10 +333,10 @@ a:hover{
   position: absolute;
 }
 
-.username {
+/* .username {
   text-align: right;
   margin-right: 15px;
-}
+} */
 
 .map-wrapper {
   width: 100%;
@@ -449,7 +449,7 @@ a:hover{
   font-size: 2vw;
 }
 
-.character-modal {
+.castle-container {
   margin-bottom: 1vw;
 }
 
@@ -457,8 +457,11 @@ a:hover{
   display: none;
 }
 
-.character-modal img {
+.castle-container img {
   margin-bottom: 1vw;
+  margin-top: 10px;
+  height: 8vw;
+  /* width: auto; */
 }
 
 .chapter-info .mini-class {
@@ -957,7 +960,70 @@ svg.enemy-sprite:hover {
   DROPDOWN STYLING
   ============================
 */
-.btn-secondary{
+
+.user-toggle {
+  position: absolute;
+  top: 2.5vw;
+  right: calc(3rem + 30px);
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  font-size: 1.2vw;
+}
+
+.dropdown-toggle:hover {
+  text-decoration: none;
+}
+
+.dropdown-toggle::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0d7";
+  color: #e8c892;
+  border: 0;
+  font-weight: 600;
+  margin-left: 0.5vw;
+}
+
+.userimage {
+  width: 3.5vw;
+  margin-right: 10px;
+  border: 1px solid #c1b69d;
+  border-radius: 50%;
+}
+
+.username {
+  color: #e8c892;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.dropdown-menu {
+  background-color: #292929;
+  border: 0;
+  max-width: auto;
+  min-width: auto;
+  padding: 0.8vw 0;
+  margin-left: 4vw;
+}
+
+.dropdown-item {
+  color: #bcbcbc;
+  font-weight: 500;
+  font-size: 1vw;
+}
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
+  color: #bcbcbc;
+  background-color: #222222;
+} 
+
+.pull-left {
+  margin-right: 0.5vw;
+}
+
+/* .btn-secondary{
   background:transparent;
   border:0px;
   color: #c2b79e;
@@ -967,7 +1033,7 @@ svg.enemy-sprite:hover {
   color:#c2b79e;
   font-weight:600;
   font-size: 20px;
-}
+} */
 /* .btn{
   background:transparent;
   border:0px;
@@ -975,7 +1041,7 @@ svg.enemy-sprite:hover {
   font-weight:600;
   font-size: 20px;
 } */
-.btn-secondary:focus{
+/* .btn-secondary:focus{
   background:transparent;
   border: none;
   box-shadow:none;
@@ -1017,7 +1083,7 @@ svg.enemy-sprite:hover {
   
 }
 
-.fas {
+.inner-addon .fas {
   padding-right: 15%;
 }
 .btn-secondary:hover{
@@ -1032,4 +1098,4 @@ svg.enemy-sprite:hover {
 
 .username{
   padding-left: 10px;
-}
+} */
