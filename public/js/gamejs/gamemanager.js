@@ -3,7 +3,9 @@ let skillPoints = 10;
 
 var enemy;
 let target; // eslint-disable-line no-unused-vars
+let openingScene = false; // eslint-disable-line no-unused-vars
 let animationsTimer = false; // eslint-disable-line no-unused-vars
+
 
 // dummy code for simulating json response with chapter data
 let chapters = [
@@ -242,21 +244,21 @@ let gameManager = {// eslint-disable-line no-unused-vars
   //     //whatever happens
   //   });
   // },
-  loadChar: function(Id) {
-    //grab the character class and the character chapter status
-    $.ajax({
-      method: "GET",
-      url:`/api/users/${Id}`,
-    }).then(function(data){
-      console.log(data);
-    });
+  // loadChar: function(Id) {
+  //   //grab the character class and the character chapter status
+  //   $.ajax({
+  //     method: "GET",
+  //     url:`/api/users/${Id}`,
+  //   }).then(function(data){
+  //     console.log(data);
+  //   });
 
-    $.get("/api/userdata").then(function(){
-      var userId = data.userId;
-      this.loadChar(userId);
-    });
+  //   $.get("/api/userdata").then(function(){
+  //     var userId = data.userId;
+  //     this.loadChar(userId);
+  //   });
 
-  },
+  // },
   // saveChapt: function() {
   //   //posts chapter data to server. Needs server to put data into the database using sequelize
   //   $.post("/chapter/status", chapter, function(response) {});
@@ -442,13 +444,22 @@ let gameManager = {// eslint-disable-line no-unused-vars
     //load chapter status
     // this.loadChapt();
     //creates enemy using chapter data
-    console.log("animations timer is currently " + animationsTimer);
+    // console.log("Opening scene timer is currently " + openingScene);
     setTimeout(this.setTimer, 6000);
+
     this.createEnemy(chapter);
   },
   setTimer: function(){
+    openingScene = true;
+    // console.log("Opening scene timer is now " + openingScene);
+  },
+  animations: function(){
+    console.log("Animations timer is currently " + animationsTimer);
+    setTimeout(this.animate, 1000);
+  },
+  animate: function(){
     animationsTimer = true;
-    console.log("animations timer is now " + animationsTimer);
+    console.log("Animations timer is now " + animationsTimer);
   }
 };
 
