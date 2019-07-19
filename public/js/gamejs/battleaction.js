@@ -55,6 +55,8 @@ let doubleHit = function() {
 let hitEnemy = function() {
   console.log("Enemy has been hit!");
   enemy.hp -= Math.ceil(totalDmg);
+  animationsTimer = false;
+  gameManager.setTimer();
 };
 
 let levelUp = function() {
@@ -84,6 +86,8 @@ let enemyDead = function() {
 
     updateEnemyHealthBar();
 
+    animationsTimer = false;
+
     toggleWinLoseModals("win");
 
     chapter += 1;
@@ -107,7 +111,6 @@ let characterAlive = function() {
       .find(".hit-points")
       .text("HP " + (character.hp / 3).toFixed(0));
 
-    //updates hp bar
     updatePlayerHealthBar();
   }
 };
@@ -121,6 +124,8 @@ let characterDead = function() {
       .find(".hit-points")
       .text("HP " + 0);
 
+    animationsTimer = false;
+
     //update health bar
     updatePlayerHealthBar();
     toggleWinLoseModals("lose");
@@ -132,6 +137,8 @@ let enemyAttack = function() {
 
   //deals damage to character
   character.hp -= Math.ceil(enemyTotalDmg);
+  animationsTimer = false;
+  gameManager.setTimer();
 
   //if character hp is >0:
   characterAlive();
@@ -154,25 +161,21 @@ let characterAttack = function(grabbedTarget) {
       hitEnemy();
       enemyStillAlive();
       enemyDead();
+      
     } else {
       //attack missed
       totalDmg = 0;
+      animationsTimer = false;
+      gameManager.setTimer();
 
       console.log("Character attacked, but the attack missed!");
     }
   }
 };
-//********************************************************************************************************** */
-$(document).ready(function() {
-  $.get("/api/userdata").then(function() {
-    var userId = data.userId;
-    gameManager.loadChar(userId);
-  });
 
-  gameManager.setUpFight();
-  console.log("Enemy Start HP: " + enemy.hp);
-  console.log("Enemy Start SPD: " + enemy.spd);
 
+let game = function() {
+  console.log("Animations timer is " + animationsTimer);
   $(".cls-1").each(function() {
     $(this).click(function() {
       grabbedTarget = $(this)
@@ -196,14 +199,31 @@ $(document).ready(function() {
           }
 
           enemyAttack();
-        
         } else {
-        
           enemyAttack();
           characterAttack(grabbedTarget);
-        
         }
       }
     });
   });
+};
+
+let checker = function(){
+  if(animationsTimer){
+    game();
+  }
+};
+
+//********************************************************************************************************** */
+$(document).ready(function() {
+  // $.get("/api/userdata").then(function() {
+  //   var userId = data.userId;
+  //   gameManager.loadChar(userId);
+  
+
+  gameManager.setUpFight();
+  console.log("Enemy Start HP: " + enemy.hp);
+  console.log("Enemy Start SPD: " + enemy.spd);
+  setTimeout(checker, 6000);
+  
 });

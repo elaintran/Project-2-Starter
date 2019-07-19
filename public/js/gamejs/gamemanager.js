@@ -3,9 +3,7 @@ let skillPoints = 10;
 
 var enemy;
 let target; // eslint-disable-line no-unused-vars
-
-//keeps track of which chapter user is on
-// let chapter = 1; // eslint-disable-line no-unused-vars
+let animationsTimer = false; // eslint-disable-line no-unused-vars
 
 // dummy code for simulating json response with chapter data
 let chapters = [
@@ -179,6 +177,7 @@ var background = [
 
 // starting point for HP bar
 let fullHP;
+
 //Enemy constructor
 function Enemy(hp, def, str, spd) {
   this.hp = hp;
@@ -443,7 +442,13 @@ let gameManager = {// eslint-disable-line no-unused-vars
     //load chapter status
     // this.loadChapt();
     //creates enemy using chapter data
+    console.log("animations timer is currently " + animationsTimer);
+    setTimeout(this.setTimer, 6000);
     this.createEnemy(chapter);
+  },
+  setTimer: function(){
+    animationsTimer = true;
+    console.log("animations timer is now " + animationsTimer);
   }
 };
 
