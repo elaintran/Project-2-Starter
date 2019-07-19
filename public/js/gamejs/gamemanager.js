@@ -2,50 +2,53 @@
 let skillPoints = 10;
 
 
-var enemy;
+let enemy;
 let target; // eslint-disable-line no-unused-vars
-
-//keeps track of which chapter user is on
-// let chapter = 1; // eslint-disable-line no-unused-vars
+let openingScene = false; // eslint-disable-line no-unused-vars
+let animationsTimer = false; // eslint-disable-line no-unused-vars
+// let chapter;
 
 // dummy code for simulating json response with chapter data
-let chapters = [
-  {
-    complete: true
-  },{
-    complete: false
-  },{
-    complete: false
-  },{
-    complete: false
-  }
-];
+// let chapters = [
+//   {
+//     complete: true
+//   },{
+//     complete: false
+//   },{
+//     complete: false
+//   },{
+//     complete: false
+//   }
+// ];
 
-function getChapter(data) {
+function getChapter(data) { // eslint-disable-line no-unused-vars
   console.log("getChapter: ", data);
-  if (chapters[3].complete) {
+  if (data.chapterFour) {
     chapter = 4;
     console.log("chapter: ", chapter);
-    return chapter;
-  } else if (chapters[2].complete) {
+    // return chapter;
+  } else if (data.chapterThree) {
     chapter = 3;
     console.log("chapter: ", chapter);
-    return chapter;
-  } else if (chapters[1].complete) {
+    // return chapter;
+  } else if (data.chapterTwo) {
     chapter = 2;
     console.log("chapter: ", chapter);
-    return chapter;
-  } else if (chapters[0].complete) {
+    // return chapter;
+  } else if (data.chapterOne) {
     chapter = 1;
     console.log("chapter: ", chapter);
-    return chapter;
+    // return chapter;
   } else {
     chapter = 1;
     console.log("chapter defaulting to: ", chapter);
-    return chapter = 1;
+    // return chapter = 1;
   }
+
+  gameManager.setUpFight(chapter);
+  populateBattle();
 }
-getChapter();
+// getChapter();
 
 var player = [ // eslint-disable-line no-unused-vars
   {
@@ -187,6 +190,7 @@ var background = [
 
 // starting point for HP bar
 let fullHP;
+
 //Enemy constructor
 function Enemy(hp, def, str, spd) {
   this.hp = hp;
@@ -203,7 +207,7 @@ function Target(target, hitChance, bonus, reduceSpd) {
   this.reduceSpd = reduceSpd;
 }
 
-let gameManager = {// eslint-disable-line no-unused-vars
+let gameManager = { // eslint-disable-line no-unused-vars
   
   charSelect: function(classType) {
     this.createChar(classType);
@@ -251,21 +255,21 @@ let gameManager = {// eslint-disable-line no-unused-vars
   //     //whatever happens
   //   });
   // },
-  loadChar: function(Id) {
-    //grab the character class and the character chapter status
-    $.ajax({
-      method: "GET",
-      url:`/api/users/${Id}`,
-    }).then(function(data){
-      console.log(data);
-    });
+  // loadChar: function(Id) {
+  //   //grab the character class and the character chapter status
+  //   $.ajax({
+  //     method: "GET",
+  //     url:`/api/users/${Id}`,
+  //   }).then(function(data){
+  //     console.log(data);
+  //   });
 
-    $.get("/api/userdata").then(function(){
-      var userId = data.userId;
-      this.loadChar(userId);
-    });
+  //   $.get("/api/userdata").then(function(){
+  //     var userId = data.userId;
+  //     this.loadChar(userId);
+  //   });
 
-  },
+  // },
   // saveChapt: function() {
   //   //posts chapter data to server. Needs server to put data into the database using sequelize
   //   $.post("/chapter/status", chapter, function(response) {});
@@ -429,6 +433,9 @@ let gameManager = {// eslint-disable-line no-unused-vars
         break;
     }
 
+    console.log("Enemy Start HP: " + enemy.hp);
+    console.log("Enemy Start SPD: " + enemy.spd);
+
     // $(".enemy-hp").text("Enemy HP: " + enemy.hp);
     // $(".enemy-str").text("Enemy Str: " + enemy.str);
     // $(".enemy-def").text("Enemy Def: " + enemy.def);
@@ -451,12 +458,28 @@ let gameManager = {// eslint-disable-line no-unused-vars
     //load chapter status
     // this.loadChapt();
     //creates enemy using chapter data
+    // console.log("Opening scene timer is currently " + openingScene);
+    setTimeout(this.setTimer, 6000);
+
     this.createEnemy(chapter);
+  },
+  setTimer: function(){
+    openingScene = true;
+    // console.log("Opening scene timer is now " + openingScene);
+  },
+  animations: function(){
+    console.log("Animations timer is currently " + animationsTimer);
+    setTimeout(this.animate, 1000);
+  },
+  animate: function(){
+    animationsTimer = true;
+    console.log("Animations timer is now " + animationsTimer);
   }
 };
 
 function populateBattle() { // eslint-disable-line no-unused-vars
     let i = chapter - 1;
+    console.log("i:", i)
     $("body").css("background-image", "url(\"" + (background[i]) + "\")");
 
     // display correct player portrait

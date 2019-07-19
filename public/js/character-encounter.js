@@ -15,10 +15,9 @@ character.hp *= 3;
 $(document).ready(function () {
     getUserId();
     //loads chapter status and creates designated enemy
-    gameManager.setUpFight(chapter);
+    
     // console.log("Enemy creation: " + enemy.hp);
     // animateEntrance();
-    populateBattle();
     adjustPopupDistance();
     listenForHover();
     
@@ -182,13 +181,15 @@ function getUserData(Id) {
         method: "GET",
         url: `/api/users/${Id}`
     }).then(function (data) {
-        console.log(data);
-        var userChibi = data.Main.mainChibi;
-        var userPortrait = data.Main.mainPortrait;
+        debugger;
+        console.log("data: ", data);
+        // var userChibi = data.Main.mainChibi;
+        // var userPortrait = data.Main.mainPortrait;
         $(".player-sprite").attr("src", userChibi);
         $(".player-portrait").attr("src", userPortrait);
         $(".character-name").text(data.Main.mainClass);
         getChapter(data);
+        console.log("getChapter ran");
     });
 }
 function getUserId() {

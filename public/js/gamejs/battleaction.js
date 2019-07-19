@@ -55,6 +55,7 @@ let doubleHit = function() {
 let hitEnemy = function() {
   console.log("Enemy has been hit!");
   enemy.hp -= Math.ceil(totalDmg);
+  animationsTimer = false;
 };
 
 let levelUp = function() {
@@ -107,7 +108,6 @@ let characterAlive = function() {
       .find(".hit-points")
       .text("HP " + (character.hp / 3).toFixed(0));
 
-    //updates hp bar
     updatePlayerHealthBar();
   }
 };
@@ -121,6 +121,8 @@ let characterDead = function() {
       .find(".hit-points")
       .text("HP " + 0);
 
+    
+
     //update health bar
     updatePlayerHealthBar();
     toggleWinLoseModals("lose");
@@ -132,7 +134,8 @@ let enemyAttack = function() {
 
   //deals damage to character
   character.hp -= Math.ceil(enemyTotalDmg);
-
+  animationsTimer = false;
+  
   //if character hp is >0:
   characterAlive();
 
@@ -154,11 +157,69 @@ let characterAttack = function(grabbedTarget) {
       hitEnemy();
       enemyStillAlive();
       enemyDead();
+      
     } else {
       //attack missed
       totalDmg = 0;
+      
+      
 
       console.log("Character attacked, but the attack missed!");
+    }
+  }
+};
+
+
+let game = function() {
+  
+  $(".cls-1").each(function() {
+    $(this).click(function() {
+      grabbedTarget = $(this)
+        .parent()
+        .attr("data-target");
+      
+      gameManager.animations();
+
+      gameManager.pickTarget(grabbedTarget);
+
+      setTimeout(fightCheck, 1000);
+      
+    });
+  });
+};
+
+let checker = function(){
+  if(openingScene){
+    game();
+  }
+};
+
+let fightCheck = function(){
+  if(animationsTimer){
+    attacks();
+  }
+};
+
+let attacks = function(){
+  console.log("Attacks are now active.");
+  if (character.hp > 0 && enemy.hp > 0) {
+    if (character.spd > enemy.spd) {
+      console.log("Character attacked first!");
+
+      characterAttack(grabbedTarget);
+
+      doubleHit();
+
+      if (chance < speed) {
+        hitEnemy();
+        enemyStillAlive();
+        enemyDead();
+      }
+
+      enemyAttack();
+    } else {
+      enemyAttack();
+      characterAttack(grabbedTarget);
     }
   }
 };
@@ -167,43 +228,11 @@ $(document).ready(function() {
   // $.get("/api/userdata").then(function() {
   //   var userId = data.userId;
   //   gameManager.loadChar(userId);
-  // });
+  
 
-  gameManager.setUpFight();
-  console.log("Enemy Start HP: " + enemy.hp);
-  console.log("Enemy Start SPD: " + enemy.spd);
-
-  $(".cls-1").each(function() {
-    $(this).click(function() {
-      grabbedTarget = $(this)
-        .parent()
-        .attr("data-target");
-
-      gameManager.pickTarget(grabbedTarget);
-
-      if (character.hp > 0 && enemy.hp > 0) {
-        if (character.spd > enemy.spd) {
-          console.log("Character attacked first!");
-
-          characterAttack(grabbedTarget);
-
-          doubleHit();
-
-          if (chance < speed) {
-            hitEnemy();
-            enemyStillAlive();
-            enemyDead();
-          }
-
-          enemyAttack();
-        
-        } else {
-        
-          enemyAttack();
-          characterAttack(grabbedTarget);
-        
-        }
-      }
-    });
-  });
+  // gameManager.setUpFight();
+  // console.log("Enemy Start HP: " + enemy.hp);
+  // console.log("Enemy Start SPD: " + enemy.spd);
+  setTimeout(checker, 6000);
+  
 });
