@@ -5,7 +5,7 @@ $(document).ready(function () {
             subtitle: "Into the Unknown",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
             previewImg: "images/resource-images/encounter/bg-forest-entrance.jpg",
-            complete: false
+            complete: true
         }, {
             name: "Chapter 2:",
             subtitle: "We Meet Again",
@@ -143,7 +143,7 @@ $(document).ready(function () {
         }
     }];
 
-    var h = 210;
+    var h = 220;
 
     function statsDisplay(characterStats, firstStop, secondStop) {
         //creates a svg and appends to character stats
@@ -178,7 +178,7 @@ $(document).ready(function () {
             //moves each rectangle down
             //i is the data point index
             .attr("y", function (d, i) {
-                return i * 50 + 30;
+                return i * 55 + 30;
             })
             //width of the rectangle
             //multiplied the data point to make it wider
@@ -199,7 +199,7 @@ $(document).ready(function () {
             //moves each rectangle down
             //i is the data point index
             .attr("y", function (d, i) {
-                return i * 50 + 30;
+                return i * 55 + 30;
             })
             //width of the rectangle
             //multiplied the data point to make it wider
@@ -212,7 +212,7 @@ $(document).ready(function () {
 
         nodes.append("text")
             .style("fill", "white")
-            .style("font-size", "15px")
+            .style("font-size", "18px")
             .text(function (d) {
                 return d.statName;
             })
@@ -221,7 +221,7 @@ $(document).ready(function () {
             .style("font-weight", 500)
             .style("letter-spacing", "0.5px")
             .attr("y", function (d, i) {
-                return i * 50 + 20;
+                return i * 55 + 20;
             });
     }
     statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);

@@ -418,16 +418,16 @@ a:hover{
 .flag-wing {
   width: 10px;
   position: absolute;
-  right: -5px;
+  right: -6px;
 }
 
 .wing-top {
-  border-top: 10px solid transparent;
+  border-top: 12px solid transparent;
   border-right: 5px solid transparent;
 }
 
 .wing-bottom {
-  border-bottom: 10px solid transparent;
+  border-bottom: 12px solid transparent;
   border-right: 5px solid transparent;
   bottom: 0;
 }
@@ -450,7 +450,7 @@ a:hover{
 }
 
 .castle-container {
-  margin-bottom: 1vw;
+  margin: 0.5vw 0 2.3vw;
 }
 
 .story {
