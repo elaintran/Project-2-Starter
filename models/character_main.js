@@ -13,7 +13,9 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Main.associate = function (models) {
-        Main.hasOne(models.User, {});
+        Main.hasOne(models.User, {
+
+        });
     };
     return Main;
 };
