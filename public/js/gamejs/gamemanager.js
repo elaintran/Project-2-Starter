@@ -481,7 +481,6 @@ let gameManager = { // eslint-disable-line no-unused-vars
 
 function populateBattle() { // eslint-disable-line no-unused-vars
     let i = chapter - 1;
-    console.log("i:", i)
     $("body").css("background-image", "url(\"" + (background[i]) + "\")");
 
     // display correct player portrait
