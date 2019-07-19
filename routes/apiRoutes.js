@@ -23,8 +23,7 @@ module.exports = function (app) {
     });
 
     app.put("/api/users/:id", (req, res) => {
-        db.User.update(req.body,
-            {
+        db.User.update(req.body, {
                 where: {
                     userSelection: req.user.userSelection
                 }
