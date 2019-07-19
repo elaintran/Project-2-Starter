@@ -1,7 +1,17 @@
+//global variables
+//populate characters with get request
+var characters = [];
+var newStats = [];
+//height of d3 chart
+var h = 180;
+//total stats to distribute
+var statPoints = 10;
+//stats distributed default value set to false
+var statsDis = false;
+
 $(document).ready(function () {
-    var characters = [];
+    //push all of the character info from database into array
     $.get("api/character").then(function(data) {
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
             var characterObj = {};
             characterObj.name = data[i].mainName;
@@ -29,16 +39,11 @@ $(document).ready(function () {
         characterDisplay();
     });
 
-    // var w = "100%";
-    var h = 180;
-    var statPoints = 10;
-    // var newCharacter = [];
-    var newStats = [];
-
-    //need to write a constructor to reduce redundant code
-    //display the first character and loop through and append all of the chibi ver.
+    //display characters onto page upon load
     function characterDisplay() {
+        //display the first character on the page
         characterSelect(characters[0].name, 1, characters[0].class, characters[0].portrait, characters[0].colors.dark, characters[0].colors.light, characters[0].stats);
+        //loop through array and append all of the sprite version
         for (var i = 0; i < characters.length; i++) {
             var chibiContainer = $("<div>").addClass("character-container").attr({
                 "data-class": characters[i].class,
@@ -50,69 +55,42 @@ $(document).ready(function () {
         }
     }
 
-    // change modal text on character select page based on stats
-    $(".select-character").on("click", function(){
-        if(statPoints > 0 && statPoints <= 10){
-            $("#modaltext").text("Please distribute all 10 stat points!");
-            $(".confirm").hide();
-            $(".cancel").text("CONTINUE");
-            $(".cancel").css({
-                border: "0",
-                width: "30%",
-                "text-align": "center",
-                color: "white",
-                "border-radius": "20px",
-                "font-weight": "500",
-                padding: "10px 0",
-                background: "linear-gradient(#94263a, #d24d5f)"});
-        } else {
-            $("#modaltext").text("Are you sure you wish to continue with this class?");
-            $(".confirm").show();
-            $(".cancel").text("Cancel");  
-            $(".cancel").removeAttr("style");
-        }
-    });
-   
-
     //toggle between characters
     $(".character-list").on("click", ".character-container", function () {
         for (var i = 0; i < characters.length; i++) {
+            //if the class of the sprite clicked matches the class in the array
             if ($(this).attr("data-class") === characters[i].class) {
+                //display the selected character
                 characterSelect(characters[i].name, (i + 1), characters[i].class, characters[i].portrait, characters[i].colors.dark, characters[i].colors.light, characters[i].stats);
             }
         }
     });
 
     function characterSelect(name, id, characterClass, portrait, firstStop, secondStop, stats) {
+        //clear newStats
         newStats = [];
+        //reset statPoints to distribute
         statPoints = 10;
-        $("#confirmCharacter").attr("data-class", characterClass);
-        $("#confirmCharacter").attr("data-name", name);
-        $("#confirmCharacter").attr("data-id", id);
-        $(".stat-points").text("10");
+        //prevent added stats to show
+        statsDis = false;
+        //reset point text to current stat points
+        $(".stat-points").text(statPoints);
+        //clear d3 stats
+        $(".character-stats").empty();
+        //display all of select character information
         $(".character-name").text(name);
         $(".character-class").text(characterClass);
         $(".character-image").attr("src", portrait);
         $(".select-character").attr("data-class", characterClass).css("background-image", "linear-gradient(to right, " + firstStop + ", " + secondStop);
-        $(".character-stats").empty();
-        statsDisplay(stats, characterClass, firstStop, secondStop, false, []);
+        //added data attributes to confirm button to send as a put request
+        $("#confirmCharacter").attr("data-class", characterClass);
+        $("#confirmCharacter").attr("data-name", name);
+        $("#confirmCharacter").attr("data-id", id);
+        //append new stats from d3 object
+        statsDisplay(stats, characterClass, firstStop, secondStop);
     }
 
-    $("#selectCharacter").on("click", function () {
-        console.log("this button has been clicked");
-        console.log($(this).attr("data-class"));
-
-        var newUser = {
-            mainClass: $(this).attr("data-class")
-        };
-
-        $.post("/api/users", newUser, function () {
-            window.location.href = "/world";
-        });
-    });
-
-
-    function statsDisplay(characterStats, characterClass, firstStop, secondStop, statsDis, addStats) {
+    function statsDisplay(characterStats, characterClass, firstStop, secondStop) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", "0 0 " + 350 + " " + h);
@@ -129,22 +107,19 @@ $(document).ready(function () {
             .style("stop-color", secondStop)
             .attr("offset", "1");
 
+        //create nodes for each stat
         var nodes = svg.selectAll(".rect")
+            //use the data from characters[i].stats
             .data(characterStats)
             .enter()
             .append("g")
             .classed("rect", true);
 
-        // var newNodes = svg.selectAll(".rect")
-        //     .data(addStats)
-        //     .enter()
-        //     .append("g")
-        //     .classed("rect", true);
-
+        //background of stats bar
         nodes.append("rect")
-            //apply gradient
+            //apply gray color to background
             .attr("fill", "#363636")
-            //each rectangle starts at the 0 position
+            //start position begins right before the stats bar ends
             .attr("x", function (d) {
                 return (d.value / 60 * 100 - 10) + "%";
             })
@@ -154,79 +129,74 @@ $(document).ready(function () {
                 return i * 47 + 20;
             })
             //width of the rectangle
-            //multiplied the data point to make it wider
+            //multiplied the data point by 100 to make it wider
             .attr("width", function (d) {
                 return 100 - (d.value / 60 * 100) + 10 + "%";
             })
             //defines the height of the rectangle
             .attr("height", 10)
+            //rounds the rectangle
             .attr("rx", 5);
 
+        //if user is currently adding points to the stats
         if (statsDis) {
             nodes.append("rect")
-                .data(addStats)
-                //apply gradient
+                //use the newStats array instead of characters[i].stats array
+                .data(newStats)
+                //use the darker color to fill in the new stat bars
                 .attr("fill", firstStop)
-                //each rectangle starts at the 0 position
                 .attr("x", 0)
-                //moves each rectangle down
-                //i is the data point index
                 .attr("y", function (d, i) {
                     return i * 47 + 20;
                 })
-                //width of the rectangle
-                //multiplied the data point to make it wider
                 .attr("width", function (d) {
                     return (d.value / 60 * 100) + "%";
                 })
-                //defines the height of the rectangle
                 .attr("height", 10)
                 .attr("rx", 5);
         }
 
-        //creates rectangles for every index in the dataset
+        //current stats bar
         nodes.append("rect")
-            // .data(characterStats)
             //apply gradient
             .classed("filled", true)
-            //each rectangle starts at the 0 position
             .attr("x", 0)
-            //moves each rectangle down
-            //i is the data point index
             .attr("y", function (d, i) {
                 return i * 47 + 20;
             })
-            //width of the rectangle
-            //multiplied the data point to make it wider
             .attr("width", function (d) {
                 return (d.value / 60 * 100) + "%";
             })
-            //defines the height of the rectangle
             .attr("height", 10)
             .attr("rx", 5);
 
+        //text container
         nodes.append("text")
             .attr("class", "stat-name")
             .style("fill", "white")
-            .style("font-size", "12px")
+            .style("font-size", "13px")
             .append("tspan")
+            //append caret-left as a text span to text to subtract stats
             .attr("class", "fas stat-dist minus")
             .attr("data-class", characterClass)
-            .text("\uf0d9")
             .attr("y", function (d, i) {
                 return i * 47 + 10;
-            });
+            })
+            .text("\uf0d9");
 
+        //name of the stat type
         nodes.select(".stat-name")
             .append("tspan")
             .attr("class", "stat-type")
+            //set margins
+            .attr("dx", 10)
             .text(function (d) {
                 return d.statName;
             })
-            .attr("dx", 10)
             .style("font-weight", 500)
             .style("letter-spacing", "0.5px");
 
+        //append caret-right to text span to add stats
         nodes.select(".stat-name")
             .append("tspan")
             .attr("class", "fas stat-dist plus")
@@ -235,6 +205,7 @@ $(document).ready(function () {
             .text("\uf0da");
     }
 
+    //distribute stats
     $(".character-stats").on("click", ".stat-dist", function () {
         for (var i = 0; i < characters.length; i++) {
             //check for character class from data attribute on button
@@ -275,15 +246,52 @@ $(document).ready(function () {
                         }
                     }
                 }
+                //show d3 bar of added stats
+                statsDis = true;
+                //change the text of statpoints according to current number of points
                 $(".stat-points").text(statPoints);
+                //clear d3 object to reflect the new stats
                 $(".character-stats").empty();
+                //display d3 stats
+                statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light);
                 console.log(newStats);
-                statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
     });
-    //newCharacter array will be sent as a post request once confirmed
-    //display an error message if user tries to submit when there are still remaining stat points
-    //need to display remaining stat points
-    
+
+    // change modal text on character select page based on stats
+    $(".select-character").on("click", function() {
+        //if user still has remaining points to distribute
+        if(statPoints > 0 && statPoints <= 10) {
+            $("#modaltext").text("Please distribute all 10 stat points!");
+            $(".confirm").hide();
+            $(".cancel").text("CONTINUE");
+            $(".cancel").css({
+                border: "0",
+                width: "30%",
+                "text-align": "center",
+                color: "white",
+                "border-radius": "20px",
+                "font-weight": "500",
+                padding: "10px 0",
+                background: "linear-gradient(to right, #94263a, #d24d5f)"
+            });
+        } else {
+            $("#modaltext").text("Are you sure you wish to continue with this class?");
+            $(".confirm").show();
+            $(".cancel").text("Cancel");  
+            $(".cancel").removeAttr("style");
+        }
+    });
+
+    $("#selectCharacter").on("click", function () {
+        console.log("this button has been clicked");
+        console.log($(this).attr("data-class"));
+        var newUser = {
+            mainClass: $(this).attr("data-class")
+        };
+        $.post("/api/users", newUser, function () {
+            window.location.href = "/world";
+        });
+    });
 });
