@@ -191,6 +191,7 @@ let game = function() {
 let checker = function(){
   if(openingScene){
     game();
+    console.log("checker: ", openingScene);
   }
 };
 

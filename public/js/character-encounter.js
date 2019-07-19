@@ -21,6 +21,7 @@ $(document).ready(function () {
     adjustPopupDistance();
     listenForHover();
     
+    
 });
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
@@ -181,10 +182,10 @@ function getUserData(Id) {
         method: "GET",
         url: `/api/users/${Id}`
     }).then(function (data) {
-        debugger;
+        // debugger;
         console.log("data: ", data);
-        // var userChibi = data.Main.mainChibi;
-        // var userPortrait = data.Main.mainPortrait;
+        var userChibi = data.Main.mainChibi;
+        var userPortrait = data.Main.mainPortrait;
         $(".player-sprite").attr("src", userChibi);
         $(".player-portrait").attr("src", userPortrait);
         $(".character-name").text(data.Main.mainClass);

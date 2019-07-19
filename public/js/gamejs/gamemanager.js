@@ -46,7 +46,9 @@ function getChapter(data) { // eslint-disable-line no-unused-vars
   }
 
   gameManager.setUpFight(chapter);
+  console.log("gameManager: ", openingScene);
   populateBattle();
+  setTimeout(checker, 6000);
 }
 // getChapter();
 
