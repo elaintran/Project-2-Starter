@@ -1071,7 +1071,7 @@ button:focus{
   ============================
 */
 
-.user-toggle-encounter {
+.dropup {
   position: absolute;
   bottom: 10.5vw;
   right: calc(2rem + 10px);
