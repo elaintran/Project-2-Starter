@@ -471,7 +471,8 @@ let gameManager = { // eslint-disable-line no-unused-vars
   },
   animations: function(){
     console.log("Animations timer is currently " + animationsTimer);
-    setTimeout(this.animate, 1000);
+    // setTimeout(this.animate, 1000);
+    this.animate();
   },
   animate: function(){
     animationsTimer = true;
@@ -542,6 +543,9 @@ function toggleWinLoseModals(state) { // eslint-disable-line no-unused-vars
     setTimeout(function() {
       $("#loseModal").modal("show");
     }, 2000);
+    setTimeout(function() {
+      window.location.assign("/world"); // redirects without replacing current page.
+    }, 6000);
   }
   
 }
