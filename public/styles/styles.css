@@ -140,15 +140,17 @@ body {
   ============================
 */
 
+.text{
+  display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+}
 form {
   padding-top:1%;
 	width: 300px;
   margin: 0 auto;
    
-}
-
-.prompttext{
-  padding-top:5%;
 }
 
 .submit{
@@ -195,6 +197,7 @@ form {
 }
 
 .accounttext{
+  padding-top: 5%;
   color: #d7d7d7;
   text-align: center;
 }
@@ -1061,6 +1064,18 @@ button:focus{
 .pull-left {
   margin-right: 0.5vw;
 }
+
+/* cog dropdown */
+
+.btn-danger{
+  background-color: transparent;
+  border: none;
+}
+
+
+
+
+
 
 /* .btn-secondary{
   background:transparent;
