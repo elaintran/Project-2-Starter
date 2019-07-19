@@ -229,9 +229,19 @@ $(document).ready(function () {
 
     // change modal text on character select page based on stats
     function checkStats(){
-        if(statPoints !== 10){
+        if(statPoints === 10){
             $("#modaltext").text("Please distribute all 10 stat points!");
             $(".confirm").hide();
+            $(".cancel").text("CONTINUE");
+            $(".cancel").css({
+                border: "0",
+                width: "30%",
+                "text-align": "center",
+                color: "white",
+                "border-radius": "20px",
+                "font-weight": "500",
+                padding: "10px 0",
+                background: 'linear-gradient(#94263a, #d24d5f)'});
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");   
         }
