@@ -221,13 +221,20 @@ let attacks = function(){
         enemyStillAlive();
         enemyDead();
       }
+      
+      if ((character.hp > 0) && (enemy.hp > 0)){
       setTimeout(enemyAttack, 1000);
       // enemyAttack();
+      }
+      
     } else {
       enemyAttack();
+
+      if ((character.hp > 0) && (enemy.hp > 0)){
       setTimeout(function(){
         characterAttack(grabbedTarget);
       }, 1000);
+    }
       
     }
   }
