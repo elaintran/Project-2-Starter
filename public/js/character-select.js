@@ -246,7 +246,7 @@ $(document).ready(function () {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
             $(".cancel").text("Cancel");  
-            $(".cancel").removeAttr('style');
+            $(".cancel").removeAttr("style");
         }
     });
    
