@@ -212,7 +212,7 @@ a:hover{
 }
 
 /* style glyph */
-.inner-addon .glyphicon {
+.inner-addon .fas {
   position: absolute;
   padding: 10px;
   pointer-events: none;
@@ -220,7 +220,7 @@ a:hover{
 }
 
 /* align glyph */
-.left-addon .glyphicon  { 
+.left-addon .fas  { 
   left:  0px;
 }
 
@@ -333,10 +333,10 @@ a:hover{
   position: absolute;
 }
 
-.username {
+/* .username {
   text-align: right;
   margin-right: 15px;
-}
+} */
 
 .map-wrapper {
   width: 100%;
@@ -418,16 +418,16 @@ a:hover{
 .flag-wing {
   width: 10px;
   position: absolute;
-  right: -5px;
+  right: -6px;
 }
 
 .wing-top {
-  border-top: 10px solid transparent;
+  border-top: 12px solid transparent;
   border-right: 5px solid transparent;
 }
 
 .wing-bottom {
-  border-bottom: 10px solid transparent;
+  border-bottom: 12px solid transparent;
   border-right: 5px solid transparent;
   bottom: 0;
 }
@@ -444,21 +444,24 @@ a:hover{
   background-color: rgba(000, 000, 000, 0.6);
 }
 
-.fa-lock {
+.chapter-select .fa-lock {
   color: #d7d7d7;
   font-size: 2vw;
 }
 
-.character-modal {
-  margin-bottom: 1vw;
+.castle-container {
+  margin: 0.5vw 0 2.3vw;
 }
 
 .story {
   display: none;
 }
 
-.character-modal img {
+.castle-container img {
   margin-bottom: 1vw;
+  margin-top: 10px;
+  height: 8vw;
+  /* width: auto; */
 }
 
 .chapter-info .mini-class {
@@ -845,36 +848,55 @@ svg.enemy-sprite:hover {
   ============================
 */
 
-.modal-body{
-  /* background-color: rgba(21, 21, 21, 0.8); */
-  border-color: #acacac;
-  /* border-style: solid;
-  border-width: 2px; */
-  height: 100px;
-  text-align: center;
-  padding-top: 10%;
-  font-size: 18px;
-}
-.modal-footer{
+.modal-body1{
   background-color: rgba(21, 21, 21, 0.8);
   border-color: #acacac;
-  border-style: none;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  
+  border-style: solid;
+  border-width: 2px 2px 0px 2px;
+  height: 100px;
+  text-align: center;
+  padding: 8% 12% 0 12%;
+  font-size: 18px;
+}
+.modal-content{
+  background-color: transparent
 }
 
-.btn-primary{
+button:focus{
+  outline: none;
+}
+.modaltext{
+  font-family: "Work Sans", sans-serif;
+  color: white;
+}
+.cancel{
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding-right: 5%;
+}
+ .confirm{
   background-image: linear-gradient(to right, #94263a, #d24d5f);
   border: 0;
-  width: 20%;;
+  width: 30%;
   text-align: center;
   color: white;
   border-radius: 20px;
   padding: 10px 0;
   font-weight: 500;
-  
 }
+
+.modal-body2{
+  display: inline;
+  text-align: center;
+  padding-bottom: 20px;
+  background-color: rgba(21, 21, 21, 0.8);
+  border-color: #acacac;
+  border-style: solid;
+  border-width: 0px 2px 2px 2px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+} 
 /*  
   ============================
   WINNER MODAL
@@ -936,7 +958,7 @@ svg.enemy-sprite:hover {
 .submiterror{
   background-image: linear-gradient(to right, #94263a, #d24d5f);
   border: 0;
-  width: 20%;;
+  width: 20%;
   text-align: center;
   color: white;
   border-radius: 20px;
@@ -957,7 +979,70 @@ svg.enemy-sprite:hover {
   DROPDOWN STYLING
   ============================
 */
-.btn-secondary{
+
+.user-toggle {
+  position: absolute;
+  top: 2.5vw;
+  right: calc(3rem + 30px);
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  font-size: 1.2vw;
+}
+
+.dropdown-toggle:hover {
+  text-decoration: none;
+}
+
+.dropdown-toggle::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0d7";
+  color: #e8c892;
+  border: 0;
+  font-weight: 600;
+  margin-left: 0.5vw;
+}
+
+.userimage {
+  width: 3.5vw;
+  margin-right: 10px;
+  border: 1px solid #c1b69d;
+  border-radius: 50%;
+}
+
+.username {
+  color: #e8c892;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.dropdown-menu {
+  background-color: #292929;
+  border: 0;
+  max-width: auto;
+  min-width: auto;
+  padding: 0.8vw 0;
+  margin-left: 4vw;
+}
+
+.dropdown-item {
+  color: #bcbcbc;
+  font-weight: 500;
+  font-size: 1vw;
+}
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
+  color: #bcbcbc;
+  background-color: #222222;
+} 
+
+.pull-left {
+  margin-right: 0.5vw;
+}
+
+/* .btn-secondary{
   background:transparent;
   border:0px;
   color: #c2b79e;
@@ -968,13 +1053,13 @@ svg.enemy-sprite:hover {
   font-weight:600;
   font-size: 20px;
 }
-/* .btn{
+.btn{
   background:transparent;
   border:0px;
   color: #c2b79e;
   font-weight:600;
   font-size: 20px;
-} */
+}
 .btn-secondary:focus{
   background:transparent;
   border: none;
@@ -1017,7 +1102,7 @@ svg.enemy-sprite:hover {
   
 }
 
-.glyphicon{
+.inner-addon .fas {
   padding-right: 15%;
 }
 .btn-secondary:hover{
@@ -1032,4 +1117,4 @@ svg.enemy-sprite:hover {
 
 .username{
   padding-left: 10px;
-}
+} */
