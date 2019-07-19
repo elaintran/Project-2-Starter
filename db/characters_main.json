@@ -62,8 +62,8 @@
     {
         "mainName": "Character 6",
         "mainClass": "Manakete",
-        "mainPortrait": "images/resource-images/portrait/mankete-blue.png",
-        "mainChibi": "images/resource-images/chibi/mankete-blue.png",
+        "mainPortrait": "images/resource-images/portrait/manakete-blue.png",
+        "mainChibi": "images/resource-images/chibi/manakete-blue.png",
         "mainHp": 20,
         "mainStr": 15,
         "mainDef": 12,
@@ -80,19 +80,19 @@
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "rgb(33, 74, 85)",
+        "colorLight": "rgb(73, 136, 140)"
     },
     {
         "mainName": "Character 8",
-        "mainClass": "Their",
-        "mainPortrait": "images/resource-images/portrait/theif-purple.png",
-        "mainChibi": "images/resource-images/chibi/theif-purple.png",
+        "mainClass": "Thief",
+        "mainPortrait": "images/resource-images/portrait/thief-purple.png",
+        "mainChibi": "images/resource-images/chibi/thief-purple.png",
         "mainHp": 20,
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "#42224e",
+        "colorLight": "#805694"
     }
 ]
