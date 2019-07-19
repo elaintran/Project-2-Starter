@@ -245,10 +245,11 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
-            $(".cancel").text("Cancel");   
+            $(".cancel").text("Cancel");  
+            $(".cancel").removeAttr('style');
         }
     });
-    // checkStats();
+   
 
     //toggle between characters
     $(".character-container").on("click", function () {
