@@ -33,6 +33,20 @@ module.exports = function (app) {
             });
     });
 
+    //i want this route to update the main character of the user
+    // app.get("/api/users/:id/main", (req, res) => {
+    //     console.log(req.params);
+    //     db.User.findOne({
+    //         where: {
+    //             id: req.params.id,
+    //             main: req.params.Main
+    //         }
+    //     }).then(function (dbUser) {
+    //         res.json(dbUser);
+    //         console.log(dbUser);
+    //     });
+    // });
+
     app.get("/api/character", (req, res) =>
         db.Main.findAll({}).then((dbMain) =>
             res.json(dbMain)
@@ -87,10 +101,11 @@ module.exports = function (app) {
     app.post("/api/chapter", (req, res) => {
         console.log(req.body);
         db.Chapter.create({
-            chapterNum: req.body.chapterNum,
+            chapterName: req.body.chapterName,
             chapterSubtitle: req.body.chapterSubtitle,
             chapterDescription: req.body.chapterDescription,
             chapterImg: req.body.chapterImg,
+            chapterComplete: req.body.chapterComplete
         }).then((dbChapter) => res.json(dbChapter));
     });
 };
