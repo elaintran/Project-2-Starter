@@ -23,13 +23,30 @@ module.exports = function (sequelize, DataTypes) {
         },
         userProgression: {
             type: DataTypes.INTEGER,
-            defaultValue: 0
+            allowNull: true
         },
-        userScore: DataTypes.INTEGER
+        userScore: DataTypes.INTEGER,
+        chapterOne: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        },
+        chapterTwo: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        chapterThree: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        },
+        chapterFour: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }
     });
 
     User.associate = function (models) {
         User.belongsTo(models.Main, {
+            through: "userMain",
             foreignKey: "userSelection"
         });
     };
