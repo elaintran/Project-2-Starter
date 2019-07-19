@@ -32,13 +32,13 @@
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "rgb(33, 74, 85)",
-        "colorLight": "rgb(73, 136, 140)"
+        "colorDark": "#214A55",
+        "colorLight": "#49888C"
     },
     {
         "mainName": "Character 4",
         "mainClass": "Bow Fighter",
-        "mainPortrait": "images/resource-images/encounter/fighter-bow-portrait.png",
+        "mainPortrait": "images/resource-images/encounter/fighter-purple-portrait.png",
         "mainChibi": "images/resource-images/chibi/fighter-bow-purple.png",
         "mainHp": 20,
         "mainStr": 15,
@@ -80,8 +80,8 @@
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "#214A55",
+        "colorLight": "#49888C"
     },
     {
         "mainName": "Character 8",
@@ -92,7 +92,7 @@
         "mainStr": 15,
         "mainDef": 12,
         "mainSpd": 30,
-        "colorDark": "#29396f",
-        "colorLight": "#4c7fc4"
+        "colorDark": "#42224e",
+        "colorLight": "#805694"
     }
 ]

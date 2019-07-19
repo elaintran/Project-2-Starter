@@ -1,4 +1,40 @@
 $(document).ready(function () {
+    var userId;
+    var userCharacter = [];
+    var h = 220;
+
+    $.get("api/userdata").then(function(data) {
+        userId = data.userId;
+        userChoice(userId);
+    });
+
+    function userChoice(userId) {
+        $.get("api/users/" + userId).then(function(data) {
+            var characterObj = {};
+            characterObj.stats = [{
+                statName: "hp",
+                value: data.Main.mainHp
+            }, {
+                statName: "strength",
+                value: data.Main.mainStr
+            }, {
+                statName: "defense",
+                value: data.Main.mainDef
+            }, {
+                statName: "speed",
+                value: data.Main.mainSpd
+            }];
+            characterObj.colors = {};
+            characterObj.colors.dark = data.Main.colorDark;
+            characterObj.colors.light = data.Main.colorLight;
+            userCharacter.push(characterObj);
+            $(".userimage").attr("src", data.Main.mainPortrait);
+            $(".user-chibi").attr("src", data.Main.mainChibi);
+            $(".select").css("background-image", "linear-gradient(to right, " + data.Main.colorDark + ", " + data.Main.colorLight);
+            statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
+        });
+    }
+
     var chapters = [
         {
             name: "Chapter 1:",
@@ -72,6 +108,7 @@ $(document).ready(function () {
         $(".story").show();
         $(".castle-container").hide();
         $(".select").text("Select");
+        $(".select").removeAttr("style");
         for (var i = 0; i < chapters.length; i++) {
             if (+$(this).attr("data-chapter") === i + 1 && $(this).attr("data-complete") !== "locked") {
                 $(".chapter-number").text(chapters[i].name);
@@ -90,6 +127,7 @@ $(document).ready(function () {
         $(".story").show();
         $(".castle-container").hide();
         $(".select").text("Select");
+        $(".select").removeAttr("style");
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
@@ -113,38 +151,13 @@ $(document).ready(function () {
                 $(".castle-container").show();
                 $(".select").removeAttr("style");
                 $(".select").text("Change Class");
+                $(".select").css("background-image", "linear-gradient(to right, " + userCharacter[0].colors.dark + ", " + userCharacter[0].colors.light);
                 break;
             default:
                 console.log("not found");
                 console.log($(this).attr("class"));
         }
     });
-
-    var userCharacter = [{
-        name: "Character 1",
-        class: "Swordmaster",
-        portrait: "images/resource-images/portrait/fighter-sword-red.png",
-        chibi: "images/resource-images/chibi/fighter-sword-red.png",
-        stats: [{
-            statName: "hp",
-            value: 25
-        }, {
-            statName: "strength",
-            value: 38
-        }, {
-            statName: "defense",
-            value: 25
-        }, {
-            statName: "speed",
-            value: 38
-        }],
-        colors: {
-            dark: "#94263a",
-            light: "#d24d5f"
-        }
-    }];
-
-    var h = 220;
 
     function statsDisplay(characterStats, firstStop, secondStop) {
         //creates a svg and appends to character stats
@@ -225,5 +238,4 @@ $(document).ready(function () {
                 return i * 55 + 20;
             });
     }
-    statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
 });
