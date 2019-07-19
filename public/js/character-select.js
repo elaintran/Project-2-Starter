@@ -2,25 +2,25 @@
 //var characters = [];
 // for (var i = 0; i < data.length; i++) {
 //     var characterObj = {};
-//     characterObj.name = data[i].mainName;
-//     characterObj.class = data[i].mainClass;
-//     characterObj.portrait = data[i].mainPortrait;
+//     characterObj.name = data[i].Main.mainName;
+//     characterObj.class = data[i].Main.mainClass;
+//     characterObj.portrait = data[i].Main.mainPortrait;
 //     characterObj.stats = [{
 //         statName: "hp",
-//         value: data[i].mainHp
+//         value: data[i].Main.mainHp
 //     }, {
 //         statName: "strength",
-//         value: data[i].mainStr
+//         value: data[i].Main.mainStr
 //     }, {
 //         statName: "defense",
-//         value: data[i].mainDef
+//         value: data[i].Main.mainDef
 //     }, {
 //         statName: "speed",
-//         value: data[i].mainSpd
+//         value: data[i].Main.mainSpd
 //     }];
 //     characterObj.colors = {};
-//     characterObj.colors.dark = data[i].colorDark;
-//     characterObj.colors.light = data[i].colorLight;
+//     characterObj.colors.dark = data[i].Main.colorDark;
+//     characterObj.colors.light = data[i].Main.colorLight;
 //     characters.push(characterObj); 
 // }
 
@@ -229,7 +229,7 @@ $(document).ready(function () {
 
     // change modal text on character select page based on stats
     $(".select-character").on("click", function(){
-        if(statPoints === 10){
+        if(statPoints > 0 && statPoints <= 10){
             $("#modaltext").text("Please distribute all 10 stat points!");
             $(".confirm").hide();
             $(".cancel").text("CONTINUE");
@@ -243,10 +243,13 @@ $(document).ready(function () {
                 padding: "10px 0",
                 background: "linear-gradient(#94263a, #d24d5f)"});
         } else {
-            $("#modaltext").text("Are you sure you wish to continue with this class?");   
+            $("#modaltext").text("Are you sure you wish to continue with this class?");
+            $(".confirm").show();
+            $(".cancel").text("Cancel");   
         }
     });
-   
+    // checkStats();
+
     //toggle between characters
     $(".character-container").on("click", function () {
         for (var i = 0; i < characters.length; i++) {
