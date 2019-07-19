@@ -22,7 +22,12 @@ $(document).ready(function () {
             console.log("password matches");
 
         } else {
-            console.log("invalid confim");
+            password.val("");
+            confirmPass.val("");
+            password.css("border", "1px solid red");
+            confirmPass.css("border", "1px solid red");
+            $(".msg-box").text("please confirm password match");
+            return console.log("invalid confirm");
         }
         signUpUser(userData.userEmail, userData.userPassword, userData.userName);
         email.val("");

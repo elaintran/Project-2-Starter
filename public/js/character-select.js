@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var characters = [];
-    $.get("api/character").then(function(data) {
+    $.get("api/character").then(function (data) {
         console.log(data);
         for (var i = 0; i < data.length; i++) {
             var characterObj = {};
@@ -24,7 +24,7 @@ $(document).ready(function () {
             characterObj.colors = {};
             characterObj.colors.dark = data[i].colorDark;
             characterObj.colors.light = data[i].colorLight;
-            characters.push(characterObj); 
+            characters.push(characterObj);
         }
         characterDisplay();
     });
@@ -69,15 +69,11 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
-<<<<<<< HEAD
             $(".cancel").text("Cancel");
-=======
-            $(".cancel").text("Cancel");  
             $(".cancel").removeAttr("style");
->>>>>>> 37092b006046d6d46a2036c74109b1e3eaaf3bf4
         }
     });
-   
+
 
     //toggle between characters
     $(".character-container").on("click", function () {
