@@ -33,8 +33,9 @@ $(document).ready(function () {
             console.log("after replace");
         }).fail(function (err) {
             console.log(err);
-            $("input").css("border", "1px solid red");
-            $(".msg-box").text("invalid user/password");
+            $(".error-message").css("display", "flex");
+            $("input").css("border", "1px solid #eb5b64");
+            // $(".msg-box").text("invalid user/password");
         });
     }
 });
