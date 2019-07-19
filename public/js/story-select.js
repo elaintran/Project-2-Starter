@@ -2,6 +2,7 @@ $(document).ready(function () {
     var userId;
     var userCharacter = [];
     var h = 220;
+
     $.get("api/userdata").then(function(data) {
         userId = data.userId;
         userChoice(userId);
@@ -27,7 +28,9 @@ $(document).ready(function () {
             characterObj.colors.dark = data.Main.colorDark;
             characterObj.colors.light = data.Main.colorLight;
             userCharacter.push(characterObj);
+            $(".userimage").attr("src", data.Main.mainPortrait);
             $(".user-chibi").attr("src", data.Main.mainChibi);
+            $(".select").css("background-image", "linear-gradient(to right, " + data.Main.colorDark + ", " + data.Main.colorLight);
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
         });
     }
@@ -105,6 +108,7 @@ $(document).ready(function () {
         $(".story").show();
         $(".castle-container").hide();
         $(".select").text("Select");
+        $(".select").removeAttr("style");
         for (var i = 0; i < chapters.length; i++) {
             if (+$(this).attr("data-chapter") === i + 1 && $(this).attr("data-complete") !== "locked") {
                 $(".chapter-number").text(chapters[i].name);
@@ -123,6 +127,7 @@ $(document).ready(function () {
         $(".story").show();
         $(".castle-container").hide();
         $(".select").text("Select");
+        $(".select").removeAttr("style");
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
@@ -146,6 +151,7 @@ $(document).ready(function () {
                 $(".castle-container").show();
                 $(".select").removeAttr("style");
                 $(".select").text("Change Class");
+                $(".select").css("background-image", "linear-gradient(to right, " + userCharacter[0].colors.dark + ", " + userCharacter[0].colors.light);
                 break;
             default:
                 console.log("not found");
