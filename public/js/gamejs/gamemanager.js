@@ -96,7 +96,7 @@ var enemies = [
       </defs>
       <title>bandit</title>
       <g id="Layer2" data-name="Layer 2">
-          <g id="bandit">
+          <g id="enemy-image">
               <image width="137" height="169" xlink:href="./images/resource-images/chibi/ogma.png"/>
           </g>
           <g id="bandit_legs" data-target="legs">
@@ -116,7 +116,7 @@ var enemies = [
       </defs>
       <title>black-knight</title>
       <g id="Layer2" data-name="Layer 2">
-          <g id="black_knight">
+          <g id="enemy-image">
               <image width="166" height="180" xlink:href="./images/resource-images/chibi/black-knight.png"/>
           </g>
           <g id="black_knight_legs" data-target="legs">
@@ -136,7 +136,7 @@ var enemies = [
       </defs>
       <title>dragon-king</title>
       <g id="Layer2" data-name="Layer 2">
-          <g id="dragon">
+          <g id="enemy-image">
               <image width="454" height="446" xlink:href="./images/resource-images/chibi/dragon-king.png"/>
           </g>
           <g id="dragon_legs" data-target="legs">
@@ -154,20 +154,26 @@ var enemies = [
 
 var displayEnemy = [
   {
-      name: "Blue Mage",
+      name: "Bandit",
       hp: 100,
       portrait: "./images/resource-images/encounter/enemy-bandit-portrait.png",
-      sprite: enemies[0]
+      sprite: enemies[0],
+      altSprite: "./images/resource-images/chibi/ogma2.png",
+      origSprite: "./images/resource-images/chibi/ogma.png"
   }, {
-      name: "Red Knight",
+      name: "Black Knight",
       hp: 200,
       portrait: "./images/resource-images/encounter/enemy-black-knight-portrait.png",
-      sprite: enemies[1]
+      sprite: enemies[1],
+      altSprite: "./images/resource-images/chibi/black-knight.png",
+      origSprite: "./images/resource-images/chibi/black-knight.png"
   }, {
       name: "Dragon King",
       hp: 400,
       portrait: "./images/resource-images/encounter/dragon-king-portrait.png",
-      sprite: enemies[2]
+      sprite: enemies[2],
+      altSprite: "./images/resource-images/chibi/dragon-king2.png",
+      origSprite: "./images/resource-images/chibi/dragon-king.png"
   }
 ];
 
@@ -456,7 +462,7 @@ function populateBattle() { // eslint-disable-line no-unused-vars
     // display correct player name
     $(".character-name").text(player.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp / 3).toFixed(0));
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
