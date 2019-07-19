@@ -246,10 +246,15 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
+<<<<<<< HEAD
             $(".cancel").text("Cancel");
+=======
+            $(".cancel").text("Cancel");  
+            $(".cancel").removeAttr("style");
+>>>>>>> 37092b006046d6d46a2036c74109b1e3eaaf3bf4
         }
     });
-    // checkStats();
+   
 
     //toggle between characters
     $(".character-container").on("click", function () {
