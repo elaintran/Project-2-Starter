@@ -38,7 +38,7 @@
     {
         "mainName": "Character 4",
         "mainClass": "Bow Fighter",
-        "mainPortrait": "images/resource-images/encounter/fighter-bow-portrait.png",
+        "mainPortrait": "images/resource-images/encounter/fighter-purple-portrait.png",
         "mainChibi": "images/resource-images/chibi/fighter-bow-purple.png",
         "mainHp": 20,
         "mainStr": 15,
