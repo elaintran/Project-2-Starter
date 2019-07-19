@@ -241,7 +241,7 @@ $(document).ready(function () {
                 "border-radius": "20px",
                 "font-weight": "500",
                 padding: "10px 0",
-                background: 'linear-gradient(#94263a, #d24d5f)'});
+                background: "linear-gradient(#94263a, #d24d5f)"});
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");   
         }
