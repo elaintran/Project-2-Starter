@@ -248,7 +248,6 @@ $(document).ready(function () {
             $(".cancel").text("Cancel");   
         }
     });
-    // checkStats();
 
     //toggle between characters
     $(".character-container").on("click", function () {
