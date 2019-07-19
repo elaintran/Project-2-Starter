@@ -245,7 +245,7 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");   
         }
-    })
+    });
    
     //toggle between characters
     $(".character-container").on("click", function () {
