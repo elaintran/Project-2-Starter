@@ -2,25 +2,25 @@
 //var characters = [];
 // for (var i = 0; i < data.length; i++) {
 //     var characterObj = {};
-//     characterObj.name = data[i].mainName;
-//     characterObj.class = data[i].mainClass;
-//     characterObj.portrait = data[i].mainPortrait;
+//     characterObj.name = data[i].Main.mainName;
+//     characterObj.class = data[i].Main.mainClass;
+//     characterObj.portrait = data[i].Main.mainPortrait;
 //     characterObj.stats = [{
 //         statName: "hp",
-//         value: data[i].mainHp
+//         value: data[i].Main.mainHp
 //     }, {
 //         statName: "strength",
-//         value: data[i].mainStr
+//         value: data[i].Main.mainStr
 //     }, {
 //         statName: "defense",
-//         value: data[i].mainDef
+//         value: data[i].Main.mainDef
 //     }, {
 //         statName: "speed",
-//         value: data[i].mainSpd
+//         value: data[i].Main.mainSpd
 //     }];
 //     characterObj.colors = {};
-//     characterObj.colors.dark = data[i].colorDark;
-//     characterObj.colors.light = data[i].colorLight;
+//     characterObj.colors.dark = data[i].Main.colorDark;
+//     characterObj.colors.light = data[i].Main.colorLight;
 //     characters.push(characterObj); 
 // }
 
@@ -228,24 +228,27 @@ $(document).ready(function () {
     characterDisplay();
 
     // change modal text on character select page based on stats
-    // function checkStats(){
-    //     if(statPoints === 10){
-    //         $("#modaltext").text("Please distribute all 10 stat points!");
-    //         $(".confirm").hide();
-    //         $(".cancel").text("CONTINUE");
-    //         $(".cancel").css({
-    //             border: "0",
-    //             width: "30%",
-    //             "text-align": "center",
-    //             color: "white",
-    //             "border-radius": "20px",
-    //             "font-weight": "500",
-    //             padding: "10px 0",
-    //             background: "linear-gradient(#94263a, #d24d5f)"});
-    //     } else {
-    //         $("#modaltext").text("Are you sure you wish to continue with this class?");   
-    //     }
-    // }
+    $(".select-character").on("click", function () {
+        if (statPoints > 0 && statPoints <= 10) {
+            $("#modaltext").text("Please distribute all 10 stat points!");
+            $(".confirm").hide();
+            $(".cancel").text("CONTINUE");
+            $(".cancel").css({
+                border: "0",
+                width: "30%",
+                "text-align": "center",
+                color: "white",
+                "border-radius": "20px",
+                "font-weight": "500",
+                padding: "10px 0",
+                background: "linear-gradient(#94263a, #d24d5f)"
+            });
+        } else {
+            $("#modaltext").text("Are you sure you wish to continue with this class?");
+            $(".confirm").show();
+            $(".cancel").text("Cancel");
+        }
+    });
     // checkStats();
 
     //toggle between characters

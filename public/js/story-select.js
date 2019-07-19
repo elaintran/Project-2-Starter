@@ -1,7 +1,11 @@
 $(document).ready(function () {
     var userId;
     var userCharacter = [];
+    var chapters = [];
     var h = 220;
+    var chapterSelect;
+    var chapterImg;
+    var chapterUnlock = true;
 
     $.get("api/userdata").then(function (data) {
         userId = data.userId;
@@ -36,37 +40,18 @@ $(document).ready(function () {
         });
     }
 
-    var chapters = [
-        {
-            name: "Chapter 1:",
-            subtitle: "Into the Unknown",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-forest-entrance.jpg",
-            complete: true
-        }, {
-            name: "Chapter 2:",
-            subtitle: "We Meet Again",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-forest.jpg",
-            complete: false
-        }, {
-            name: "Chapter 3:",
-            subtitle: "Here Comes the King",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-castle.jpg",
-            complete: false
-        }, {
-            name: "Chapter 4:",
-            subtitle: "A New King",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus cupiditate autem ex dolores id! Corrupti voluptatem placeat sunt recusandae aliquid eligendi ratione necessitatibus adipisci ab mollitia.",
-            previewImg: "images/resource-images/encounter/bg-forest.jpg",
-            complete: false
+    $.get("api/chapter").then(function(data) {
+        for (var i = 0; i < data.length; i++) {
+            var chapterObj = {};
+            chapterObj.name = data[i].chapterName;
+            chapterObj.subtitle = data[i].chapterSubtitle;
+            chapterObj.description = data[i].chapterDescription;
+            chapterObj.previewImg = data[i].chapterImg;
+            chapterObj.complete = data[i].chapterComplete;
+            chapters.push(chapterObj);
         }
-    ];
-
-    var chapterSelect;
-    var chapterImg;
-    var chapterUnlock = true;
+        chapterDisplay();
+    });
 
     function chapterDisplay() {
         for (var i = 0; i < chapters.length; i++) {
@@ -91,7 +76,6 @@ $(document).ready(function () {
             $(".chapter-list").append(col);
         }
     }
-    chapterDisplay();
 
     function flagDisplay(chapterStatus, color) {
         chapterSelect.attr("data-complete", chapterStatus);
@@ -105,7 +89,7 @@ $(document).ready(function () {
         chapterSelect.append(chapterImg).append(flagContainer);
     }
 
-    $(".chapter-select").on("click", function () {
+    $(".chapter-list").on("click", ".chapter-select", function () {
         $(".story").show();
         $(".castle-container").hide();
         $(".select").text("Select");
@@ -128,7 +112,7 @@ $(document).ready(function () {
         $(".story").show();
         $(".castle-container").hide();
         $(".select").text("Select");
-        $(".select").removeAttr("style");
+        $(".select").removeAttr("style").removeAttr("href");
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
@@ -150,7 +134,7 @@ $(document).ready(function () {
             case ("castle"):
                 $(".story").hide();
                 $(".castle-container").show();
-                $(".select").removeAttr("style");
+                $(".select").removeAttr("style").attr("href", "/character");
                 $(".select").text("Change Class");
                 $(".select").css("background-image", "linear-gradient(to right, " + userCharacter[0].colors.dark + ", " + userCharacter[0].colors.light);
                 break;
