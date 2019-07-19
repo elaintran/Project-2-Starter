@@ -153,6 +153,15 @@ form {
    
 }
 
+.error-message {
+  margin-bottom: 12px;
+  text-align: center;
+  background-color: #d04c5e;
+  padding: 7px;
+  display: flex;
+  display: none;
+}
+
 .submit{
   background-image: linear-gradient(to right, #94263a, #d24d5f);
   border: 0;
