@@ -459,4 +459,5 @@ $(document).ready(function () {
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
     //need to display remaining stat points
+    
 });

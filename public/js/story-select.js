@@ -30,6 +30,7 @@ $(document).ready(function () {
             userCharacter.push(characterObj);
             $(".userimage").attr("src", data.Main.mainPortrait);
             $(".user-chibi").attr("src", data.Main.mainChibi);
+            $(".username").text(data.userName);
             $(".select").css("background-image", "linear-gradient(to right, " + data.Main.colorDark + ", " + data.Main.colorLight);
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
         });
