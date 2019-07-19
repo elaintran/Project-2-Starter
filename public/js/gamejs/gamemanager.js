@@ -1,6 +1,7 @@
 //total skill points up for distribution by the player is 10. Each point adds +2 to the character's stats.
 let skillPoints = 10;
 
+
 var enemy;
 let target; // eslint-disable-line no-unused-vars
 
@@ -20,7 +21,8 @@ let chapters = [
   }
 ];
 
-function getChapter() {
+function getChapter(data) {
+  console.log("getChapter: ", data);
   if (chapters[3].complete) {
     chapter = 4;
     console.log("chapter: ", chapter);

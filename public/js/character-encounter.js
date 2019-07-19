@@ -13,7 +13,7 @@ character = {
 character.hp *= 3;
 
 $(document).ready(function () {
-
+    getUserId();
     //loads chapter status and creates designated enemy
     gameManager.setUpFight(chapter);
     // console.log("Enemy creation: " + enemy.hp);
@@ -21,7 +21,7 @@ $(document).ready(function () {
     populateBattle();
     adjustPopupDistance();
     listenForHover();
-    getUserId();
+    
 });
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
@@ -176,12 +176,7 @@ function slideEnemy() { // eslint-disable-line no-unused-vars
 //      DATABASE FUNCTIONS
 //  ==========================
 
-function getUserId() {
-    $.get("/api/userdata").then(function (data) {
-        var userId = data.userId;
-        getUserData(userId);
-    });
-}
+
 function getUserData(Id) {
     $.ajax({
         method: "GET",
@@ -193,8 +188,16 @@ function getUserData(Id) {
         $(".player-sprite").attr("src", userChibi);
         $(".player-portrait").attr("src", userPortrait);
         $(".character-name").text(data.Main.mainClass);
+        getChapter(data);
     });
 }
+function getUserId() {
+    $.get("/api/userdata").then(function (data) {
+        var userId = data.userId;
+        getUserData(userId);
+    });
+}
+
 // loginUser does a post to our "api/login" route and if successful, redirects us the the landing page
 // function putChapterWin() {
 //     function postCharacterData(Id) {

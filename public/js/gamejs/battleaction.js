@@ -164,10 +164,10 @@ let characterAttack = function(grabbedTarget) {
 };
 //********************************************************************************************************** */
 $(document).ready(function() {
-  $.get("/api/userdata").then(function() {
-    var userId = data.userId;
-    gameManager.loadChar(userId);
-  });
+  // $.get("/api/userdata").then(function() {
+  //   var userId = data.userId;
+  //   gameManager.loadChar(userId);
+  // });
 
   gameManager.setUpFight();
   console.log("Enemy Start HP: " + enemy.hp);
