@@ -72,11 +72,21 @@ let gameManager = {// eslint-disable-line no-unused-vars
   //     //whatever happens
   //   });
   // },
-  // loadChar: function() {
-  //   $.get("/character/stats", function(response) {
-  //     //grabs character base stats
-  //   });
-  // },
+  loadChar: function(Id) {
+    //grab the character class and the character chapter status
+    $.ajax({
+      method: "GET",
+      url:`/api/users/${Id}`,
+    }).then(function(data){
+      console.log(data);
+    });
+
+    $.get("/api/userdata").then(function(){
+      var userId = data.userId;
+      this.loadChar(userId);
+    });
+
+  },
   // saveChapt: function() {
   //   //posts chapter data to server. Needs server to put data into the database using sequelize
   //   $.post("/chapter/status", chapter, function(response) {});

@@ -1,68 +1,89 @@
-//STORY PAGE
-//redirect user to CHAPTER SELECT PAGE
-
-//BATTLE ACTION PAGE
-
-//testing code for example html page
-// $(".character-hp").text("Character HP: " + character.hp);
-// $(".character-str").text("Character Str: " + character.str);
-// $(".character-def").text("Character Def: " + character.def);
-// $(".character-spd").text("Character Spd: " + character.spd);
-
-/*End of created for testing purposes: */
-
-//random chance
 var chance;
 var baseDmg;
 var totalDmg;
 var enemyTotalDmg;
 var speed;
+var cap;
+
+character.spd = 50;
+
+let determineCap = function() {
+  if (chapter) {
+    switch (chapter) {
+      case 1:
+        cap = 60;
+        console.log("Cap is " + cap);
+
+        break;
+      case 2:
+        cap = 80;
+        console.log("Cap is " + cap);
+
+        break;
+      case 3:
+        cap = 100;
+        console.log("Cap is " + cap);
+
+        break;
+    }
+  }
+};
+
+let calculateDamage = function() {
+  baseDmg = (character.str + target.bonus).toFixed(0);
+  totalDmg = (baseDmg - (enemy.def / cap) * character.str).toFixed(0);
+};
+
+let checkEnemyHP = function() {
+  if (enemy.hp >= 0) {
+    $(".enemy-stats")
+      .find(".hit-points")
+      .text("HP " + enemy.hp.toFixed(0));
+
+    updateEnemyHealthBar();
+
+    console.log(
+      "Enemy hp when character attacked first and their HP is above zero: " +
+        enemy.hp
+    );
+  }
+};
+
+let doubleHit = function(){
+  speed = ((character.spd - enemy.spd) * 2) / 100;
+  chance = Math.random();
+};
+
+let hitEnemy = function(){
+  enemy.hp -= Math.ceil(totalDmg);
+};
+
+let levelUp = function(){
+  character.hp += 15;
+  character.str += 15;
+  character.def += 15;
+  character.spd += 15;
+};
+
+let calcEnemyDmg = function(){
+  determineCap();
+  let defense = character.def / cap;
+  let totalDef = defense * enemy.str;
+
+  enemyTotalDmg = enemy.str - totalDef;
+};
 
 //Character attack sets the character's total damage based on character strength and enemy defense if they hit using the grabbed target
-let charAtk = function(grabbedTarget) {
-  console.log(
-    "Character Attack function triggered. Grabbed target was: " + grabbedTarget
-  );
-
-  //if target = target clicked:
+let characterAttack = function(grabbedTarget) {
   if (grabbedTarget === target.target) {
-    //if chance falls within the hit chance:
-
-    // console.log(
-    //   "What you rolled: " + chance + "\nHit Chance: " + target.hitChance
-    // );
+    chance = Math.random();
 
     if (chance <= target.hitChance) {
-      //character's base damage will be char strength + target's additional bonus (added dmg for head/ no added dmg for body/legs)
+      determineCap();
+      calculateDamage();
+      hitEnemy();
+      checkEnemyHP();
 
-      baseDmg = (character.str + target.bonus).toFixed(0);
-      let cap;
-      // console.log("Chapter used for cap calculation: " + chapter);
-
-      if (chapter) {
-        switch (chapter) {
-          case 1:
-            cap = 60;
-            console.log("Cap is " + cap);
-
-            break;
-          case 2:
-            cap = 80;
-            console.log("Cap is " + cap);
-
-            break;
-          case 3:
-            cap = 100;
-            console.log("Cap is " + cap);
-
-            break;
-        }
-      }
-
-      totalDmg = (baseDmg - (enemy.def / cap) * character.str).toFixed(0);
-
-      // console.log("Your Character's Total Damage Dealt: " + totalDmg);
-      // console.log("Enemy hp: " + enemy.hp);
     } else {
       //attack missed
       totalDmg = 0;
@@ -70,103 +91,33 @@ let charAtk = function(grabbedTarget) {
       console.log("Attack missed! Base damage was 0.");
     }
   }
-
-  return totalDmg;
 };
-
+//********************************************************************************************************** */
 $(document).ready(function() {
-  //loads any saved chapters
-  // gameManager.loadChapt();
-  //grab character class and chapter number
+  $.get("/api/userdata").then(function() {
+    var userId = data.userId;
+    gameManager.loadChar(userId);
+  });
 
-  //loads character data
-  // gameManager.loadChar();
-
-  //for each attack button (with class "cls-1"):
   $(".cls-1").each(function() {
-    // console.log("Attack button clicked.");
-
     $(this).click(function() {
-      //clicking the target grabs the character"s target and populates the target statistics
       grabbedTarget = $(this)
         .parent()
         .attr("data-target");
-      // console.log("You've clicked on the " + grabbedTarget + " target!");
 
-      //roll die to see if your attack hits (must be lower than target's hit chance)
-      chance = Math.random();
-
-      //creates hit chance based on target you chose
       gameManager.pickTarget(grabbedTarget);
 
-      // console.log("Character speed: " + character.spd);
-      // console.log("Enemy base speed: " + enemy.spd);
-
-      //if both the enemy and character are alive:
       if (character.hp > 0 && enemy.hp > 0) {
-        //if character is faster than enemy:
         if (character.spd > enemy.spd) {
           console.log("Your character attacked first!");
 
-          //calculate total damage character will deal
-          charAtk(grabbedTarget);
+          characterAttack(grabbedTarget);
 
-          //deal damage to enemy
-          enemy.hp -= Math.ceil(totalDmg);
-
-          //if enemy hp is greater than zero, show the enemy HP text and update the health bar
-          if (enemy.hp >= 0) {
-            $(".enemy-stats")
-              .find(".hit-points")
-              .text("HP " + enemy.hp.toFixed(0));
-
-            updateEnemyHealthBar();
-
-            console.log(
-              "Enemy hp when character attacked first and their HP is above zero: " +
-                enemy.hp
-            );
-          }
-
-          // console.log(
-          //   "The enemy took " + totalDmg + "damage in the first attack!");
-
-          // $(".enemy-hp").text("Enemy HP: " + enemy.hp);
-          // $(".enemy-str").text("Enemy Str: " + enemy.str);
-          // $(".enemy-def").text("Enemy Def: " + enemy.def);
-          // $(".enemy-spd").text("Enemy Spd: " + enemy.spd);
-
-          //roll die again to see if your character's speed is high enought to launch a second attack before the enemy attacks
-          chance = Math.random();
-
-          //calculates character's odds of a double attack
-          speed = ((character.spd - enemy.spd) * 2) / 100;
+          doubleHit();
 
           if (chance < speed) {
-            //hit enemy again
-            enemy.hp -= Math.ceil(totalDmg);
-
-            //if enemy hp is not zero, show the enemy text and update health bar
-            if (enemy.hp >= 0) {
-              $(".enemy-stats")
-                .find(".hit-points")
-                .text("HP " + enemy.hp.toFixed(0));
-
-              console.log(
-                "Enemy hp when character attacked two times first and their HP is above zero: " +
-                  enemy.hp
-              );
-
-              updateEnemyHealthBar();
-            }
-            // console.log("The enemy was hit twice!");
-            // console.log("The enemy took an additional " + totalDmg + "damage.");
-            // console.log("Enemy hp: " + enemy.hp);
-
-            // $(".enemy-hp").text("Enemy HP: " + enemy.hp);
-            // $(".enemy-str").text("Enemy Str: " + enemy.str);
-            // $(".enemy-def").text("Enemy Def: " + enemy.def);
-            // $(".enemy-spd").text("Enemy Spd: " + enemy.spd);
+            hitEnemy();
+            checkEnemyHP();
           }
 
           //if enemy health falls below zero:
@@ -183,6 +134,9 @@ $(document).ready(function() {
             console.log("You defeated the enemy!");
 
             chapter += 1;
+
+            levelUp();
+
 
             //if you're still on stage 1 or 2
             if (chapter < 3) {
@@ -203,8 +157,7 @@ $(document).ready(function() {
           } else {
             //if enemy is not dead, enemy attacks after you attack
 
-            //calculates enemy total damage based on enemy strength and character defense
-            enemyTotalDmg = enemy.str - character.def;
+            calcEnemyDmg();
 
             //deals damage to character
             character.hp -= Math.ceil(enemyTotalDmg);
@@ -246,37 +199,8 @@ $(document).ready(function() {
         } else {
           //if character speed < enemy speed, the enemy attacks first
           console.log("The enemy attacked first.");
-
-          //set cap to use in defense calculation (based on chapter)
-          let cap;
-
-          // console.log("Chapter used for cap calculation: " + chapter);
-
-          if (chapter) {
-            switch (chapter) {
-              case 1:
-                cap = 60;
-                console.log("Cap is " + cap);
-
-                break;
-              case 2:
-                cap = 80;
-                console.log("Cap is " + cap);
-
-                break;
-              case 3:
-                cap = 100;
-                console.log("Cap is " + cap);
-
-                break;
-            }
-          }
-
           //calculates enemy total damage
-          let defense = character.def / cap;
-          let totalDef = defense * enemy.str;
-
-          enemyTotalDmg = enemy.str - totalDef;
+          calcEnemyDmg();
 
           // console.log("Character defense: " + defense);
           // console.log("Character total defense: " + totalDef);
@@ -321,10 +245,10 @@ $(document).ready(function() {
             console.log("Character attacked second.");
 
             //calculate damage
-            charAtk(grabbedTarget);
+            characterAttack(grabbedTarget);
 
             //deal damage
-            enemy.hp -= Math.ceil(totalDmg);
+            hitEnemy();
 
             //if enemy is alive show enemy hp text and update hp bar
             if (enemy.hp >= 0) {
@@ -423,7 +347,3 @@ $(document).ready(function() {
   });
 });
 
-//POINT DISTRIBUTION PAGE
-//CHAPTER SELECT PAGE
-//BATTLE ACTION PAGE
-//WINNER'S PAGE
