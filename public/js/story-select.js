@@ -112,7 +112,7 @@ $(document).ready(function () {
         $(".story").show();
         $(".castle-container").hide();
         $(".select").text("Select");
-        $(".select").removeAttr("style");
+        $(".select").removeAttr("style").removeAttr("href");
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
