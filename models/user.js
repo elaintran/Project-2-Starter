@@ -46,7 +46,6 @@ module.exports = function (sequelize, DataTypes) {
 
     User.associate = function (models) {
         User.belongsTo(models.Main, {
-            through: "userMain",
             foreignKey: "userSelection"
         });
     };

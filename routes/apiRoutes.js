@@ -23,13 +23,14 @@ module.exports = function (app) {
     });
 
     app.put("/api/users/:id", (req, res) => {
+        console.log(req.user);
         db.User.update(req.body, {
-                where: {
-                    userSelection: req.user.userSelection
-                }
-            }).then(function (dbUser) {
-                res.json(dbUser);
-            });
+            where: {
+                id: req.user.id
+            }
+        }).then(function (dbUser) {
+            res.json(dbUser);
+        });
     });
 
     //i want this route to update the main character of the user

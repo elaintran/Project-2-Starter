@@ -228,25 +228,25 @@ $(document).ready(function () {
     characterDisplay();
 
     // change modal text on character select page based on stats
-    function checkStats(){
-        if(statPoints === 10){
-            $("#modaltext").text("Please distribute all 10 stat points!");
-            $(".confirm").hide();
-            $(".cancel").text("CONTINUE");
-            $(".cancel").css({
-                border: "0",
-                width: "30%",
-                "text-align": "center",
-                color: "white",
-                "border-radius": "20px",
-                "font-weight": "500",
-                padding: "10px 0",
-                background: "linear-gradient(#94263a, #d24d5f)"});
-        } else {
-            $("#modaltext").text("Are you sure you wish to continue with this class?");   
-        }
-    }
-    checkStats();
+    // function checkStats(){
+    //     if(statPoints === 10){
+    //         $("#modaltext").text("Please distribute all 10 stat points!");
+    //         $(".confirm").hide();
+    //         $(".cancel").text("CONTINUE");
+    //         $(".cancel").css({
+    //             border: "0",
+    //             width: "30%",
+    //             "text-align": "center",
+    //             color: "white",
+    //             "border-radius": "20px",
+    //             "font-weight": "500",
+    //             padding: "10px 0",
+    //             background: "linear-gradient(#94263a, #d24d5f)"});
+    //     } else {
+    //         $("#modaltext").text("Are you sure you wish to continue with this class?");   
+    //     }
+    // }
+    // checkStats();
 
     //toggle between characters
     $(".character-container").on("click", function () {
@@ -459,5 +459,5 @@ $(document).ready(function () {
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
     //need to display remaining stat points
-    
+
 });
