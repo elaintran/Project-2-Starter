@@ -24,49 +24,7 @@ $(document).ready(function () {
 
 });
 
-var player = [ // eslint-disable-line no-unused-vars
-    {
-        name: "Swordmaster",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/fighter-red-portrait.png",
-        sprite: "./images/resource-images/chibi/fighter-sword-red.png"
-    }, {
-        name: "Lance Fighter",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/fighter-blue-portrait.png",
-        sprite: "./images/resource-images/chibi/fighter-lance-blue.png"
-    }, {
-        name: "Axe Fighter",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/fighter-green-portrait.png",
-        sprite: "./images/resource-images/chibi/fighter-axe-green.png"
-    }, {
-        name: "Bow Fighter",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/fighter-purple-portrait.png",
-        sprite: "./images/resource-images/chibi/fighter-bow-purple.png"
-    }, {
-        name: "Red Mage",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/mage-red-portrait.png",
-        sprite: "./images/resource-images/chibi/mage-red.png"
-    }, {
-        name: "Manakete",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/manakete-blue-portrait.png",
-        sprite: "./images/resource-images/chibi/manakete-blue.png"
-    }, {
-        name: "Knight",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/knight-green-portrait.png",
-        sprite: "./images/resource-images/chibi/knight-axe-green.png"
-    }, {
-        name: "Thief",
-        hp: 99,
-        portrait: "./images/resource-images/encounter/thief-purple-portrait.png",
-        sprite: "./images/resource-images/chibi/thief-purple.png"
-    }
-];
+
 
 
 
@@ -208,7 +166,7 @@ function adjustPopupDistance() {
     }
 }
 
-function animateEntrance() {
+function animateEntrance() { // eslint-disable-line no-unused-vars
     $(".player-sprite").css({ left: "-50vw" });
     $(".player-stats").css({ top: "-10vw" });
     $(".enemy-stats").css({ top: "-10vw" });
