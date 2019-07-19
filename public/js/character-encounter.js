@@ -96,13 +96,13 @@ function enemyStrike() { // eslint-disable-line no-unused-vars
     $("div.enemy-sprite").animate({"right": "-=3vw" }, 300);
 }
 
-function shakePlayer(dmg) { // eslint-disable-line no-unused-vars
+function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
     let d = $(".player-damage");
     let p = $(".player-sprite");
     // shake character
     p.effect("shake", { distance: 10 }, 300);
     // update damage number value
-    d.text(dmg);
+    d.text(enemyTotalDmg);
     // reset damage number
     d.css({ 
         "top": 0,
@@ -115,12 +115,12 @@ function shakePlayer(dmg) { // eslint-disable-line no-unused-vars
     }, 1000, "easeOutCirc");
 }
 
-function shakeEnemy(dmg) { // eslint-disable-line no-unused-vars
+function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
     let d = $(".enemy-damage");
     let e = $("div.enemy-sprite");
     $("#enemy-image > image").attr("xlink:href", displayEnemy[chapter - 1].altSprite);
     e.effect("shake", { distance: 10 }, 300);
-    d.text(dmg);
+    d.text(totalDmg);
     d.css({ 
         "top": 0,
         "opacity": 1 
