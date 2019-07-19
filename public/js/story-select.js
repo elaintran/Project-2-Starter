@@ -3,13 +3,13 @@ $(document).ready(function () {
     var userCharacter = [];
     var h = 220;
 
-    $.get("api/userdata").then(function(data) {
+    $.get("api/userdata").then(function (data) {
         userId = data.userId;
         userChoice(userId);
     });
 
     function userChoice(userId) {
-        $.get("api/users/" + userId).then(function(data) {
+        $.get("api/users/" + userId).then(function (data) {
             var characterObj = {};
             characterObj.stats = [{
                 statName: "hp",
@@ -163,7 +163,7 @@ $(document).ready(function () {
     function statsDisplay(characterStats, firstStop, secondStop) {
         //creates a svg and appends to character stats
         var svg = d3.select(".character-stats").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 " + 350 + " " + h);
+            .attr("viewBox", "0 0 " + 350 + " " + h);
         //defs store graphical objects at a later time and are not rendered
         var svgDefs = svg.append("defs");
         //creates a linear gradient container
@@ -239,4 +239,12 @@ $(document).ready(function () {
                 return i * 55 + 20;
             });
     }
+
+
+    function getUserId() {
+        $.get("/api/userdata").then(function (data) {
+            console.log(data);
+        });
+    }
+    getUserId();
 });

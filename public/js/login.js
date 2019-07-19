@@ -27,10 +27,13 @@ $(document).ready(function () {
         $.post("/api/login", {
             userEmail: userEmail,
             userPassword: userPassword
-        }).then(function () {
+        }).done(function () {
             console.log("before replace");
             window.location.replace("/character");
             console.log("after replace");
+        }).fail(function (err) {
+            console.log(err);
+            $("input").css("border", "1px solid red");
         });
     }
 });
