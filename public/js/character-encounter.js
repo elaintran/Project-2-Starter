@@ -13,15 +13,15 @@ character = {
 character.hp *= 3;
 
 $(document).ready(function () {
-
+    getUserId();
     //loads chapter status and creates designated enemy
-    gameManager.setUpFight(chapter);
+    
     // console.log("Enemy creation: " + enemy.hp);
     // animateEntrance();
-    populateBattle();
     adjustPopupDistance();
+    listenForHover();
     
-
+    
 });
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
@@ -72,6 +72,9 @@ function adjustPopupDistance() {
     }
 }
 
+//  ============================
+//      CHARACTER ANIMATIONS
+//  ============================
 function animateEntrance() { // eslint-disable-line no-unused-vars
     $(".player-sprite").css({ left: "-50vw" });
     $(".player-stats").css({ top: "-10vw" });
@@ -93,32 +96,38 @@ function enemyStrike() { // eslint-disable-line no-unused-vars
     $("div.enemy-sprite").animate({"right": "-=3vw" }, 300);
 }
 
-function shakePlayer(dmg) { // eslint-disable-line no-unused-vars
+function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
     let d = $(".player-damage");
     let p = $(".player-sprite");
+    // shake character
     p.effect("shake", { distance: 10 }, 300);
-    d.text(dmg);
+    // update damage number value
+    d.text(enemyTotalDmg);
+    // reset damage number
     d.css({ 
         "top": 0,
         "opacity": 1 
     });
-    
+    // slide damage number up and fade out
     d.animate({
         "top": "-=7vw",
         "opacity": 0
     }, 1000, "easeOutCirc");
 }
 
-function shakeEnemy(dmg) { // eslint-disable-line no-unused-vars
+function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
     let d = $(".enemy-damage");
     let e = $("div.enemy-sprite");
+    $("#enemy-image > image").attr("xlink:href", displayEnemy[chapter - 1].altSprite);
     e.effect("shake", { distance: 10 }, 300);
-    d.text(dmg);
+    d.text(totalDmg);
     d.css({ 
         "top": 0,
         "opacity": 1 
     });
-    
+    setTimeout(function() {
+        $("#enemy-image > image").attr("xlink:href", displayEnemy[chapter - 1].origSprite);
+    }, 300);
     d.animate({
         "top": "-=7vw",
         "opacity": 0
@@ -163,27 +172,34 @@ function slideEnemy() { // eslint-disable-line no-unused-vars
     e.animate({"right": "+=4vw" }, 800);
 }
 
+//  ==========================
+//      DATABASE FUNCTIONS
+//  ==========================
 
 
+function getUserData(Id) {
+    $.ajax({
+        method: "GET",
+        url: `/api/users/${Id}`
+    }).then(function (data) {
+        // debugger;
+        console.log("data: ", data);
+        var userChibi = data.Main.mainChibi;
+        var userPortrait = data.Main.mainPortrait;
+        $(".player-sprite").attr("src", userChibi);
+        $(".player-portrait").attr("src", userPortrait);
+        $(".character-name").text(data.Main.mainClass);
+        getChapter(data);
+        console.log("getChapter ran");
+    });
+}
 function getUserId() {
     $.get("/api/userdata").then(function (data) {
         var userId = data.userId;
         getUserData(userId);
     });
 }
-function getUserData(Id) {
-    $.ajax({
-        method: "GET",
-        url: `/api/users/${Id}`
-    }).then(function (data) {
-        console.log(data);
-        var userChibi = data.Main.mainChibi;
-        var userPortrait = data.Main.mainPortrait;
-        $(".player-sprite").attr("src", userChibi);
-        $(".player-portrait").attr("src", userPortrait);
-        $(".character-name").text(data.Main.mainClass);
-    });
-}
+
 // loginUser does a post to our "api/login" route and if successful, redirects us the the landing page
 // function putChapterWin() {
 //     function postCharacterData(Id) {
@@ -206,8 +222,3 @@ function getUserData(Id) {
 //     gatherUserId();
 // }
 
-$(document).ready(function () {
-    // animateEntrance();
-    listenForHover();
-    getUserId();
-});

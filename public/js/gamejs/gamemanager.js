@@ -1,49 +1,56 @@
 //total skill points up for distribution by the player is 10. Each point adds +2 to the character's stats.
 let skillPoints = 10;
 
-var enemy;
+
+let enemy;
 let target; // eslint-disable-line no-unused-vars
 let openingScene = false; // eslint-disable-line no-unused-vars
 let animationsTimer = false; // eslint-disable-line no-unused-vars
-
+// let chapter;
 
 // dummy code for simulating json response with chapter data
-let chapters = [
-  {
-    complete: true
-  },{
-    complete: false
-  },{
-    complete: false
-  },{
-    complete: false
-  }
-];
+// let chapters = [
+//   {
+//     complete: true
+//   },{
+//     complete: false
+//   },{
+//     complete: false
+//   },{
+//     complete: false
+//   }
+// ];
 
-function getChapter() {
-  if (chapters[3].complete) {
+function getChapter(data) { // eslint-disable-line no-unused-vars
+  console.log("getChapter: ", data);
+  if (data.chapterFour) {
     chapter = 4;
     console.log("chapter: ", chapter);
-    return chapter;
-  } else if (chapters[2].complete) {
+    // return chapter;
+  } else if (data.chapterThree) {
     chapter = 3;
     console.log("chapter: ", chapter);
-    return chapter;
-  } else if (chapters[1].complete) {
+    // return chapter;
+  } else if (data.chapterTwo) {
     chapter = 2;
     console.log("chapter: ", chapter);
-    return chapter;
-  } else if (chapters[0].complete) {
+    // return chapter;
+  } else if (data.chapterOne) {
     chapter = 1;
     console.log("chapter: ", chapter);
-    return chapter;
+    // return chapter;
   } else {
     chapter = 1;
     console.log("chapter defaulting to: ", chapter);
-    return chapter = 1;
+    // return chapter = 1;
   }
+
+  gameManager.setUpFight(chapter);
+  console.log("gameManager: ", openingScene);
+  populateBattle();
+  setTimeout(checker, 6000);
 }
-getChapter();
+// getChapter();
 
 var player = [ // eslint-disable-line no-unused-vars
   {
@@ -96,7 +103,7 @@ var enemies = [
       </defs>
       <title>bandit</title>
       <g id="Layer2" data-name="Layer 2">
-          <g id="bandit">
+          <g id="enemy-image">
               <image width="137" height="169" xlink:href="./images/resource-images/chibi/ogma.png"/>
           </g>
           <g id="bandit_legs" data-target="legs">
@@ -116,7 +123,7 @@ var enemies = [
       </defs>
       <title>black-knight</title>
       <g id="Layer2" data-name="Layer 2">
-          <g id="black_knight">
+          <g id="enemy-image">
               <image width="166" height="180" xlink:href="./images/resource-images/chibi/black-knight.png"/>
           </g>
           <g id="black_knight_legs" data-target="legs">
@@ -136,7 +143,7 @@ var enemies = [
       </defs>
       <title>dragon-king</title>
       <g id="Layer2" data-name="Layer 2">
-          <g id="dragon">
+          <g id="enemy-image">
               <image width="454" height="446" xlink:href="./images/resource-images/chibi/dragon-king.png"/>
           </g>
           <g id="dragon_legs" data-target="legs">
@@ -154,20 +161,26 @@ var enemies = [
 
 var displayEnemy = [
   {
-      name: "Blue Mage",
+      name: "Bandit",
       hp: 100,
       portrait: "./images/resource-images/encounter/enemy-bandit-portrait.png",
-      sprite: enemies[0]
+      sprite: enemies[0],
+      altSprite: "./images/resource-images/chibi/ogma2.png",
+      origSprite: "./images/resource-images/chibi/ogma.png"
   }, {
-      name: "Red Knight",
+      name: "Black Knight",
       hp: 200,
       portrait: "./images/resource-images/encounter/enemy-black-knight-portrait.png",
-      sprite: enemies[1]
+      sprite: enemies[1],
+      altSprite: "./images/resource-images/chibi/black-knight.png",
+      origSprite: "./images/resource-images/chibi/black-knight.png"
   }, {
       name: "Dragon King",
       hp: 400,
       portrait: "./images/resource-images/encounter/dragon-king-portrait.png",
-      sprite: enemies[2]
+      sprite: enemies[2],
+      altSprite: "./images/resource-images/chibi/dragon-king2.png",
+      origSprite: "./images/resource-images/chibi/dragon-king.png"
   }
 ];
 
@@ -196,7 +209,7 @@ function Target(target, hitChance, bonus, reduceSpd) {
   this.reduceSpd = reduceSpd;
 }
 
-let gameManager = {// eslint-disable-line no-unused-vars
+let gameManager = { // eslint-disable-line no-unused-vars
   
   charSelect: function(classType) {
     this.createChar(classType);
@@ -422,6 +435,9 @@ let gameManager = {// eslint-disable-line no-unused-vars
         break;
     }
 
+    console.log("Enemy Start HP: " + enemy.hp);
+    console.log("Enemy Start SPD: " + enemy.spd);
+
     // $(".enemy-hp").text("Enemy HP: " + enemy.hp);
     // $(".enemy-str").text("Enemy Str: " + enemy.str);
     // $(".enemy-def").text("Enemy Def: " + enemy.def);
@@ -455,7 +471,8 @@ let gameManager = {// eslint-disable-line no-unused-vars
   },
   animations: function(){
     console.log("Animations timer is currently " + animationsTimer);
-    setTimeout(this.animate, 1000);
+    // setTimeout(this.animate, 1000);
+    this.animate();
   },
   animate: function(){
     animationsTimer = true;
@@ -472,7 +489,7 @@ function populateBattle() { // eslint-disable-line no-unused-vars
     // display correct player name
     $(".character-name").text(player.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp / 3).toFixed(0));
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
@@ -526,6 +543,9 @@ function toggleWinLoseModals(state) { // eslint-disable-line no-unused-vars
     setTimeout(function() {
       $("#loseModal").modal("show");
     }, 2000);
+    setTimeout(function() {
+      window.location.assign("/world"); // redirects without replacing current page.
+    }, 6000);
   }
   
 }
