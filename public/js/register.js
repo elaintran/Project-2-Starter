@@ -31,6 +31,10 @@ $(document).ready(function () {
             userPassword: userPassword
         }).then(function () {
             window.location.replace("/character");
+        }).fail(function (err) {
+            console.log(err);
+            $(".error-message").css("display", "flex");
+            $("#userpassword").css("border", "1px solid #eb5b64");
         });
     }
 });
