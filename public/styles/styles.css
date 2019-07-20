@@ -286,6 +286,76 @@ p {
     margin: 0 0.5vw;
 }
 
+/*
+  ============================
+  DROPDOWN STYLING WORLD
+  ============================
+*/
+
+.user-toggle {
+    position: absolute;
+    top: 2.5vw;
+    right: calc(3rem + 30px);
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    font-size: 1.2vw;
+}
+
+.dropdown-toggle:hover {
+    text-decoration: none;
+}
+
+.dropdown-toggle::after {
+    content: "\f0d7";
+    margin-left: 0.7vw;
+    border: 0;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    color: #e8c892;
+}
+
+.userimage {
+    margin-right: 10px;
+    border: 1px solid #c1b69d;
+    border-radius: 50%;
+    width: 3.5vw;
+    background-color: #c1b69d;
+}
+
+.username {
+    font-size: 1.3vw;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #e8c892;
+}
+
+.dropdown-menu {
+    margin-left: 4vw;
+    border: 0;
+    max-width: auto;
+    min-width: auto;
+    padding: 0.8vw 0;
+    background-color: #292929;
+}
+
+.dropdown-item {
+    font-size: 1vw;
+    font-weight: 500;
+    color: #bcbcbc;
+}
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
+    background-color: #222222;
+    color: #bcbcbc;
+} 
+
+.pull-left {
+    margin-right: 0.5vw;
+}
+
 /*  
   ============================
   STORY SELECT STYLING
@@ -952,74 +1022,6 @@ svg.enemy-sprite:hover {
 .backtohome{
   padding-top:2%;
   text-align: center;
-}
-
-/*
-  ============================
-  DROPDOWN STYLING WORLD
-  ============================
-*/
-
-.user-toggle {
-  position: absolute;
-  top: 2.5vw;
-  right: calc(3rem + 30px);
-}
-
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  font-size: 1.2vw;
-}
-
-.dropdown-toggle:hover {
-  text-decoration: none;
-}
-
-.dropdown-toggle::after {
-  content: "\f0d7";
-  margin-left: 0.5vw;
-  border: 0;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 600;
-  color: #e8c892;
-}
-
-.userimage {
-  margin-right: 10px;
-  border: 1px solid #c1b69d;
-  border-radius: 50%;
-  width: 3.5vw;
-}
-
-.username {
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: #e8c892;
-}
-
-.dropdown-menu {
-  margin-left: 4vw;
-  border: 0;
-  max-width: auto;
-  min-width: auto;
-  padding: 0.8vw 0;
-  background-color: #292929;
-}
-
-.dropdown-item {
-  font-size: 1vw;
-  font-weight: 500;
-  color: #bcbcbc;
-}
-
-.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
-  background-color: #222222;
-  color: #bcbcbc;
-} 
-
-.pull-left {
-  margin-right: 0.5vw;
 }
 
 /*
