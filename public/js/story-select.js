@@ -135,10 +135,10 @@ $(document).ready(function () {
 
     //display chapter information when clicking on the preview
     $(".chapter-list").on("click", ".chapter-select", function () {
-        resetDisplay();
         //display selected chapter information
         for (var i = 0; i < chapters.length; i++) {
             if (+$(this).attr("data-chapter") === i + 1 && $(this).attr("data-complete") !== "locked") {
+                resetDisplay();
                 $(".chapter-number").text(chapters[i].name);
                 $(".chapter-subtitle").text(chapters[i].subtitle);
                 $(".chapter-description").text(chapters[i].description);
