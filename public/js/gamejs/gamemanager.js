@@ -50,6 +50,23 @@ function getChapter(data) { // eslint-disable-line no-unused-vars
   populateBattle();
   setTimeout(checker, 6000);
 }
+
+let updateChapter = function(chapter) { // eslint-disable-line no-unused-vars
+  switch (chapter) {
+    case "4":
+      data,chapterFour = true;
+      break;
+    case "3":
+      data,chapterThree = true;
+      break;
+    case "2":
+      data,chapterTwo = true;
+      break;
+    default:
+      data.chapterOne = true;
+      break;
+  }
+};
 // getChapter();
 
 var player = [ // eslint-disable-line no-unused-vars

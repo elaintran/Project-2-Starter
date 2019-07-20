@@ -91,8 +91,6 @@ let enemyDead = function() {
 
     chapter += 1;
 
-    
-
     levelUp();
 
     if (chapter < 3) {
@@ -105,7 +103,7 @@ let enemyDead = function() {
     }
 
     // call PUT to update database with chapter here
-    // updateChapter();
+    // updateChapter(chapter);
   }
 };
 
