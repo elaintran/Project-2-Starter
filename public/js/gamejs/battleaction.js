@@ -91,6 +91,8 @@ let enemyDead = function() {
 
     chapter += 1;
 
+    
+
     levelUp();
 
     if (chapter < 3) {
@@ -101,6 +103,9 @@ let enemyDead = function() {
       console.log("You've completed all the chapters and beaten the game!");
       console.log("Chapter:" + chapter);
     }
+
+    // call PUT to update database with chapter here
+    // updateChapter();
   }
 };
 
