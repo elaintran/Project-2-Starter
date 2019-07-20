@@ -51,7 +51,7 @@ $(document).ready(function () {
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
 
             //get chapter status from user
-
+            console.log(data);
             if (data.chapterOne === true) {
                 console.log("chapter one is completed");
                 $(".chapter-select.1").attr("data-complete", "New");

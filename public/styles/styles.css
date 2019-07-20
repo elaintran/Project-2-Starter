@@ -34,7 +34,7 @@ a, a:hover, a:focus {
     cursor: pointer;
 }
 
-button:focus, input:focus {
+button:focus, input:focus, .dropdown-toggle:focus {
     outline: none;
 }
 
@@ -160,18 +160,11 @@ form {
 */
 
 /* Grouping Font Size and Values */
-/* .character-info h5, .character-info p, .select-character {
-    font-weight: 600;
-}
-
+/*
 h5 {
     font-size: 2vw;
 }
-
-p {
-    font-size: 0.9vw;
-    letter-spacing: 1px;
-} */
+ */
 
 .select-screen {
     position: relative;
@@ -302,17 +295,17 @@ p {
     right: calc(3rem + 30px);
 }
 
-.dropdown-toggle {
+.user-toggle .dropdown-toggle {
     display: flex;
     align-items: center;
     font-size: 1.2vw;
 }
 
-.dropdown-toggle:hover {
+.user-toggle .dropdown-toggle:hover {
     text-decoration: none;
 }
 
-.dropdown-toggle::after {
+.user-toggle .dropdown-toggle::after {
     content: "\f0d7";
     margin-left: 0.7vw;
     border: 0;
@@ -320,6 +313,27 @@ p {
     font-weight: 600;
     color: #e8c892;
 }
+
+.user-toggle .dropdown-menu {
+    /* margin-left: 4vw; */
+    border: 0;
+    max-width: auto;
+    min-width: auto;
+    padding: 0.8vw 0;
+    background-color: #292929;
+}
+
+.user-toggle .dropdown-item {
+    display: flex;
+    font-size: 1vw;
+    font-weight: 500;
+    color: #bcbcbc;
+}
+
+.user-toggle .dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
+    background-color: #222222;
+    color: #bcbcbc;
+} 
 
 .userimage {
     margin-right: 10px;
@@ -335,26 +349,6 @@ p {
     letter-spacing: 0.5px;
     color: #e8c892;
 }
-
-.dropdown-menu {
-    margin-left: 4vw;
-    border: 0;
-    max-width: auto;
-    min-width: auto;
-    padding: 0.8vw 0;
-    background-color: #292929;
-}
-
-.dropdown-item {
-    font-size: 1vw;
-    font-weight: 500;
-    color: #bcbcbc;
-}
-
-.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
-    background-color: #222222;
-    color: #bcbcbc;
-} 
 
 .pull-left {
     margin-right: 0.5vw;
@@ -478,6 +472,7 @@ p {
     margin-bottom: 5%;
     height: 8vw;
     font-size: 1vw;
+    font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.05vw;
     overflow: auto;
