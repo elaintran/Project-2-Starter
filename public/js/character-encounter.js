@@ -191,6 +191,8 @@ function getUserData(Id) {
         $(".character-name").text(data.Main.mainClass);
         getChapter(data);
         console.log("getChapter ran");
+        var playerID = data.Main.id;
+        console.log("id: ", playerID);
     });
 }
 function getUserId() {
@@ -206,7 +208,7 @@ function getUserId() {
 //         $.ajax({
 //             method: "PUT",
 //             url: `/api/users/${Id}`,
-//             data: userData
+//             data: Main.id
 //         }).then(function () {
 //             window.location.href = "/world";
 //         });
