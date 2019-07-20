@@ -42,15 +42,10 @@ $(document).ready(function () {
             userPassword: userPassword
         }).done(function () {
             window.location.replace("/character");
-<<<<<<< HEAD
-        }).fail(function () {
-            console.log("error has occured");
-=======
         }).fail(function (err) {
             console.log(err);
             $(".error-message").css("display", "flex");
             $("#userpassword").css("border", "1px solid #eb5b64");
->>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
         });
     }
 });

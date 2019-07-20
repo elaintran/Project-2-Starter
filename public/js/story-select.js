@@ -13,13 +13,9 @@ var chapterImg;
 //check which chapter is new from the incomplete chapters
 var chapterUnlock = true;
 
-<<<<<<< HEAD
-    $.get("api/userdata").then(function (data) {
-=======
 $(document).ready(function () {
     //get request for user id from api
-    $.get("api/userdata").then(function(data) {
->>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
+    $.get("api/userdata").then(function (data) {
         userId = data.userId;
         userChoice(userId);
     });
@@ -52,11 +48,38 @@ $(document).ready(function () {
             $(".select").css("background-image", "linear-gradient(to right, " + data.Main.colorDark + ", " + data.Main.colorLight);
             //display stats on page
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
+
+            //get chapter status from user
+
+            if (data.chapterOne === true) {
+                console.log("chapter one is completed");
+                $(".chapter-select.1").attr("data-complete", "New");
+                $(".chapter-select.1 > .overlay").remove();
+            }
+            if (data.chapterTwo === true) {
+                console.log("chapter two is completed");
+                $(".chapter-select.2").attr("data-complete", "New");
+                $(".chapter-select.2 > .overlay").remove();
+            }
+            if (data.chapterThree === true) {
+                console.log("chapter three is completed");
+                $(".chapter-select.3").attr("data-complete", "New");
+                $(".chapter-select.3 > .overlay").remove();
+            }
+            if (data.chapterFour === true) {
+                console.log("chapter four is completed");
+                $(".chapter-select.4").attr("data-complete", "New");
+                $(".chapter-select.4 > .overlay").remove();
+            }
         });
     }
 
+    // function checkChapter(){
+    //     $.get("/")
+    // }
+
     //get request for a list of all of the chapter
-    $.get("api/chapter").then(function(data) {
+    $.get("api/chapter").then(function (data) {
         for (var i = 0; i < data.length; i++) {
             var chapterObj = {};
             chapterObj.name = data[i].chapterName;
@@ -74,19 +97,19 @@ $(document).ready(function () {
         for (var i = 0; i < chapters.length; i++) {
             //append preview images for the chapter
             var col = $("<div>").addClass("col-3");
-            chapterSelect = $("<div>").addClass("chapter-select").attr("data-chapter", i + 1);
+            chapterSelect = $("<div>").addClass("chapter-select " + (i + 1)).attr("data-chapter", i + 1);
             chapterImg = $("<img>").attr("src", chapters[i].previewImg).addClass("image-fit");
             //if chapter is complete, display a flag indicating complete
             if (chapters[i].complete) {
                 flagDisplay("Complete", "#3e62a1");
-            //if chapter is incomplete
+                //if chapter is incomplete
             } else {
                 //unlock the first locked chapter and indicate new playable chapter
                 if (chapterUnlock) {
                     flagDisplay("New", "#b2394c");
                     //restrict unlocking the rest of the chapters
                     chapterUnlock = false;
-                //lock the remaining chapters
+                    //lock the remaining chapters
                 } else {
                     chapterSelect.attr("data-complete", "locked");
                     var overlay = $("<div>").addClass("overlay");
@@ -245,15 +268,6 @@ $(document).ready(function () {
             });
     }
 
-<<<<<<< HEAD
-
-    function getUserId() {
-        $.get("/api/userdata").then(function (data) {
-            console.log(data);
-        });
-    }
-    getUserId();
-=======
     function resetDisplay() {
         //display story container
         $(".story").show();
@@ -264,5 +278,4 @@ $(document).ready(function () {
         //remove gradient from select
         $(".select").removeAttr("style").removeAttr("href");
     }
->>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
 });

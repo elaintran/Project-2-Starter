@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
         userScore: DataTypes.INTEGER,
         chapterOne: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true
+            defaultValue: false
         },
         chapterTwo: {
             type: DataTypes.BOOLEAN,
@@ -36,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         chapterThree: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true
+            defaultValue: false
         },
         chapterFour: {
             type: DataTypes.BOOLEAN,
@@ -44,11 +44,21 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
+    // this works
     User.associate = function (models) {
         User.belongsTo(models.Main, {
             foreignKey: "userSelection"
         });
     };
+
+    // User.associate = function (models) {
+    //     User.belongsToMany(models.Main, {
+    //         through: "userMain",
+    //         as: "mains",
+    //         foreignKey: "userSelection",
+    //         otherKey: "id"
+    //     });
+    // };
 
     User.prototype.validPassword = function (userPassword) {
         return bcrypt.compareSync(userPassword, this.userPassword);

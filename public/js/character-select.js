@@ -10,14 +10,8 @@ var statPoints = 10;
 var statsDis = false;
 
 $(document).ready(function () {
-<<<<<<< HEAD
-    var characters = [];
-    $.get("api/character").then(function (data) {
-        console.log(data);
-=======
     //push all of the character info from database into array
-    $.get("api/character").then(function(data) {
->>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
+    $.get("api/character").then(function (data) {
         for (var i = 0; i < data.length; i++) {
             var characterObj = {};
             characterObj.name = data[i].mainName;
@@ -61,34 +55,6 @@ $(document).ready(function () {
         }
     }
 
-<<<<<<< HEAD
-    // change modal text on character select page based on stats
-    $(".select-character").on("click", function () {
-        if (statPoints > 0 && statPoints <= 10) {
-            $("#modaltext").text("Please distribute all 10 stat points!");
-            $(".confirm").hide();
-            $(".cancel").text("CONTINUE");
-            $(".cancel").css({
-                border: "0",
-                width: "30%",
-                "text-align": "center",
-                color: "white",
-                "border-radius": "20px",
-                "font-weight": "500",
-                padding: "10px 0",
-                background: "linear-gradient(#94263a, #d24d5f)"
-            });
-        } else {
-            $("#modaltext").text("Are you sure you wish to continue with this class?");
-            $(".confirm").show();
-            $(".cancel").text("Cancel");
-            $(".cancel").removeAttr("style");
-        }
-    });
-
-
-=======
->>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
     //toggle between characters
     $(".character-list").on("click", ".character-container", function () {
         for (var i = 0; i < characters.length; i++) {
@@ -288,64 +254,23 @@ $(document).ready(function () {
                 $(".character-stats").empty();
                 //display d3 stats
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light);
-                console.log(newStats);
-<<<<<<< HEAD
-
-                statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
-            }
-        }
-    });
-    //newCharacter array will be sent as a post request once confirmed
-    //display an error message if user tries to submit when there are still remaining stat points
-    //need to display remaining stat points
-
-    $("#confirmCharacter").on("click", function () {
-        var strengthStat = $(".filled").attr("y");
-        var selectedClass = $(this).attr("data-class");
-        var selectedId = $(this).attr("data-id");
-        var selectedName = $(this).attr("data-name");
-        console.log(strengthStat);
-        console.log(selectedClass);
-        console.log(selectedId);
-        console.log(selectedName);
-        // console.log(newStats);
-        var userData = {
-            userSelection: selectedId
-        };
-        console.log("function fired with " + userData);
-
-        postCharacterData(userData.userSelection);
-
-        function postCharacterData(Id) {
-            $.ajax({
-                method: "PUT",
-                url: `/api/users/${Id}`,
-                data: userData
-            }).then(function (data) {
-                console.log(data);
-                // window.location.href = "/world";
-            });
-        }
-
-        function gatherUserId() {
-            $.get("/api/userdata").then(function (data) {
-                console.log(data);
-                var userId = data.userId;
-                postCharacterData(userId);
-            });
-        }
-        gatherUserId();
-    });
-
-=======
+                // console.log(newStats);
+                console.log("hp is: " + newStats[0].value);
+                console.log("str is: " + newStats[1].value);
+                console.log("def is: " + newStats[2].value);
+                console.log("spd is: " + newStats[3].value);
+                $("#confirmCharacter").attr("data-hp", newStats[0].value);
+                $("#confirmCharacter").attr("data-str", newStats[1].value);
+                $("#confirmCharacter").attr("data-def", newStats[2].value);
+                $("#confirmCharacter").attr("data-spd", newStats[3].value);
             }
         }
     });
 
     // change modal text on character select page based on stats
-    $(".select-character").on("click", function() {
+    $(".select-character").on("click", function () {
         //if user still has remaining points to distribute
-        if(statPoints > 0 && statPoints <= 10) {
+        if (statPoints > 0 && statPoints <= 10) {
             $("#modaltext").text("Please distribute all 10 stat points!");
             $(".confirm").hide();
             $(".cancel").text("CONTINUE");
@@ -362,20 +287,19 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
-            $(".cancel").text("Cancel");  
+            $(".cancel").text("Cancel");
             $(".cancel").removeAttr("style");
         }
     });
 
-    $("#selectCharacter").on("click", function () {
-        console.log("this button has been clicked");
-        console.log($(this).attr("data-class"));
-        var newUser = {
-            mainClass: $(this).attr("data-class")
-        };
-        $.post("/api/users", newUser, function () {
-            window.location.href = "/world";
-        });
-    });
->>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
+    // $("#selectCharacter").on("click", function () {
+    //     console.log("this button has been clicked");
+    //     console.log($(this).attr("data-class"));
+    //     var newUser = {
+    //         mainClass: $(this).attr("data-class")
+    //     };
+    //     $.post("/api/users", newUser, function () {
+    //         window.location.href = "/world";
+    //     });
+    // });
 });

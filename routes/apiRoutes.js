@@ -33,6 +33,25 @@ module.exports = function (app) {
         });
     });
 
+    // app.post("/api/users/:id", asyncHandler(async (req, res) => {
+    //     const saveMain = await User.create(req.body, {w:1}, {returning: true});
+
+    //     req.body.Mains.forEach((main) => {
+    //         const main = await Main.findBy(main.id);
+    //         if(!main){
+    //             return res.status(400);
+    //         }
+
+    //         const userMain = {
+    //             mainId: savedMain.id,
+    //             userId: main.id,
+    //             stats: stats.num
+    //         }
+    //         const saved main
+    //     })
+    // )
+    // });
+
     //i want this route to update the main character of the user
     // app.get("/api/users/:id/main", (req, res) => {
     //     console.log(req.params);
