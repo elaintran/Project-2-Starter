@@ -11,6 +11,10 @@ body {
     color: white;
 }
 
+h3 {
+    font-size: 3vw;
+}
+
 h6 {
     font-size: 1.2vw;
 }
@@ -125,7 +129,7 @@ form {
     letter-spacing: 0.2px;
 }
   
-.submit {
+.submit, .submiterror {
     margin-top: 1%;
     padding: 8px 0;
     font-size: 13px;
@@ -991,41 +995,23 @@ svg.enemy-sprite:hover {
   ============================
 */
 
-.errortext{
-  font-size: 10vw;
-  text-align: center;
-  color: #c3b69a;
-}
-.wrong{
-  margin-top: 20px; 
-  font-size: 3vw;
-  font-weight: 600;
-  text-align: center;
-  color: #d7d7d7;
-  
-}
-.errorimage{
-  padding-top: 10%; 
-  text-align: center;
+#error {
+    max-width: 400px;
 }
 
-.submiterror{
-  border: 0;
-  border-radius: 20px;
-  width: 50%;
-  padding: 6px 0;
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
-  font-weight: 500;
-  text-align: center;
-  color: white;
+.wrong {
+    margin: 2vw 0;
+    font-weight: 600;
+    text-align: center;
+    color: #d7d7d7;
 }
 
-.submiterror:focus{
-  outline: none;
+.errorimage img {
+    width: 100%;
 }
-.backtohome{
-  padding-top:2%;
-  text-align: center;
+
+.backtohome {
+    margin-bottom: 2vw;
 }
 
 /*
