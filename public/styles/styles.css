@@ -142,28 +142,27 @@ body {
 
 .login-wrapper {
   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 form {
-  padding-top:1%;
-	width: 300px;
   margin: 0 auto;
-   
+  width: 300px;
+  padding-top:1%;
 }
 
 .error-message {
+  display: none;
   margin-top: 11px;
   margin-bottom: 12px;
-  text-align: center;
-  background-color: #c54e5e;
-  padding: 7px;
-  display: none;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
+  padding: 7px;
+  background-color: #c54e5e;
+  text-align: center;
 }
 
 .error-message i {
@@ -172,12 +171,12 @@ form {
 }
 
 .submit{
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
   border: 0;
-  width: 100%;
-  color: white;
   border-radius: 20px;
+  width: 100%;
   padding: 6px 0;
+  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  color: white;
 }
 .submit:focus{
   outline: none;
@@ -195,17 +194,17 @@ form {
 }
 
 .form-control{
-  background-color: #2d2d2d;
   border:0px;
+  background-color: #2d2d2d;
   color: #6a6a6a
   
 }
 
 .form-control:focus {
-  background-color: #2d2d2d;
-  border:0px;
-  color: #6a6a6a;
   box-shadow: none;
+  border:0px;
+  background-color: #2d2d2d;
+  color: #6a6a6a;
 }
 
 .logintext{
@@ -216,8 +215,8 @@ form {
 
 .accounttext{
   padding-top: 5%;
-  color: #d7d7d7;
   text-align: center;
+  color: #d7d7d7;
 }
 a{
   color: #d7d7d7;
@@ -866,20 +865,8 @@ svg.enemy-sprite:hover {
 /* Potential clip-path for player/enemy stat bar */
 /* clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%); */
 
-
-
 .enemy-testing {
   position: relative;
-}
-
-
-/*
-  ============================
-  NAV BAR STYLING
-  ============================
-*/
-.bg-dark{
-  background-color: transparent!important;
 }
 
 /*  
@@ -889,14 +876,14 @@ svg.enemy-sprite:hover {
 */
 
 .modal-body1{
-  background-color: rgba(21, 21, 21, 0.8);
   border-color: #acacac;
   border-style: solid;
   border-width: 2px 2px 0px 2px;
   height: 100px;
-  text-align: center;
   padding: 8% 12% 0 12%;
+  background-color: rgba(21, 21, 21, 0.8);
   font-size: 18px;
+  text-align: center;
 }
 .modal-content{
   background-color: transparent
@@ -910,32 +897,32 @@ button:focus{
   color: white;
 }
 .cancel{
-  background-color: transparent;
   border: none;
-  color: white;
   padding-right: 5%;
+  background-color: transparent;
+  color: white;
 }
  .confirm{
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
   border: 0;
+  border-radius: 20px;
   width: 30%;
+  padding: 10px 0;
+  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  font-weight: 500;
   text-align: center;
   color: white;
-  border-radius: 20px;
-  padding: 10px 0;
-  font-weight: 500;
 }
 
 .modal-body2{
   display: inline;
-  text-align: center;
-  padding-bottom: 20px;
-  background-color: rgba(21, 21, 21, 0.8);
   border-color: #acacac;
   border-style: solid;
   border-width: 0px 2px 2px 2px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  padding-bottom: 20px;
+  background-color: rgba(21, 21, 21, 0.8);
+  text-align: center;
 } 
 /*  
   ============================
@@ -943,15 +930,15 @@ button:focus{
   ============================
 */
 .chapterclear{
-  text-align: center;
-  background-color: transparent;
-  text-shadow: 2px 2px 5px #ebdc78;
-  color: #fbfbd3;
-  font-weight: 600;
-  font-size: 45px;
-  letter-spacing: 5px;
-  font-family: Cambria;
   padding-top: 30%;
+  background-color: transparent;
+  font-size: 45px;
+  font-weight: 600;
+  font-family: Cambria;
+  text-align: center;
+  text-shadow: 2px 2px 5px #ebdc78;
+  letter-spacing: 5px;
+  color: #fbfbd3;
 }
 
 /*  
@@ -960,15 +947,15 @@ button:focus{
   ============================
 */
 .gameover{
-  text-align: center;
+  padding-top: 30%;
   background-color: transparent;
-  text-shadow: 2px 2px 10px #ff0101;
-  color: #e93333;
   font-weight: 600;
   font-size: 45px;
-  letter-spacing: 5px;
   font-family: Cambria;
-  padding-top: 30%;
+  text-align: center;
+  text-shadow: 2px 2px 10px #ff0101;
+  letter-spacing: 5px;
+  color: #e93333;
 }
 
 /*
@@ -978,15 +965,15 @@ button:focus{
 */
 
 .errortext{
-  color: #c3b69a;
   font-size: 10vw;
   text-align: center;
+  color: #c3b69a;
 }
 .wrong{
-  text-align: center;
+  margin-top: 20px; 
   font-size: 3vw;
   font-weight: 600;
-  margin-top: 20px; 
+  text-align: center;
   color: #d7d7d7;
   
 }
@@ -996,14 +983,14 @@ button:focus{
 }
 
 .submiterror{
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
   border: 0;
+  border-radius: 20px;
   width: 50%;
+  padding: 6px 0;
+  background-image: linear-gradient(to right, #94263a, #d24d5f);
+  font-weight: 500;
   text-align: center;
   color: white;
-  border-radius: 20px;
-  padding: 6px 0;
-  font-weight: 500;
 }
 
 .submiterror:focus{
@@ -1037,45 +1024,45 @@ button:focus{
 }
 
 .dropdown-toggle::after {
-  font-family: "Font Awesome 5 Free";
   content: "\f0d7";
-  color: #e8c892;
-  border: 0;
-  font-weight: 600;
   margin-left: 0.5vw;
+  border: 0;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  color: #e8c892;
 }
 
 .userimage {
-  width: 3.5vw;
   margin-right: 10px;
   border: 1px solid #c1b69d;
   border-radius: 50%;
+  width: 3.5vw;
 }
 
 .username {
-  color: #e8c892;
-  letter-spacing: 0.5px;
   font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #e8c892;
 }
 
 .dropdown-menu {
-  background-color: #292929;
+  margin-left: 4vw;
   border: 0;
   max-width: auto;
   min-width: auto;
   padding: 0.8vw 0;
-  margin-left: 4vw;
+  background-color: #292929;
 }
 
 .dropdown-item {
-  color: #bcbcbc;
-  font-weight: 500;
   font-size: 1vw;
+  font-weight: 500;
+  color: #bcbcbc;
 }
 
 .dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
-  color: #bcbcbc;
   background-color: #222222;
+  color: #bcbcbc;
 } 
 
 .pull-left {
