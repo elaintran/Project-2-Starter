@@ -512,7 +512,6 @@ body.encounter-screen {
 .page-wrapper {
   width: 100%;
   height: 45.78vw; /*  Setting our width and height this way forces a 16:9 ratio for our page  */
-  /* max-height: 100vh; This makes sure our content never goes below the bottom of the screen, though it does override the 16:9 ration on wider displays */
   display: grid;
   align-content: end;
 }

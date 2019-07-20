@@ -106,6 +106,8 @@ function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
     // reset damage number
     d.css({ 
         "top": 0,
+        "text-stroke": "2px #fd4961",
+        "font-size": "3vw",
         "opacity": 1 
     });
     // slide damage number up and fade out
@@ -118,15 +120,19 @@ function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
 function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
     let d = $(".enemy-damage");
     let e = $("div.enemy-sprite");
-    $("#enemy-image > image").attr("xlink:href", displayEnemy[chapter - 1].altSprite);
+    let flinch = displayEnemy[chapter - 1].altSprite;
+    let original = displayEnemy[chapter - 1].origSprite;
+    $("#enemy-image > image").attr("xlink:href", flinch);
     e.effect("shake", { distance: 10 }, 300);
     d.text(totalDmg);
     d.css({ 
         "top": 0,
+        "text-stroke": "2px #fd4961",
+        "font-size": "3vw",
         "opacity": 1 
     });
     setTimeout(function() {
-        $("#enemy-image > image").attr("xlink:href", displayEnemy[chapter - 1].origSprite);
+        $("#enemy-image > image").attr("xlink:href", original);
     }, 300);
     d.animate({
         "top": "-=7vw",
@@ -160,7 +166,8 @@ function slideEnemy() { // eslint-disable-line no-unused-vars
     d.text("MISS");
     d.css({ 
         "top": 0,
-        "-webkit-text-stroke": "2px dodgerblue",
+        // "-webkit-text-stroke": "2px dodgerblue",
+        "text-stroke": "2px dodgerblue",
         "font-size": "3vw",
         "opacity": 1 
     });
@@ -191,6 +198,8 @@ function getUserData(Id) {
         $(".character-name").text(data.Main.mainClass);
         getChapter(data);
         console.log("getChapter ran");
+        var playerID = data.Main.id;
+        console.log("id: ", playerID);
     });
 }
 function getUserId() {
@@ -206,7 +215,7 @@ function getUserId() {
 //         $.ajax({
 //             method: "PUT",
 //             url: `/api/users/${Id}`,
-//             data: userData
+//             data: Main.id
 //         }).then(function () {
 //             window.location.href = "/world";
 //         });
