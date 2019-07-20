@@ -146,6 +146,7 @@ body {
    justify-content: center;
    height: 100vh;
 }
+
 form {
   padding-top:1%;
 	width: 300px;
@@ -154,12 +155,20 @@ form {
 }
 
 .error-message {
+  margin-top: 11px;
   margin-bottom: 12px;
   text-align: center;
-  background-color: #d04c5e;
+  background-color: #c54e5e;
   padding: 7px;
-  display: flex;
   display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.error-message i {
+  margin-right: 10px;
+  font-size: 12px;
 }
 
 .submit{
