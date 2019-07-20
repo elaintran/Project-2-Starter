@@ -1,17 +1,30 @@
-$(document).ready(function () {
-    var userId;
-    var userCharacter = [];
-    var chapters = [];
-    var h = 220;
-    var chapterSelect;
-    var chapterImg;
-    var chapterUnlock = true;
+//global variables
+//gets the id of the user currently logged in
+var userId;
+//display the character information user selected in world
+var userCharacter = [];
+//stores chapter information for display
+var chapters = [];
+//height of the d3 stats
+var h = 220;
+//set global to use in constructor
+var chapterSelect;
+var chapterImg;
+//check which chapter is new from the incomplete chapters
+var chapterUnlock = true;
 
+<<<<<<< HEAD
     $.get("api/userdata").then(function (data) {
+=======
+$(document).ready(function () {
+    //get request for user id from api
+    $.get("api/userdata").then(function(data) {
+>>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
         userId = data.userId;
         userChoice(userId);
     });
 
+    //use id to get the character user selected
     function userChoice(userId) {
         $.get("api/users/" + userId).then(function (data) {
             var characterObj = {};
@@ -32,14 +45,17 @@ $(document).ready(function () {
             characterObj.colors.dark = data.Main.colorDark;
             characterObj.colors.light = data.Main.colorLight;
             userCharacter.push(characterObj);
+            //display user information on page
             $(".userimage").attr("src", data.Main.mainPortrait);
             $(".user-chibi").attr("src", data.Main.mainChibi);
             $(".username").text(data.userName);
             $(".select").css("background-image", "linear-gradient(to right, " + data.Main.colorDark + ", " + data.Main.colorLight);
+            //display stats on page
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
         });
     }
 
+    //get request for a list of all of the chapter
     $.get("api/chapter").then(function(data) {
         for (var i = 0; i < data.length; i++) {
             var chapterObj = {};
@@ -50,20 +66,27 @@ $(document).ready(function () {
             chapterObj.complete = data[i].chapterComplete;
             chapters.push(chapterObj);
         }
+        //display the complete, new, and locked chapters onto page
         chapterDisplay();
     });
 
     function chapterDisplay() {
         for (var i = 0; i < chapters.length; i++) {
+            //append preview images for the chapter
             var col = $("<div>").addClass("col-3");
             chapterSelect = $("<div>").addClass("chapter-select").attr("data-chapter", i + 1);
             chapterImg = $("<img>").attr("src", chapters[i].previewImg).addClass("image-fit");
+            //if chapter is complete, display a flag indicating complete
             if (chapters[i].complete) {
                 flagDisplay("Complete", "#3e62a1");
+            //if chapter is incomplete
             } else {
+                //unlock the first locked chapter and indicate new playable chapter
                 if (chapterUnlock) {
                     flagDisplay("New", "#b2394c");
+                    //restrict unlocking the rest of the chapters
                     chapterUnlock = false;
+                //lock the remaining chapters
                 } else {
                     chapterSelect.attr("data-complete", "locked");
                     var overlay = $("<div>").addClass("overlay");
@@ -72,11 +95,13 @@ $(document).ready(function () {
                     chapterSelect.append(chapterImg).append(overlay);
                 }
             }
+            //append all chapters to page
             col.append(chapterSelect);
             $(".chapter-list").append(col);
         }
     }
 
+    //flag display for complete and new chapters
     function flagDisplay(chapterStatus, color) {
         chapterSelect.attr("data-complete", chapterStatus);
         var flagContainer = $("<div>").addClass("flag-container");
@@ -89,35 +114,33 @@ $(document).ready(function () {
         chapterSelect.append(chapterImg).append(flagContainer);
     }
 
+    //display chapter information when clicking on the preview
     $(".chapter-list").on("click", ".chapter-select", function () {
-        $(".story").show();
-        $(".castle-container").hide();
-        $(".select").text("Select");
-        $(".select").removeAttr("style");
+        resetDisplay();
+        //display selected chapter information
         for (var i = 0; i < chapters.length; i++) {
             if (+$(this).attr("data-chapter") === i + 1 && $(this).attr("data-complete") !== "locked") {
                 $(".chapter-number").text(chapters[i].name);
                 $(".chapter-subtitle").text(chapters[i].subtitle);
                 $(".chapter-description").text(chapters[i].description);
+                //data information for routing
                 $("button.select").attr("data-chapter", i + 1);
                 $("button.select").attr("data-subtitle", chapters[i].subtitle);
+                //navigate to chapter on click
                 $("button.select").attr("href", "/encounter");
-                $(".select").removeAttr("style");
             }
         }
     });
 
+    //map marker
     $(".marker-container").on("click", function () {
-        //check only the second class
-        $(".story").show();
-        $(".castle-container").hide();
-        $(".select").text("Select");
-        $(".select").removeAttr("style").removeAttr("href");
+        resetDisplay();
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
                 $(".chapter-subtitle").text("Coming Soon");
                 // $(".chapter-description").text("Purchase potions here.");
+                //remove gradient and show disabled button color
                 $(".select").css({
                     "background-image": "none",
                     "background-color": "#5f5f5f"
@@ -131,16 +154,17 @@ $(document).ready(function () {
                     "background-color": "#5f5f5f"
                 });
                 break;
+            //display character and stats
             case ("castle"):
                 $(".story").hide();
                 $(".castle-container").show();
+                //change route back to character select
                 $(".select").removeAttr("style").attr("href", "/character");
                 $(".select").text("Change Class");
                 $(".select").css("background-image", "linear-gradient(to right, " + userCharacter[0].colors.dark + ", " + userCharacter[0].colors.light);
                 break;
             default:
                 console.log("not found");
-                console.log($(this).attr("class"));
         }
     });
 
@@ -161,16 +185,18 @@ $(document).ready(function () {
             .style("stop-color", secondStop)
             .attr("offset", "1");
 
+        //create nodes for each stat
         var nodes = svg.selectAll(".rect")
             .data(characterStats)
             .enter()
             .append("g")
             .classed("rect", true);
 
+        //background of stats bar
         nodes.append("rect")
-            //apply gradient
+            //apply gray color to background
             .attr("fill", "#363636")
-            //each rectangle starts at the 0 position
+            //start position begins right before the stats bar ends
             .attr("x", function (d) {
                 return (d.value / 60 * 100 - 10) + "%";
             })
@@ -186,29 +212,24 @@ $(document).ready(function () {
             })
             //defines the height of the rectangle
             .attr("height", 13)
+            //rounds the rectangle
             .attr("rx", 8);
 
-        //creates rectangles for every index in the dataset
+        //current stats bar
         nodes.append("rect")
-            // .data(characterStats)
             //apply gradient
             .classed("filled", true)
-            //each rectangle starts at the 0 position
             .attr("x", 0)
-            //moves each rectangle down
-            //i is the data point index
             .attr("y", function (d, i) {
                 return i * 55 + 30;
             })
-            //width of the rectangle
-            //multiplied the data point to make it wider
             .attr("width", function (d) {
                 return (d.value / 60 * 100) + "%";
             })
-            //defines the height of the rectangle
             .attr("height", 13)
             .attr("rx", 8);
 
+        //text container
         nodes.append("text")
             .style("fill", "white")
             .style("font-size", "18px")
@@ -224,6 +245,7 @@ $(document).ready(function () {
             });
     }
 
+<<<<<<< HEAD
 
     function getUserId() {
         $.get("/api/userdata").then(function (data) {
@@ -231,4 +253,16 @@ $(document).ready(function () {
         });
     }
     getUserId();
+=======
+    function resetDisplay() {
+        //display story container
+        $(".story").show();
+        //hides user stat from container
+        $(".castle-container").hide();
+        //change "change class" text to select
+        $(".select").text("Select");
+        //remove gradient from select
+        $(".select").removeAttr("style").removeAttr("href");
+    }
+>>>>>>> 04d5ecbc9f917b69ca5a9221fe85b6a7e5c00162
 });
