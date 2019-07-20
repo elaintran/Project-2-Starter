@@ -263,7 +263,7 @@ $(document).ready(function () {
     $(".select-character").on("click", function() {
         //if user still has remaining points to distribute
         if(statPoints > 0 && statPoints <= 10) {
-            $("#modaltext").text("Please distribute all 10 stat points!");
+            $("#modaltext").text("Please distribute all of your remaining stat points!");
             $(".confirm").hide();
             $(".cancel").text("Continue");
             $(".cancel").removeAttr("style");

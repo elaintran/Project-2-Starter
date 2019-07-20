@@ -26,6 +26,14 @@ a, a:hover, a:focus {
     text-decoration: none;
 }
 
+.character-container:hover, .plus:hover, .minus:hover, .marker-container:hover, .chapter-select:hover {
+    cursor: pointer;
+}
+
+button:focus, input:focus {
+    outline: none;
+}
+
 .gradient-button {
     border: 0;
     border-radius: 20px;
@@ -37,14 +45,6 @@ a, a:hover, a:focus {
     text-transform: uppercase;
     color: white;
     letter-spacing: 0.08vw;
-}
-
-.character-container:hover, .plus:hover, .minus:hover {
-    cursor: pointer;
-}
-
-button:focus, input:focus {
-    outline: none;
 }
 
 /* 
@@ -65,14 +65,18 @@ button:focus, input:focus {
     height: 100vh;
 }
 
+.login-container, .register-container {
+    margin: 0 6%;
+}
+
 .loginlogo {
     display: flex;
     justify-content: center;
+    max-width: 400px;
 }
 
-/* Need to write media queries */
 .loginlogo img {
-    width: 38%;
+    width: 100%;
     margin-left: 5vw;
 }
 
@@ -302,84 +306,79 @@ p {
 }
 
 .map-bg {
-  background: url("../images/resource-images/background/map3.png");
-  background-repeat: no-repeat;
-  background-position: -50px 0;
-  background-size: contain;
+    background: url("../images/resource-images/background/map3.png");
+    background-repeat: no-repeat;
+    background-position: -50px 0;
+    background-size: contain;
 }
 
 .marker-container {
-  position: absolute;
-  text-transform: uppercase;
-  color: #e8c892;
-  font-weight: 500;
-}
-
-.marker-container:hover {
-  cursor: pointer;
+    position: absolute;
+    text-transform: uppercase;
+    color: #e8c892;
 }
 
 .marker {
-  background-color: #252525;
-  padding: 10% 10px;
-  border: 0.2vw solid #acacac;
+    border: 0.2vw solid #acacac;
+    padding: 10% 10px;
+    background-color: #252525;
 }
 
 .marker p {
-  margin-bottom: 0;
-  font-size: 1vw;
+    margin-bottom: 0;
+    font-size: 1vw;
 }
 
 .item-shop {
-  top: 18vw;
-  left: 45%;
+    top: 18vw;
+    left: 45%;
 }
 
 .armory {
-  top: 18vw;
-  left: 23%;
+    top: 18vw;
+    left: 23%;
 }
 
 .castle {
-  top: 13vw;
-  left: 35%;
+    top: 13vw;
+    left: 35%;
 }
 
 .triangles {
-  position: relative;
-  display: flex;
-  justify-content: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .inner-triangle {
-  width: 0;
-  height: 0;
-  border-left: 1.1vw solid transparent;
-  border-right: 1.1vw solid transparent;
-  border-top: 1vw solid #252525;
-  margin: auto;
-  position: absolute;
-  top: -0.4vw;
+    width: 0;
+    height: 0;
+    border-left: 1.1vw solid transparent;
+    border-right: 1.1vw solid transparent;
+    border-top: 1vw solid #252525;
+    margin: auto;
+    position: absolute;
+    top: -0.4vw;
 }
 
 .outer-triangle {
-  width: 0;
-  height: 0;
-  border-left: 1vw solid transparent;
-  border-right: 1vw solid transparent;
-  border-top: 0.9vw solid #acacac;
+    width: 0;
+    height: 0;
+    border-left: 1vw solid transparent;
+    border-right: 1vw solid transparent;
+    border-top: 0.9vw solid #acacac;
 }
 
 .circle {
-  height: 1vw;
-  width: 1vw;
-  background-color: white;
-  border-radius: 50%;
-  margin: 0.5vw auto 0;
+    height: 1vw;
+    width: 1vw;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0.5vw auto 0;
 }
 
 .user-menu {
-  position: absolute;
+    position: absolute;
 }
 
 /* .username {
@@ -388,142 +387,138 @@ p {
 } */
 
 .map-wrapper {
-  width: 100%;
-  height: 45.78vw;
-  display: flex;
+    width: 100%;
+    height: 45.78vw;
+    display: flex;
 }
 
 .chapter-info {
-  padding: 3% 4%;
-  background-color: 252525;
-  border: 0.2vw solid #acacac;
-  margin: 30px 15px 3vw auto;
-  color: #d7d7d7;
-  letter-spacing: 0.5px;
-  width: 36%;
+    padding: 3% 4%;
+    background-color: 252525;
+    border: 0.2vw solid #acacac;
+    margin: 30px 15px 3vw auto;
+    color: #d7d7d7;
+    letter-spacing: 0.5px;
+    width: 36%;
 }
 
 .chapter-info h6 {
-  text-align: center;
-  margin-bottom: 3px;
-  font-size: 1.2vw;
-  font-weight: 500;
+    text-align: center;
+    margin-bottom: 3px;
+    font-size: 1.2vw;
+    font-weight: 500;
 }
 
 .chapter-info p {
-  font-size: 1vw;
-  line-height: 1.5;
-  margin-top: 3%;
-  margin-bottom: 5%;
-  height: 8vw;
-  overflow: auto;
+    font-size: 1vw;
+    line-height: 1.5;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    height: 8vw;
+    overflow: auto;
 }
 
 .chapter-number {
-  text-transform: uppercase;
-  color: #e8c892;
+    text-transform: uppercase;
+    color: #e8c892;
 }
 
 .select {
-  font-size: 1vw;
-  letter-spacing: 0.5px;
-  font-weight: 500;
-  background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
+    font-size: 1vw;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
 }
 
 .chapter-select {
-  border: 0.2vw solid #acacac;
-  position: relative;
-}
-
-.chapter-select:hover {
-  cursor: pointer;
+    border: 0.2vw solid #acacac;
+    position: relative;
 }
 
 .image-fit {
-  height: 10vw;
-  width: 100%;
-  object-fit: cover;
+    height: 10vw;
+    width: 100%;
+    object-fit: cover;
 }
 
 .flag-container {
-  display: flex;
-  position: absolute;
-  top: 0.6vw;
-  left: -0.2vw;
+    display: flex;
+    position: absolute;
+    top: 0.6vw;
+    left: -0.2vw;
 }
 
 .flag {
-  padding: 0.5vw 1vw;
+    padding: 0.5vw 1vw;
 }
 
 .flag p {
-  font-size: 0.8vw;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 600;
+    font-size: 0.8vw;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .flag-wing {
-  width: 10px;
-  position: absolute;
-  right: -6px;
+    width: 10px;
+    position: absolute;
+    right: -6px;
 }
 
 .wing-top {
-  border-top: 12px solid transparent;
-  border-right: 5px solid transparent;
+    border-top: 12px solid transparent;
+    border-right: 5px solid transparent;
 }
 
 .wing-bottom {
-  border-bottom: 12px solid transparent;
-  border-right: 5px solid transparent;
-  bottom: 0;
+    border-bottom: 12px solid transparent;
+    border-right: 5px solid transparent;
+    bottom: 0;
 }
 
 .overlay {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(000, 000, 000, 0.6);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(000, 000, 000, 0.6);
 }
 
 .chapter-select .fa-lock {
-  color: #d7d7d7;
-  font-size: 2vw;
+    color: #d7d7d7;
+    font-size: 2vw;
 }
 
 .castle-container {
-  margin: 0.5vw 0 2.3vw;
+    margin: 0.5vw 0 2.3vw;
 }
 
 .story {
-  display: none;
+    display: none;
 }
 
 .castle-container img {
-  margin-bottom: 1vw;
-  margin-top: 10px;
-  height: 8vw;
-  /* width: auto; */
+    margin-bottom: 1vw;
+    margin-top: 10px;
+    height: 8vw;
+    /* width: auto; */
 }
 
 .chapter-info .mini-class {
-  text-transform: uppercase;
-  font-size: 1vw;
+    text-transform: uppercase;
+    font-size: 1vw;
 }
 
 .stat-type {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .change-class-container {
-  align-items: center;
+    align-items: center;
 }
 
 /*  
