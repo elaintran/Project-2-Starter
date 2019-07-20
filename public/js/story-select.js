@@ -158,7 +158,7 @@ $(document).ready(function () {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
                 $(".chapter-subtitle").text("Coming Soon");
-                // $(".chapter-description").text("Purchase potions here.");
+                $(".chapter-description").text("You purchase potions here.");
                 //remove gradient and show disabled button color
                 $(".select").css({
                     "background-image": "none",
@@ -168,6 +168,7 @@ $(document).ready(function () {
             case ("armory"):
                 $(".chapter-number").text("Armory");
                 $(".chapter-subtitle").text("Coming Soon");
+                $(".chapter-description").text("You purchase weapons here.");
                 $(".select").css({
                     "background-image": "none",
                     "background-color": "#5f5f5f"
