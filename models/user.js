@@ -26,6 +26,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         },
         userScore: DataTypes.INTEGER,
+        chapter: {
+            type: DataTypes.INTEGER,
+            defaultValue: 1
+        },
         chapterOne: {
             type: DataTypes.BOOLEAN,
             defaultValue: false

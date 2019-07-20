@@ -74,10 +74,6 @@ $(document).ready(function () {
         });
     }
 
-    // function checkChapter(){
-    //     $.get("/")
-    // }
-
     //get request for a list of all of the chapter
     $.get("api/chapter").then(function (data) {
         for (var i = 0; i < data.length; i++) {
