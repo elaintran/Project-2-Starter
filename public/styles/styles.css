@@ -1,14 +1,155 @@
+/* 
+  ============================
+  GLOBAL CSS STYLING
+  ============================
+*/
+
+body {
+    background-image: linear-gradient(#252525, #0e0e0e);
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+h6 {
+    font-size: 1.2vw;
+}
+
+p {
+    font-size: 0.9vw;
+    font-weight: 500;
+    letter-spacing: 0.08vw;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+.gradient-button {
+    border: 0;
+    border-radius: 20px;
+    width: 100%;
+    padding: 0.6vw 0;
+    background-image: linear-gradient(to right, rgb(148, 38, 58), rgb(210, 77, 95));
+    font-size: 0.9vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.08vw;
+}
+
+.character-container:hover, .plus:hover, .minus:hover {
+    cursor: pointer;
+}
+
+button:focus, input:focus {
+    outline: none;
+}
+
+/* 
+  ============================
+  LOGIN & REGISTRATION STYLING
+  ============================
+*/
+
+.container-fluid {
+    height: 100vh;
+    display: flex;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.loginlogo {
+    display: flex;
+    justify-content: center;
+}
+
+/* Need to write media queries */
+.loginlogo img {
+    width: 38%;
+    margin-left: 5vw;
+}
+
+form {
+    margin: 0 auto;
+    max-width: 350px;
+    padding-top: 1%;
+}
+
+.form-control-plaintext {
+    border-radius: 5px;
+    padding: 8px 0;
+    background-color: #2d2d2d;
+    font-weight: 500;
+    color: #6a6a6a;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+  
+/* style glyph */
+.inner-addon .fas {
+    position: absolute;
+    padding: 0 20px;
+    color: #6a6a6a;
+}
+  
+/* align glyph */
+.left-addon .fas  { 
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+}
+  
+/* add padding  */
+.left-addon input  { 
+    padding-left: 55px; 
+}
+
+.accounttext {
+    padding-top: 5%;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+  
+.submit {
+    margin-top: 1%;
+    padding: 8px 0;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* Need to fix width */
+.error-message {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin: 11px 0 12px;
+    border-radius: 4px;
+    padding: 7px;
+    background-color: #c54e5e;
+    text-align: center;
+}
+  
+.error-message i {
+    margin-right: 10px;
+    font-size: 12px;
+}
+
 /*  
   ============================
   CHARACTER SELECT STYLING
   ============================
 */
-
-body {
-    font-family: "Work Sans", sans-serif;
-    background-image: linear-gradient(#252525, #0e0e0e);
-    color: white;
-}
 
 /* Grouping Font Size and Values */
 /* .character-info h5, .character-info p, .select-character {
@@ -24,15 +165,9 @@ p {
     letter-spacing: 1px;
 } */
 
-.container-fluid {
-    height: 100vh;
-    display: flex;
-}
-
 .select-screen {
     position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     margin: auto;
@@ -44,7 +179,7 @@ p {
     height: 35vw;
 }
 
-.character-image {
+.character-portrait img {
     width: 100%;
 }
 
@@ -53,11 +188,12 @@ p {
 }
 
 .character-info {
+    margin-top: 0.5vw;
     text-align: center;
     text-transform: uppercase;
 }
 
-.character-info h5, .character-info p, .select-character {
+.character-info h5 {
     font-weight: 600;
 }
 
@@ -66,14 +202,8 @@ p {
     color: #d7d7d7;
 }
 
-.character-info p, .select-character {
-    font-size: 0.9vw;
-    letter-spacing: 1px;
-}
-
 .character-stats {
-    padding: 2vw 0 0.7vw;
-    text-align: left;
+    padding: 2.3vw 0 0.7vw;
 }
 
 .stat-remainder {
@@ -85,20 +215,6 @@ p {
     margin-left: auto;
 }
 
-.select-character, .select {
-    border: 0;
-    border-radius: 20px;
-    padding: 0.6vw 0;
-    width: 100%;
-    font-size: 1vw;
-    text-transform: uppercase;
-    color: white;
-}
-
-.select-character:focus, .select-character:active {
-    outline: none;
-}
-
 .character-list {
     position: absolute;
     display: flex;
@@ -106,12 +222,12 @@ p {
 }
 
 .character-container {
-    background-image: linear-gradient(rgba(18, 18, 18, 0.87), rgba(37, 37, 37, 0.87));
-    padding: 1vw;
-    border: 2px solid rgba(255, 255, 255, 0.87);
+    margin: 0 0.3vw;
+    border: 0.15vw solid #d7d7d7;
     border-radius: 5px;
-    margin: 0 4px;
     width: 7.5vw;
+    padding: 1vw;
+    background-image: linear-gradient(rgba(18, 18, 18, 0.87), rgba(37, 37, 37, 0.87));
     text-align: center;
 }
 
@@ -131,142 +247,58 @@ p {
     fill: url(#mainGradient);
 }
 
-.plus:hover, .minus:hover {
-    cursor: pointer;
-}
-
-/* 
+/*  
   ============================
-  LOGIN & REGISTRATION STYLING
+  CHARACTER SELECT MODAL STYLING
   ============================
 */
 
-.login-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.modal-content {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-form {
-  margin: 0 auto;
-  width: 300px;
-  padding-top:1%;
+.confirm-modal {
+    margin: auto;
+    border: 0.2vw solid #acacac;
+    border-radius: 0;
+    max-width: 50vw;
+    padding: 3vw 1vw;
+    background-color: rgba(21, 21, 21, 0.8);
 }
 
-.error-message {
-  display: none;
-  margin-top: 11px;
-  margin-bottom: 12px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  padding: 7px;
-  background-color: #c54e5e;
-  text-align: center;
+#modaltext {
+    margin-bottom: 1.7vw;
 }
 
-.error-message i {
-  margin-right: 10px;
-  font-size: 12px;
+.button-group {
+    display: flex;
+    width: 60%;
 }
 
-.submit{
-  border: 0;
-  border-radius: 20px;
-  width: 100%;
-  padding: 6px 0;
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
-  color: white;
+.button-group button {
+    margin: 0 0.5vw;
 }
-.submit:focus{
-  outline: none;
-}
-.loginlogo {
-  margin: auto;
-  /* width:50%; */
-  /* padding-top: 10%; */
-  text-align: center;
-
-}
-
-::placeholder{
-  padding-left: 10px;
-}
-
-.form-control{
-  border:0px;
-  background-color: #2d2d2d;
-  color: #6a6a6a
-  
-}
-
-.form-control:focus {
-  box-shadow: none;
-  border:0px;
-  background-color: #2d2d2d;
-  color: #6a6a6a;
-}
-
-.logintext{
-  padding-top: 5%;
-  text-align: center;
-  color: #6a6a6a;
-}
-
-.accounttext{
-  padding-top: 5%;
-  text-align: center;
-  color: #d7d7d7;
-}
-a{
-  color: #d7d7d7;
-}
-
-a:hover{
-  color: #d7d7d7;
-}
-
-/* enable absolute positioning */
-.inner-addon {
-  position: relative;
-}
-
-/* style glyph */
-.inner-addon .fas {
-  position: absolute;
-  padding: 10px;
-  pointer-events: none;
-  color: #6a6a6a
-}
-
-/* align glyph */
-.left-addon .fas  { 
-  left:  0px;
-}
-
-/* add padding  */
-.left-addon input  { 
-  padding-left:  30px; 
-}
-
 
 /*  
   ============================
   STORY SELECT STYLING
   ============================
 */
+
 .logo {
-  position: absolute;
-  width: 23%;
-  top: 5%;
-  left: calc(3rem + 15px);
+    position: absolute;
+    top: 5%;
+    left: calc(3rem + 30px);
+    width: 23%;
 }
 
 .menu-screen {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .map-bg {
@@ -275,10 +307,6 @@ a:hover{
   background-position: -50px 0;
   background-size: contain;
 }
-
-/* .map-markers {
-  position: absolute;
-} */
 
 .marker-container {
   position: absolute;
@@ -870,61 +898,6 @@ svg.enemy-sprite:hover {
   position: relative;
 }
 
-/*  
-  ============================
-  CHARACTER SELECT MODAL STYLING
-  ============================
-*/
-
-.modal-body1{
-  border-color: #acacac;
-  border-style: solid;
-  border-width: 2px 2px 0px 2px;
-  height: 100px;
-  padding: 8% 12% 0 12%;
-  background-color: rgba(21, 21, 21, 0.8);
-  font-size: 18px;
-  text-align: center;
-}
-.modal-content{
-  background-color: transparent
-}
-
-button:focus{
-  outline: none;
-}
-.modaltext{
-  font-family: "Work Sans", sans-serif;
-  color: white;
-}
-.cancel{
-  border: none;
-  padding-right: 5%;
-  background-color: transparent;
-  color: white;
-}
- .confirm{
-  border: 0;
-  border-radius: 20px;
-  width: 30%;
-  padding: 10px 0;
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
-  font-weight: 500;
-  text-align: center;
-  color: white;
-}
-
-.modal-body2{
-  display: inline;
-  border-color: #acacac;
-  border-style: solid;
-  border-width: 0px 2px 2px 2px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-bottom: 20px;
-  background-color: rgba(21, 21, 21, 0.8);
-  text-align: center;
-} 
 /*  
   ============================
   WINNER MODAL

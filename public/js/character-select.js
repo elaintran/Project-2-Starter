@@ -265,22 +265,16 @@ $(document).ready(function () {
         if(statPoints > 0 && statPoints <= 10) {
             $("#modaltext").text("Please distribute all 10 stat points!");
             $(".confirm").hide();
-            $(".cancel").text("CONTINUE");
-            $(".cancel").css({
-                border: "0",
-                width: "30%",
-                "text-align": "center",
-                color: "white",
-                "border-radius": "20px",
-                "font-weight": "500",
-                padding: "10px 0",
-                background: "linear-gradient(to right, #94263a, #d24d5f)"
-            });
+            $(".cancel").text("Continue");
+            $(".cancel").removeAttr("style");
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
             $(".cancel").text("Cancel");  
-            $(".cancel").removeAttr("style");
+            $(".cancel").css({
+                "background-image": "none",
+                "background-color": "transparent"
+            });
         }
     });
 
