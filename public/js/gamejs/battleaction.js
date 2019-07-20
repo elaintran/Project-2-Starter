@@ -8,7 +8,7 @@ var cap;
 console.log("Character Start HP: " + character.hp);
 console.log("Character Start SPD: " + character.spd);
 
-let determineCap = function() {
+let determineCap = function () {
   if (chapter) {
     switch (chapter) {
       case 1:
@@ -30,12 +30,12 @@ let determineCap = function() {
   }
 };
 
-let calculateDamage = function() {
+let calculateDamage = function () {
   baseDmg = (character.str + target.bonus).toFixed(0);
   totalDmg = (baseDmg - (enemy.def / cap) * character.str).toFixed(0);
 };
 
-let enemyStillAlive = function() {
+let enemyStillAlive = function () {
   if (enemy.hp >= 0) {
     $(".enemy-stats")
       .find(".hit-points")
@@ -47,12 +47,12 @@ let enemyStillAlive = function() {
   }
 };
 
-let doubleHit = function() {
+let doubleHit = function () {
   speed = ((character.spd - enemy.spd) * 2) / 100;
   chance = Math.random();
 };
 
-let hitEnemy = function() {
+let hitEnemy = function () {
   console.log("Enemy has been hit!");
   playerStrike();
   shakeEnemy(totalDmg);
@@ -60,7 +60,7 @@ let hitEnemy = function() {
   animationsTimer = false;
 };
 
-let levelUp = function() {
+let levelUp = function () {
   console.log("Character has leveled up!");
   character.hp += 15;
   character.str += 15;
@@ -68,7 +68,7 @@ let levelUp = function() {
   character.spd += 15;
 };
 
-let calcEnemyDmg = function() {
+let calcEnemyDmg = function () {
   determineCap();
   let defense = character.def / cap;
   let totalDef = defense * enemy.str;
@@ -76,7 +76,7 @@ let calcEnemyDmg = function() {
   enemyTotalDmg = enemy.str - totalDef;
 };
 
-let enemyDead = function() {
+let enemyDead = function () {
   if (enemy.hp <= 0) {
     enemy.hp = 0;
     console.log("The enemy is dead!");
@@ -95,16 +95,34 @@ let enemyDead = function() {
 
     if (chapter < 3) {
       console.log("You've completed a chapter! New Chapter: " + chapter);
-
+      debugger;
+      getUserId(chapter);
       // gameManager.saveChapt();
     } else {
       console.log("You've completed all the chapters and beaten the game!");
       console.log("Chapter:" + chapter);
     }
   }
+
+  function postChapterOneData(Id, chapterNum) {
+    $.ajax({
+      method: "PUT",
+      url: `/api/users/${Id}`,
+      data: (chapterNum === 1) ? { chapterTwo: true } : (chapterNum === 2) ? { chapterTwo: true } : (chapterNum === 3) ? { chapterThree: true } : console.log("game completed")
+    });
+  }
+
+  function getUserId(chapter) {
+    $.get("/api/userdata").then(function (data) {
+      var userId = data.userId;
+      postChapterOneData(userId, chapter);
+    });
+  }
 };
 
-let characterAlive = function() {
+
+
+let characterAlive = function () {
   if (character.hp >= 0) {
     $(".player-stats")
       .find(".hit-points")
@@ -114,7 +132,7 @@ let characterAlive = function() {
   }
 };
 
-let characterDead = function() {
+let characterDead = function () {
   if (character.hp <= 0) {
     character.hp = 0;
     console.log("Character has died.");
@@ -123,7 +141,7 @@ let characterDead = function() {
       .find(".hit-points")
       .text("HP " + 0);
 
-    
+
 
     //update health bar
     updatePlayerHealthBar();
@@ -131,14 +149,15 @@ let characterDead = function() {
   }
 };
 
-let enemyAttack = function() {
+
+let enemyAttack = function () {
   calcEnemyDmg();
   enemyStrike();
   shakePlayer(enemyTotalDmg);
   //deals damage to character
   character.hp -= Math.ceil(enemyTotalDmg);
   animationsTimer = false;
-  
+
   //if character hp is >0:
   characterAlive();
 
@@ -147,7 +166,7 @@ let enemyAttack = function() {
 };
 
 //Character attack sets the character's total damage based on character strength and enemy defense if they hit using the grabbed target
-let characterAttack = function(grabbedTarget) {
+let characterAttack = function (grabbedTarget) {
   console.log("Character attacked!");
   console.log(grabbedTarget);
   if (grabbedTarget === target.target) {
@@ -160,14 +179,14 @@ let characterAttack = function(grabbedTarget) {
       hitEnemy();
       enemyStillAlive();
       enemyDead();
-      
+
     } else {
       //attack missed
       playerStrike();
       slideEnemy();
       totalDmg = 0;
-      
-      
+
+
 
       console.log("Character attacked, but the attack missed!");
     }
@@ -175,38 +194,38 @@ let characterAttack = function(grabbedTarget) {
 };
 
 
-let game = function() {
-  
-  $(".cls-1").each(function() {
-    $(this).click(function() {
+let game = function () {
+
+  $(".cls-1").each(function () {
+    $(this).click(function () {
       grabbedTarget = $(this)
         .parent()
         .attr("data-target");
-      
+
       gameManager.animations();
 
       gameManager.pickTarget(grabbedTarget);
 
       setTimeout(fightCheck, 1000);
-      
+
     });
   });
 };
 
-let checker = function(){ // eslint-disable-line no-unused-vars
-  if(openingScene){
+let checker = function () { // eslint-disable-line no-unused-vars
+  if (openingScene) {
     game();
     console.log("checker: ", openingScene);
   }
 };
 
-let fightCheck = function(){
-  if(animationsTimer){
+let fightCheck = function () {
+  if (animationsTimer) {
     attacks();
   }
 };
 
-let attacks = function(){
+let attacks = function () {
   console.log("Attacks are now active.");
   if (character.hp > 0 && enemy.hp > 0) {
     if (character.spd > enemy.spd) {
@@ -221,21 +240,21 @@ let attacks = function(){
         enemyStillAlive();
         enemyDead();
       }
-      
-      if ((character.hp > 0) && (enemy.hp > 0)){
-      setTimeout(enemyAttack, 1000);
-      // enemyAttack();
+
+      if ((character.hp > 0) && (enemy.hp > 0)) {
+        setTimeout(enemyAttack, 1000);
+        // enemyAttack();
       }
-      
+
     } else {
       enemyAttack();
 
-      if ((character.hp > 0) && (enemy.hp > 0)){
-      setTimeout(function(){
-        characterAttack(grabbedTarget);
-      }, 1000);
-    }
-      
+      if ((character.hp > 0) && (enemy.hp > 0)) {
+        setTimeout(function () {
+          characterAttack(grabbedTarget);
+        }, 1000);
+      }
+
     }
   }
 };
