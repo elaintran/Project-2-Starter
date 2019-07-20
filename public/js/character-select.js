@@ -279,6 +279,7 @@ $(document).ready(function () {
                 $(".stat-points").text(statPoints);
                 $(".character-stats").empty();
                 console.log(newStats);
+
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light, true, newStats);
             }
         }
@@ -286,5 +287,43 @@ $(document).ready(function () {
     //newCharacter array will be sent as a post request once confirmed
     //display an error message if user tries to submit when there are still remaining stat points
     //need to display remaining stat points
+
+    $("#confirmCharacter").on("click", function () {
+        var strengthStat = $(".filled").attr("y");
+        var selectedClass = $(this).attr("data-class");
+        var selectedId = $(this).attr("data-id");
+        var selectedName = $(this).attr("data-name");
+        console.log(strengthStat);
+        console.log(selectedClass);
+        console.log(selectedId);
+        console.log(selectedName);
+        // console.log(newStats);
+        var userData = {
+            userSelection: selectedId
+        };
+        console.log("function fired with " + userData);
+
+        postCharacterData(userData.userSelection);
+
+        function postCharacterData(Id) {
+            $.ajax({
+                method: "PUT",
+                url: `/api/users/${Id}`,
+                data: userData
+            }).then(function (data) {
+                console.log(data);
+                // window.location.href = "/world";
+            });
+        }
+
+        function gatherUserId() {
+            $.get("/api/userdata").then(function (data) {
+                console.log(data);
+                var userId = data.userId;
+                postCharacterData(userId);
+            });
+        }
+        gatherUserId();
+    });
 
 });
