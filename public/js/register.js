@@ -4,6 +4,7 @@ $(document).ready(function () {
     var name = $("#userName");
     var email = $("#userEmail");
     var password = $("#userPassword");
+    // var confirmPass = $("#confirmPassword");
 
     register.on("submit", function (event) {
         console.log("submit made");
@@ -17,7 +18,17 @@ $(document).ready(function () {
         if (!userData.userEmail || !userData.userPassword || !userData.userName) {
             return;
         }
-        //
+        // if (userData.password === confirmPass) {
+        //     console.log("password matches");
+
+        // } else {
+        //     password.val("");
+        //     confirmPass.val("");
+        //     password.css("border", "1px solid red");
+        //     confirmPass.css("border", "1px solid red");
+        //     $(".msg-box").text("please confirm password match");
+        //     return console.log("invalid confirm");
+        // }
         signUpUser(userData.userEmail, userData.userPassword, userData.userName);
         email.val("");
         password.val("");
@@ -29,7 +40,7 @@ $(document).ready(function () {
             userName: userName,
             userEmail: userEmail,
             userPassword: userPassword
-        }).then(function () {
+        }).done(function () {
             window.location.replace("/character");
         }).fail(function (err) {
             console.log(err);

@@ -11,7 +11,7 @@ var statsDis = false;
 
 $(document).ready(function () {
     //push all of the character info from database into array
-    $.get("api/character").then(function(data) {
+    $.get("api/character").then(function (data) {
         for (var i = 0; i < data.length; i++) {
             var characterObj = {};
             characterObj.name = data[i].mainName;
@@ -34,7 +34,7 @@ $(document).ready(function () {
             characterObj.colors = {};
             characterObj.colors.dark = data[i].colorDark;
             characterObj.colors.light = data[i].colorLight;
-            characters.push(characterObj); 
+            characters.push(characterObj);
         }
         characterDisplay();
     });
@@ -254,15 +254,23 @@ $(document).ready(function () {
                 $(".character-stats").empty();
                 //display d3 stats
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light);
-                console.log(newStats);
+                // console.log(newStats);
+                console.log("hp is: " + newStats[0].value);
+                console.log("str is: " + newStats[1].value);
+                console.log("def is: " + newStats[2].value);
+                console.log("spd is: " + newStats[3].value);
+                $("#confirmCharacter").attr("data-hp", newStats[0].value);
+                $("#confirmCharacter").attr("data-str", newStats[1].value);
+                $("#confirmCharacter").attr("data-def", newStats[2].value);
+                $("#confirmCharacter").attr("data-spd", newStats[3].value);
             }
         }
     });
 
     // change modal text on character select page based on stats
-    $(".select-character").on("click", function() {
+    $(".select-character").on("click", function () {
         //if user still has remaining points to distribute
-        if(statPoints > 0 && statPoints <= 10) {
+        if (statPoints > 0 && statPoints <= 10) {
             $("#modaltext").text("Please distribute all 10 stat points!");
             $(".confirm").hide();
             $(".cancel").text("CONTINUE");
@@ -279,19 +287,19 @@ $(document).ready(function () {
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
-            $(".cancel").text("Cancel");  
+            $(".cancel").text("Cancel");
             $(".cancel").removeAttr("style");
         }
     });
 
-    $("#selectCharacter").on("click", function () {
-        console.log("this button has been clicked");
-        console.log($(this).attr("data-class"));
-        var newUser = {
-            mainClass: $(this).attr("data-class")
-        };
-        $.post("/api/users", newUser, function () {
-            window.location.href = "/world";
-        });
-    });
+    // $("#selectCharacter").on("click", function () {
+    //     console.log("this button has been clicked");
+    //     console.log($(this).attr("data-class"));
+    //     var newUser = {
+    //         mainClass: $(this).attr("data-class")
+    //     };
+    //     $.post("/api/users", newUser, function () {
+    //         window.location.href = "/world";
+    //     });
+    // });
 });
