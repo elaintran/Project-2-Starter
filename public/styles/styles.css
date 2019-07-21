@@ -267,6 +267,10 @@ h5 {
   ============================
 */
 
+.modal-dialog, .modal-dialog-centered {
+    max-width: 100%;
+}
+
 .modal-content {
     background-color: transparent;
     display: flex;
