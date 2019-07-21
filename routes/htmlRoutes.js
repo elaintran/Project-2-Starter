@@ -34,6 +34,7 @@ module.exports = function (app) {
     });
 
     app.get("/world", isAuthenticated, (req, res) => {
+        console.log("need to check this " + JSON.stringify(req.user));
         //if user is logged in, redirect to world
         if (req.user && req.user.userSelection !== null) {
             res.sendFile(path.join(__dirname, "../public/story-select.html"));
