@@ -11,6 +11,10 @@ body {
     color: white;
 }
 
+h3 {
+    font-size: 3vw;
+}
+
 h6 {
     font-size: 1.2vw;
 }
@@ -30,7 +34,7 @@ a, a:hover, a:focus {
     cursor: pointer;
 }
 
-button:focus, input:focus {
+button:focus, input:focus, .dropdown-toggle:focus {
     outline: none;
 }
 
@@ -125,7 +129,7 @@ form {
     letter-spacing: 0.2px;
 }
   
-.submit {
+.submit, .submiterror {
     margin-top: 1%;
     padding: 8px 0;
     font-size: 13px;
@@ -156,18 +160,11 @@ form {
 */
 
 /* Grouping Font Size and Values */
-/* .character-info h5, .character-info p, .select-character {
-    font-weight: 600;
-}
-
+/*
 h5 {
     font-size: 2vw;
 }
-
-p {
-    font-size: 0.9vw;
-    letter-spacing: 1px;
-} */
+ */
 
 .select-screen {
     position: relative;
@@ -298,17 +295,17 @@ p {
     right: calc(3rem + 30px);
 }
 
-.dropdown-toggle {
+.user-toggle .dropdown-toggle {
     display: flex;
     align-items: center;
     font-size: 1.2vw;
 }
 
-.dropdown-toggle:hover {
+.user-toggle .dropdown-toggle:hover {
     text-decoration: none;
 }
 
-.dropdown-toggle::after {
+.user-toggle .dropdown-toggle::after {
     content: "\f0d7";
     margin-left: 0.7vw;
     border: 0;
@@ -316,6 +313,27 @@ p {
     font-weight: 600;
     color: #e8c892;
 }
+
+.user-toggle .dropdown-menu {
+    /* margin-left: 4vw; */
+    border: 0;
+    max-width: auto;
+    min-width: auto;
+    padding: 0.8vw 0;
+    background-color: #292929;
+}
+
+.user-toggle .dropdown-item {
+    display: flex;
+    font-size: 1vw;
+    font-weight: 500;
+    color: #bcbcbc;
+}
+
+.user-toggle .dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
+    background-color: #222222;
+    color: #bcbcbc;
+} 
 
 .userimage {
     margin-right: 10px;
@@ -331,26 +349,6 @@ p {
     letter-spacing: 0.5px;
     color: #e8c892;
 }
-
-.dropdown-menu {
-    margin-left: 4vw;
-    border: 0;
-    max-width: auto;
-    min-width: auto;
-    padding: 0.8vw 0;
-    background-color: #292929;
-}
-
-.dropdown-item {
-    font-size: 1vw;
-    font-weight: 500;
-    color: #bcbcbc;
-}
-
-.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
-    background-color: #222222;
-    color: #bcbcbc;
-} 
 
 .pull-left {
     margin-right: 0.5vw;
@@ -457,13 +455,13 @@ p {
     margin: 30px 15px 3vw auto;
     border: 0.2vw solid #acacac;
     width: 36%;
-    padding: 3% 4%;
+    padding: 2.5% 4%;
     background-color: #252525;
     color: #d7d7d7;
 }
 
 .chapter-info h6 {
-    margin-bottom: 3px;
+    margin-bottom: 0.5vw;
     text-align: center;
     font-size: 1.2vw;
     letter-spacing: 0.05vw;
@@ -474,6 +472,7 @@ p {
     margin-bottom: 5%;
     height: 8vw;
     font-size: 1vw;
+    font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.05vw;
     overflow: auto;
@@ -481,35 +480,39 @@ p {
 
 .story {
     display: none;
+    padding: 1.5% 0;
 }
 
 .chapter-number {
-    margin-bottom: 0.2vw;
     color: #e8c892;
     text-transform: uppercase;
 }
 
+.chapter-info .chapter-description {
+    margin-bottom: 0.8vw;
+}
+
 .castle-container {
-    margin: 0.5vw 0 2.3vw;
+    margin: 0vw 0 1.3vw;
 }
 
 .castle-container img {
+    margin-top: 0.5vw;
     margin-bottom: 1vw;
-    margin-top: 10px;
     height: 8vw;
 }
 
-.chapter-info .mini-class {
+.user-class, .stat-type {
     text-transform: uppercase;
-    font-size: 1vw;
 }
 
-.stat-type {
-    text-transform: uppercase;
+.user-class {
+    font-weight: 600;
 }
 
 .change-class-container {
     align-items: center;
+    margin-top: 0.9vw;
 }
 
 .chapter-select {
@@ -987,41 +990,23 @@ svg.enemy-sprite:hover {
   ============================
 */
 
-.errortext{
-  font-size: 10vw;
-  text-align: center;
-  color: #c3b69a;
-}
-.wrong{
-  margin-top: 20px; 
-  font-size: 3vw;
-  font-weight: 600;
-  text-align: center;
-  color: #d7d7d7;
-  
-}
-.errorimage{
-  padding-top: 10%; 
-  text-align: center;
+#error {
+    max-width: 400px;
 }
 
-.submiterror{
-  border: 0;
-  border-radius: 20px;
-  width: 50%;
-  padding: 6px 0;
-  background-image: linear-gradient(to right, #94263a, #d24d5f);
-  font-weight: 500;
-  text-align: center;
-  color: white;
+.wrong {
+    margin: 2vw 0;
+    font-weight: 600;
+    text-align: center;
+    color: #d7d7d7;
 }
 
-.submiterror:focus{
-  outline: none;
+.errorimage img {
+    width: 100%;
 }
-.backtohome{
-  padding-top:2%;
-  text-align: center;
+
+.backtohome {
+    margin-bottom: 2vw;
 }
 
 /*

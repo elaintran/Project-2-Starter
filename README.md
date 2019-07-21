@@ -1,34 +1,31 @@
-# Project-2-Starter
-A repository for starting project 2
-- [X] Copy this template
+# Heroes United X: The Awakening
+Heroes United is a multi-level, turn-based browser game that incorporates strategy, wit, and RPG elements. Users are prompted to login or sign up upon load, select and customize
+their characters, and unlock new chapters as they progress their way through the story. Characters have preset base stats according to their class, but the extra customization allows users to distribute additional stat points to any selected value.
 
-### Once you have copied this template do the following
-- [ ] Invite all collaborators
-- [ ] Create a slack channel and invite all the team members and the instructional staff
-- [ ] Protect the master branch
-- [ ] Set up a pipeline with heroku with a staging environment and a production environment
-- [ ] Setup the staging app to deploy the master branch automatically
-- [ ] Modify this README to include 
-  - [ ] each of your team members names and links to their github profiles
-  - [ ] the title of your project
-  - [ ] a link to your production deployed version
-  
-#### Requirements for the project
-  
-- [ ] Must use a Node and Express Web Server
+## Collaborators
+* [Elain Tran](https://github.com/elaintran)
+* [Brittany McNulty](https://github.com/bmm019)
+* [Christina Truong](https://github.com/christinaqtruong)
+* [David Garza](https://github.com/dgarza0413)
+* [Mark Baker](https://github.com/i-k0n)
 
-- [ ] Must be backed by a MySQL Database with a Sequelize ORM  
+## Objectives
+- [X] Must use a Node and Express Web Server
+- [X] Must be backed by a MySQL Database with a Sequelize ORM  
+- [X] Must have both GET and POST routes for retrieving and adding new data
+- [X] Must be deployed using Heroku (with Data)
+- [X] Must utilize at least one new library, package, or technology that we haven’t discussed
+- [X] Must have a polished frontend / UI 
+- [X] Must have folder structure that meets MVC Paradigm
+- [X] Must meet good quality coding standards (indentation, scoping, naming)
+- [X] Must not expose sensitive API key information on the server
 
-- [ ] Must have both GET and POST routes for retrieving and adding new data
+## Demo
+[View Demo Here](https://heroesunited.herokuapp.com)
 
-- [ ] Must be deployed using Heroku (with Data)
-
-- [ ] Must utilize at least one new library, package, or technology that we haven’t discussed
-
-- [ ] Must have a polished frontend / UI 
-
-- [ ] Must have folder structure that meets MVC Paradigm
-
-- [ ] Must meet good quality coding standards (indentation, scoping, naming)
-
-- [ ] Must not expose sensitive API key information on the server
+## Technologies Used
+* [D3.js](https://d3js.org/)
+* [Express](https://www.npmjs.com/package/express)
+* [MySQL2](https://www.npmjs.com/package/mysql2)
+* [Sequelize](https://www.npmjs.com/package/sequelize)
+* [Passport](https://www.npmjs.com/package/passport)

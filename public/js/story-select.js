@@ -42,6 +42,7 @@ $(document).ready(function () {
             characterObj.colors.light = data.Main.colorLight;
             userCharacter.push(characterObj);
             //display user information on page
+            $(".user-class").text(data.Main.mainClass);
             $(".userimage").attr("src", data.Main.mainPortrait);
             $(".user-chibi").attr("src", data.Main.mainChibi);
             $(".username").text(data.userName);
@@ -50,7 +51,7 @@ $(document).ready(function () {
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
 
             //get chapter status from user
-
+            console.log(data);
             if (data.chapterOne === true) {
                 console.log("chapter one is completed");
                 $(".chapter-select.1").attr("data-complete", "New");
@@ -158,7 +159,7 @@ $(document).ready(function () {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
                 $(".chapter-subtitle").text("Coming Soon");
-                // $(".chapter-description").text("Purchase potions here.");
+                $(".chapter-description").text("You purchase potions here.");
                 //remove gradient and show disabled button color
                 $(".select").css({
                     "background-image": "none",
@@ -168,6 +169,7 @@ $(document).ready(function () {
             case ("armory"):
                 $(".chapter-number").text("Armory");
                 $(".chapter-subtitle").text("Coming Soon");
+                $(".chapter-description").text("You purchase weapons here.");
                 $(".select").css({
                     "background-image": "none",
                     "background-color": "#5f5f5f"
@@ -217,7 +219,7 @@ $(document).ready(function () {
             .attr("fill", "#363636")
             //start position begins right before the stats bar ends
             .attr("x", function (d) {
-                return (d.value / 60 * 100 - 10) + "%";
+                return (d.value / 55 * 100 - 10) + "%";
             })
             //moves each rectangle down
             //i is the data point index
@@ -227,12 +229,12 @@ $(document).ready(function () {
             //width of the rectangle
             //multiplied the data point to make it wider
             .attr("width", function (d) {
-                return 100 - (d.value / 60 * 100) + 10 + "%";
+                return 100 - (d.value / 55 * 100) + 10 + "%";
             })
             //defines the height of the rectangle
             .attr("height", 13)
             //rounds the rectangle
-            .attr("rx", 8);
+            .attr("rx", 7);
 
         //current stats bar
         nodes.append("rect")
@@ -243,10 +245,10 @@ $(document).ready(function () {
                 return i * 55 + 30;
             })
             .attr("width", function (d) {
-                return (d.value / 60 * 100) + "%";
+                return (d.value / 55 * 100) + "%";
             })
             .attr("height", 13)
-            .attr("rx", 8);
+            .attr("rx", 7);
 
         //text container
         nodes.append("text")
