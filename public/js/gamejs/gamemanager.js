@@ -1,5 +1,4 @@
-//total skill points up for distribution by the player is 10. Each point adds +2 to the character's stats.
-let skillPoints = 10;
+
 
 
 let enemy;
