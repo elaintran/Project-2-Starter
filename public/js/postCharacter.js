@@ -22,7 +22,7 @@ $(document).ready(function () {
             userSelection: selectedId,
         };
         console.log("function fired with " + userData[0]);
-
+        console.log(userData.userSelection);
         postCharacterData(userData.userSelection);
 
         function postCharacterData(Id) {
@@ -32,6 +32,9 @@ $(document).ready(function () {
                 data: userData
             }).then(function (data) {
                 console.log(data);
+                // debugger;
+                console.log(userData);
+                // debugger;
                 window.location.href = "/world";
             });
         }
