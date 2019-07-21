@@ -155,7 +155,12 @@ form {
   
 .error-message i {
     margin-right: 10px;
-    font-size: 12px;
+    font-size: 11px;
+}
+
+.error-message p {
+    font-size: 13px;
+    letter-spacing: 0.5px;
 }
 
 /*  
