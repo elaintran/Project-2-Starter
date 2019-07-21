@@ -163,6 +163,10 @@ form {
     letter-spacing: 0.5px;
 }
 
+.link-hover:hover {
+    color: #bfbfbf;
+}
+
 /*  
   ============================
   CHARACTER SELECT STYLING
