@@ -956,7 +956,7 @@ svg.enemy-sprite:hover {
 
 .user-prompts {
   text-transform: uppercase;
-    height: 8vw;
+  height: 8vw;
 }
 
 .prompt-box {
@@ -965,7 +965,8 @@ svg.enemy-sprite:hover {
   background-color: #0006;
   font-weight: 600;
   font-size: 1vw;
-  transition: all 150ms ease-in-out;
+  /* transition: all 350ms ease-in-out; */
+  /* opacity: 0; */
 }
 /*  
   ============================

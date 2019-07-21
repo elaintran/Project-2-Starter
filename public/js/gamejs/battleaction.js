@@ -41,6 +41,7 @@ let enemyStillAlive = function () {
     updateEnemyHealthBar();
 
     console.log("Enemy is still alive!");
+    $(".prompt-box").stop().fadeIn(350);
   }
 };
 
@@ -186,6 +187,7 @@ let characterAttack = function (grabbedTarget) {
 
 
       console.log("Character attacked, but the attack missed!");
+      $(".prompt-box").stop().fadeIn(350);
     }
   }
 };
@@ -195,6 +197,7 @@ let game = function () {
 
   $(".cls-1").each(function () {
     $(this).click(function () {
+      $(".prompt-box").stop().fadeOut(350);
       grabbedTarget = $(this)
         .parent()
         .attr("data-target");
@@ -204,7 +207,7 @@ let game = function () {
       gameManager.pickTarget(grabbedTarget);
 
       setTimeout(fightCheck, 1000);
-
+      
     });
   });
 };
@@ -213,6 +216,7 @@ let checker = function () { // eslint-disable-line no-unused-vars
   if (openingScene) {
     game();
     console.log("checker: ", openingScene);
+    $(".prompt-box").stop().fadeIn(350);
   }
 };
 
