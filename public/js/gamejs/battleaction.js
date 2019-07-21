@@ -5,9 +5,6 @@ var enemyTotalDmg;
 var speed;
 var cap;
 
-console.log("Character Start HP: " + character.hp);
-console.log("Character Start SPD: " + character.spd);
-
 let determineCap = function () {
   if (chapter) {
     switch (chapter) {
@@ -31,8 +28,8 @@ let determineCap = function () {
 };
 
 let calculateDamage = function () {
-  baseDmg = (character.str + target.bonus).toFixed(0);
-  totalDmg = (baseDmg - (enemy.def / cap) * character.str).toFixed(0);
+  baseDmg = ((character.str/3) + target.bonus);
+  totalDmg = (baseDmg - (enemy.def / 10));
 };
 
 let enemyStillAlive = function () {
@@ -69,11 +66,8 @@ let levelUp = function () {
 };
 
 let calcEnemyDmg = function () {
-  determineCap();
-  let defense = character.def / cap;
-  let totalDef = defense * enemy.str;
-
-  enemyTotalDmg = enemy.str - totalDef;
+  let defense = character.def / 10;
+  enemyTotalDmg = ((enemy.str/5) + Math.floor(Math.random()*5)) - defense;
 };
 
 let enemyDead = function () {

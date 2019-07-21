@@ -9,8 +9,6 @@ let character = {};
 //     spd: 37.5
 // };
 
-//multiplier for character HP
-character.hp *= 3;
 
 $(document).ready(function () {
     getUserId();
