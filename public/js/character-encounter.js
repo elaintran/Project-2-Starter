@@ -15,13 +15,13 @@ character.hp *= 3;
 $(document).ready(function () {
     getUserId();
     //loads chapter status and creates designated enemy
-    
+
     // console.log("Enemy creation: " + enemy.hp);
     // animateEntrance();
     adjustPopupDistance();
     listenForHover();
-    
-    
+
+
 });
 
 // event handler for displaying popups when hovering over the parts of the enemy's body
@@ -34,7 +34,7 @@ function listenForHover() {
                 "opacity": "1",
                 "left": "0vw"
             });
-            $(this).css( "fill", "#f004" );
+            $(this).css("fill", "#f004");
         }, function () {
             $(".attack-" + bodyPart).css({
                 "opacity": "0",
@@ -87,13 +87,13 @@ function animateEntrance() { // eslint-disable-line no-unused-vars
 }
 
 function playerStrike() { // eslint-disable-line no-unused-vars
-    $(".player-sprite").animate({"left": "+=3vw" }, 100);
-    $(".player-sprite").animate({"left": "-=3vw" }, 300);
+    $(".player-sprite").animate({ "left": "+=3vw" }, 100);
+    $(".player-sprite").animate({ "left": "-=3vw" }, 300);
 }
 
 function enemyStrike() { // eslint-disable-line no-unused-vars
-    $("div.enemy-sprite").animate({"right": "+=3vw" }, 100);
-    $("div.enemy-sprite").animate({"right": "-=3vw" }, 300);
+    $("div.enemy-sprite").animate({ "right": "+=3vw" }, 100);
+    $("div.enemy-sprite").animate({ "right": "-=3vw" }, 300);
 }
 
 function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
@@ -104,11 +104,11 @@ function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
     // update damage number value
     d.text(enemyTotalDmg);
     // reset damage number
-    d.css({ 
+    d.css({
         "top": 0,
         "text-stroke": "2px #fd4961",
         "font-size": "3vw",
-        "opacity": 1 
+        "opacity": 1
     });
     // slide damage number up and fade out
     d.animate({
@@ -125,13 +125,13 @@ function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
     $("#enemy-image > image").attr("xlink:href", flinch);
     e.effect("shake", { distance: 10 }, 300);
     d.text(totalDmg);
-    d.css({ 
+    d.css({
         "top": 0,
         "text-stroke": "2px #fd4961",
         "font-size": "3vw",
-        "opacity": 1 
+        "opacity": 1
     });
-    setTimeout(function() {
+    setTimeout(function () {
         $("#enemy-image > image").attr("xlink:href", original);
     }, 300);
     d.animate({
@@ -143,40 +143,40 @@ function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
 function slidePlayer() { // eslint-disable-line no-unused-vars
     let d = $(".player-damage");
     let p = $(".player-sprite");
-    p.animate({"left": "-=4vw" }, 200);
+    p.animate({ "left": "-=4vw" }, 200);
     d.text("MISS");
-    d.css({ 
+    d.css({
         "top": 0,
         "-webkit-text-stroke": "2px dodgerblue",
         "font-size": "3vw",
-        "opacity": 1 
+        "opacity": 1
     });
     d.animate({
         "top": "-=7vw",
         "opacity": 0
     }, 1000, "easeOutCirc");
-    
-    p.animate({"left": "+=4vw" }, 800);
+
+    p.animate({ "left": "+=4vw" }, 800);
 }
 
 function slideEnemy() { // eslint-disable-line no-unused-vars
     let d = $(".enemy-damage");
     let e = $("div.enemy-sprite");
-    e.animate({"right": "-=4vw" }, 200);
+    e.animate({ "right": "-=4vw" }, 200);
     d.text("MISS");
-    d.css({ 
+    d.css({
         "top": 0,
         // "-webkit-text-stroke": "2px dodgerblue",
         "text-stroke": "2px dodgerblue",
         "font-size": "3vw",
-        "opacity": 1 
+        "opacity": 1
     });
     d.animate({
         "top": "-=7vw",
         "opacity": 0
     }, 1000, "easeOutCirc");
-    
-    e.animate({"right": "+=4vw" }, 800);
+
+    e.animate({ "right": "+=4vw" }, 800);
 }
 
 //  ==========================
@@ -204,6 +204,8 @@ function getUserData(Id) {
         console.log("id: ", playerID);
     });
 }
+
+
 function getUserId() {
     $.get("/api/userdata").then(function (data) {
         var userId = data.userId;

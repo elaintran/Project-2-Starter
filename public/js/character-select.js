@@ -12,6 +12,7 @@ var statsDis = false;
 $(document).ready(function () {
     //push all of the character info from database into array
     $.get("api/character").then(function (data) {
+        console.log(data);
         for (var i = 0; i < data.length; i++) {
             var characterObj = {};
             characterObj.name = data[i].mainName;
@@ -270,25 +271,19 @@ $(document).ready(function () {
     // change modal text on character select page based on stats
     $(".select-character").on("click", function () {
         //if user still has remaining points to distribute
-        if (statPoints > 0 && statPoints <= 10) {
-            $("#modaltext").text("Please distribute all 10 stat points!");
+        if(statPoints > 0 && statPoints <= 10) {
+            $("#modaltext").text("Please distribute all of your remaining stat points!");
             $(".confirm").hide();
-            $(".cancel").text("CONTINUE");
-            $(".cancel").css({
-                border: "0",
-                width: "30%",
-                "text-align": "center",
-                color: "white",
-                "border-radius": "20px",
-                "font-weight": "500",
-                padding: "10px 0",
-                background: "linear-gradient(to right, #94263a, #d24d5f)"
-            });
+            $(".cancel").text("Continue");
+            $(".cancel").removeAttr("style");
         } else {
             $("#modaltext").text("Are you sure you wish to continue with this class?");
             $(".confirm").show();
-            $(".cancel").text("Cancel");
-            $(".cancel").removeAttr("style");
+            $(".cancel").text("Cancel");  
+            $(".cancel").css({
+                "background-image": "none",
+                "background-color": "transparent"
+            });
         }
     });
 
