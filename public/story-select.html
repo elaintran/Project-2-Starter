@@ -31,29 +31,31 @@
 </head>
 
 <body>
-    <div class="container-fluid map-bg">
-        <div class="user-toggle">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img class="userimage">
-                <p class="username"></p>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="/world"><i class="fas fa-home pull-left"></i><p>Home</p></a>
-                <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt pull-left"></i><p>Logout</p></a>
+    <div class="container-fluid wrapper">
+        <div class="map-wrapper map-bg">
+            <div class="user-toggle">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img class="userimage">
+                    <p class="username"></p>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/world"><i class="fas fa-home pull-left"></i><p>Home</p></a>
+                    <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt pull-left"></i><p>Logout</p></a>
+                </div>
             </div>
-        </div>
-        <img src="images/resource-images/logo/heroes-united.png" class="logo">
-        <div class="map-wrapper">
+            <img src="images/resource-images/logo/heroes-united.png" class="logo">
             <div class="menu-screen">
                 <div class="world-map-container">
-                    <div class="chapter-container mx-5">
+                    <div class="chapter-container custom-margin">
                         <div class="chapter-info">
+                            <!--Map Info-->
                             <div class="story">
                                 <h6 class="chapter-number"></h6>
                                 <h6 class="chapter-subtitle"></h6>
                                 <p class="chapter-description"></p>
                             </div>
+                            <!--User Character-->
                             <div class="castle-container">
                                 <h6 class="user-class"></h6>
                                 <div class="row change-class-container">
@@ -69,10 +71,12 @@
                             <button href="/character" class="select gradient-button m-0">Change Class</button>
                         </div>
                     </div>
-                    <div class="row mx-5 chapter-list">
+                    <!--Story Display-->
+                    <div class="row custom-margin chapter-list">
                     </div>
                 </div>
             </div>
+            <!--Map Markers-->
             <div class="marker-container item-shop">
                 <div class="marker">
                     <p>Item Shop</p>
