@@ -44,7 +44,8 @@ module.exports = function (app) {
                 userName: req.user.userName,
                 userEmail: req.user.userEmail,
                 userSelection: req.user.userSelection,
-                userId: req.user.id
+                userId: req.user.id,
+                chapter: req.user.chapter
             });
         }
     });
