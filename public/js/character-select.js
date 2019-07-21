@@ -234,7 +234,7 @@ $(document).ready(function () {
                                 statPoints--;
                             }
                         }
-                        //check if the minus button is clicked
+                    //check if the minus button is clicked
                     } else if ($(this).attr("class").split(" ")[2] === "minus") {
                         //checks the stat name
                         if ($(this).next().text() === characters[i].stats[j].statName) {
