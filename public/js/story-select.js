@@ -51,14 +51,12 @@ $(document).ready(function () {
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
             //get chapter status from user
             console.log(data);
-            if (data.chapterOne === true) {
-                getChapter(true, false, false, false);
-            } else if (data.chapterTwo === true) {
-                getChapter(true, false, false, false);
+            if (data.chapterFour === true) {
+                getChapter(true, true, true, false);
             } else if (data.chapterThree === true) {
                 getChapter(true, true, false, false);
-            } else if (data.chapterFour === true) {
-                getChapter(true, true, true, false);
+            } else if (data.chapterTwo === true) {
+                getChapter(true, false, false, false);
             } else {
                 getChapter(false, false, false, false);
             }
@@ -104,7 +102,7 @@ $(document).ready(function () {
                     flagDisplay("New", "#b2394c");
                     //restrict unlocking the rest of the chapters
                     chapterUnlock = false;
-                    //lock the remaining chapters
+                //lock the remaining chapters
                 } else {
                     chapterSelect.attr("data-complete", "locked");
                     var overlay = $("<div>").addClass("overlay");
@@ -145,7 +143,15 @@ $(document).ready(function () {
                 $("button.select").attr("data-chapter", i + 1);
                 $("button.select").attr("data-subtitle", chapters[i].subtitle);
                 //navigate to chapter on click
-                $("button.select").attr("href", "/encounter");
+                if (chapters[i].name !== "Chapter 4:") {
+                    $("button.select").attr("href", "/encounter");
+                //disable button for chapter 4
+                } else {
+                    $("button.select").removeAttr("href").css({
+                        "background-image": "none",
+                        "background-color": "#5f5f5f"
+                    });
+                }
             }
         }
     });
