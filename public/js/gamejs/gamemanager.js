@@ -509,7 +509,7 @@ function populateBattle() { // eslint-disable-line no-unused-vars
     // display correct player name
     $(".character-name").text(player.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
+    // $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite

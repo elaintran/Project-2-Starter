@@ -1,13 +1,13 @@
 // populate enemy portrait dynamically on page load
 // possibly store enemy svg data within a javascript object
 /*Created for testing purposes: */
-character = {
-    classType: "Red Mage",
-    hp: 12.5,
-    def: 50,
-    str: 25,
-    spd: 37.5
-};
+let character = {};
+//     classType: "Red Mage",
+//     hp: 12.5,
+//     def: 50,
+//     str: 25,
+//     spd: 37.5
+// };
 
 //multiplier for character HP
 character.hp *= 3;
@@ -182,9 +182,6 @@ function slideEnemy() { // eslint-disable-line no-unused-vars
 //  ==========================
 //      DATABASE FUNCTIONS
 //  ==========================
-function putChapterData(chapterData) {
-    console.log(chapterData);
-}
 
 function getUserData(Id) {
     $.ajax({
@@ -192,16 +189,20 @@ function getUserData(Id) {
         url: `/api/users/${Id}`
     }).then(function (data) {
         // debugger;
-        console.log("data: ", data);
+        // console.log("data: ", data);
         var userChibi = data.Main.mainChibi;
         var userPortrait = data.Main.mainPortrait;
         $(".player-sprite").attr("src", userChibi);
         $(".player-portrait").attr("src", userPortrait);
         $(".character-name").text(data.Main.mainClass);
         getChapter(data);
-        console.log("getChapter ran");
-        var playerID = data.Main.id;
-        console.log("id: ", playerID);
+        
+        character.hp = data.Main.mainHp;
+        character.def = data.Main.mainDef;
+        character.str = data.Main.mainStr;
+        character.spd = data.Main.mainSpd;
+        console.log("Character stats: ", character.hp, character.def, character.str, character.spd);
+        $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
     });
 }
 
@@ -212,26 +213,3 @@ function getUserId() {
         getUserData(userId);
     });
 }
-
-// loginUser does a post to our "api/login" route and if successful, redirects us the the landing page
-// function putChapterWin() {
-//     function postCharacterData(Id) {
-//         $.ajax({
-//             method: "PUT",
-//             url: `/api/users/${Id}`,
-//             data: Main.id
-//         }).then(function () {
-//             window.location.href = "/world";
-//         });
-//     }
-
-//     function gatherUserId() {
-//         $.get("/api/userdata").then(function (data) {
-//             console.log(data);
-//             var userId = data.userId;
-//             postCharacterData(userId);
-//         });
-//     }
-//     gatherUserId();
-// }
-
