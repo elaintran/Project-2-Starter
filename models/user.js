@@ -47,22 +47,11 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: false
         }
     });
-
-    // this works
     User.associate = function (models) {
         User.belongsTo(models.Main, {
             foreignKey: "userSelection"
         });
     };
-
-    // User.associate = function (models) {
-    //     User.belongsToMany(models.Main, {
-    //         through: "userMain",
-    //         as: "mains",
-    //         foreignKey: "userSelection",
-    //         otherKey: "id"
-    //     });
-    // };
 
     User.prototype.validPassword = function (userPassword) {
         return bcrypt.compareSync(userPassword, this.userPassword);

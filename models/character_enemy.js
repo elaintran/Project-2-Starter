@@ -11,10 +11,5 @@ module.exports = function (sequelize, DataTypes) {
         colorDark: DataTypes.STRING,
         colorLight: DataTypes.STRING
     });
-
-    // Enemy.associate = function (models) {
-    //     Enemy.hasOne(models.Chapter, {
-    //     });
-    // };
     return Enemy;
 };
