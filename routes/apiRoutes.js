@@ -1,5 +1,4 @@
 var db = require("../models");
-// var passport = require("../config/passport");
 
 module.exports = function (app) {
 
@@ -24,27 +23,13 @@ module.exports = function (app) {
 
     app.put("/api/users/:id", (req, res) => {
         db.User.update(req.body, {
-                where: {
-                    id: req.user.id
-                }
-            }).then(function (dbUser) {
-                res.json(dbUser);
-            });
+            where: {
+                id: req.user.id
+            }
+        }).then(function (dbUser) {
+            res.json(dbUser);
+        });
     });
-
-    //i want this route to update the main character of the user
-    // app.get("/api/users/:id/main", (req, res) => {
-    //     console.log(req.params);
-    //     db.User.findOne({
-    //         where: {
-    //             id: req.params.id,
-    //             main: req.params.Main
-    //         }
-    //     }).then(function (dbUser) {
-    //         res.json(dbUser);
-    //         console.log(dbUser);
-    //     });
-    // });
 
     app.get("/api/character", (req, res) =>
         db.Main.findAll({}).then((dbMain) =>
