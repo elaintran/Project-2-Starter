@@ -53,7 +53,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/character", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Main.create({
             mainName: req.body.mainName,
             mainClass: req.body.mainClass,
@@ -77,7 +77,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/enemy", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Enemy.create({
             enemyName: req.body.enemyName,
             enemyClass: req.body.enemyClass,
@@ -99,7 +99,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/chapter", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Chapter.create({
             chapterName: req.body.chapterName,
             chapterSubtitle: req.body.chapterSubtitle,

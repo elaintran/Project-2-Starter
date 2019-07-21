@@ -22,8 +22,8 @@ $(document).ready(function () {
             userSelection: selectedId,
         };
         console.log("function fired with " + userData[0]);
-        console.log(userData.userSelection);
-        postCharacterData(userData.userSelection);
+
+        // postCharacterData(userData.userSelection);
 
         function postCharacterData(Id) {
             $.ajax({
@@ -32,9 +32,19 @@ $(document).ready(function () {
                 data: userData
             }).then(function (data) {
                 console.log(data);
-                // debugger;
+                getNewData();
+            });
+        }
+        
+        function getNewData() {
+            $.ajax({
+                method: "POST",
+                url: "api/userdata",
+                data: userData
+            }).then(function(data) {
                 console.log(userData);
-                // debugger;
+                console.log(data);
+                debugger;
                 window.location.href = "/world";
             });
         }
