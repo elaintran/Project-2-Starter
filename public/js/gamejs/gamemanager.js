@@ -6,7 +6,7 @@ let enemy;
 let target; // eslint-disable-line no-unused-vars
 let openingScene = false; // eslint-disable-line no-unused-vars
 let animationsTimer = false; // eslint-disable-line no-unused-vars
-// let chapter;
+let chapterData = {};// eslint-disable-line no-unused-vars
 
 // dummy code for simulating json response with chapter data
 // let chapters = [
@@ -50,7 +50,27 @@ function getChapter(data) { // eslint-disable-line no-unused-vars
   populateBattle();
   setTimeout(checker, 6000);
 }
-// getChapter();
+
+let updateChapter = function(chapter) { // eslint-disable-line no-unused-vars
+  switch (chapter) {
+    case "4":
+      chapterData = { "chapterFour": true };
+      putChapterData(chapterData);
+      break;
+    case "3":
+      chapterData = { "chapterThree": true };
+      putChapterData(chapterData);
+      break;
+    case "2":
+      chapterData = { "chapterTwo": true };
+      putChapterData(chapterData);
+      break;
+    default:
+      chapterData = { "chapterOne": true };
+      putChapterData(chapterData);
+      break;
+  }
+};
 
 var player = [ // eslint-disable-line no-unused-vars
   {
@@ -489,7 +509,7 @@ function populateBattle() { // eslint-disable-line no-unused-vars
     // display correct player name
     $(".character-name").text(player.name);
     // display correct player hp
-    $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
+    // $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
     // display correct hp amount on health bar
     $(".player-health-bar-fill").css("width", "100%");
     // display correct player sprite
