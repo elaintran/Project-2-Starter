@@ -93,7 +93,7 @@ let enemyDead = function () {
 
     levelUp();
 
-    if (chapter < 4) {
+    if (chapter < 5) {
       console.log("You've completed a chapter! New Chapter: " + chapter);
       // debugger;
       getUserId(chapter);
@@ -111,7 +111,7 @@ let enemyDead = function () {
     $.ajax({
       method: "PUT",
       url: `/api/users/${Id}`,
-      data: (chapterNum === 1) ? { chapterTwo: true } : (chapterNum === 2) ? { chapterTwo: true } : (chapterNum === 3) ? { chapterThree: true } : console.log("game completed")
+      data: (chapterNum === 2) ? { chapterTwo: true } : (chapterNum === 3) ? { chapterThree: true } : (chapterNum === 4) ? { chapterFour: true } : console.log("game completed")
     });
   }
 

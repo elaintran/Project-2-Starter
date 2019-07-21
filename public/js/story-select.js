@@ -72,14 +72,12 @@ $(document).ready(function () {
                 chapterObj.subtitle = data[i].chapterSubtitle;
                 chapterObj.description = data[i].chapterDescription;
                 chapterObj.previewImg = data[i].chapterImg;
-                // chapterObj.complete = data[i].chapterComplete;
                 chapters.push(chapterObj);
             }
             chapters[0].complete = chapterOne;
             chapters[1].complete = chapterTwo;
             chapters[2].complete = chapterThree;
             chapters[3].complete = chapterFour;
-            // console.log(chapters[0].complete);
             //display the complete, new, and locked chapters onto page
             chapterDisplay();
         });
@@ -147,10 +145,7 @@ $(document).ready(function () {
                     $("button.select").attr("href", "/encounter");
                 //disable button for chapter 4
                 } else {
-                    $("button.select").removeAttr("href").css({
-                        "background-image": "none",
-                        "background-color": "#5f5f5f"
-                    });
+                    comingSoon();
                 }
             }
         }
@@ -162,22 +157,16 @@ $(document).ready(function () {
         switch ($(this).attr("class").split(" ")[1]) {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
-                $(".chapter-subtitle").text("Coming Soon");
+                $(".chapter-subtitle").text("");
                 $(".chapter-description").text("You purchase potions here.");
                 //remove gradient and show disabled button color
-                $(".select").css({
-                    "background-image": "none",
-                    "background-color": "#5f5f5f"
-                });
+                comingSoon();
                 break;
             case ("armory"):
                 $(".chapter-number").text("Armory");
-                $(".chapter-subtitle").text("Coming Soon");
+                $(".chapter-subtitle").text("");
                 $(".chapter-description").text("You purchase weapons here.");
-                $(".select").css({
-                    "background-image": "none",
-                    "background-color": "#5f5f5f"
-                });
+                comingSoon();
                 break;
             //display character and stats
             case ("castle"):
@@ -279,5 +268,12 @@ $(document).ready(function () {
         $(".select").text("Select");
         //remove gradient from select
         $(".select").removeAttr("style").removeAttr("href");
+    }
+
+    function comingSoon() {
+        $("button.select").attr("href", "#").css({
+            "background-image": "none",
+            "background-color": "#5f5f5f"
+        }).text("Coming Soon");
     }
 });
