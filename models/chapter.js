@@ -6,6 +6,5 @@ module.exports = function (sequelize, DataTypes) {
         chapterImg: DataTypes.STRING,
         chapterComplete: DataTypes.BOOLEAN
     });
-
     return Chapter;
 };

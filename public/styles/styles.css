@@ -141,7 +141,6 @@ form {
     text-transform: uppercase;
 }
 
-/* Need to fix width */
 .error-message {
     display: none;
     justify-content: center;

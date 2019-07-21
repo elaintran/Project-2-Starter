@@ -1,5 +1,4 @@
 var db = require("../models");
-// var passport = require("../config/passport");
 
 module.exports = function (app) {
 
@@ -23,7 +22,6 @@ module.exports = function (app) {
     });
 
     app.put("/api/users/:id", (req, res) => {
-        console.log(req.user);
         db.User.update(req.body, {
             where: {
                 id: req.user.id
@@ -32,39 +30,6 @@ module.exports = function (app) {
             res.json(dbUser);
         });
     });
-
-    // app.post("/api/users/:id", asyncHandler(async (req, res) => {
-    //     const saveMain = await User.create(req.body, {w:1}, {returning: true});
-
-    //     req.body.Mains.forEach((main) => {
-    //         const main = await Main.findBy(main.id);
-    //         if(!main){
-    //             return res.status(400);
-    //         }
-
-    //         const userMain = {
-    //             mainId: savedMain.id,
-    //             userId: main.id,
-    //             stats: stats.num
-    //         }
-    //         const saved main
-    //     })
-    // )
-    // });
-
-    //i want this route to update the main character of the user
-    // app.get("/api/users/:id/main", (req, res) => {
-    //     console.log(req.params);
-    //     db.User.findOne({
-    //         where: {
-    //             id: req.params.id,
-    //             main: req.params.Main
-    //         }
-    //     }).then(function (dbUser) {
-    //         res.json(dbUser);
-    //         console.log(dbUser);
-    //     });
-    // });
 
     app.get("/api/character", (req, res) =>
         db.Main.findAll({}).then((dbMain) =>
