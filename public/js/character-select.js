@@ -232,6 +232,7 @@ $(document).ready(function () {
                                 newStats[j].value += 2;
                                 //remove from statPoints
                                 statPoints--;
+                                console.log("New stat: " + newStats[j].value);
                             }
                         }
                     //check if the minus button is clicked
@@ -256,10 +257,10 @@ $(document).ready(function () {
                 //display d3 stats
                 statsDisplay(characters[i].stats, characters[i].class, characters[i].colors.dark, characters[i].colors.light);
                 // console.log(newStats);
-                console.log("hp is: " + newStats[0].value);
-                console.log("str is: " + newStats[1].value);
-                console.log("def is: " + newStats[2].value);
-                console.log("spd is: " + newStats[3].value);
+                // console.log("hp is: " + newStats[0].value);
+                // console.log("str is: " + newStats[1].value);
+                // console.log("def is: " + newStats[2].value);
+                // console.log("spd is: " + newStats[3].value);
                 $("#confirmCharacter").attr("data-hp", newStats[0].value);
                 $("#confirmCharacter").attr("data-str", newStats[1].value);
                 $("#confirmCharacter").attr("data-def", newStats[2].value);
