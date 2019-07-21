@@ -295,17 +295,17 @@ h5 {
     right: calc(3rem + 30px);
 }
 
-.user-toggle .dropdown-toggle {
+.dropdown-toggle {
     display: flex;
     align-items: center;
     font-size: 1.2vw;
 }
 
-.user-toggle .dropdown-toggle:hover {
+.dropdown-toggle:hover {
     text-decoration: none;
 }
 
-.user-toggle .dropdown-toggle::after {
+.dropdown-toggle::after {
     content: "\f0d7";
     margin-left: 0.7vw;
     border: 0;
@@ -314,7 +314,7 @@ h5 {
     color: #e8c892;
 }
 
-.user-toggle .dropdown-menu {
+.dropdown-menu {
     /* margin-left: 4vw; */
     border: 0;
     max-width: auto;
@@ -323,14 +323,14 @@ h5 {
     background-color: #292929;
 }
 
-.user-toggle .dropdown-item {
+.dropdown-item {
     display: flex;
     font-size: 1vw;
     font-weight: 500;
     color: #bcbcbc;
 }
 
-.user-toggle .dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active {
     background-color: #222222;
     color: #bcbcbc;
 } 
