@@ -118,25 +118,26 @@
       <!--Gear Dropdown-->
         <div class="relative-container">
             <div class="btn-group dropup">
-                <!-- <div class="user-toggle-encounter"> -->
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="encounter-toggle dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-cog fa-2x"></i> 
                 </a>     
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="/world"><i class="fas fa-home pull-left"></i> Home</a>
                     <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt pull-left"></i> Logout</a>    
                 </div>
             </div>
         </div>
+
     </div>
     
     <!-- Winner Modal -->
     <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content"></div>
-            <div class="modal-body">
-                <p class="chapterclear">CHAPTER CLEAR</p>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="modal-body">
+                    <p class="chapterclear result-modal">CHAPTER CLEAR</p>
+                </div>
             </div>
         </div>
     </div>
@@ -144,10 +145,11 @@
     <!-- Loser Modal -->
     <div class="modal fade" id="loseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content"></div>
-            <div class="modal-body">
-                <p class="gameover">GAME OVER</p>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="modal-body">
+                    <p class="gameover result-modal">GAME OVER</p>
+                </div>
             </div>
         </div>
     </div>

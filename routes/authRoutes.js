@@ -39,35 +39,6 @@ module.exports = function (app) {
         }
     });
 
-<<<<<<< HEAD
-    app.post("/api/userdata", function (req, res) {
-        // console.log({
-        //     userName: req.user.userName,
-        //     userEmail: req.user.userEmail,
-        //     userSelection: req.body.userSelection,
-        //     userId: req.user.id,
-        //     chapter: req.user.chapter
-        // });
-        res.json({
-            userName: req.user.userName,
-            userEmail: req.user.userEmail,
-            userSelection: req.body.userSelection,
-            userId: req.user.id,
-            chapter: req.user.chapter
-        });
-        // console.log(req.body);
-        // console.log(req.user.userName);
-    //     debugger;
-    //     db.User.update(req.body,
-    //         {
-    //             where: {
-    //                 userSelection: req.user.userSelection
-    //             }
-    //         })
-    //         .then(function (dbUser) {
-    //             res.json(dbUser);
-    //         });
-=======
     app.put("/api/userdata", function (req, res) {
         console.log(req.body);
         console.log(req.user.userName);
@@ -80,6 +51,5 @@ module.exports = function (app) {
             .then(function (dbUser) {
                 res.json(dbUser);
             });
->>>>>>> eed964be197b64123c2502065209f35c16e97a8a
     });
 };

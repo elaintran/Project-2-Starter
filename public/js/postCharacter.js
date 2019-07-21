@@ -23,7 +23,7 @@ $(document).ready(function () {
         };
         console.log("function fired with " + userData[0]);
 
-        // postCharacterData(userData.userSelection);
+        postCharacterData(userData.userSelection);
 
         function postCharacterData(Id) {
             $.ajax({
@@ -32,19 +32,6 @@ $(document).ready(function () {
                 data: userData
             }).then(function (data) {
                 console.log(data);
-                getNewData();
-            });
-        }
-        
-        function getNewData() {
-            $.ajax({
-                method: "POST",
-                url: "api/userdata",
-                data: userData
-            }).then(function(data) {
-                console.log(userData);
-                console.log(data);
-                debugger;
                 window.location.href = "/world";
             });
         }
