@@ -26,6 +26,17 @@ module.exports = function (app) {
     });
 
     app.get("/api/userdata", function (req, res) {
+        // if (!req.user) {
+        //     // The user is not logged in, send back an empty object
+        //     // res.json({});
+        //     res.redirect("/");
+        // } else if (req.user.userSelection !== null) {
+        //     // Otherwise send back the user's email and id
+        //     // Sending back a password, even a hashed password, isn't a good idea
+        //     res.redirect("/world");
+        // } else {
+        //     res.redirect("/character");
+        // }
         if (!req.user) {
             res.json({});
         } else {
@@ -42,6 +53,7 @@ module.exports = function (app) {
     app.put("/api/userdata", function (req, res) {
         console.log(req.body);
         console.log(req.user.userName);
+        // debugger;
         db.User.update(req.body,
             {
                 where: {
