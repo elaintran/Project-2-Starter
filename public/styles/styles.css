@@ -675,7 +675,7 @@ body.encounter-screen {
 }
 
 .character-name {
-    color: #e8c891;
+    
 }
 
 .hit-points {
@@ -749,7 +749,6 @@ body.encounter-screen {
 .character-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 8vw;
 }
 
 .player-sprite, .enemy-sprite {
@@ -948,21 +947,26 @@ svg.enemy-sprite:hover {
     transform: scaleX(-1);
 }
 
-/* .character-info-grid {
-    display: grid;
-    grid-template-columns: auto repeat(3, 2fr) auto;
-    background-image: linear-gradient(180deg, #000a, transparent);
-    position: relative;
-    z-index: 1000;
-} */
-
-/* Potential clip-path for player/enemy stat bar */
-/* clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%); */
-
-.enemy-testing {
-    position: relative;
+.user-prompts {
+  display: grid;
+  align-content: center;
+  justify-content: center;
 }
 
+.user-prompts {
+  text-transform: uppercase;
+  height: 8vw;
+}
+
+.prompt-box {
+  color: #e8c891;
+  padding: 0.7vw 1vw;
+  background-color: #0006;
+  font-weight: 600;
+  font-size: 1vw;
+  /* transition: all 350ms ease-in-out; */
+  /* opacity: 0; */
+}
 /*  
   ============================
   WINNER MODAL
