@@ -18,7 +18,7 @@ $(document).ready(function () {
     // animateEntrance();
     adjustPopupDistance();
     listenForHover();
-
+    $(".prompt-box").stop().hide();
 
 });
 
