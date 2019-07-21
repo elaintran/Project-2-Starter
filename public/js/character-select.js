@@ -12,6 +12,7 @@ var statsDis = false;
 $(document).ready(function () {
     //push all of the character info from database into array
     $.get("api/character").then(function (data) {
+        console.log(data);
         for (var i = 0; i < data.length; i++) {
             var characterObj = {};
             characterObj.name = data[i].mainName;

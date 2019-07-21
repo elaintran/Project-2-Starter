@@ -95,7 +95,7 @@ let enemyDead = function () {
 
     if (chapter < 3) {
       console.log("You've completed a chapter! New Chapter: " + chapter);
-      debugger;
+      // debugger;
       getUserId(chapter);
       // gameManager.saveChapt();
     } else {
