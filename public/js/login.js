@@ -29,7 +29,7 @@ $(document).ready(function () {
             userPassword: userPassword
         }).done(function () {
             console.log("before replace");
-            window.location.replace("/character");
+            window.location.replace("/world");
             console.log("after replace");
         }).fail(function (err) {
             console.log(err);
