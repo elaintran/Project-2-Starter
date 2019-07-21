@@ -198,7 +198,8 @@ var background = [
 ];
 
 // starting point for HP bar
-let fullHP;
+let enemyFullHP;
+let charFullHP;
 
 //Enemy constructor
 function Enemy(hp, def, str, spd) {
@@ -269,17 +270,17 @@ let gameManager = { // eslint-disable-line no-unused-vars
       case 1: //3-2-2-3 60*3/4, 60*2/4, 60*2/4, 60*3/4
         enemy = new Enemy(60, 30, 40, 45);
         console.log("Enemy for chapter " + chapter + " created");
-        fullHP = enemy.hp;
+        enemyFullHP = enemy.hp;
         break;
       case 2: //3-2-2-3 80*3/4, 80*2/4, 80*2/4, 80*3/4
         enemy = new Enemy(75, 45, 55, 60);
         console.log("Enemy for chapter " + chapter + " created");
-        fullHP = enemy.hp;
+        enemyFullHP = enemy.hp;
         break;
       case 3: //3-2-2-3 100*3/4, 100*2/4, 100*2/4, 100*3/4
         enemy = new Enemy(85, 60, 80, 70);
         console.log("Enemy for chapter " + chapter + " created");
-        fullHP = enemy.hp;
+        enemyFullHP = enemy.hp;
         break;
     }
 
@@ -360,14 +361,15 @@ function populateBattle() { // eslint-disable-line no-unused-vars
 
 // update health bar on encounter page after each attack
 function updateEnemyHealthBar() { // eslint-disable-line no-unused-vars
-  var hpPercentage = enemy.hp / fullHP * 100;
+  var hpPercentage = enemy.hp / enemyFullHP * 100;
   $(".enemy-stats").find(".hit-points").text("HP " + (enemy.hp).toFixed(0));
   $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
   console.log("currentHP: " + enemy.hp);
 }
 
 function updatePlayerHealthBar() { // eslint-disable-line no-unused-vars
-  var hpPercentage = character.hp / fullHP * 100;
+  console.log("updatePlayerHealthBar: ", charFullHP);
+  var hpPercentage = character.hp / charFullHP * 100;
   $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
   $(".player-health-bar-fill").css("width", hpPercentage + "%");
   console.log("currentHP: " + character.hp);
