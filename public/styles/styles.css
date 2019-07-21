@@ -1030,7 +1030,7 @@ svg.enemy-sprite:hover {
 
 .dropup {
     position: absolute;
-    bottom: 10.5vw;
+    bottom: 4.5vw;
     right: calc(2rem + 10px);
 }
 

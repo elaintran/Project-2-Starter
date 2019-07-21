@@ -26,17 +26,6 @@ module.exports = function (app) {
     });
 
     app.get("/api/userdata", function (req, res) {
-        // if (!req.user) {
-        //     // The user is not logged in, send back an empty object
-        //     // res.json({});
-        //     res.redirect("/");
-        // } else if (req.user.userSelection !== null) {
-        //     // Otherwise send back the user's email and id
-        //     // Sending back a password, even a hashed password, isn't a good idea
-        //     res.redirect("/world");
-        // } else {
-        //     res.redirect("/character");
-        // }
         if (!req.user) {
             res.json({});
         } else {
@@ -50,6 +39,7 @@ module.exports = function (app) {
         }
     });
 
+<<<<<<< HEAD
     app.post("/api/userdata", function (req, res) {
         // console.log({
         //     userName: req.user.userName,
@@ -77,5 +67,19 @@ module.exports = function (app) {
     //         .then(function (dbUser) {
     //             res.json(dbUser);
     //         });
+=======
+    app.put("/api/userdata", function (req, res) {
+        console.log(req.body);
+        console.log(req.user.userName);
+        db.User.update(req.body,
+            {
+                where: {
+                    userSelection: req.user.userSelection
+                }
+            })
+            .then(function (dbUser) {
+                res.json(dbUser);
+            });
+>>>>>>> eed964be197b64123c2502065209f35c16e97a8a
     });
 };
