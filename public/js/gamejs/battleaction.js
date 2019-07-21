@@ -93,7 +93,7 @@ let enemyDead = function () {
 
     levelUp();
 
-    if (chapter < 3) {
+    if (chapter < 4) {
       console.log("You've completed a chapter! New Chapter: " + chapter);
       // debugger;
       getUserId(chapter);
