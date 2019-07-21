@@ -182,7 +182,9 @@ function slideEnemy() { // eslint-disable-line no-unused-vars
 //  ==========================
 //      DATABASE FUNCTIONS
 //  ==========================
-
+function putChapterData(chapterData) {
+    console.log(chapterData);
+}
 
 function getUserData(Id) {
     $.ajax({

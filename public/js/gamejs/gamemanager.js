@@ -6,7 +6,7 @@ let enemy;
 let target; // eslint-disable-line no-unused-vars
 let openingScene = false; // eslint-disable-line no-unused-vars
 let animationsTimer = false; // eslint-disable-line no-unused-vars
-// let chapter;
+let chapterData = {};// eslint-disable-line no-unused-vars
 
 // dummy code for simulating json response with chapter data
 // let chapters = [
@@ -54,20 +54,23 @@ function getChapter(data) { // eslint-disable-line no-unused-vars
 let updateChapter = function(chapter) { // eslint-disable-line no-unused-vars
   switch (chapter) {
     case "4":
-      data,chapterFour = true;
+      chapterData = { "chapterFour": true };
+      putChapterData(chapterData);
       break;
     case "3":
-      data,chapterThree = true;
+      chapterData = { "chapterThree": true };
+      putChapterData(chapterData);
       break;
     case "2":
-      data,chapterTwo = true;
+      chapterData = { "chapterTwo": true };
+      putChapterData(chapterData);
       break;
     default:
-      data.chapterOne = true;
+      chapterData = { "chapterOne": true };
+      putChapterData(chapterData);
       break;
   }
 };
-// getChapter();
 
 var player = [ // eslint-disable-line no-unused-vars
   {
