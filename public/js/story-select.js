@@ -49,46 +49,43 @@ $(document).ready(function () {
             $(".select").css("background-image", "linear-gradient(to right, " + data.Main.colorDark + ", " + data.Main.colorLight);
             //display stats on page
             statsDisplay(userCharacter[0].stats, userCharacter[0].colors.dark, userCharacter[0].colors.light);
-
             //get chapter status from user
             console.log(data);
             if (data.chapterOne === true) {
-                console.log("chapter one is completed");
-                $(".chapter-select.1").attr("data-complete", "New");
-                $(".chapter-select.1 > .overlay").remove();
-            }
-            if (data.chapterTwo === true) {
-                console.log("chapter two is completed");
-                $(".chapter-select.2").attr("data-complete", "New");
-                $(".chapter-select.2 > .overlay").remove();
-            }
-            if (data.chapterThree === true) {
-                console.log("chapter three is completed");
-                $(".chapter-select.3").attr("data-complete", "New");
-                $(".chapter-select.3 > .overlay").remove();
-            }
-            if (data.chapterFour === true) {
-                console.log("chapter four is completed");
-                $(".chapter-select.4").attr("data-complete", "New");
-                $(".chapter-select.4 > .overlay").remove();
+                getChapter(true, false, false, false);
+            } else if (data.chapterTwo === true) {
+                getChapter(true, false, false, false);
+            } else if (data.chapterThree === true) {
+                getChapter(true, true, false, false);
+            } else if (data.chapterFour === true) {
+                getChapter(true, true, true, false);
+            } else {
+                getChapter(false, false, false, false);
             }
         });
     }
 
     //get request for a list of all of the chapter
-    $.get("api/chapter").then(function (data) {
-        for (var i = 0; i < data.length; i++) {
-            var chapterObj = {};
-            chapterObj.name = data[i].chapterName;
-            chapterObj.subtitle = data[i].chapterSubtitle;
-            chapterObj.description = data[i].chapterDescription;
-            chapterObj.previewImg = data[i].chapterImg;
-            chapterObj.complete = data[i].chapterComplete;
-            chapters.push(chapterObj);
-        }
-        //display the complete, new, and locked chapters onto page
-        chapterDisplay();
-    });
+    function getChapter(chapterOne, chapterTwo, chapterThree, chapterFour) {
+        $.get("api/chapter").then(function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var chapterObj = {};
+                chapterObj.name = data[i].chapterName;
+                chapterObj.subtitle = data[i].chapterSubtitle;
+                chapterObj.description = data[i].chapterDescription;
+                chapterObj.previewImg = data[i].chapterImg;
+                // chapterObj.complete = data[i].chapterComplete;
+                chapters.push(chapterObj);
+            }
+            chapters[0].complete = chapterOne;
+            chapters[1].complete = chapterTwo;
+            chapters[2].complete = chapterThree;
+            chapters[3].complete = chapterFour;
+            // console.log(chapters[0].complete);
+            //display the complete, new, and locked chapters onto page
+            chapterDisplay();
+        });
+    }
 
     function chapterDisplay() {
         for (var i = 0; i < chapters.length; i++) {
@@ -98,6 +95,7 @@ $(document).ready(function () {
             chapterImg = $("<img>").attr("src", chapters[i].previewImg).addClass("image-fit");
             //if chapter is complete, display a flag indicating complete
             if (chapters[i].complete) {
+                // flagDisplay("New", "#b2394c");
                 flagDisplay("Complete", "#3e62a1");
                 //if chapter is incomplete
             } else {
