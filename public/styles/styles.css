@@ -601,11 +601,17 @@ h5 {
   ============================
 */
 
+.encounter-screen {
+    display: flex;
+    align-items: center;
+}
+
 .page-wrapper-wrapper {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  align-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-content: center;
 }
 
 .page-wrapper {
