@@ -195,6 +195,7 @@ function getUserData(Id) {
     }).then(function (data) {
         // debugger;
         // console.log("data: ", data);
+        console.log(data);
         var userChibi = data.Main.mainChibi;
         var userPortrait = data.Main.mainPortrait;
         $(".player-sprite").attr("src", userChibi);
