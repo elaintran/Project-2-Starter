@@ -32,11 +32,6 @@ module.exports = function (app) {
         } else {
             res.redirect("/");
         }
-        // if (req.user.userSelection !== null) {
-        //     console.log("res user exists rerouting");
-        //     return res.redirect("/world");
-        // }
-        // res.sendFile(path.join(__dirname, "../public/character-select.html"));
     });
 
     app.get("/world", isAuthenticated, (req, res) => {
