@@ -227,7 +227,7 @@ $(document).ready(function () {
                         //checks the stat name
                         if ($(this).prev().text() === characters[i].stats[j].statName) {
                             //if user still has remaining stat points
-                            if (statPoints !== 0 && newStats[j].value !== 60) {
+                            if (statPoints !== 0 && newStats[j].value < 59) {
                                 //add point to stats
                                 newStats[j].value += 2;
                                 //remove from statPoints

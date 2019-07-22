@@ -18,7 +18,7 @@ $(document).ready(function () {
     // animateEntrance();
     adjustPopupDistance();
     listenForHover();
-
+    $(".prompt-box").stop().hide();
 
 });
 
@@ -100,7 +100,7 @@ function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
     // shake character
     p.effect("shake", { distance: 10 }, 300);
     // update damage number value
-    d.text(enemyTotalDmg);
+    d.text(enemyTotalDmg.toFixed(0));
     // reset damage number
     d.css({
         "top": 0,
@@ -122,7 +122,7 @@ function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
     let original = displayEnemy[chapter - 1].origSprite;
     $("#enemy-image > image").attr("xlink:href", flinch);
     e.effect("shake", { distance: 10 }, 300);
-    d.text(totalDmg);
+    d.text(totalDmg.toFixed(0));
     d.css({
         "top": 0,
         "text-stroke": "2px #fd4961",
@@ -200,6 +200,8 @@ function getUserData(Id) {
         character.str = data.Main.mainStr;
         character.spd = data.Main.mainSpd;
         console.log("Character stats: ", character.hp, character.def, character.str, character.spd);
+        charFullHP = character.hp;
+        updatePlayerHealthBar();
         $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
     });
 }

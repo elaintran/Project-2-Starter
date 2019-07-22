@@ -18,8 +18,13 @@ $(document).ready(function () {
             userSelection: selectedId,
         };
         console.log("function fired with " + userData[0]);
+<<<<<<< HEAD
         console.log(userData.userSelection);
         // postCharacterData(userData.userSelection);
+=======
+
+        postCharacterData(userData.userSelection);
+>>>>>>> 69dc9b34477f3dadfb5603d52106f47a9ac457e7
 
         function postCharacterData(Id) {
             $.ajax({
@@ -28,10 +33,20 @@ $(document).ready(function () {
                 data: userData
             }).then(function (data) {
                 console.log(data);
+<<<<<<< HEAD
                 console.log(userData);
                 debugger;
                 window.location.replace("/world");
                 debugger;
+=======
+                getUserInfo(Id);
+            });
+        }
+
+        function getUserInfo(id) {
+            $.get("/api/users/" + id).then(function () {
+                window.location.href = "/world";
+>>>>>>> 69dc9b34477f3dadfb5603d52106f47a9ac457e7
             });
         }
 

@@ -1,4 +1,5 @@
 var db = require("../models");
+// var passport = require("../config/passport");
 
 module.exports = function (app) {
 
@@ -17,7 +18,13 @@ module.exports = function (app) {
             },
             include: [db.Main]
         }).then(function (dbUser) {
-            res.json(dbUser);
+            //takes the new json object from api/users/id and uses that as the new req.user info
+            req.logIn(dbUser, function(err) {
+                if (err) {
+                    throw err;
+                }
+                res.json(dbUser);
+            });
         });
     });
 
@@ -38,7 +45,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/character", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Main.create({
             mainName: req.body.mainName,
             mainClass: req.body.mainClass,
@@ -62,7 +69,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/enemy", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Enemy.create({
             enemyName: req.body.enemyName,
             enemyClass: req.body.enemyClass,
@@ -84,7 +91,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/chapter", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Chapter.create({
             chapterName: req.body.chapterName,
             chapterSubtitle: req.body.chapterSubtitle,
