@@ -79,8 +79,8 @@ function animateEntrance() { // eslint-disable-line no-unused-vars
     $(".enemy-stats").css({ top: "-10vw" });
     $(".player-sprite").animate({ left: "+=50vw" }, 3500);
     setTimeout(function () {
-        $(".player-stats").animate({ "top": "+=10vw" }, 1450, "easeOutBounce");
-        $(".enemy-stats").animate({ "top": "+=10vw" }, 1550, "easeOutBounce");
+        $(".player-stats").animate({ "top": "+=12vw" }, 1450, "easeOutBounce");
+        $(".enemy-stats").animate({ "top": "+=12vw" }, 1550, "easeOutBounce");
     }, 3500);
 }
 
