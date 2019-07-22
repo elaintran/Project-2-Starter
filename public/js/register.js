@@ -23,10 +23,9 @@ $(document).ready(function () {
         } else {
             password.val("");
             confirmPass.val("");
-            password.css("border", "1px solid red");
-            confirmPass.css("border", "1px solid red");
-            $(".msg-box").text("please confirm password match");
-            return console.log("invalid confirm");
+            $(".error-message").css("display", "flex");
+            password.css("border", "1px solid #eb5b64");
+            confirmPass.css("border", "1px solid #eb5b64");
         }
     });
 

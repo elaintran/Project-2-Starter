@@ -19,7 +19,7 @@ $(document).ready(function () {
         };
         console.log("function fired with " + userData[0]);
 
-        postCharacterData(userData.userSelection);
+        // postCharacterData(userData.userSelection);
 
         function postCharacterData(Id) {
             $.ajax({
