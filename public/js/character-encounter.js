@@ -104,15 +104,17 @@ function shakePlayer(enemyTotalDmg) { // eslint-disable-line no-unused-vars
     // reset damage number
     d.css({
         "top": 0,
-        "text-stroke": "2px #fd4961",
+        "text-shadow": "3px 3px 0 #ff425a, -3px -3px 0 #ff425a, 3px -3px 0 #ff425a, -3px 3px 0 #ff425a",
+        "color": "#eee",
         "font-size": "3vw",
         "opacity": 1
     });
     // slide damage number up and fade out
     d.animate({
-        "top": "-=7vw",
+        "top": "-=7vw"
+    }, 600, "easeOutCirc").animate({
         "opacity": 0
-    }, 1000, "easeOutCirc");
+    }, 400);
 }
 
 function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
@@ -125,7 +127,8 @@ function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
     d.text(totalDmg.toFixed(0));
     d.css({
         "top": 0,
-        "text-stroke": "2px #fd4961",
+        "text-shadow": "3px 3px 0 #ff425a, -3px -3px 0 #ff425a, 3px -3px 0 #ff425a, -3px 3px 0 #ff425a",
+        "color": "#eee",
         "font-size": "3vw",
         "opacity": 1
     });
@@ -133,9 +136,10 @@ function shakeEnemy(totalDmg) { // eslint-disable-line no-unused-vars
         $("#enemy-image > image").attr("xlink:href", original);
     }, 300);
     d.animate({
-        "top": "-=7vw",
+        "top": "-=7vw"
+    }, 600, "easeOutCirc").animate({
         "opacity": 0
-    }, 1000, "easeOutCirc");
+    }, 400);
 }
 
 function slidePlayer() { // eslint-disable-line no-unused-vars
@@ -145,14 +149,16 @@ function slidePlayer() { // eslint-disable-line no-unused-vars
     d.text("MISS");
     d.css({
         "top": 0,
-        "-webkit-text-stroke": "2px dodgerblue",
+        "text-shadow": "3px 3px 0 #1e90ff, -3px -3px 0 #1e90ff, 3px -3px 0 #1e90ff, -3px 3px 0 #1e90ff",
+        "color": "#eee",
         "font-size": "3vw",
         "opacity": 1
     });
     d.animate({
-        "top": "-=7vw",
+        "top": "-=7vw"
+    }, 600, "easeOutCirc").animate({
         "opacity": 0
-    }, 1000, "easeOutCirc");
+    }, 400);
 
     p.animate({ "left": "+=4vw" }, 800);
 }
@@ -164,15 +170,16 @@ function slideEnemy() { // eslint-disable-line no-unused-vars
     d.text("MISS");
     d.css({
         "top": 0,
-        // "-webkit-text-stroke": "2px dodgerblue",
-        "text-stroke": "2px dodgerblue",
+        "text-shadow": "3px 3px 0 #1e90ff, -3px -3px 0 #1e90ff, 3px -3px 0 #1e90ff, -3px 3px 0 #1e90ff",
+        "color": "#eee",
         "font-size": "3vw",
         "opacity": 1
     });
     d.animate({
-        "top": "-=7vw",
+        "top": "-=7vw"
+    }, 600, "easeOutCirc").animate({
         "opacity": 0
-    }, 1000, "easeOutCirc");
+    }, 400);
 
     e.animate({ "right": "+=4vw" }, 800);
 }
