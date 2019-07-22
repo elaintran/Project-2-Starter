@@ -19,12 +19,16 @@ module.exports = function (app) {
             include: [db.Main]
         }).then(function (dbUser) {
             //takes the new json object from api/users/id and uses that as the new req.user info
-            req.logIn(dbUser, function(err) {
-                if (err) {
-                    throw err;
-                }
+            if (req.user.userSelection === null) {
+                req.logIn(dbUser, function(err) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.json(dbUser);
+                });
+            } else {
                 res.json(dbUser);
-            });
+            }
         });
     });
 

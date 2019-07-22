@@ -38,6 +38,7 @@ $(document).ready(function () {
 
         function getUserInfo(id) {
             $.get("/api/users/" + id).then(function () {
+                // debugger;
                 window.location.href = "/world";
             });
         }
