@@ -781,7 +781,7 @@ svg.enemy-sprite:hover {
     z-index: 100;
     font-size: 5vw;
     font-weight: 600;
-    -webkit-text-stroke: 3px #fd4961;
+    /* -webkit-text-stroke: 3px #fd4961; */
     letter-spacing: -0.1vw;
     /* display: none; */
 }
