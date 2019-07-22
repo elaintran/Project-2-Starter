@@ -158,14 +158,14 @@ $(document).ready(function () {
             case ("item-shop"):
                 $(".chapter-number").text("Item Shop");
                 $(".chapter-subtitle").text("");
-                $(".chapter-description").text("You purchase potions here.");
+                $(".chapter-description").text("Here you'll be able to purchase a variety of items useful for your quest, from potions, elixirs, to stat boosters. Make sure to be fully prepared and stock up! Complete Chapter 4 to unlock the item shop.");
                 //remove gradient and show disabled button color
                 comingSoon();
                 break;
             case ("armory"):
                 $(".chapter-number").text("Armory");
                 $(".chapter-subtitle").text("");
-                $(".chapter-description").text("You purchase weapons here.");
+                $(".chapter-description").text("When the going gets tough, you'll need to upgrade your equipment to something better. Don't lag behind your enemies. Take back what's rightfully yours! Complete Chapter 4 to unlock the armory.");
                 comingSoon();
                 break;
             //display character and stats

@@ -53,7 +53,6 @@ module.exports = function (app) {
     app.put("/api/userdata", function (req, res) {
         console.log(req.body);
         console.log(req.user.userName);
-        // debugger;
         db.User.update(req.body,
             {
                 where: {
