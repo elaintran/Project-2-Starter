@@ -2,14 +2,14 @@ var db = require("../models");
 // var passport = require("../config/passport");
 
 module.exports = function (app) {
-
     // Get all users
-    app.get("/api/users", (req, res) =>
+    app.get("/api/users", (req, res) => {
         db.User.findAll({
             include: [db.Main]
         }).then((dbUser) =>
             res.json(dbUser)
-        ));
+        );
+    });
 
     app.get("/api/users/:id", (req, res) => {
         db.User.findOne({
@@ -17,10 +17,10 @@ module.exports = function (app) {
                 id: req.params.id
             },
             include: [db.Main]
-        }).then(function (dbUser) {
+        }).then((dbUser) => {
             //takes the new json object from api/users/id and uses that as the new req.user info
             if (req.user.userSelection === null) {
-                req.logIn(dbUser, function(err) {
+                req.logIn(dbUser, (err) => {
                     if (err) {
                         throw err;
                     }
@@ -37,16 +37,16 @@ module.exports = function (app) {
             where: {
                 id: req.user.id
             }
-        }).then(function (dbUser) {
+        }).then((dbUser) => {
             res.json(dbUser);
         });
     });
 
-    app.get("/api/character", (req, res) =>
+    app.get("/api/character", (req, res) => {
         db.Main.findAll({}).then((dbMain) =>
             res.json(dbMain)
-        )
-    );
+        );
+    });
 
     app.post("/api/character", (req, res) => {
         // console.log(req.body);
