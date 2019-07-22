@@ -4,7 +4,7 @@ $(document).ready(function () {
     var name = $("#userName");
     var email = $("#userEmail");
     var password = $("#userPassword");
-    // var confirmPass = $("#confirmPassword");
+    var confirmPass = $("#confirmPassword");
 
     register.on("submit", function (event) {
         console.log("submit made");
@@ -18,21 +18,16 @@ $(document).ready(function () {
         if (!userData.userEmail || !userData.userPassword || !userData.userName) {
             return;
         }
-        // if (userData.password === confirmPass) {
-        //     console.log("password matches");
-
-        // } else {
-        //     password.val("");
-        //     confirmPass.val("");
-        //     password.css("border", "1px solid red");
-        //     confirmPass.css("border", "1px solid red");
-        //     $(".msg-box").text("please confirm password match");
-        //     return console.log("invalid confirm");
-        // }
-        signUpUser(userData.userEmail, userData.userPassword, userData.userName);
-        email.val("");
-        password.val("");
-        name.val("");
+        if (password.val().trim() === confirmPass.val().trim()) {
+            return signUpUser(userData.userEmail, userData.userPassword, userData.userName);
+        } else {
+            password.val("");
+            confirmPass.val("");
+            password.css("border", "1px solid red");
+            confirmPass.css("border", "1px solid red");
+            $(".msg-box").text("please confirm password match");
+            return console.log("invalid confirm");
+        }
     });
 
     function signUpUser(userEmail, userPassword, userName) {

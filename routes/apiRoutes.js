@@ -1,14 +1,15 @@
 var db = require("../models");
+// var passport = require("../config/passport");
 
 module.exports = function (app) {
-
     // Get all users
-    app.get("/api/users", (req, res) =>
+    app.get("/api/users", (req, res) => {
         db.User.findAll({
             include: [db.Main]
         }).then((dbUser) =>
             res.json(dbUser)
-        ));
+        );
+    });
 
     app.get("/api/users/:id", (req, res) => {
         db.User.findOne({
@@ -16,8 +17,18 @@ module.exports = function (app) {
                 id: req.params.id
             },
             include: [db.Main]
-        }).then(function (dbUser) {
-            res.json(dbUser);
+        }).then((dbUser) => {
+            //takes the new json object from api/users/id and uses that as the new req.user info
+            if (req.user.userSelection === null) {
+                req.logIn(dbUser, (err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    res.json(dbUser);
+                });
+            } else {
+                res.json(dbUser);
+            }
         });
     });
 
@@ -26,19 +37,19 @@ module.exports = function (app) {
             where: {
                 id: req.user.id
             }
-        }).then(function (dbUser) {
+        }).then((dbUser) => {
             res.json(dbUser);
         });
     });
 
-    app.get("/api/character", (req, res) =>
+    app.get("/api/character", (req, res) => {
         db.Main.findAll({}).then((dbMain) =>
             res.json(dbMain)
-        )
-    );
+        );
+    });
 
     app.post("/api/character", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Main.create({
             mainName: req.body.mainName,
             mainClass: req.body.mainClass,
@@ -62,7 +73,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/enemy", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Enemy.create({
             enemyName: req.body.enemyName,
             enemyClass: req.body.enemyClass,
@@ -84,7 +95,7 @@ module.exports = function (app) {
     );
 
     app.post("/api/chapter", (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         db.Chapter.create({
             chapterName: req.body.chapterName,
             chapterSubtitle: req.body.chapterSubtitle,

@@ -1,106 +1,102 @@
-
-
-
 let enemy;
 let target; // eslint-disable-line no-unused-vars
 let openingScene = false; // eslint-disable-line no-unused-vars
 let animationsTimer = false; // eslint-disable-line no-unused-vars
 let chapterData = {};// eslint-disable-line no-unused-vars
 
-
 function getChapter(data) { // eslint-disable-line no-unused-vars
-  console.log("getChapter: ", data);
-  if (data.chapterFour) {
-    chapter = 4;
-    console.log("chapter: ", chapter);
-    // return chapter;
-  } else if (data.chapterThree) {
-    chapter = 3;
-    console.log("chapter: ", chapter);
-    // return chapter;
-  } else if (data.chapterTwo) {
-    chapter = 2;
-    console.log("chapter: ", chapter);
-    // return chapter;
-  } else if (data.chapterOne) {
-    chapter = 1;
-    console.log("chapter: ", chapter);
-    // return chapter;
-  } else {
-    chapter = 1;
-    console.log("chapter defaulting to: ", chapter);
-    // return chapter = 1;
-  }
+    console.log("getChapter: ", data);
+    if (data.chapter === 4) {
+        chapter = 4;
+        console.log("chapter: ", chapter);
+        // return chapter;
+    } else if (data.chapter === 3) {
+        chapter = 3;
+        console.log("chapter: ", chapter);
+        // return chapter;
+    } else if (data.chapter === 2) {
+        chapter = 2;
+        console.log("chapter: ", chapter);
+        // return chapter;
+    } else if (data.chapter === 1) {
+        chapter = 1;
+        console.log("chapter: ", chapter);
+        // return chapter;
+    } else {
+        chapter = 1;
+        console.log("chapter defaulting to: ", chapter);
+        // return chapter = 1;
+    }
 
-  gameManager.setUpFight(chapter);
-  console.log("gameManager: ", openingScene);
-  populateBattle();
-  setTimeout(checker, 6000);
+    gameManager.setUpFight(chapter);
+    console.log("gameManager: ", openingScene);
+    populateBattle();
+    setTimeout(checker, 6000);
 }
 
 let updateChapter = function(chapter) { // eslint-disable-line no-unused-vars
-  switch (chapter) {
-    case "4":
-      chapterData = { "chapterFour": true };
-      putChapterData(chapterData);
-      break;
-    case "3":
-      chapterData = { "chapterThree": true };
-      putChapterData(chapterData);
-      break;
-    case "2":
-      chapterData = { "chapterTwo": true };
-      putChapterData(chapterData);
-      break;
-    default:
-      chapterData = { "chapterOne": true };
-      putChapterData(chapterData);
-      break;
-  }
+    switch (chapter) {
+        case "4":
+            chapterData = { "chapterFour": true };
+            putChapterData(chapterData);
+            break;
+        case "3":
+            chapterData = { "chapterThree": true };
+            putChapterData(chapterData);
+            break;
+        case "2":
+            chapterData = { "chapterTwo": true };
+            putChapterData(chapterData);
+            break;
+        default:
+            chapterData = { "chapterOne": true };
+            putChapterData(chapterData);
+        break;
+    }
 };
 
 var player = [ // eslint-disable-line no-unused-vars
-  {
-      name: "Swordmaster",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/fighter-red-portrait.png",
-      sprite: "./images/resource-images/chibi/fighter-sword-red.png"
-  }, {
-      name: "Lance Fighter",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/fighter-blue-portrait.png",
-      sprite: "./images/resource-images/chibi/fighter-lance-blue.png"
-  }, {
-      name: "Axe Fighter",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/fighter-green-portrait.png",
-      sprite: "./images/resource-images/chibi/fighter-axe-green.png"
-  }, {
-      name: "Bow Fighter",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/fighter-purple-portrait.png",
-      sprite: "./images/resource-images/chibi/fighter-bow-purple.png"
-  }, {
-      name: "Red Mage",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/mage-red-portrait.png",
-      sprite: "./images/resource-images/chibi/mage-red.png"
-  }, {
-      name: "Manakete",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/manakete-blue-portrait.png",
-      sprite: "./images/resource-images/chibi/manakete-blue.png"
-  }, {
-      name: "Knight",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/knight-green-portrait.png",
-      sprite: "./images/resource-images/chibi/knight-axe-green.png"
-  }, {
-      name: "Thief",
-      hp: 99,
-      portrait: "./images/resource-images/encounter/thief-purple-portrait.png",
-      sprite: "./images/resource-images/chibi/thief-purple.png"
-  }
+    {
+        name: "Swordmaster",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/fighter-red-portrait.png",
+        sprite: "./images/resource-images/chibi/fighter-sword-red.png"
+    }, {
+        name: "Lance Fighter",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/fighter-blue-portrait.png",
+        sprite: "./images/resource-images/chibi/fighter-lance-blue.png"
+    }, {
+        name: "Axe Fighter",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/fighter-green-portrait.png",
+        sprite: "./images/resource-images/chibi/fighter-axe-green.png"
+    }, {
+        name: "Bow Fighter",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/fighter-purple-portrait.png",
+        sprite: "./images/resource-images/chibi/fighter-bow-purple.png"
+    }, {
+        name: "Red Mage",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/mage-red-portrait.png",
+        sprite: "./images/resource-images/chibi/mage-red.png"
+    }, {
+        name: "Manakete",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/manakete-blue-portrait.png",
+        sprite: "./images/resource-images/chibi/manakete-blue.png"
+    }, {
+        name: "Knight",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/knight-green-portrait.png",
+        sprite: "./images/resource-images/chibi/knight-axe-green.png"
+    }, {
+        name: "Thief",
+        hp: 99,
+        portrait: "./images/resource-images/encounter/thief-purple-portrait.png",
+        sprite: "./images/resource-images/chibi/thief-purple.png"
+    }
 ];
 
 var enemies = [
@@ -165,34 +161,34 @@ var enemies = [
 ];
 
 var displayEnemy = [
-  {
-      name: "Bandit",
-      hp: 100,
-      portrait: "./images/resource-images/encounter/enemy-bandit-portrait.png",
-      sprite: enemies[0],
-      altSprite: "./images/resource-images/chibi/ogma2.png",
-      origSprite: "./images/resource-images/chibi/ogma.png"
-  }, {
-      name: "Black Knight",
-      hp: 200,
-      portrait: "./images/resource-images/encounter/enemy-black-knight-portrait.png",
-      sprite: enemies[1],
-      altSprite: "./images/resource-images/chibi/black-knight.png",
-      origSprite: "./images/resource-images/chibi/black-knight.png"
-  }, {
-      name: "Dragon King",
-      hp: 400,
-      portrait: "./images/resource-images/encounter/dragon-king-portrait.png",
-      sprite: enemies[2],
-      altSprite: "./images/resource-images/chibi/dragon-king2.png",
-      origSprite: "./images/resource-images/chibi/dragon-king.png"
-  }
+    {
+        name: "Bandit",
+        hp: 100,
+        portrait: "./images/resource-images/encounter/enemy-bandit-portrait.png",
+        sprite: enemies[0],
+        altSprite: "./images/resource-images/chibi/ogma2.png",
+        origSprite: "./images/resource-images/chibi/ogma.png"
+    }, {
+        name: "Black Knight",
+        hp: 200,
+        portrait: "./images/resource-images/encounter/enemy-black-knight-portrait.png",
+        sprite: enemies[1],
+        altSprite: "./images/resource-images/chibi/black-knight.png",
+        origSprite: "./images/resource-images/chibi/black-knight.png"
+    }, {
+        name: "Dragon King",
+        hp: 400,
+        portrait: "./images/resource-images/encounter/dragon-king-portrait.png",
+        sprite: enemies[2],
+        altSprite: "./images/resource-images/chibi/dragon-king2.png",
+        origSprite: "./images/resource-images/chibi/dragon-king.png"
+    }
 ];
 
 var background = [
-  "./images/resource-images/encounter/bg-forest-entrance.jpg",
-  "./images/resource-images/encounter/bg-forest.jpg",
-  "./images/resource-images/encounter/bg-castle2.jpg"
+    "./images/resource-images/encounter/bg-forest-entrance.jpg",
+    "./images/resource-images/encounter/bg-forest.jpg",
+    "./images/resource-images/encounter/bg-castle2.jpg"
 ];
 
 // starting point for HP bar
@@ -201,18 +197,18 @@ let charFullHP;
 
 //Enemy constructor
 function Enemy(hp, def, str, spd) {
-  this.hp = hp;
-  this.def = def;
-  this.str = str;
-  this.spd = spd;
+    this.hp = hp;
+    this.def = def;
+    this.str = str;
+    this.spd = spd;
 }
 
 //Target data constructor
 function Target(target, hitChance, bonus, reduceSpd) {
-  this.target = target;
-  this.hitChance = hitChance;
-  this.bonus = bonus;
-  this.reduceSpd = reduceSpd;
+    this.target = target;
+    this.hitChance = hitChance;
+    this.bonus = bonus;
+    this.reduceSpd = reduceSpd;
 }
 
 let gameManager = { // eslint-disable-line no-unused-vars
@@ -262,66 +258,66 @@ let gameManager = { // eslint-disable-line no-unused-vars
   //         break;
   //   }
   // },
-  createEnemy: function(chapter) {
-    //depending on the chapter we are on, create enemy with diff stats
-    switch (chapter) {
-      case 1: //3-2-2-3 60*3/4, 60*2/4, 60*2/4, 60*3/4
-        enemy = new Enemy(60, 30, 40, 45);
-        console.log("Enemy for chapter " + chapter + " created");
-        enemyFullHP = enemy.hp;
-        break;
-      case 2: //3-2-2-3 80*3/4, 80*2/4, 80*2/4, 80*3/4
-        enemy = new Enemy(75, 45, 55, 60);
-        console.log("Enemy for chapter " + chapter + " created");
-        enemyFullHP = enemy.hp;
-        break;
-      case 3: //3-2-2-3 100*3/4, 100*2/4, 100*2/4, 100*3/4
-        enemy = new Enemy(85, 60, 80, 70);
-        console.log("Enemy for chapter " + chapter + " created");
-        enemyFullHP = enemy.hp;
-        break;
-    }
+    createEnemy: function(chapter) {
+        //depending on the chapter we are on, create enemy with diff stats
+        switch (chapter) {
+            case 1: //3-2-2-3 60*3/4, 60*2/4, 60*2/4, 60*3/4
+                enemy = new Enemy(60, 30, 40, 45);
+                console.log("Enemy for chapter " + chapter + " created");
+                enemyFullHP = enemy.hp;
+                break;
+            case 2: //3-2-2-3 80*3/4, 80*2/4, 80*2/4, 80*3/4
+                enemy = new Enemy(75, 45, 55, 60);
+                console.log("Enemy for chapter " + chapter + " created");
+                enemyFullHP = enemy.hp;
+                break;
+            case 3: //3-2-2-3 100*3/4, 100*2/4, 100*2/4, 100*3/4
+                enemy = new Enemy(85, 60, 80, 70);
+                console.log("Enemy for chapter " + chapter + " created");
+                enemyFullHP = enemy.hp;
+                break;
+        }
 
-    $(".enemy-hp").text("Enemy HP: " + enemy.hp);
-    $(".enemy-str").text("Enemy Str: " + enemy.str);
-    $(".enemy-def").text("Enemy Def: " + enemy.def);
-    $(".enemy-spd").text("Enemy Spd: " + enemy.spd);
-  },
-  pickTarget: function(grabbedTarget) {
-    switch (grabbedTarget) {
-      case "head": //lower hit chance, higher damage
-        target = new Target(grabbedTarget, 0.15, 10, 0);
-        break;
-      case "body": //higher hit chance, lower damage
-        target = new Target(grabbedTarget, 0.95, 0, 0);
-        break;
-      case "legs": //medium hit chance, lowers speed
-        target = new Target(grabbedTarget, 0.75, 0, 5);
-        break;
-    }
-  },
-  setUpFight: function(chapter) {
+        $(".enemy-hp").text("Enemy HP: " + enemy.hp);
+        $(".enemy-str").text("Enemy Str: " + enemy.str);
+        $(".enemy-def").text("Enemy Def: " + enemy.def);
+        $(".enemy-spd").text("Enemy Spd: " + enemy.spd);
+    },
+    pickTarget: function(grabbedTarget) {
+        switch (grabbedTarget) {
+            case "head": //lower hit chance, higher damage
+                target = new Target(grabbedTarget, 0.15, 10, 0);
+                break;
+            case "body": //higher hit chance, lower damage
+                target = new Target(grabbedTarget, 0.95, 0, 0);
+                break;
+            case "legs": //medium hit chance, lowers speed
+                target = new Target(grabbedTarget, 0.75, 0, 5);
+                break;
+        }
+    },
+    setUpFight: function(chapter) {
     //load chapter status
     // this.loadChapt();
     //creates enemy using chapter data
     // console.log("Opening scene timer is currently " + openingScene);
-    setTimeout(this.setTimer, 6000);
+        setTimeout(this.setTimer, 6000);
 
-    this.createEnemy(chapter);
-  },
-  setTimer: function(){
-    openingScene = true;
+        this.createEnemy(chapter);
+    },
+    setTimer: function() {
+        openingScene = true;
     // console.log("Opening scene timer is now " + openingScene);
-  },
-  animations: function(){
-    console.log("Animations timer is currently " + animationsTimer);
-    // setTimeout(this.animate, 1000);
-    this.animate();
-  },
-  animate: function(){
-    animationsTimer = true;
-    console.log("Animations timer is now " + animationsTimer);
-  }
+    },
+    animations: function(){
+        console.log("Animations timer is currently " + animationsTimer);
+        // setTimeout(this.animate, 1000);
+        this.animate();
+    },
+    animate: function(){
+        animationsTimer = true;
+        console.log("Animations timer is now " + animationsTimer);
+    }
 };
 
 function populateBattle() { // eslint-disable-line no-unused-vars
@@ -359,38 +355,37 @@ function populateBattle() { // eslint-disable-line no-unused-vars
 
 // update health bar on encounter page after each attack
 function updateEnemyHealthBar() { // eslint-disable-line no-unused-vars
-  var hpPercentage = enemy.hp / enemyFullHP * 100;
-  $(".enemy-stats").find(".hit-points").text("HP " + (enemy.hp).toFixed(0));
-  $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
-  console.log("currentHP: " + enemy.hp);
+    var hpPercentage = enemy.hp / enemyFullHP * 100;
+    $(".enemy-stats").find(".hit-points").text("HP " + (enemy.hp).toFixed(0));
+    $(".enemy-health-bar-fill").css("width", hpPercentage + "%");
+    console.log("currentHP: " + enemy.hp);
 }
 
 function updatePlayerHealthBar() { // eslint-disable-line no-unused-vars
-  console.log("updatePlayerHealthBar: ", charFullHP);
-  var hpPercentage = character.hp / charFullHP * 100;
-  $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
-  $(".player-health-bar-fill").css("width", hpPercentage + "%");
-  console.log("currentHP: " + character.hp);
+    console.log("updatePlayerHealthBar: ", charFullHP);
+    var hpPercentage = character.hp / charFullHP * 100;
+    $(".player-stats").find(".hit-points").text("HP " + (character.hp).toFixed(0));
+    $(".player-health-bar-fill").css("width", hpPercentage + "%");
+    console.log("currentHP: " + character.hp);
 }
 
 // trigger modals for a win or lose scenario
 function toggleWinLoseModals(state) { // eslint-disable-line no-unused-vars
-  if (state === "win") {
-    // let completed = true;
-    setTimeout(function() {
-      $("#winModal").modal("show");
-    }, 1000);
-    // postChapterWin(completed);
-    setTimeout(function() {
-      window.location.assign("/world"); // redirects without replacing current page.
-    }, 6000);
-  } else if (state === "lose") {
-    setTimeout(function() {
-      $("#loseModal").modal("show");
-    }, 2000);
-    setTimeout(function() {
-      window.location.assign("/world"); // redirects without replacing current page.
-    }, 6000);
-  }
-  
+    if (state === "win") {
+        // let completed = true;
+        setTimeout(function() {
+            $("#winModal").modal("show");
+        }, 1000);
+        // postChapterWin(completed);
+        setTimeout(function() {
+            window.location.assign("/world"); // redirects without replacing current page.
+        }, 6000);
+    } else if (state === "lose") {
+        setTimeout(function() {
+            $("#loseModal").modal("show");
+        }, 2000);
+        setTimeout(function() {
+            window.location.assign("/world"); // redirects without replacing current page.
+        }, 6000);
+    }
 }

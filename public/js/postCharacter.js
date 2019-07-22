@@ -1,8 +1,4 @@
 $(document).ready(function () {
-    // var strengthStat = $(".filled").attr("y");
-    // var selectedClass = $(this).attr("data-class");
-    // var selectedName = $(this).attr("data-name");
-
     $("#confirmCharacter").on("click", function () {
         var hpStat = $(this).attr("data-hp");
         var strStat = $(this).attr("data-str");
@@ -22,7 +18,7 @@ $(document).ready(function () {
             userSelection: selectedId,
         };
         console.log("function fired with " + userData[0]);
-        console.log(userData.userSelection);
+
         postCharacterData(userData.userSelection);
 
         function postCharacterData(Id) {
@@ -32,9 +28,12 @@ $(document).ready(function () {
                 data: userData
             }).then(function (data) {
                 console.log(data);
-                // debugger;
-                console.log(userData);
-                // debugger;
+                getUserInfo(Id);
+            });
+        }
+
+        function getUserInfo(id) {
+            $.get("/api/users/" + id).then(function () {
                 window.location.href = "/world";
             });
         }
