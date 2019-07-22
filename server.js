@@ -11,6 +11,7 @@ var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
 // Passport configuration
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
@@ -36,5 +37,3 @@ db.sequelize.sync(syncOptions).then(function () {
     console.log("Server started on http://localhost:" + PORT);
   });
 });
-
-// module.exports = app;
