@@ -10,19 +10,19 @@ let chapterData = {};// eslint-disable-line no-unused-vars
 
 function getChapter(data) { // eslint-disable-line no-unused-vars
   console.log("getChapter: ", data);
-  if (data.chapterFour) {
+  if (data.chapter === 4) {
     chapter = 4;
     console.log("chapter: ", chapter);
     // return chapter;
-  } else if (data.chapterThree) {
+  } else if (data.chapter === 3) {
     chapter = 3;
     console.log("chapter: ", chapter);
     // return chapter;
-  } else if (data.chapterTwo) {
+  } else if (data.chapter === 2) {
     chapter = 2;
     console.log("chapter: ", chapter);
     // return chapter;
-  } else if (data.chapterOne) {
+  } else if (data.chapter === 1) {
     chapter = 1;
     console.log("chapter: ", chapter);
     // return chapter;
