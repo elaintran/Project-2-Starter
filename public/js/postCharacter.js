@@ -32,6 +32,12 @@ $(document).ready(function () {
                 data: userData
             }).then(function (data) {
                 console.log(data);
+                getUserInfo(Id);
+            });
+        }
+
+        function getUserInfo(id) {
+            $.get("/api/users/" + id).then(function () {
                 window.location.href = "/world";
             });
         }
