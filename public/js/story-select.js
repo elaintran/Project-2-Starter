@@ -276,4 +276,17 @@ $(document).ready(function () {
             "background-color": "#5f5f5f"
         }).text("Coming Soon");
     }
+
+    $(".select").on("click", function() {
+        var selectedChapter = {
+            chapter: $(this).attr("data-chapter")
+        };
+        if ($(this).attr("href") === "/encounter") {
+            $.ajax({
+                method: "PUT",
+                url: "api/users/" + userId,
+                data: selectedChapter
+            });
+        }
+    });
 });
