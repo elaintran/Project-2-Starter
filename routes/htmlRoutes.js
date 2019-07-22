@@ -11,10 +11,6 @@ module.exports = function (app) {
         } else {
             res.sendFile(path.join(__dirname, "../public/login.html"));
         }
-        // if (req.user) {
-        //     return res.redirect("/character");
-        // }
-        // res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
     app.get("/register", (req, res) => {
@@ -25,10 +21,6 @@ module.exports = function (app) {
         } else {
             res.sendFile(path.join(__dirname, "../public/registration.html"));
         }
-        // if (req.user) {
-        //     return res.redirect("/character");
-        // }
-        // res.sendFile(path.join(__dirname, "../public/registration.html"));
     });
 
     app.get("/character", isAuthenticated, (req, res) => {
@@ -40,11 +32,6 @@ module.exports = function (app) {
         } else {
             res.redirect("/");
         }
-        // if (req.user.userSelection !== null) {
-        //     console.log("res user exists rerouting");
-        //     return res.redirect("/world");
-        // }
-        // res.sendFile(path.join(__dirname, "../public/character-select.html"));
     });
 
     app.get("/world", isAuthenticated, (req, res) => {
@@ -57,7 +44,6 @@ module.exports = function (app) {
         } else {
             res.redirect("/");
         }
-        // res.sendFile(path.join(__dirname, "../public/story-select.html"));
     });
 
     app.get("/encounter", isAuthenticated, (req, res) => {
@@ -66,7 +52,6 @@ module.exports = function (app) {
         } else {
             res.redirect("/");
         }
-        //res.sendFile(path.join(__dirname, "../public/character-encounter.html"));
     });
 
     app.get("*", (req, res) =>
