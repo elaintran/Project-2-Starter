@@ -612,6 +612,7 @@ h5 {
     height: 100%;
     display: grid;
     align-content: center;
+    overflow: hidden;
 }
 
 .page-wrapper {
@@ -619,7 +620,6 @@ h5 {
     height: 45.78vw; /*  Setting our width and height this way forces a 16:7.5 ratio for our page  */
     display: grid;
     align-content: end;
-    /* margin: auto; */
     background: no-repeat top #14150f;
     background-size: contain;
 }
@@ -962,9 +962,6 @@ svg.enemy-sprite:hover {
   display: grid;
   align-content: center;
   justify-content: center;
-}
-
-.user-prompts {
   text-transform: uppercase;
   height: 8vw;
 }
@@ -1038,8 +1035,10 @@ svg.enemy-sprite:hover {
 */
 
 .relative-container {
-    position: relative;
+    position: absolute;
     text-align: right;
+    right: 0;
+    bottom: 0;
 }
 
 .encounter-toggle {
