@@ -1,8 +1,4 @@
 $(document).ready(function () {
-    // var strengthStat = $(".filled").attr("y");
-    // var selectedClass = $(this).attr("data-class");
-    // var selectedName = $(this).attr("data-name");
-
     $("#confirmCharacter").on("click", function () {
         var hpStat = $(this).attr("data-hp");
         var strStat = $(this).attr("data-str");
