@@ -108,7 +108,6 @@ var enemies = [
       <defs>
           <style>.cls-1{fill:transparent;fill-rule:evenodd;}</style>
       </defs>
-      <title>bandit</title>
       <g id="Layer2" data-name="Layer 2">
           <g id="enemy-image">
               <image width="137" height="169" xlink:href="./images/resource-images/chibi/ogma.png"/>
@@ -128,7 +127,7 @@ var enemies = [
       <defs>
           <style>.cls-1{fill:transparent;fill-rule:evenodd;}</style>
       </defs>
-      <title>black-knight</title>
+      
       <g id="Layer2" data-name="Layer 2">
           <g id="enemy-image">
               <image width="166" height="180" xlink:href="./images/resource-images/chibi/black-knight.png"/>
@@ -148,7 +147,6 @@ var enemies = [
       <defs>
           <style>.cls-1{fill:transparent;fill-rule:evenodd;}</style>
       </defs>
-      <title>dragon-king</title>
       <g id="Layer2" data-name="Layer 2">
           <g id="enemy-image">
               <image width="454" height="446" xlink:href="./images/resource-images/chibi/dragon-king.png"/>
@@ -328,7 +326,7 @@ let gameManager = { // eslint-disable-line no-unused-vars
 
 function populateBattle() { // eslint-disable-line no-unused-vars
     let i = chapter - 1;
-    $("body").css("background-image", "url(\"" + (background[i]) + "\")");
+    $(".page-wrapper").css("background-image", "url(\"" + (background[i]) + "\")");
 
     // display correct player portrait
     $(".player-avatar > img").attr("src", player.portrait);

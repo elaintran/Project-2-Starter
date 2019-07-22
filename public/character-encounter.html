@@ -32,12 +32,12 @@
 </head>
 <body class="encounter-screen">
   <!-- <div class="foreground"></div> -->
-
+<div class="page-wrapper-wrapper">
     <div class="page-wrapper">
         <!-- PLAYER INFO / STATS -->
         <div class="player-stats">
             <div class="player-avatar">
-                <img class="player-portrait" src="./images/resource-images/encounter/player-portrait.png" alt="player avatar">
+                <img class="player-portrait" src="./images/resource-images/encounter/player-portrait.png">
             </div>
             <div class="stats-container">
                 <div class="character-text">
@@ -53,7 +53,7 @@
         <!-- ENEMY INFO / STATS -->
         <div class="enemy-stats">
             <div class="enemy-avatar">
-                <img src="./images/resource-images/encounter/dragon-king-portrait.png" alt="enemy avatar">
+                <img src="./images/resource-images/encounter/dragon-king-portrait.png">
             </div>
             <div class="stats-container">
                 <div class="character-text">
@@ -72,18 +72,18 @@
             <div class="player-character">
                 <div class="player-action-grid">
                     <div class="attack" data-tooltip="Attack">
-                        <img src="./images/resource-images/encounter/player-attack.png" data-action="attack" alt="attack the enemy">
+                        <img src="./images/resource-images/encounter/player-attack.png" data-action="attack">
                     </div>
                     <div class="items">
-                        <img src="./images/resource-images/encounter/player-items.png" data-action="useItem" alt="use an item">
+                        <img src="./images/resource-images/encounter/player-items.png" data-action="useItem">
                     </div>
                     <div class="flee">
-                        <img src="./images/resource-images/encounter/player-flee.png" data-action="flee" alt="run away">
+                        <img src="./images/resource-images/encounter/player-flee.png" data-action="flee">
                     </div>
                 </div>
-                <img class="player-sprite" src="./images/resource-images/chibi/mage-red.png" alt="player character">
+                <img class="player-sprite">
                 <div class="player-damage"></div>
-                <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+                <img class="shadow" src="./images/resource-images/encounter/character-shadow.png">
             </div>
 
             <!-- ENEMY SPRITE -->
@@ -108,7 +108,7 @@
                 <div class="enemy-sprite">
                 </div>
                 <div class="enemy-damage"></div>
-                <img class="shadow" src="./images/resource-images/encounter/character-shadow.png" alt="">
+                <img class="shadow" src="./images/resource-images/encounter/character-shadow.png">
             </div>
 
         </div>
@@ -132,6 +132,7 @@
             </div>
         </div>
     </div>
+</div>
     
     <!-- Winner Modal -->
     <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
